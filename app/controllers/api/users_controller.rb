@@ -1,6 +1,7 @@
 class Api::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
+    debugger 
     if @user.save
       login!(@user)
       render :show
@@ -13,8 +14,8 @@ class Api::UsersController < ApplicationController
     @user = selected_user
     if @user && @user.update_attributes(user_params)
       render :show
-    elsif !@user
-      render json: ['Could not locate user'], status: 400
+    # elsif !@user
+    #   render json: ['Could not locate user'], status: 400
     else
       render json: @user.errors.full_messages, status: 401
     end
@@ -45,7 +46,7 @@ class Api::UsersController < ApplicationController
   end
   
   def user_params
-    params.require(:user).permit(:username, :email, :password)
+    params.require(:user).permit(:username, :password)
   end
   
 end

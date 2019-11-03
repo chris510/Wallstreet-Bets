@@ -2,7 +2,6 @@ class ApplicationController < ActionController::Base
   # protect_from_forgery with: :exception
   skip_before_action :verify_authenticity_token
 
-  # make these methods available from within the views
   helper_method :current_user, :logged_in?
 
   def login!(user)
@@ -20,14 +19,10 @@ class ApplicationController < ActionController::Base
   end
 
   def logged_in?
-    !current_user.nil?
-  end
-  
-  def require_logged_out
-    redirect_to user_url(current_user) if logged_in?
+    !!current_user
   end
 
-  def require_logged_in
+  def require_login
     redirect_to new_session_url unless logged_in?
   end
 end

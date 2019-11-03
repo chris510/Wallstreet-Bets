@@ -10,8 +10,7 @@ class User < ApplicationRecord
   # Class method for finding a user ONLY if we have the correct username and password
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
-    return nil unless user
-    user.is_password?(password) ? user : nil
+    user && user.is_password?(password) ? user : nil
   end
 
   def password=(password)
