@@ -1,0 +1,50 @@
+.nav {
+  display: flex;
+  background: white;
+  justify-content: space-between;
+}
+
+#nav-left {
+  display: flex;
+  font-size: 14px;
+  font-family: "DIN Pro", "DIN Web", sans-serif;
+  margin: 5px;
+}
+
+.nav-mid {
+  display: flex;
+}
+
+.icon:hover {
+  fill: rgb(35,205,153);
+  opacity: 1;
+}
+
+.nav-right {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  align-self: center;
+  margin: 5px;
+}
+
+.nav-right :first-child {
+  padding: 5px;
+}
+
+.nav-right :nth-child(2) {
+  padding: 5px;
+}
+
+.nav-right :last-child {
+  padding: 5px;
+}
+
+.nav-right :hover {
+  fill: rgb(35,205,153);
+  opacity: 1;
+}
+
+
+
+
