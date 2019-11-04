@@ -2,17 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SVGIcon from "../svg_icons/svg.icons";
 
-// const styles = {
-//   display: "flex",
-//   flexWrap: "wrap",
-//   alignItems: "center",
-//   fontFamily: "sans-serif",
-//   justifyContent: "space-between"
-// };
-
-
-
-
 class Nav extends React.Component {
   constructor(props) {
     super(props);
@@ -24,13 +13,13 @@ class Nav extends React.Component {
             <div id="nav-left">
               <h1 className="robinhood">RobinHood</h1>
               <a href="https://robinhood.com/">
-                <SVGIcon name="robinhood_logo" width={50} />
+                <SVGIcon name="robinhood_logo" width={40} />
               </a>
             </div>
           <div className='nav-mid'>
             <div className='Contact'>
               <a href="mailto:christrinh5@gmail.com">
-                <SVGIcon name="envelope" width={50} />
+                <SVGIcon name="envelope" width={45} />
               </a>
               <a href="https://github.com/chris510">
                 <SVGIcon name="github_1" width={40} />
@@ -41,12 +30,17 @@ class Nav extends React.Component {
             </div>
           </div >
         <div className='nav-right'>
-            <button>DARK MODE</button>
-          <div>
-            <Link to='/signup'>Sign Up</Link>
+          <div className="theme-switch-wrapper">
+            <label className="theme-switch" htmlFor="checkbox">
+              <input type="checkbox" id="checkbox" />
+              <div className="slider round"></div>
+            </label>
           </div>
           <div>
-            <Link to='/login'>Log In</Link>
+            <Link to='/login' className="sign-in"><span>Sign In</span></Link>
+          </div>
+          <div>
+            <Link to='/signup' className="sign-up"><span>Sign Up</span></Link>
           </div>
         </div>
      </div>

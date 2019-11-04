@@ -14,4 +14,6 @@
  *= require_self
  */
 
-@import './components//nav.css'
+@import './components//nav.css';
+@import './components/splash.css';
+@import './slider.css';

@@ -2,6 +2,9 @@
   display: flex;
   background: white;
   justify-content: space-between;
+  justify-items: center;
+  height: 64px;
+  width: 100%;
 }
 
 #nav-left {
@@ -20,24 +23,33 @@
   opacity: 1;
 }
 
+.robinhood {
+  font-size: 25px;
+}
+
 .nav-right {
   display: flex;
   align-items: flex-end;
-  justify-content: space-between;
   align-self: center;
-  margin: 5px;
+  margin: 2px;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .nav-right :first-child {
-  padding: 5px;
+  padding: px;
 }
 
 .nav-right :nth-child(2) {
-  padding: 5px;
+  padding: 10px;
 }
 
 .nav-right :last-child {
-  padding: 5px;
+  padding: 10px;
+}
+
+.span {
+  font-family: "Maison Neue", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
 }
 
 .nav-right :hover {
@@ -45,6 +57,50 @@
   opacity: 1;
 }
 
+.sign-up {
+  color: black;
+  height: 60px;
+  width: 10px;
+  background: rgb(35,205,153);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 18px;
+  border-radius: 8px;
+  text-decoration: none;
+}
 
+.sign-up:hover {
+  color: white;
+  box-shadow: inset 400px 0 0 rgb(24,86,62);
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #008CBA;
+  overflow: hidden;
+  transition: .5s ease;
+}
 
+.sign-in {
+  color: black;
+  text-decoration: none;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 18px;
+}
+
+:root {
+    height: 100%;
+    font-family: 'Montserrat';
+
+    --background-color: #FCFCFC;
+    --text-color: #333333;
+}
+
+:root[data-theme='dark'] {
+    --background-color: #1B1B1D;
+    --text-color: #fff
+}
 

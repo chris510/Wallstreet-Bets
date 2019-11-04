@@ -8,6 +8,8 @@
     "babel-loader": "^8.0.6",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
+    "react-gif-player": "^0.4.2",
+    "react-native-video": "^5.0.2",
     "react-redux": "^7.1.1",
     "react-router-dom": "^5.1.2",
     "redux": "^4.0.4",
@@ -37,5 +39,10 @@
   "bugs": {
     "url": "https://github.com/chris510/robinhood---RobinhHood-Clone/issues"
   },
-  "homepage": "https://github.com/chris510/robinhood---RobinhHood-Clone#readme"
+  "homepage": "https://github.com/chris510/robinhood---RobinhHood-Clone#readme",
+  "devDependencies": {
+    "file-loader": "^4.2.0",
+    "html-loader": "^0.5.5",
+    "url-loader": "^2.2.0"
+  }
 }

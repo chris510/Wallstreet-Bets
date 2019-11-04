@@ -1,0 +1,24 @@
+.splash-container-1 {
+  background:  rgb(35,205,153);
+  display: flex;
+  justify-content: space-evenly;
+  height: 550px;
+  width: 100%;
+}
+
+.splash-container-2 {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.splash-part-2 {
+  flex-direction: column-reverse;
+}
+
+.splash-text-6 {
+  flex-direction: column-reverse;
+}
+
+.splash-vid-2 {
+  background: blue;
+}
