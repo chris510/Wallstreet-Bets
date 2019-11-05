@@ -24,7 +24,10 @@
 }
 
 .robinhood {
+  display: flex;
+  align-items: center;
   font-size: 25px;
+  font-weight: bold;
 }
 
 .nav-right {
@@ -62,9 +65,9 @@
   height: 60px;
   width: 10px;
   background: rgb(35,205,153);
-  font-size: 16px;
+  font-size: 18px;
   font-style: normal;
-  font-weight: 700;
+  font-weight: bold;
   line-height: 18px;
   border-radius: 8px;
   text-decoration: none;
@@ -85,9 +88,9 @@
 .sign-in {
   color: black;
   text-decoration: none;
-  font-size: 16px;
+  font-size: 18px;
   font-style: normal;
-  font-weight: 700;
+  font-weight: bold;
   line-height: 18px;
 }
 

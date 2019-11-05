@@ -2,23 +2,115 @@
   background:  rgb(35,205,153);
   display: flex;
   justify-content: space-evenly;
-  height: 550px;
+  height: 525px;
   width: 100%;
 }
 
 .splash-container-2 {
   display: flex;
+  flex-direction: row-reverse;
   justify-content: space-evenly;
+  background: rgb(247,248,252); 
+
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(600px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInDown {
+   0% {
+      opacity: 0;
+      transform: translateY(-600px);
+   }
+   50% {
+     opacity: 0.5;
+   }
+   100% {
+      opacity: 1;
+      transform: translateY(0);
+   }
+} 
+
+.splash-part-1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  font-size: 14px;}
+
+.splash-text-1 {
+  font-family:  "Maison Neue", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  text-align: left;
+
+  line-height: 36px;
+  font-size: 4.4rem;
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  left: 2.5rem;
+  top: 5rem;
+  animation-name: fadeInDown;
+  animation-duration: 1.5s;
+  color: black;
+}
+
+.splash-text-2 {
+  font-family:  "Maison Neue", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  line-height: 36px;
+  font-size: 4.4rem;
+  left: 2.5rem;
+  top: 5rem;
+  animation-name: fadeInDown;
+  animation-delay: 0.5s;
+  animation-duration: 1.5s;
+  color: black;
+}
+
+
+.splash-text-3 {
+  font-family:  "Maison Neue", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 1.8rem;
+  left: 2.5rem;
+  top: 5rem;
+  animation-name: fadeInDown;
+  animation-delay: 1.5s;
+  animation-duration: 1.5s;
+  padding: 30px;
+  color: black;
 }
 
 .splash-part-2 {
   flex-direction: column-reverse;
 }
 
+.splash-text-4 {
+
+}
+
+.splash-text-5 {
+
+}
+
 .splash-text-6 {
   flex-direction: column-reverse;
 }
 
+.splash-vid-1 {
+  animation-name: fadeInRight;
+  animation-delay: 2s;
+  animation-duration: 1.5s;
+}
+
 .splash-vid-2 {
-  background: blue;
+  background: rgb(247,248,252);
 }
