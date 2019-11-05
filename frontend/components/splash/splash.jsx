@@ -17,19 +17,19 @@ class Splash extends React.Component {
         <div className="splash-container-1">
           <div className="splash-part-1">
             <div className="splash-text-1 ">
-              <h1>It's Time to do</h1>
+              <h1>It's Time to Do</h1>
             </div>
             <div className="splash-text-2">
               <h1>Money</h1>
             </div>
             <div className="splash-text-3">
-              <h2> Robinhood, a pioneer of commission-free investing,</h2>
-              <h2> gives you access to investing and more</h2>
-              <h2> ways to make your money work harder.</h2>
+              <h2>Robinhood, a pioneer of commission-free investing,</h2>
+              <h2>gives you access to investing and more</h2>
+              <h2>ways to make your money work harder.</h2>
             </div>
           </div>
             <div className="splash-vid-1">
-              <img src={this.state.video1} height="600px"/>
+              <img src={this.state.video1} height="560px"/>
             </div>
         </div>
         <div className="splash-container-2">
@@ -44,7 +44,7 @@ class Splash extends React.Component {
         <div className="splash-container-3">
           <div className="splash-part-3">
             <div className="splash-text-6">
-              <h1>Introduction Cash</h1>      
+              <h1>Introducing Cash</h1>      
             </div>
             <div className="splash-text-7">
               <h1>Management</h1>      

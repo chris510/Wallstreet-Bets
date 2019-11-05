@@ -1,10 +1,19 @@
 .nav {
-  display: flex;
-  background: white;
-  justify-content: space-between;
-  justify-items: center;
-  height: 64px;
-  width: 100%;
+display: flex;
+position: fixed;
+justify-content: space-between;
+background-color: var(--bg);
+align-content: center;
+overflow: hidden;
+top: 0;
+left: 0;
+
+width: 100%;
+height: 75px;
+z-index: 1;
+box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1), 
+            0 0  0 2px var(--bg),
+            0.3em 0.3em 1em rgba(0,0,0,0.3);
 }
 
 .nav-left {
@@ -14,37 +23,57 @@
   left: 20px;
   font-family: "DIN Pro", "DIN Web", sans-serif;
   margin: 10px;
+  padding-left: 20px;
 }
 
 .nav-left :first-child {
   display: flex;
-  padding-right: 5px;
 }
 
 .contact {
   display: flex;
   justify-content: space-evenly;
-  padding-left: 10px;
+  padding-left: 25px;
 }
 
-.contact :nth-child(1) {
-  margin-right: 5px;
+.contact :nth-child(2) {
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
 .nav-mid {
   justify-items: flex-start;
 }
 
-.icon:hover {
+.feather-logo {
+  fill: var(--color);
+}
+
+.icon {
+  fill: var(--color);
+}
+
+.icon:hover, .feather-logo:hover {
   fill: rgb(35,205,153);
   opacity: 1;
 }
 
 .robinhood {
   display: flex;
+  text-decoration: none;
   align-items: center;
-  font-size: 25px;
+  font-size: 26px;
   font-weight: bold;
+  color: var(--color-text)
+}
+
+.robinhood h1 {
+  text-decoration: none;
+}
+
+.robinhood:hover {
+  color: rgb(35,205,153);
+  cursor: pointer;
 }
 
 .nav-right {
@@ -53,24 +82,27 @@
   justify-content: right;
   align-self: center;
   margin: 1px;
+  padding-right: 20px;
   cursor: pointer;
   text-decoration: none;
 }
 
 .nav-right :first-child {
-  padding: px;
+  padding: 2px;
+  padding-right: 10px;
 }
 
 .nav-right :nth-child(2) {
-  padding: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+}
+
+.nav-right :nth-child(3) {
+  padding-bottom: 10px;
 }
 
 .nav-right :last-child {
   padding: 10px;
-}
-
-.span {
-  font-family: "Maison Neue", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
 }
 
 .nav-right :hover {
@@ -79,9 +111,10 @@
 }
 
 .sign-up {
-  color: black;
-  height: 60px;
-  width: 10px;
+  font-family: 'Roboto Condensed', sans-serif;
+  color: var(--color-text);
+  height: 40px;
+  width: 100%;
   background: rgb(35,205,153);
   font-size: 18px;
   font-style: normal;
@@ -89,39 +122,71 @@
   line-height: 18px;
   border-radius: 8px;
   text-decoration: none;
+  background-image: linear-gradient(to left, transparent, transparent 50%,  rgb(24,86,62) 50%, rgb(24,86,62));
+  background-position: 100% 0;
+  background-size: 200% 100%;
+  transition: all .25s ease-in;
 }
 
 .sign-up:hover {
-  color: white;
-  box-shadow: inset 400px 0 0 rgb(24,86,62);
+  background-position: 0 0;
+  color: #FCFCFC;
   width: 100%;
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: #008CBA;
+  background-color: rgb(24,86,62);
+  filter: brightness(125%);
   overflow: hidden;
   transition: .5s ease;
 }
 
 .sign-in {
-  color: black;
+  color: var(--color-text);
+  font-family: 'Roboto Condensed', sans-serif;
   text-decoration: none;
   font-size: 18px;
   font-style: normal;
   font-weight: bold;
   line-height: 18px;
+  padding-right: 5px;
 }
 
-:root {
-    height: 100%;
-    font-family: 'Montserrat';
-
-    --background-color: #FCFCFC;
-    --text-color: #333333;
+.sign-in :hover {
+  color: rgb(35,205,153);
+  filter: brightness(75%);
 }
 
-:root[data-theme='dark'] {
-    --background-color: #1B1B1D;
-    --text-color: #fff
+.demo-container {
+  padding-right: 75px;
+}
+
+.demo {
+  color: var(--color-text);
+  font-family: 'Roboto Condensed', sans-serif;
+  background: rgb(35,205,153);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  background-image: linear-gradient(to left, transparent, transparent 50%,  rgb(24,86,62) 50%, rgb(24,86,62));
+  background-position: 100% 0;
+  background-size: 200% 100%;
+  transition: all .25s ease-in;
+}
+
+.demo:hover {
+  background-position: 0 0;
+  color: #FCFCFC;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgb(24,86,62);
+  filter: brightness(125%);
+  overflow: hidden;
+  transition: .5s ease;
 }
 

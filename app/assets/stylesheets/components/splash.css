@@ -2,13 +2,18 @@
   background:  rgb(35,205,153);
   display: flex;
   justify-content: space-evenly;
-  height: 600px;
+  margin-top: 65px;
+  height: 620px;
+  min-height: 600px;
   width: 100%;
 }
 
 .splash-container-2 {
+  display: flex;
   height: 230px;
+  min-height: 230px;
   width: 100%;
+  min-width: 100%;
   font-size: 14px;
 }
 
@@ -16,35 +21,11 @@
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-evenly;
-  background: rgb(247,248,252); 
+  background-color: var(--splash-bg);
   height: 600px;
-
+  min-height: 600px;
+  min-width: 200px;
 }
-
-@keyframes fadeInRight {
-  0% {
-    opacity: 0;
-    transform: translateX(600px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes fadeInDown {
-   0% {
-      opacity: 0;
-      transform: translateY(-600px);
-   }
-   50% {
-     opacity: 0.5;
-   }
-   100% {
-      opacity: 1;
-      transform: translateY(0);
-   }
-} 
 
 .splash-part-1 {
   display: flex;
@@ -53,13 +34,13 @@
   align-items: center;
   align-self: center;
   font-size: 14px;
+  padding-bottom: 75px;
+  padding-left: 50px;
   height: 100%;
 }
 
 .splash-part-2 {
   padding: 60px;
-  z-index: 1;
-
 }
 
 .splash-part-3 {
@@ -70,7 +51,10 @@
 }
 
 .splash-text-1 {
-  font-family:  "Maison Neue", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: bold;
+  width: 100%;
+  align-items: flex-start;
   line-height: 36px;
   font-size: 4.4rem;
   margin-block-start: 0.67em;
@@ -79,85 +63,114 @@
   margin-inline-end: 0px;
   left: 2.5rem;
   top: 5rem;
+  opacity: 0;
   animation-name: fadeInDown;
   animation-duration: 1.5s;
-  color: black;
+  animation-fill-mode: forwards;
+  color: var(--color-text);
 }
 
 .splash-text-2 {
-  font-family:  "Maison Neue", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: bold;
   line-height: 36px;
   font-size: 4.4rem;
+  padding-bottom: 5px;
   left: 2.5rem;
   top: 5rem;
+  width: 100%;
+  align-items: flex-start;
+  opacity: 0;
   animation-name: fadeInDown;
   animation-delay: 0.5s;
   animation-duration: 1.5s;
-  color: black;
+  animation-fill-mode: forwards;
+  color: var(--color-text);
 }
 
 .splash-text-3 {
-  font-family:  "Maison Neue", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-family:'Roboto Condensed', sans-serif;
   font-size: 1.8rem;
   left: 2.5rem;
   top: 5rem;
+  opacity: 0;
   animation-name: fadeInDown;
   animation-delay: 1.5s;
   animation-duration: 1.5s;
+  animation-fill-mode: forwards;
   padding-top: 30px;
-  color: black;
+  color: var(--color-text);
+}
+
+
+.splash-text-3 :nth-child(2) {
+  padding: 15px 15px 15px 0;
 }
 
 .splash-text-4 {
   font-weight: bold;
   text-align: center;
-  font-family:  "Maison Neue", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-family: "Maison Neue", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   font-size: 2.4rem;
   left: 2.5rem;
   top: 5rem;
+  opacity: 0;
   animation-name: fadeInDown;
   animation-delay: 2.0s;
   animation-duration: 1.5s;
-  color: black;
+  animation-fill-mode: forwards;
+  color: var(--color-text);
   padding-bottom: 20px;
 }
 
 .splash-text-5 {
   text-align: center;
-  font-family:  "Maison Neue", "system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Helvetica", "Arial", sans-serif;
+  font-family: "Maison Neue", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   font-size: 1.2rem;
   left: 2.5rem;
   top: 5rem;
+  opacity: 0;
   animation-name: fadeInDown;
   animation-delay: 2.5s;
   animation-duration: 1.5s;
-  color: black;
+  animation-fill-mode: forwards;
+  color: var(--color-text);
   margin: 0 auto;
-
 }
 
 .splash-text-6 {
   font-size: 24px;
   flex-direction: column-reverse;
+  color: var(--color-text);
 }
 
 .splash-text-7 {
   font-size: 54px;
   font-weight: bold;
-  padding: 10px;
+  padding-bottom: 8px;
+  padding-top: 5px;
+  color: var(--color-text);
 }
 
 .splash-text-8 {
   font-size: 32px;
   text-align: center;
+  color: var(--color-text);
 }
 
 .splash-vid-1 {
-  animation-name: fadeInRight;
-  animation-delay: 2s;
+  padding-top: 20px;
+  opacity: 0;
+  animation: fadein 1s 1;
+  animation-delay: 1.5s;
   animation-duration: 1.5s;
+  animation-fill-mode: forwards;
 }
 
 .splash-vid-2 {
-  background: rgb(247,248,252);
+  
+}
+
+.splash-video {
+  /* opacity: var(--opacity) */
 }

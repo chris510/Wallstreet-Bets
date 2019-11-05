@@ -14,7 +14,10 @@
  *= require_self
  */
 
+@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700);
 @import './reset.css';
+@import './main.css';
 @import './components//nav.css';
 @import './components/splash.css';
 @import './slider.css';
+@import './components/session_form.css';
