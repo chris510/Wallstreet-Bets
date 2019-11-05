@@ -7,15 +7,32 @@
   width: 100%;
 }
 
-#nav-left {
+.nav-left {
   display: flex;
+  justify-content: space-between;
   font-size: 14px;
+  left: 20px;
   font-family: "DIN Pro", "DIN Web", sans-serif;
-  margin: 5px;
+  margin: 10px;
+}
+
+.nav-left :first-child {
+  display: flex;
+  padding-right: 5px;
+}
+
+.contact {
+  display: flex;
+  justify-content: space-evenly;
+  padding-left: 10px;
+}
+
+.contact :nth-child(1) {
+  margin-right: 5px;
 }
 
 .nav-mid {
-  display: flex;
+  justify-items: flex-start;
 }
 
 .icon:hover {
@@ -33,8 +50,9 @@
 .nav-right {
   display: flex;
   align-items: flex-end;
+  justify-content: right;
   align-self: center;
-  margin: 2px;
+  margin: 1px;
   cursor: pointer;
   text-decoration: none;
 }

@@ -29,18 +29,27 @@ class Splash extends React.Component {
             </div>
           </div>
             <div className="splash-vid-1">
-              <img src={this.state.video1}/>
+              <img src={this.state.video1} height="600px"/>
             </div>
         </div>
         <div className="splash-container-2">
           <div className="splash-part-2">
             <div className="splash-text-4">
+              Break Free from Commission Fees
+            </div>
+            <div className="splash-text-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste natus, odit delectus voluptate deserunt, alias cupiditate nostrum, debitis laboriosam vel enim fugit ipsam facilis voluptatum est temporibus illum modi iusto.
+            </div>
+          </div>
+        </div>
+        <div className="splash-container-3">
+          <div className="splash-part-3">
+            <div className="splash-text-6">
               <h1>Introduction Cash</h1>      
             </div>
-            <div className="splash-text-5">
+            <div className="splash-text-7">
               <h1>Management</h1>      
             </div>
-            <div className="splash-text-6">
+            <div className="splash-text-8">
               <h2>Invest, spend, and earn 1.80% APY*—all through your</h2>
               <h2>brokerage account.</h2>
             </div>
@@ -48,7 +57,7 @@ class Splash extends React.Component {
           <div className="splash-vid-2">
             <video ref="vidRef"
               src={this.state.video3}
-              width="600px" height="500px"
+              width="600px" height="600px"
               autoPlay={true} loop muted={true}
               className="splash-video"
             />

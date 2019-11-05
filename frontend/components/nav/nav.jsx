@@ -10,24 +10,26 @@ class Nav extends React.Component {
   render() {
     return (
       <div className='nav'>
-            <div id="nav-left">
-              <h1 className="robinhood">RobinHood</h1>
-              <a href="https://robinhood.com/">
-                <SVGIcon name="robinhood_logo" width={40} />
-              </a>
+            <div className="nav-left">
+              <div className="logo">
+                <h1 className="robinhood">RobinHood</h1>
+                <a href="https://robinhood.com/">
+                  <SVGIcon name="robinhood_logo" width={40} />
+                </a>
+              </div>
+              <div className='contact'>
+                <a href="mailto:christrinh5@gmail.com">
+                  <SVGIcon name="envelope" width={45} />
+                </a>
+                <a href="https://github.com/chris510">
+                  <SVGIcon name="github_1" width={40} />
+                </a>
+                <a href="https://www.linkedin.com/in/christopher-trinh-504407104/">
+                  <SVGIcon name="linkedin_1" width={40} />
+                </a> 
+              </div>
             </div>
           <div className='nav-mid'>
-            <div className='Contact'>
-              <a href="mailto:christrinh5@gmail.com">
-                <SVGIcon name="envelope" width={45} />
-              </a>
-              <a href="https://github.com/chris510">
-                <SVGIcon name="github_1" width={40} />
-              </a>
-              <a href="https://www.linkedin.com/in/christopher-trinh-504407104/">
-                <SVGIcon name="linkedin_1" width={40} />
-              </a> 
-            </div>
           </div >
         <div className='nav-right'>
           <div className="theme-switch-wrapper">
