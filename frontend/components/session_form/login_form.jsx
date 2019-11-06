@@ -7,85 +7,39 @@ class LoginForm extends React.Component {
     this.state = {
       username: "",
       password: ""
-      // Demo: false,
     };
 
-    // this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
-
     this.handleDemo = this.handleDemo.bind(this);
-    // this.handlePageChange = this.handlePageChange.bind(this);
     this.loginDemo = this.loginDemo.bind(this);
   }
 
-  handleDemo(e) {
-    e.preventDefault();
-    // this.handlePageChange();
-    const Demo = { username: 'chris123', password: 'hello123' };
+  componentDidMount() {
+    if (this.props.ui) {
+      this.handleDemo();
+    }
+  }
+  
+  componentDidUpdate() {
+    if (this.props.ui) {
+      this.handleDemo();
+    }
+  }
 
+  handleDemo() {
+    this.props.offDemo({ demoUser: false });
+    const Demo = { username: 'chris123', password: 'hello123' };
     const username = Demo.username;
     const password = Demo.password;
-    // this.setState({
-    //   username: "", password: ""
-    // }, () => this.loginDemo(username, password));
-    // setTimeout(this.loginDemo(username, password), 10000)
     this.loginDemo(username, password);
-    // this.props.processForm(Demo);
   }
-
-  componentDidMount() {
-    // debugger
-    // if (this.state.Demo) {
-    //   this.loginDemo({ username: 'chris123', password: 'hello123' });
-    // }
-    debugger
-    // const state = this.props.history.location.state;
-    if (this.props.ui) {
-      this.props.offDemo({ demoUser: false });
-      debugger
-      const Demo = { username: 'chris123', password: 'hello123' };
-      const username = Demo.username;
-      const password = Demo.password;
-      this.loginDemo(username, password);
-    }
-  }
-
-  componentDidUpdate() {
-    // debugger
-    // const state = this.props.history.location.state
-    if (this.props.ui) {
-      this.props.offDemo({ demoUser: false });
-      const Demo = { username: 'chris123', password: 'hello123' };
-      const username = Demo.username;
-      const password = Demo.password;
-      this.loginDemo(username, password);
-    }
-  }
-
-  // handlePageChange() {
-  //   window.location.hash = "/login";
-  //   this.setState({
-  //     Demo: true
-  //   });
-  // }
 
   loginDemo(username, password) {
     const user = username.split("");
     const pass = password.split("");
 
-    // const inputDemo = (user) => {
-    //   for (let i = 0; i <= user.length; i++) {
-    //     let char = user[i];
-    //     this.setState({
-    //       username: this.state.username + char
-    //     }),
-    //       () => setTimeout(() => { })
-    //   }
-    // }
-
     const inputDemo = (user) => {
       if (user.length > 0) {
-        // let char = user.shift();
         this.setState({
           username: this.state.username + user.shift()
         },
@@ -98,17 +52,14 @@ class LoginForm extends React.Component {
 
     const inputDemoPass = (pass) => {
       if (pass.length > 0) {
-        // debugger
-        // let char = pass.shift();
         this.setState({
           password: this.state.password + pass.shift()
         },
           () => setTimeout(() => { inputDemoPass(pass) }, 100)
         )
       } else {
-        // const Demo = Object.assign({}, this.state);
-        const Demo = this.state
-        this.props.processForm(Demo);
+        const demoUser = this.state
+        this.props.processForm(demoUser);
       }
     }
     inputDemo(user);
@@ -131,12 +82,6 @@ class LoginForm extends React.Component {
       [field]: e.currentTarget.value
     });
   }
-
-  // handleSubmit(e) {
-  //   e.preventDefault();
-  //   // const user = Object.assign({}, this.state);
-  //   // this.props.processForm(user);
-  // }
 
   render() {
     return (
