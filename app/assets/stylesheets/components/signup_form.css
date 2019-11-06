@@ -1,15 +1,17 @@
 .signup-form {
-  background: var(--bg);
+  background-color: var(--bg);
   font-family: "DIN Web", "Hiragino Sans GB", STXihei, 华文细黑, "Microsoft YaHei", 微软雅黑, sans-serif;
 }
 
 .signup-form-container {
-  height: 650px;
-  width: 960px;
+  background-color: var(--bg-panel);
+  height: 540px;
+  width: 910px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  border-radius: 12px;
 }
 
 .signup-section-1 {
@@ -19,6 +21,7 @@
   flex-direction: column;
   justify-content: space-around;
   margin-top: 30px;
+  margin-bottom: 50px;
 }
 
 .signup-section-2 {
@@ -26,7 +29,7 @@
   width: 70%;
   justify-content: center;
   align-items: center;
-  margin-bottom: 50px;
+  margin-bottom: 100px;
   margin-top: -65px;
   padding: 5px;
 }
@@ -56,6 +59,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
   /* justify-content: space-between center; */
   margin-top: -75px;
 }

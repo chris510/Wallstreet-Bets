@@ -61,15 +61,15 @@ class Nav extends React.Component {
                 </a> 
               </div>
             </div>
-        <div className='nav-right'>
-          <div className="theme-switch-wrapper">
-            <label className="theme-switch" htmlFor="checkbox">
-              <input type="checkbox" id="checkbox" name="theme" onChange={this.changeTheme} />
-              <div className="slider round"></div>
-            </label>
-          </div>
+          <div className='nav-right'>
             <div className="demo-container">
               <Demo />
+            </div>
+            <div className="theme-switch-wrapper">
+              <label className="theme-switch" htmlFor="checkbox">
+                <input type="checkbox" id="checkbox" name="theme" onChange={this.changeTheme} />
+                <div className="slider round"></div>
+              </label>
             </div>
             <div className="sign-in">
               <Link to='/login' className="sign-in"><span>Sign In</span></Link>
