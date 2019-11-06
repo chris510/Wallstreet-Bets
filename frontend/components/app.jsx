@@ -2,7 +2,7 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import { AuthRoute } from '../util/route_util';
 
-import NavContainer from './nav/nav_container';
+import NavSplashContainer from './nav/nav_splash_container';
 import SplashContainer from './splash/splash_container'
 import LoginFormContainer from './session_form/login_form_container';
 import SignUpFormContainer from './session_form/signup_form_container';
@@ -10,7 +10,8 @@ import SignUpFormContainer from './session_form/signup_form_container';
 const App = () => (
   <div>
     <header>
-      <NavContainer />
+      {/* <NavContainer /> */}
+      <Route exact path="/" component={NavSplashContainer} />
     </header>
     <Route exact path="/" component={SplashContainer} />
     <Route path="/login" component={LoginFormContainer} />

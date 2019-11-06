@@ -1,13 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SVGIcon from '../svg_icons/svg.icons';
-import Demo from '../session_form/demo.container'
+import { withRouter } from 'react-router-dom'
 
-class Nav extends React.Component {
+class NavSplash extends React.Component {
   constructor(props) {
-    super(props);
+    super(props); 
+    // this.state = {
+    //   demoUser: false
+    // }
     this.changeTheme = this.changeTheme.bind(this);
-    // this.handleDemo = this.handleDemo.bind(this);
+    this.redirectDemo = this.redirectDemo.bind(this);
   }
 
   changeTheme() {
@@ -31,11 +34,16 @@ class Nav extends React.Component {
     }
   }
 
-  // handleDemo(e) {
-  //   e.preventDefault();
-  //   const demoUser = {username: 'chris123', password: 'hello123'}
-  //   this.props.processForm(demoUser);
-  // }
+  redirectDemo() {
+      // window.location.hash = "/login";
+    //   this.setState({
+    //     demoUser: true
+    // });
+    this.props.history.push({ pathname: "/login", state: { demoActive: true } });
+    // this.props.history.push({ pathname: "/login" });
+    // this.props.history.push({ state: { demoActive: true }} )
+    debugger
+  }
 
   render() {
     return (
@@ -63,7 +71,8 @@ class Nav extends React.Component {
             </div>
           <div className='nav-right'>
             <div className="demo-container">
-              <Demo />
+              {/* <button className="demo" onClick={this.redirectDemo}><span>Demo</span></button> */}
+              <Link to='/login' className="demo" onClick={this.redirectDemo} ><span>Demo</span></Link>
             </div>
             <div className="theme-switch-wrapper">
               <label className="theme-switch" htmlFor="checkbox">
@@ -83,4 +92,4 @@ class Nav extends React.Component {
   }
 }
 
-export default Nav;
+export default NavSplash;

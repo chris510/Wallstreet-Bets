@@ -6,31 +6,59 @@ class LoginForm extends React.Component {
     super(props);
     this.state = {
       username: "",
-      password: ""
+      password: "",
+      demoUser: false,
     };
 
-    this.handleSubmit = this.handleSubmit.bind(this);
+    // this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
 
-    this.handleDemo = this.handleDemo.bind(this);
-    this.handlePageChange = this.handlePageChange.bind(this);
+    // this.handleDemo = this.handleDemo.bind(this);
+    // this.handlePageChange = this.handlePageChange.bind(this);
     this.loginDemoUser = this.loginDemoUser.bind(this);
   }
 
-  handleDemo(e) {
-    e.preventDefault();
-    this.handlePageChange();
-    const demoUser = { username: 'chris123', password: 'hello123' };
+  // handleDemo(e) {
+  //   e.preventDefault();
+  //   // this.handlePageChange();
+  //   const demoUser = { username: 'chris123', password: 'hello123' };
 
-    const username = demoUser.username;
-    const password = demoUser.password;
-    this.setState({
-      username: "", password: ""
-    }, () => this.loginDemoUser(username, password));
+  //   const username = demoUser.username;
+  //   const password = demoUser.password;
+  //   // this.setState({
+  //   //   username: "", password: ""
+  //   // }, () => this.loginDemoUser(username, password));
+  //   // setTimeout(this.loginDemoUser(username, password), 10000)
+  //   this.loginDemoUser(username, password);
+  //   // this.props.processForm(demoUser);
+  // }
 
-    // this.loginDemoUser(demoUser.username, demoUser.password);
-    // this.props.processForm(demoUser);
+  componentDidMount() {
+    // debugger
+    // if (this.state.demoUser) {
+    //   this.loginDemoUser({ username: 'chris123', password: 'hello123' });
+    // }
+    // debugger
+    const state = this.props.history.location.state;
+    if (state && state.demoActive) {
+      const demoUser = { username: 'chris123', password: 'hello123' };
+      const username = demoUser.username;
+      const password = demoUser.password;
+      this.loginDemoUser(username, password);
+    }
   }
+
+  componentDidUpdate() {
+    // debugger
+    const state = this.props.history.location.state
+  }
+
+  // handlePageChange() {
+  //   window.location.hash = "/login";
+  //   this.setState({
+  //     demoUser: true
+  //   });
+  // }
 
   loginDemoUser(username, password) {
     const user = username.split("");
@@ -52,7 +80,7 @@ class LoginForm extends React.Component {
         this.setState({
           username: this.state.username + char
         },
-          () => setTimeout(() => { inputDemoUser(user) }, 75)
+          () => setTimeout(() => { inputDemoUser(user) }, 100)
         )
       } else {
         inputDemoPass(pass);
@@ -66,7 +94,7 @@ class LoginForm extends React.Component {
         this.setState({
           password: this.state.password + char
         },
-          () => setTimeout(() => { inputDemoPass(pass) }, 75)
+          () => setTimeout(() => { inputDemoPass(pass) }, 100)
         )
       } else {
         const demoUser = Object.assign({}, this.state);
@@ -76,8 +104,16 @@ class LoginForm extends React.Component {
     inputDemoUser(user);
   }
 
-  handlePageChange() {
-    window.location.hash = "/login";
+  renderErrors() {
+    return (
+      <ul>
+        {this.props.errors.map((error, i) => (
+          <li key={`error-${i}`}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    );
   }
 
   update(field) {
@@ -86,11 +122,11 @@ class LoginForm extends React.Component {
     });
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    const user = Object.assign({}, this.state);
-    this.props.processForm(user);
-  }
+  // handleSubmit(e) {
+  //   e.preventDefault();
+  //   // const user = Object.assign({}, this.state);
+  //   // this.props.processForm(user);
+  // }
 
   render() {
     return (
@@ -127,6 +163,9 @@ class LoginForm extends React.Component {
                 required
                 />
               </div>
+              <ul className="sessionform-errors">
+                {this.renderErrors()}
+              </ul>
               <div className="submit-container">
                 <input className="login-submit" type="submit" value={this.props.formType} />
               </div>
