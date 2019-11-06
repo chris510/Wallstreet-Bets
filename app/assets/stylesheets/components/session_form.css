@@ -1,11 +1,11 @@
 .session-form {
   background: var(--bg);
+  font-family: "DIN Web", "Hiragino Sans GB", STXihei, 华文细黑, "Microsoft YaHei", 微软雅黑, sans-serif;
 }
 
 .session-form-container {
-  background: var(--bg-panel);
   height: 650px;
-  width: 1000px;
+  width: 960px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -23,10 +23,11 @@
 
 .signup-section-2 {
   height: 40%;
-  width: 50%;
+  width: 70%;
   justify-content: center;
   align-items: center;
   margin-bottom: 50px;
+  margin-top: -65px;
   padding: 5px;
 }
 
@@ -37,28 +38,31 @@
 }
 
 .session-text-1 {
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: "DIN Web", "Hiragino Sans GB", STXihei, 华文细黑, "Microsoft YaHei", 微软雅黑, sans-serif;
   font-weight: bold;
-  font-size: 54px;
+  font-size: 50px;
   color: var(--color-text);
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 30px;
 }
 
 .session-text-2 {
+  font-family: "DIN Web", "Hiragino Sans GB", STXihei, 华文细黑, "Microsoft YaHei", 微软雅黑, sans-serif;
   color: var(--color-text);
+  width: inherit;
   display: flex;
-  align-items: center;
   flex-direction: column;
-  justify-content: space-between center;
+  align-items: center;
+  /* justify-content: space-between center; */
   margin-top: -75px;
 }
 
 .session-text-2 :first-child {
   font-size: 24px;
-  width: 45%;
+  width: 60%;
   align-items: center;
   justify-content: center;
   margin-bottom: 5px;
@@ -66,7 +70,7 @@
 
 .session-text-2 :last-child {
   font-size: 24px;
-  width: 45%;
+  width: 60%;
   align-items: center;
   justify-content: center;
   margin-top: 5px;
@@ -75,11 +79,13 @@
 .full-name-container {
   width: 100%;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   padding: 5px;
 }
 
 .full-name-container :first-child {
+  font-family: "DIN Web", "Hiragino Sans GB", STXihei, 华文细黑, "Microsoft YaHei", 微软雅黑, sans-serif;
   width: 100%;
   font-size: 18px;
   font-weight: 400;
@@ -89,6 +95,7 @@
 }
 
 .full-name-container :last-child {
+  font-family: "DIN Web", "Hiragino Sans GB", STXihei, 华文细黑, "Microsoft YaHei", 微软雅黑, sans-serif;
   width: 100%;
   font-size: 18px;
   font-weight: 400;
@@ -98,11 +105,15 @@
 }
 
 .first-name {
+  padding-left: 10px;
+}
 
+.last-name-container {
+  margin: 8px;
 }
 
 .last-name {
-  margin: 8px;
+  padding-left: 10px;
 }
 
 .username-container {
@@ -111,12 +122,13 @@
 }
 
 .username {
+  font-family: "DIN Web", "Hiragino Sans GB", STXihei, 华文细黑, "Microsoft YaHei", 微软雅黑, sans-serif;
   width: 100%;
   font-size: 18px;
   font-weight: 400;
   height: 46px;
   border-radius: 4px;
-
+  padding-left: 10px;
 }
 
 .password-container {
@@ -125,11 +137,13 @@
 }
 
 .password {
+  font-family: "DIN Web", "Hiragino Sans GB", STXihei, 华文细黑, "Microsoft YaHei", 微软雅黑, sans-serif;
   width: 100%;
   font-size: 18px;
   font-weight: 400;
   height: 46px;
   border-radius: 4px;
+  padding-left: 10px;
 }
 
 .submit-container {
@@ -143,7 +157,7 @@
   background-color: rgb(35,205,153);
   border-color: rgb(35,205,153);
   border-radius: 8px;
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: "DIN Web", "Hiragino Sans GB", STXihei, 华文细黑, "Microsoft YaHei", 微软雅黑, sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: bold;
@@ -164,4 +178,25 @@
   filter: brightness(125%);
   overflow: hidden;
   transition: .5s ease;
+}
+
+.login-form-link-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  font-family: "DIN Web", "Hiragino Sans GB", STXihei, 华文细黑, "Microsoft YaHei", 微软雅黑, sans-serif;;
+  color: var(--color-text);
+  font-weight: bold;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.login-form-link-container :last-child {
+  text-decoration: none;
+  color: rgb(35,205,153);
+}
+
+.login-form-link:last-child > a:hover {
+  background: blue;
 }

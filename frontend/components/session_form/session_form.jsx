@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -33,17 +34,17 @@ class SessionForm extends React.Component {
             </div>
             <div className="session-text-2">
               <h1>Make Your Money Move</h1>
-              <h2>Robinhood lets you invest in companies you love, commission-free.</h2>
+              <h2>Robinhood lets you invest in companies you love commission-free.</h2>
             </div>
           </div>
           <div className="signup-section-2">
             <form onSubmit={this.handleSubmit} className="session-form-box">
               <div className="full-name-container">
-                <div className="first-name">
-                  <input type="text" placeholder="First Name" required/> 
+                <div className="first-name-container">
+                  <input type="text" className="first-name" placeholder="First Name" required/> 
                 </div>
-                <div className="last-name">
-                  <input type="text" placeholder="Last Name" required/>
+                <div className="last-name-container">
+                  <input type="text" className="last-name" placeholder="Last Name" required/>
                 </div>
               </div>
               <div className="username-container">
@@ -68,6 +69,14 @@ class SessionForm extends React.Component {
               </div>
               <div className="submit-container">
                 <input className="session-submit" type="submit" value={this.props.formType} />
+              </div>
+              <div className="login-form-link-container">
+                <div>
+                Already have an account?     
+                </div>
+                <div>
+                  <Link to="/signup" className="login-form-link-1">Log In to access your account</Link>
+                </div>
               </div>
             </form>
           </div>
