@@ -38,7 +38,8 @@ class NavSplash extends React.Component {
     // this.setState({
     //   ui: true
     // })
-    this.props.loginDemo(true);
+    this.props.onDemo(true);
+    // debugger
     window.location.hash = "/login";
 
     //   this.setState({

@@ -11,6 +11,10 @@ const removeDemo = (boolean) => ({
   boolean
 })
 
-export const loginDemo = (boolean) => (
+export const onDemo = (boolean) => (
   dispatch(receiveDemo(boolean))
+);
+
+export const offDemo = (boolean) => (
+  dispatch(removeDemo(boolean))
 );

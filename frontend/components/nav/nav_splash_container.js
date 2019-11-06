@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom'
 import NavSplash from './nav_splash'
 import { logout, login} from '../../actions/session_actions'
-import { loginDemo } from '../../actions/demo_actions';
+import { onDemo, offDemo } from '../../actions/demo_actions';
 
 
 const mapStateToProps = (state, ownProps) => ({
@@ -14,7 +14,8 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = (dispatch) => ({
   logout: () => dispatch(logout()),
   processForm: (user) => dispatch(login(user)),
-  loginDemo: (boolean) => loginDemo(boolean)
+  onDemo: (boolean) => onDemo(boolean)
+  // offDemo: (boolean) => offDemo(boolean)
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NavSplash));

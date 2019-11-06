@@ -41,6 +41,8 @@ class LoginForm extends React.Component {
     debugger
     // const state = this.props.history.location.state;
     if (this.props.ui) {
+      this.props.offDemo(false);
+      debugger
       const Demo = { username: 'chris123', password: 'hello123' };
       const username = Demo.username;
       const password = Demo.password;
@@ -52,7 +54,7 @@ class LoginForm extends React.Component {
     // debugger
     // const state = this.props.history.location.state
     if (this.props.ui) {
-
+      this.props.offDemo(false);
       const Demo = { username: 'chris123', password: 'hello123' };
       const username = Demo.username;
       const password = Demo.password;
