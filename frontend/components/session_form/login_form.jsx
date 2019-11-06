@@ -41,7 +41,7 @@ class LoginForm extends React.Component {
     debugger
     // const state = this.props.history.location.state;
     if (this.props.ui) {
-      this.props.offDemo(false);
+      this.props.offDemo({ demoUser: false });
       debugger
       const Demo = { username: 'chris123', password: 'hello123' };
       const username = Demo.username;
@@ -54,7 +54,7 @@ class LoginForm extends React.Component {
     // debugger
     // const state = this.props.history.location.state
     if (this.props.ui) {
-      this.props.offDemo(false);
+      this.props.offDemo({ demoUser: false });
       const Demo = { username: 'chris123', password: 'hello123' };
       const username = Demo.username;
       const password = Demo.password;
@@ -188,7 +188,7 @@ class LoginForm extends React.Component {
                 </div>
               </div>
             </form>
-            <Link to='/login' className="demo" onClick={this.handleDemo} ><span>Demo</span></Link>
+            {/* <Link to='/login' className="demo" onClick={this.handleDemo} ><span>Demo</span></Link> */}
           </div>
         </div>
       </div>
