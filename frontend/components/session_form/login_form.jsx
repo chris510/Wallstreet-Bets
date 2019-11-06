@@ -6,65 +6,72 @@ class LoginForm extends React.Component {
     super(props);
     this.state = {
       username: "",
-      password: "",
-      demoUser: false,
+      password: ""
+      // Demo: false,
     };
 
     // this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
 
-    // this.handleDemo = this.handleDemo.bind(this);
+    this.handleDemo = this.handleDemo.bind(this);
     // this.handlePageChange = this.handlePageChange.bind(this);
-    this.loginDemoUser = this.loginDemoUser.bind(this);
+    this.loginDemo = this.loginDemo.bind(this);
   }
 
-  // handleDemo(e) {
-  //   e.preventDefault();
-  //   // this.handlePageChange();
-  //   const demoUser = { username: 'chris123', password: 'hello123' };
+  handleDemo(e) {
+    e.preventDefault();
+    // this.handlePageChange();
+    const Demo = { username: 'chris123', password: 'hello123' };
 
-  //   const username = demoUser.username;
-  //   const password = demoUser.password;
-  //   // this.setState({
-  //   //   username: "", password: ""
-  //   // }, () => this.loginDemoUser(username, password));
-  //   // setTimeout(this.loginDemoUser(username, password), 10000)
-  //   this.loginDemoUser(username, password);
-  //   // this.props.processForm(demoUser);
-  // }
+    const username = Demo.username;
+    const password = Demo.password;
+    // this.setState({
+    //   username: "", password: ""
+    // }, () => this.loginDemo(username, password));
+    // setTimeout(this.loginDemo(username, password), 10000)
+    this.loginDemo(username, password);
+    // this.props.processForm(Demo);
+  }
 
   componentDidMount() {
     // debugger
-    // if (this.state.demoUser) {
-    //   this.loginDemoUser({ username: 'chris123', password: 'hello123' });
+    // if (this.state.Demo) {
+    //   this.loginDemo({ username: 'chris123', password: 'hello123' });
     // }
-    // debugger
-    const state = this.props.history.location.state;
-    if (state && state.demoActive) {
-      const demoUser = { username: 'chris123', password: 'hello123' };
-      const username = demoUser.username;
-      const password = demoUser.password;
-      this.loginDemoUser(username, password);
+    debugger
+    // const state = this.props.history.location.state;
+    if (this.props.ui) {
+      const Demo = { username: 'chris123', password: 'hello123' };
+      const username = Demo.username;
+      const password = Demo.password;
+      this.loginDemo(username, password);
     }
   }
 
   componentDidUpdate() {
     // debugger
-    const state = this.props.history.location.state
+    // const state = this.props.history.location.state
+    if (this.props.ui) {
+
+      const Demo = { username: 'chris123', password: 'hello123' };
+      const username = Demo.username;
+      const password = Demo.password;
+      this.loginDemo(username, password);
+    }
   }
 
   // handlePageChange() {
   //   window.location.hash = "/login";
   //   this.setState({
-  //     demoUser: true
+  //     Demo: true
   //   });
   // }
 
-  loginDemoUser(username, password) {
+  loginDemo(username, password) {
     const user = username.split("");
     const pass = password.split("");
 
-    // const inputDemoUser = (user) => {
+    // const inputDemo = (user) => {
     //   for (let i = 0; i <= user.length; i++) {
     //     let char = user[i];
     //     this.setState({
@@ -74,13 +81,13 @@ class LoginForm extends React.Component {
     //   }
     // }
 
-    const inputDemoUser = (user) => {
+    const inputDemo = (user) => {
       if (user.length > 0) {
-        let char = user.shift();
+        // let char = user.shift();
         this.setState({
-          username: this.state.username + char
+          username: this.state.username + user.shift()
         },
-          () => setTimeout(() => { inputDemoUser(user) }, 100)
+          () => setTimeout(() => { inputDemo(user) }, 100)
         )
       } else {
         inputDemoPass(pass);
@@ -90,18 +97,19 @@ class LoginForm extends React.Component {
     const inputDemoPass = (pass) => {
       if (pass.length > 0) {
         // debugger
-        let char = pass.shift();
+        // let char = pass.shift();
         this.setState({
-          password: this.state.password + char
+          password: this.state.password + pass.shift()
         },
           () => setTimeout(() => { inputDemoPass(pass) }, 100)
         )
       } else {
-        const demoUser = Object.assign({}, this.state);
-        this.props.processForm(demoUser);
+        // const Demo = Object.assign({}, this.state);
+        const Demo = this.state
+        this.props.processForm(Demo);
       }
     }
-    inputDemoUser(user);
+    inputDemo(user);
   }
 
   renderErrors() {

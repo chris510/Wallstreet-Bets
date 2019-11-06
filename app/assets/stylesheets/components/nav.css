@@ -34,6 +34,7 @@ box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1),
   display: flex;
   justify-content: space-evenly;
   padding-left: 25px;
+  opacity: 0.9;
 }
 
 .contact :nth-child(2) {
@@ -162,6 +163,59 @@ box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1),
 /* .sign-in > span {
   padding-bottom: 10px;
 } */
+
+.nav-right-2 {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1px;
+  padding-right: 20px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.nav-right-2 :first-child {
+  padding: 10px;
+  padding-right: 10px;
+}
+
+/* .nav-right-2 :nth-child(2) {
+  /* padding-bottom: 10px; */
+  padding-left: 10px;
+  padding-right: 10px;
+
+} */
+
+.log-out-container {
+  font-style: normal;
+  font-weight: bold;
+  line-height: 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  background-image: linear-gradient(to left, transparent, transparent 50%,  rgb(24,86,62) 50%, rgb(24,86,62));
+  background-position: 100% 0;
+  background-size: 200% 100%;
+  transition: all .25s ease-in;
+}
+
+.log-out {
+  color: var(--color-text);
+  font-family: 'Roboto Condensed', sans-serif;
+  text-decoration: none;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 18px;
+  
+  padding: 30px;
+  padding-right: 20px; 
+}
+
+.log-out :hover {
+  color: rgb(35,205,153);
+  filter: brightness(75%);
+}
 
 .nav-mid-right-1 {
   display: flex;
