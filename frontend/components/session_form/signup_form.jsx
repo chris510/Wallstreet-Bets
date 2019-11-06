@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 
-class SessionForm extends React.Component {
+class SignUpForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -26,19 +26,19 @@ class SessionForm extends React.Component {
 
   render() {
     return (
-      <div className="session-form">
-        <div className="session-form-container">
+      <div className="signup-form">
+        <div className="signup-form-container">
           <div className="signup-section-1">
-            <div className="session-text-1">
+            <div className="signup-text-1">
               <h1>Welcome to Robinhood</h1>
             </div>
-            <div className="session-text-2">
+            <div className="signup-text-2">
               <h1>Make Your Money Move</h1>
               <h2>Robinhood lets you invest in companies you love commission-free.</h2>
             </div>
           </div>
           <div className="signup-section-2">
-            <form onSubmit={this.handleSubmit} className="session-form-box">
+            <form onSubmit={this.handleSubmit} className="signup-form-box">
               <div className="full-name-container">
                 <div className="first-name-container">
                   <input type="text" className="first-name" placeholder="First Name" required/> 
@@ -68,14 +68,14 @@ class SessionForm extends React.Component {
                 />
               </div>
               <div className="submit-container">
-                <input className="session-submit" type="submit" value={this.props.formType} />
+                <input className="signup-submit" type="submit" value={this.props.formType} />
               </div>
-              <div className="login-form-link-container">
+              <div className="signup-form-link-container">
                 <div>
                 Already have an account?     
                 </div>
                 <div>
-                  <Link to="/signup" className="login-form-link-1">Log In to access your account</Link>
+                  <Link to="/login" className="signup-form-link-1">Log In to access your account</Link>
                 </div>
               </div>
             </form>
@@ -86,4 +86,4 @@ class SessionForm extends React.Component {
   }
 }
 
-export default SessionForm;
+export default SignUpForm;

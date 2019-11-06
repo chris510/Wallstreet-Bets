@@ -1,9 +1,9 @@
-.session-form {
+.signup-form {
   background: var(--bg);
   font-family: "DIN Web", "Hiragino Sans GB", STXihei, 华文细黑, "Microsoft YaHei", 微软雅黑, sans-serif;
 }
 
-.session-form-container {
+.signup-form-container {
   height: 650px;
   width: 960px;
   display: flex;
@@ -31,13 +31,13 @@
   padding: 5px;
 }
 
-.session-form-box {
+.signup-form-box {
   display: block;
   justify-content: center;
   align-items: center;
 }
 
-.session-text-1 {
+.signup-text-1 {
   font-family: "DIN Web", "Hiragino Sans GB", STXihei, 华文细黑, "Microsoft YaHei", 微软雅黑, sans-serif;
   font-weight: bold;
   font-size: 50px;
@@ -49,7 +49,7 @@
   margin-bottom: 30px;
 }
 
-.session-text-2 {
+.signup-text-2 {
   font-family: "DIN Web", "Hiragino Sans GB", STXihei, 华文细黑, "Microsoft YaHei", 微软雅黑, sans-serif;
   color: var(--color-text);
   width: inherit;
@@ -60,7 +60,7 @@
   margin-top: -75px;
 }
 
-.session-text-2 :first-child {
+.signup-text-2 :first-child {
   font-size: 24px;
   width: 60%;
   align-items: center;
@@ -68,7 +68,7 @@
   margin-bottom: 5px;
 }
 
-.session-text-2 :last-child {
+.signup-text-2 :last-child {
   font-size: 24px;
   width: 60%;
   align-items: center;
@@ -151,7 +151,7 @@
   padding-left: 8px;
 }
 
-.session-submit {
+.signup-submit {
   width: 100%;
   height: 45px;
   background-color: rgb(35,205,153);
@@ -168,7 +168,7 @@
   margin-top: 10px;
 }
 
-.session-submit:hover {
+.signup-submit:hover {
   background-position: 0 0;
   color: #FCFCFC;
   bottom: 0;
@@ -180,7 +180,7 @@
   transition: .5s ease;
 }
 
-.login-form-link-container {
+.signup-form-link-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -192,11 +192,11 @@
   margin-top: 10px;
 }
 
-.login-form-link-container :last-child {
-  text-decoration: none;
+.signup-form-link-container :last-child {
   color: rgb(35,205,153);
 }
 
-.login-form-link:last-child > a:hover {
-  background: blue;
+.signup-form-link-1:hover {
+  color: rgb(24,86,62);
+  filter: brightness(150%);
 }
