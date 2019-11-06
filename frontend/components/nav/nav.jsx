@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import SVGIcon from "../svg_icons/svg.icons";
+import SVGIcon from '../svg_icons/svg.icons';
+import Demo from '../session_form/demo.container'
 
 class Nav extends React.Component {
   constructor(props) {
     super(props);
     this.changeTheme = this.changeTheme.bind(this);
+    // this.handleDemo = this.handleDemo.bind(this);
   }
 
   changeTheme() {
@@ -28,6 +30,12 @@ class Nav extends React.Component {
       }, 1000)
     }
   }
+
+  // handleDemo(e) {
+  //   e.preventDefault();
+  //   const demoUser = {username: 'chris123', password: 'hello123'}
+  //   this.props.processForm(demoUser);
+  // }
 
   render() {
     return (
@@ -61,7 +69,7 @@ class Nav extends React.Component {
             </label>
           </div>
             <div className="demo-container">
-              <Link to='/login' className="demo"><span>Demo</span></Link>
+              <Demo />
             </div>
             <div className="sign-in">
               <Link to='/login' className="sign-in"><span>Sign In</span></Link>

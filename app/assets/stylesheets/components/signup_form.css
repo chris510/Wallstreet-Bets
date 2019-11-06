@@ -77,43 +77,45 @@
 }
 
 .full-name-container {
-  width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 5px;
+  width: 100%;
+  padding: 10px;
 }
 
 .full-name-container :first-child {
   font-family: "DIN Web", "Hiragino Sans GB", STXihei, 华文细黑, "Microsoft YaHei", 微软雅黑, sans-serif;
-  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  width: 90%;
   font-size: 18px;
   font-weight: 400;
   height: 46px;
-  border-radius: 4px;
-  margin-right: 5px;
+  border-radius: 10px;
+  /* padding-right: 5px;
+  margin-right: 5px; */
+  /* margin-right: 5px; */
 }
 
 .full-name-container :last-child {
   font-family: "DIN Web", "Hiragino Sans GB", STXihei, 华文细黑, "Microsoft YaHei", 微软雅黑, sans-serif;
-  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  width: 90%;
   font-size: 18px;
   font-weight: 400;
   height: 46px;
-  border-radius: 4px;
-  margin-right: 0;
+  border-radius: 10px;
+  /* margin-right: 0; */
 }
 
 .first-name {
-  padding-left: 10px;
 }
 
 .last-name-container {
-  margin: 8px;
 }
 
 .last-name {
-  padding-left: 10px;
 }
 
 .username-container {
@@ -127,8 +129,7 @@
   font-size: 18px;
   font-weight: 400;
   height: 46px;
-  border-radius: 4px;
-  padding-left: 10px;
+  border-radius: 10px;
 }
 
 .password-container {
@@ -142,13 +143,12 @@
   font-size: 18px;
   font-weight: 400;
   height: 46px;
-  border-radius: 4px;
-  padding-left: 10px;
+  border-radius: 10px;
 }
 
 .submit-container {
   width: 100%;
-  padding-left: 8px;
+  padding: 5px;
 }
 
 .signup-submit {
