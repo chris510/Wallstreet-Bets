@@ -6,11 +6,9 @@ import { withRouter } from 'react-router-dom'
 class NavSplash extends React.Component {
   constructor(props) {
     super(props); 
-    // this.state = {
-    //   Demo: false
-    // }
     this.changeTheme = this.changeTheme.bind(this);
     this.redirectDemo = this.redirectDemo.bind(this);
+    // this.handleLogout = this.handleLogout.bind(this);
   }
 
   changeTheme() {
@@ -35,23 +33,18 @@ class NavSplash extends React.Component {
   }
 
   redirectDemo() {
-    // this.setState({
-    //   ui: true
-    // })
     this.props.onDemo({ demoUser: true });
-    // debugger
     window.location.hash = "/login";
-
-    //   this.setState({
-    //     Demo: true
-    // });
-    // this.props.history.push({ pathname: "/login", state: { demoActive: true } });
-    // this.props.history.push({ pathname: "/login" });
-    // this.props.history.push({ state: { demoActive: true }} )
-    // debugger
   }
 
+  // handleLogout() {
+  //   this.props.logout();
+  //   window.location.hash = "/";
+  // }
+
   render() {
+    const { logout } = this.props;
+
     if (!this.props.currentUser) {
       return (
         <div className='nav'>
@@ -78,7 +71,6 @@ class NavSplash extends React.Component {
               </div>
             <div className='nav-right'>
               <div className="demo-container">
-                {/* <button className="demo" onClick={this.redirectDemo}><span>Demo</span></button> */}
                 <Link to='/login' className="demo" onClick={this.redirectDemo} ><span>Demo</span></Link>
               </div>
               <div className="theme-switch-wrapper">
@@ -128,7 +120,7 @@ class NavSplash extends React.Component {
               </label>
             </div>
             <div className="log-out-container">
-              <Link to='/' className="log-out"><span>Log Out</span></Link>
+              <Link to='/' className="log-out" onClick={logout}><span>Log Out</span></Link>
             </div>
           </div>
         </div>

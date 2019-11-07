@@ -1,12 +1,17 @@
 .signup-form {
   background-color: var(--bg);
-  font-family: "DIN Web", "Hiragino Sans GB", STXihei, 华文细黑, "Microsoft YaHei", 微软雅黑, sans-serif;
+  font-family: var(--font-family);
+  height: 100%;
+  weight: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .signup-form-container {
-  background-color: var(--bg-panel);
-  height: 540px;
-  width: 910px;
+  /* background-color: var(--bg-panel); */
+  height: 60%;
+  width: 60%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -41,26 +46,25 @@
 }
 
 .signup-text-1 {
-  font-family: "DIN Web", "Hiragino Sans GB", STXihei, 华文细黑, "Microsoft YaHei", 微软雅黑, sans-serif;
+  font-family: var(--font-family);
   font-weight: bold;
-  font-size: 50px;
+  font-size: 64px;
   color: var(--color-text);
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 }
 
 .signup-text-2 {
-  font-family: "DIN Web", "Hiragino Sans GB", STXihei, 华文细黑, "Microsoft YaHei", 微软雅黑, sans-serif;
+  font-family: var(--font-family);
   color: var(--color-text);
   width: inherit;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  /* justify-content: space-between center; */
   margin-top: -75px;
 }
 
@@ -88,7 +92,7 @@
 }
 
 .full-name-container :first-child {
-  font-family: "DIN Web", "Hiragino Sans GB", STXihei, 华文细黑, "Microsoft YaHei", 微软雅黑, sans-serif;
+  font-family: var(--font-family);
   display: flex;
   justify-content: flex-start;
   width: 90%;
@@ -96,13 +100,10 @@
   font-weight: 400;
   height: 46px;
   border-radius: 10px;
-  /* padding-right: 5px;
-  margin-right: 5px; */
-  /* margin-right: 5px; */
 }
 
 .full-name-container :last-child {
-  font-family: "DIN Web", "Hiragino Sans GB", STXihei, 华文细黑, "Microsoft YaHei", 微软雅黑, sans-serif;
+  font-family: var(--font-family);
   display: flex;
   justify-content: flex-end;
   width: 90%;
@@ -110,16 +111,6 @@
   font-weight: 400;
   height: 46px;
   border-radius: 10px;
-  /* margin-right: 0; */
-}
-
-.first-name {
-}
-
-.last-name-container {
-}
-
-.last-name {
 }
 
 .username-container {
@@ -128,7 +119,7 @@
 }
 
 .username {
-  font-family: "DIN Web", "Hiragino Sans GB", STXihei, 华文细黑, "Microsoft YaHei", 微软雅黑, sans-serif;
+  font-family: var(--font-family);
   width: 100%;
   font-size: 18px;
   font-weight: 400;
@@ -142,7 +133,7 @@
 }
 
 .password {
-  font-family: "DIN Web", "Hiragino Sans GB", STXihei, 华文细黑, "Microsoft YaHei", 微软雅黑, sans-serif;
+  font-family: var(--font-family);
   width: 100%;
   font-size: 18px;
   font-weight: 400;
@@ -161,7 +152,7 @@
   background-color: rgb(35,205,153);
   border-color: rgb(35,205,153);
   border-radius: 8px;
-  font-family: "DIN Web", "Hiragino Sans GB", STXihei, 华文细黑, "Microsoft YaHei", 微软雅黑, sans-serif;
+  font-family: var(--font-family);
   font-size: 18px;
   font-style: normal;
   font-weight: bold;
@@ -186,13 +177,13 @@
 
 .signup-form-link-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   text-align: center;
-  font-family: "DIN Web", "Hiragino Sans GB", STXihei, 华文细黑, "Microsoft YaHei", 微软雅黑, sans-serif;;
+  font-family: var(--font-family);;
   color: var(--color-text);
   font-weight: bold;
-  font-size: 14px;
+  font-size: 16px;
   margin-top: 10px;
 }
 
