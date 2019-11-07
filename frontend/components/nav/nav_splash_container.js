@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom'
-import NavSplash from './nav_splash'
-import { logout, login } from '../../actions/session_actions'
+import { withRouter } from 'react-router-dom';
+import NavSplash from './nav_splash';
+import { logout } from '../../actions/session_actions';
 import { onDemo} from '../../actions/demo_actions';
 
 

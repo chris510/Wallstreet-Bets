@@ -61,7 +61,7 @@ class LoginForm extends React.Component {
       } else {
         const demoUser = this.state
         this.props.processForm(demoUser);
-        window.location.hash = "/";
+        window.location.hash = "/home";
       }
     }
     inputDemo(user);

@@ -4,6 +4,7 @@ import { AuthRoute } from '../util/route_util';
 
 import NavSplashContainer from './nav/nav_splash_container';
 import SplashContainer from './splash/splash_container'
+import HomeContainer  from "./home/home-container";
 import LoginFormContainer from './session_form/login_form_container';
 import SignUpFormContainer from './session_form/signup_form_container';
 
@@ -14,6 +15,7 @@ const App = () => (
       {/* <Route exact path="/" component={NavSplashContainer} /> */}
     </header>
     <Route exact path="/" component={SplashContainer} />
+    <Route exact path="/home" component={HomeContainer} />
     <Route path="/login" component={LoginFormContainer} />
     <Route path="/signup" component={SignUpFormContainer} />
   </div>

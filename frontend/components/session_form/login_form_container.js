@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom'
 // import SessionForm from './signup_form';
 import LoginForm from "./login_form";
-import { login } from '../../actions/session_actions';
-import { onDemo, offDemo } from "../../actions/demo_actions";
+import { login, clearErrors } from '../../actions/session_actions';
+import { offDemo } from "../../actions/demo_actions";
 
 const mapStateToProps = (state, ownProps) => ({
   errors: state.errors.session,
@@ -14,7 +14,8 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = (dispatch,) => ({
   processForm: (user) => dispatch(login(user)),
-  offDemo: (boolean) => offDemo(boolean)
+  offDemo: (boolean) => offDemo(boolean),
+  clearErrors: () => clearErrors()
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LoginForm));

@@ -50,10 +50,10 @@ class NavSplash extends React.Component {
         <div className='nav'>
               <div className="nav-left">
                 <div className="logo">
-              <a href="https://robinhood.com/" className="robinhood">
+              <a href="https://roho.herokuapp.com/" className="robinhood">
                   <h1 className="robinhood">RobinHood</h1>
                 </a>
-                  <a href="https://robinhood.com/">
+                  <a href="https://roho.herokuapp.com/">
                     <SVGIcon name="robinhood_logo" width={45} />
                   </a>
                 </div>
