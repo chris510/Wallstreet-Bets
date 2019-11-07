@@ -19,7 +19,7 @@ const receiveErrors = (errors) => ({
   errors
 });
 
-const clearErrors = () => ({
+const receiveClearErrors = () => ({
   type: CLEAR_ERRORS
 });
 
@@ -41,5 +41,5 @@ export const signup = (user) => dispatch => (
 );
 
 export const clearErrors = dispatch => (
-  dispatch(clearErrors())
+  dispatch(receiveClearErrors())
 );

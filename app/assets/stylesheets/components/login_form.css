@@ -129,7 +129,7 @@
   font-size: 18px;
   font-style: normal;
   font-weight: bold;
-  background-image: linear-gradient(to left, transparent, transparent 50%,  rgb(24,86,62) 50%, rgb(24,86,62));
+  /* background-image: linear-gradient(to left, transparent, transparent 50%,  rgb(24,86,62) 50%, rgb(24,86,62)); */
   background-position: 100% 0;
   background-size: 200% 100%;
   transition: all .25s ease-in;

@@ -50,10 +50,10 @@ class NavSplash extends React.Component {
         <div className='nav'>
               <div className="nav-left">
                 <div className="logo">
-              <a href="https://roho.herokuapp.com/" className="robinhood">
-                  <h1 className="robinhood">RobinHood</h1>
-                </a>
-                  <a href="https://roho.herokuapp.com/">
+                  <a target="_blank" href="https://roho.herokuapp.com/" className="robinhood">
+                    <h1 className="robinhood">RobinHood</h1>
+                  </a>
+                  <a target="_blank" href ="https://roho.herokuapp.com/">
                     <SVGIcon name="robinhood_logo" width={45} />
                   </a>
                 </div>
@@ -61,10 +61,10 @@ class NavSplash extends React.Component {
                   <a href="mailto:christrinh5@gmail.com">
                     <SVGIcon name="envelope" width={35} />
                   </a>
-                  <a href="https://github.com/chris510">
+                  <a target="_blank" href="https://github.com/chris510">
                     <SVGIcon name="github_1" width={30} />
                   </a>
-                  <a href="https://www.linkedin.com/in/christopher-trinh-504407104/">
+                  <a target="_blank" href="https://www.linkedin.com/in/christopher-trinh-504407104/">
                     <SVGIcon name="linkedin_1" width={30} />
                   </a> 
                 </div>
@@ -111,6 +111,13 @@ class NavSplash extends React.Component {
                 <SVGIcon name="linkedin_1" width={35} />
               </a>
             </div>
+            <div className="search-bar-container">
+              <input 
+                type="search" 
+                aria-labelledby="search-button" />
+              <button id="search-button" type="submit">Search</button>
+            </div>
+              <SVGIcon name="search" width={20} />
           </div>
           <div className='nav-right-2'>
             <div className="theme-switch-wrapper">

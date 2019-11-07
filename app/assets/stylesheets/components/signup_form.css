@@ -15,7 +15,6 @@
   width: 70%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   align-items: center;
   border-radius: 12px;
 }
@@ -25,98 +24,102 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  margin-top: 30px;
-  margin-bottom: 50px;
+  justify-content: center;
+  align-items: center;
 }
 
 .signup-section-2 {
   height: 40%;
-  width: 70%;
+  width: 80%;
+  display: flex;
   justify-content: center;
-  align-items: center;
-  margin-bottom: 100px;
-  margin-top: -65px;
-  padding: 5px;
 }
 
 .signup-form-box {
-  display: block;
-  justify-content: center;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.signup-form-box > div {
+  margin: 10px;
 }
 
 .signup-text-1 {
   font-family: var(--font-family);
   font-weight: bold;
-  font-size: 64px;
+  font-size: 56px;
   color: var(--color-text);
-  width: 100%;
+  width: %75;
   display: flex;
-  align-items: center;
   justify-content: center;
-  margin-bottom: 50px;
+  align-items: center;
 }
 
 .signup-text-2 {
   font-family: var(--font-family);
   color: var(--color-text);
-  width: inherit;
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
-  margin-top: -75px;
+  padding: 10px;
 }
 
 .signup-text-2 :first-child {
   font-size: 24px;
   width: 60%;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 5px;
 }
 
 .signup-text-2 :last-child {
   font-size: 24px;
   width: 60%;
-  align-items: center;
-  justify-content: center;
-  margin-top: 5px;
 }
 
 .full-name-container {
   display: flex;
   justify-content: space-between;
-  width: 100%;
-  padding: 10px;
+  box-sizing: border-box;
+}
+
+.full-name-container > div {
+
 }
 
 .full-name-container :first-child {
+  /* font-family: var(--font-family);
+  font-size: 18px;
+  font-weight: 400;
+  height: 46px;
+  border-radius: 10px; */
   font-family: var(--font-family);
-  display: flex;
-  justify-content: flex-start;
-  width: 90%;
+  /* width: 200px; */
+  width: 100%;
   font-size: 18px;
   font-weight: 400;
   height: 46px;
   border-radius: 10px;
+  /* padding-left: 10px; */
 }
 
 .full-name-container :last-child {
-  font-family: var(--font-family);
+  /* font-family: var(--font-family);
   display: flex;
   justify-content: flex-end;
-  width: 90%;
+  font-size: 18px;
+  font-weight: 400;
+  height: 46px;
+  border-radius: 10px; */
+  font-family: var(--font-family);
+  /* width: 200px; */
+  width: 100%;
   font-size: 18px;
   font-weight: 400;
   height: 46px;
   border-radius: 10px;
+  /* padding-right: 10px; */
 }
 
 .username-container {
-  width: 100%;
-  padding: 5px;
 }
 
 .username {
@@ -129,8 +132,6 @@
 }
 
 .password-container {
-  width: 100%;
-  padding: 5px;
 }
 
 .password {
@@ -143,8 +144,6 @@
 }
 
 .submit-container {
-  width: 100%;
-  padding: 5px;
 }
 
 .signup-submit {
@@ -157,11 +156,10 @@
   font-size: 18px;
   font-style: normal;
   font-weight: bold;
-  background-image: linear-gradient(to left, transparent, transparent 50%,  rgb(24,86,62) 50%, rgb(24,86,62));
+  /* background-image: linear-gradient(to left, transparent, transparent 50%,  rgb(24,86,62) 50%, rgb(24,86,62)); */
   background-position: 100% 0;
   background-size: 200% 100%;
   transition: all .25s ease-in;
-  margin-top: 10px;
 }
 
 .signup-submit:hover {
@@ -183,7 +181,6 @@
   color: var(--color-text);
   font-weight: bold;
   font-size: 16px;
-  margin-top: 10px;
 }
 
 .signup-form-link-container :first-child {
