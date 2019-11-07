@@ -9,7 +9,7 @@ import { onDemo, offDemo } from "../../actions/demo_actions";
 const mapStateToProps = (state, ownProps) => ({
   errors: state.errors.session,
   ui: state.ui.demoUser,
-  formType: 'Log In'
+  formType: 'Sign In'
 })
 
 const mapDispatchToProps = (dispatch,) => ({

@@ -177,9 +177,7 @@
 
 .signup-form-link-container {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
-  text-align: center;
+  justify-content: center;
   font-family: var(--font-family);;
   color: var(--color-text);
   font-weight: bold;
@@ -187,8 +185,13 @@
   margin-top: 10px;
 }
 
+.signup-form-link-container :first-child {
+  padding-right: 3px;
+}
+
 .signup-form-link-container :last-child {
   color: rgb(35,205,153);
+  padding-left: 3px;
 }
 
 .signup-form-link-1:hover {

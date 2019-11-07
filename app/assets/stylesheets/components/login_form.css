@@ -93,11 +93,14 @@
 .login-text-5 {
   font-family: var(--font-family);
   color: var(--color-text);
+  padding-right: 3px;
 }
 
 .login-text-6 {
   font-family: var(--font-family);
   color: var(--color-text);
+  font-weight: bold;
+  padding-left: 3px;
 }
 
 .signup-form-link-1 {
@@ -107,7 +110,7 @@
 
 .login-form-link-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .submit-container {

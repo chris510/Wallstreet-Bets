@@ -12,6 +12,7 @@ class LoginForm extends React.Component {
     this.update = this.update.bind(this);
     this.handleDemo = this.handleDemo.bind(this);
     this.loginDemo = this.loginDemo.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -82,6 +83,12 @@ class LoginForm extends React.Component {
     return e => this.setState({
       [field]: e.currentTarget.value
     });
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    const user = Object.assign({}, this.state);
+    this.props.processForm(user);
   }
 
   render() {
