@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import NewsIndexItem from './news-index-item';
 
 class Home extends React.Component {
   constructor(props) {
@@ -8,10 +9,13 @@ class Home extends React.Component {
 
   componentDidMount() {
     this.props.fetchStocks();
+    this.props.fetchNews();
+    // debugger
   }
 
   render() {
-    const { stocks } = this.props 
+    const { stocks, news } = this.props 
+    // debugger
     const stock = stocks.map( stock => {
       return (
         <div className="stocks-owned">
@@ -19,14 +23,36 @@ class Home extends React.Component {
         </div>
       )
     })
+
+    // const singleNews = news.map( oneNews => {
+    //   return (
+    //     <div>
+    //       {oneNews}
+    //     </div>
+    //   )
+    // })
+
     return (
       <div className="home">
         <div className="home-container-1">
           <div className="portfolio-chart">
-
           </div>
-          <div className="news">
-
+          <div className="news-container">
+            <div className="index-title">
+              News Index
+            </div>
+            {news.map( singleNews => {
+              return (
+                <div className="news-index-item">
+                  <NewsIndexItem
+                    url={singleNews.url}
+                    title={singleNews.title}
+                    description={singleNews.description}
+                    image={singleNews.urlToImage}
+                  />
+                </div>
+              )
+            })}
           </div>
         </div>
         <div className="home-container-2">

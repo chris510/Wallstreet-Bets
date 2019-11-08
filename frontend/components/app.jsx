@@ -1,4 +1,4 @@
-import { SOME_KEY, AV_API_KEY } from 'react-native-dotenv';
+import { AV_API_KEY } from 'react-native-dotenv';
 
 import React from 'react';
 import { Route } from 'react-router-dom';
@@ -10,10 +10,12 @@ import HomeContainer  from "./home/home-container";
 import LoginFormContainer from './session_form/login_form_container';
 import SignUpFormContainer from './session_form/signup_form_container';
 
-import { fetchStocks } from '../actions/stock_actions'
+import { fetchStocks } from '../actions/stock_actions';
+import { fetchNews } from '../actions/news_actions';
 import { doAjax } from '../util/stock_api_util';
 
 window.fetchStocks = fetchStocks;
+window.fetchNews = fetchNews;
 window.doAjax = doAjax;
 
 

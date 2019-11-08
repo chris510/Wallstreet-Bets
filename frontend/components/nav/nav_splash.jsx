@@ -51,7 +51,7 @@ class NavSplash extends React.Component {
               <div className="nav-left">
                 <div className="logo">
                   <a target="_blank" href="https://roho.herokuapp.com/" className="robinhood">
-                    <h1 className="robinhood">RobinHood</h1>
+                    <h1 className="robinhood">WallStreetBets</h1>
                   </a>
                   <a target="_blank" href ="https://roho.herokuapp.com/">
                     <SVGIcon name="robinhood_logo" width={45} />

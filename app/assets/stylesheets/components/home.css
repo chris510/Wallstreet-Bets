@@ -18,7 +18,7 @@
 }
 
 .portfolio-chart {
-  height: 30%;
+  height: 20%;
   width: 75%;
   background-color: lightgreen;
 }
@@ -39,6 +39,8 @@
 }
 
 .watchlist-container {
+  /* position: fixed;
+  z-index: 1; */
   height: 80%;
   width: 65%;
   background-color: lightgray;
@@ -67,4 +69,30 @@
   height: 60%;
   background-color: black;
   border-radius: inherit;
+}
+
+.portfolio-chart {
+  min-height: 40%;
+}
+
+.news-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.article-info {
+  width: 30%;
+}
+
+.news-item {
+  display: flex;
+  justify-content: center;
+
+}
+
+.article-img {
+  max-width: 30%;
+  max-height: 140px;
 }
