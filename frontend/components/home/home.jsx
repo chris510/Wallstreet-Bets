@@ -14,9 +14,8 @@ class Home extends React.Component {
     const { stocks } = this.props 
     const stock = stocks.map( stock => {
       return (
-        <div>
+        <div className="stocks-owned">
           <li>{stock.name}</li>
-          <li>{stock.symbol}</li>
         </div>
       )
     })
@@ -25,15 +24,22 @@ class Home extends React.Component {
         <div className="home-container-1">
           <div className="portfolio-chart">
 
-            {stock}
           </div>
           <div className="news">
 
           </div>
         </div>
         <div className="home-container-2">
-          <div className="watchlist">
-            WATCHLIST
+          <div className="watchlist-container">
+            <div className="stocks-owned-container">
+            <div className="stock-list-header">
+              Stocks
+            </div> 
+              {stock}
+            <div className="watchlist-header">
+              WatchList
+            </div>
+            </div>
           </div>
         </div>
       </div>

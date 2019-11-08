@@ -17,7 +17,6 @@
   justify-content: space-around;
 }
 
-
 .portfolio-chart {
   height: 30%;
   width: 75%;
@@ -39,8 +38,33 @@
   align-items: center;
 }
 
-.watchlist {
+.watchlist-container {
   height: 80%;
-  width: 80%;
+  width: 65%;
   background-color: lightgray;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 10px;
+}
+
+.stocks-owned-container {
+  height: 30%;
+  width: 100%;
+  background-color: yellow;
+  border-radius: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.stocks-owned {
+  padding: 2px;
+}
+
+.watchlist {
+  height: 60%;
+  background-color: black;
+  border-radius: inherit;
 }
