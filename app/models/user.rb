@@ -7,7 +7,8 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
-  # Class method for finding a user ONLY if we have the correct username and password
+  has_many :orders
+
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
     user && user.is_password?(password) ? user : nil

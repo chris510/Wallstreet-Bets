@@ -5,6 +5,7 @@
     "@babel/core": "^7.6.4",
     "@babel/preset-env": "^7.6.3",
     "@babel/preset-react": "^7.6.3",
+    "alphavantage": "^2.0.0",
     "babel-loader": "^8.0.6",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
@@ -46,8 +47,10 @@
   },
   "homepage": "https://github.com/chris510/robinhood---RobinhHood-Clone#readme",
   "devDependencies": {
+    "dotenv": "^8.2.0",
     "file-loader": "^4.2.0",
     "html-loader": "^0.5.5",
+    "react-native-dotenv": "^0.2.0",
     "url-loader": "^2.2.0"
   }
 }

@@ -29,7 +29,7 @@ class LoginForm extends React.Component {
 
   handleDemo() {
     this.props.offDemo({ demoUser: false });
-    const demo = { username: 'chris123', password: 'hello123' };
+    const demo = { username: 'Demo_User', password: 'password123' };
     const username = demo.username;
     const password = demo.password;
     this.loginDemo(username, password);

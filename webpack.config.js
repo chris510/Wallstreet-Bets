@@ -33,7 +33,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           query: {
-            presets: ['@babel/env', '@babel/react']
+            presets: ['@babel/env', '@babel/react', 'module:react-native-dotenv']
           }
         },
       }
