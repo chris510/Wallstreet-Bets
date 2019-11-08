@@ -57,21 +57,16 @@ class Home extends React.Component {
           </div>
         </div>
         <div className="home-container-2">
-          <div className="watchlist-container">
-            <div className="stocks-owned-container">
-            <div className="stock-list-header">
-              Stocks
-            </div> 
-              {stock}
-            <div className="watchlist-header">
-              WatchList
+            <div className="stocks-dashboard-container">
+              <div className="stock-dashboard">
+                Stocks
+                {stock}
+              </div> 
             </div>
-            </div>
-          </div>
         </div>
       </div>
     )
   }
 }
 
-export default Home
+export default Home;

@@ -9,7 +9,7 @@
 
 .home-container-1 {
   height: 100%;
-  width: 65%;
+  width: 80%;
   background-color: lightblue;
   display: flex;
   flex-direction: column;
@@ -22,12 +22,13 @@
   width: 35%;
   background-color: skyblue;
   display: flex;
-  justify-content: center;
-  padding: 20px;
-  /* align-items: center; */
+  /* flex-direction: column; */
+  justify-content: space-around;
+  /* align-items: flex-end; */
+  /* padding: 20px; */
 }
 
-.watchlist-container {
+.stocks-dashboard-container {
   /* position: fixed;
   z-index: 1; */
   height: 80%;
@@ -35,11 +36,15 @@
   background-color: lightgray;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   border-radius: 10px;
+  /* padding: 10px; */
+  margin-top: 20px;
+  /* padding-top: 20px; */
 }
 
-.stocks-owned-container {
+/* .stocks-dashboard-container {
+
   height: 30%;
   width: 100%;
   background-color: yellow;
@@ -48,10 +53,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
+} */
 
-.stocks-owned {
+.stocks-dashboard {
   padding: 2px;
+
 }
 
 .watchlist {
@@ -62,7 +68,7 @@
 
 .portfolio-chart {
   height: 400px;
-  width: 75%;
+  width: 85%;
   display: flex;
   background-color: lightgreen;
 }
