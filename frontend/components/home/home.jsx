@@ -38,14 +38,15 @@ class Home extends React.Component {
           <div className="portfolio-chart">
           </div>
           <div className="news-container">
-            <div className="index-title">
-              News Index
-            </div>
+              <div className="index-title">
+                Recent News
+              </div>
             {news.map( singleNews => {
               return (
                 <div className="news-index-item">
                   <NewsIndexItem
                     url={singleNews.url}
+                    source={singleNews.source.name}
                     title={singleNews.title}
                     description={singleNews.description}
                     image={singleNews.urlToImage}

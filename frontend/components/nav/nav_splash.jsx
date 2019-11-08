@@ -50,8 +50,8 @@ class NavSplash extends React.Component {
         <div className='nav'>
               <div className="nav-left">
                 <div className="logo">
-                  <a target="_blank" href="https://roho.herokuapp.com/" className="robinhood">
-                    <h1 className="robinhood">WallStreetBets</h1>
+                  <a target="_blank" href="https://roho.herokuapp.com/" className="nav-title">
+                    <h1 className="nav-title">WallStreetBets</h1>
                   </a>
                   <a target="_blank" href ="https://roho.herokuapp.com/">
                     <SVGIcon name="robinhood_logo" width={45} />
@@ -93,8 +93,8 @@ class NavSplash extends React.Component {
         <div className="nav">
           <div className="nav-left">
             <div className="logo">
-              <a href="https://robinhood.com/" className="robinhood">
-                <h1 className="robinhood">RobinHood</h1>
+              <a href="https://robinhood.com/" className="nav-title">
+                <h1 className="nav-title">WallStreetBets</h1>
               </a>
               <a href="https://robinhood.com/">
                 <SVGIcon name="robinhood_logo" width={45} />

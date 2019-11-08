@@ -1,18 +1,18 @@
 .nav {
-display: flex;
-position: fixed;
-justify-content: space-between;
-background-color: var(--bg);
-align-content: center;
-overflow: hidden;
-top: 0;
-left: 0;
-width: 100%;
-height: 75px;
-z-index: 1;
-box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1), 
-            0 0  0 2px var(--bg),
-            0.3em 0.3em 1em rgba(0,0,0,0.3);
+  display: flex;
+  position: fixed;
+  justify-content: space-between;
+  background-color: var(--bg);
+  align-content: center;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 75px;
+  z-index: 1;
+  box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1), 
+              0 0  0 2px var(--bg),
+              0.3em 0.3em 1em rgba(0,0,0,0.3);
 /* box-shadow: 1px 2px 5px 2px rgba(0,0,0,.2); */
 }
 
@@ -64,7 +64,7 @@ box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1),
   opacity: 1;
 }
 
-.robinhood {
+.nav-title {
   display: flex;
   text-decoration: none;
   align-items: center;
@@ -73,11 +73,11 @@ box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1),
   color: var(--color-text)
 }
 
-.robinhood h1 {
+.nav-title h1 {
   text-decoration: none;
 } 
 
-.robinhood:hover {
+.nav-title:hover {
   color: rgb(35,205,153);
   cursor: pointer;
 }

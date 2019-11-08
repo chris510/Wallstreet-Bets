@@ -1,11 +1,12 @@
 import React from 'react';
 
-const NewsIndexItem = ({ url, title, description, image  }) => {
+const NewsIndexItem = ({ url, source, title, description, image  }) => {
   return (
-      <a href={url} className="news-item-link">
+      <a target="_blank" href={url} className="news-item-link">
         <div className="article-info">
+          <h2>{source}</h2>
           <h5>{title}</h5>
-          <h6>{description}</h6>
+          <p>{description}</p>
         </div>
         <img className="article-img"src={image} alt={title}/>
       </a>
