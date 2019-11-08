@@ -1,4 +1,46 @@
 .home {
+  height: 100%;
+  width: 100%;
   margin-top: 85px;
   background-color: var(--bg);
+  display: flex;
+  margin-top: 78px;
+}
+
+.home-container-1 {
+  height: 100%;
+  width: 65%;
+  background-color: lightblue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+
+.portfolio-chart {
+  height: 30%;
+  width: 75%;
+  background-color: lightgreen;
+}
+
+.news {
+  height: 60%;
+  width: 75%;
+  background-color: lightyellow;
+}
+
+.home-container-2 {
+  height: 100%;
+  width: 35%;
+  background-color: skyblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.watchlist {
+  height: 80%;
+  width: 80%;
+  background-color: lightgray;
 }

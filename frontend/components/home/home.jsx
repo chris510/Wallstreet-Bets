@@ -6,11 +6,35 @@ class Home extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    this.props.fetchStocks();
+  }
+
   render() {
+    const { stocks } = this.props 
+    const stock = stocks.map( stock => {
+      return (
+        <div>
+          <li>{stock.name}</li>
+          <li>{stock.symbol}</li>
+        </div>
+      )
+    })
     return (
       <div className="home">
         <div className="home-container-1">
-          THIS IS THE home PAGE
+          <div className="portfolio-chart">
+
+            {stock}
+          </div>
+          <div className="news">
+
+          </div>
+        </div>
+        <div className="home-container-2">
+          <div className="watchlist">
+            WATCHLIST
+          </div>
         </div>
       </div>
     )
