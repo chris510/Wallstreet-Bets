@@ -7,7 +7,13 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
-  has_many :orders
+  has_many :orders,
+    foreign_key: :user_id,
+    class_name: :Order
+
+  has_many :stocks,
+    through: :orders,
+    source: :stock
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)

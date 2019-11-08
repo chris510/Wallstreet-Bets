@@ -5,6 +5,11 @@ class Order < ApplicationRecord
   validates :shares, presence: true
   validates :order_type, presence: true, inclusion: { in: ['buy', 'sell'] }
 
-  belongs_to :user
-  belongs_to :stock
+  belongs_to :user,
+    foreign_key: :user_id,
+    class_name: :User
+
+  belongs_to :stock,
+    foreign_key: :stock_id,
+    class_name: :Stock
 end

@@ -1,7 +1,7 @@
 class Api::OrdersController < ApplicationController
 
   def index
-    @orders = current_user.orders
+    @orders = current_user.orders.includes(:user)
   end
 
   def show

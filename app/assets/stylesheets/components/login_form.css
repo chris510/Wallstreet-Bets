@@ -41,7 +41,7 @@
 .login-username {
   background-color: rgb(240,240,240);
   font-family: var(--font-family);
-  color: var(--color-text);
+  /* color: var(--color-text); */
   height: 40px;
   border-radius: 8px;
 }
@@ -53,7 +53,7 @@
 .login-password {
   background-color: rgb(240,240,240);
   font-family: var(--font-family);
-  color: var(--color-text);
+  /* color: var(--color-text); */
   height: 40px;
   border-radius: 8px;
 }

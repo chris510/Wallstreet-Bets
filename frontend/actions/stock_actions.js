@@ -12,14 +12,14 @@ const receiveStock = stock => ({
   stock
 });
 
-const receiveStocks = stocks => ({
+const receiveStocks = payload => ({
   type: RECEIVE_STOCKS,
-  stocks
+  payload
 });
 
 export const fetchStocks = () => dispatch => (
-  StockAPIUtil.fetchStocks()
-    .then( stocks => dispatch(receiveStocks(stocks)))
+  StockAPIUtil.fetchPayload()
+    .then( payload => dispatch(receiveStocks(payload)))
 );
 
 // export const fetchStock = symbol => dispatch => (

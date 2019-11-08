@@ -19,7 +19,7 @@ ActiveRecord::Base.transaction do
   guardant_health = Stock.create({name: "Guardant Health", symbol: "GH"})
   tesla = Stock.create({name: "Tesla", symbol: "TSLA"})
   # amazon = Stock.create({name: "Amazon", symbol: "AMZN"})
-  # shopify = Stock.create({name: "Shopify", symbol: "SHOP"})
+  # shopify = Stock.cretate({name: "Shopify", symbol: "SHOP"})
   # google = Stock.create({name: "Google", symbol: "GOOG"})
   # microsoft = Stock.create({name: "Microsoft", symbol:"MSFT"})
 

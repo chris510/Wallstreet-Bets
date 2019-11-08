@@ -15,6 +15,7 @@ html {
     --fill: black;
     --splash-bg: rgb(247,248,252);
     --shadow: rgb(255,255,255);
+    --news-box-hover: rgb(240,240,240);
 }
 
 html[data-theme='dark'] {
@@ -27,6 +28,7 @@ html[data-theme='dark'] {
     --fill: #FCFCFC;
     --opacity: 0;
     --splash-bg: #333333;
+    --news-box-hover: #434343;
     
 }
 

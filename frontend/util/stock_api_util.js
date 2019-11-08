@@ -1,7 +1,7 @@
 import { IEX_API_KEY , AV_API_KEY } from 'react-native-dotenv';
 
 
-export const fetchStocks = () => (
+export const fetchPayload = () => (
   $.ajax({
     method: 'GET',
     url: '/api/stocks'
