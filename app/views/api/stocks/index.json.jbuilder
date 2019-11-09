@@ -1,4 +1,3 @@
-
 @stocks.each do |stock|
 
   json.stock do

@@ -28,7 +28,7 @@ class LoginForm extends React.Component {
   }
 
   handleDemo() {
-    this.props.offDemo({ demoUser: false });
+    this.props.removeDemoState({ demoUser: false });
     const demo = { username: 'Demo_User', password: 'password123' };
     const username = demo.username;
     const password = demo.password;

@@ -5,7 +5,9 @@ const ordersReducer = ( oldState = {}, action ) => {
   switch (action.type) {
     case RECEIVE_STOCKS:
       // return Object.assign({}, oldState, { [action.stocks.order.user_id]: action.stocks.orders })
-      return action.payload.order;
+      // debugger
+      // return { [action.payload.order.user_id]: action.payload.order};
+      return action.payload.order
     default:
       return oldState
   }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import NewsIndexItem from './news-index-item';
+import NewsIndexItem from './news_index_item';
+import StockIndexItem from './stock_index_item';
 
 class Home extends React.Component {
   constructor(props) {
@@ -13,16 +14,18 @@ class Home extends React.Component {
     // debugger
   }
 
+  
+
   render() {
-    const { stocks, news } = this.props 
+    const { stocks, news, orders } = this.props 
     // debugger
-    const stock = stocks.map( stock => {
-      return (
-        <div className="stocks-owned">
-          <li>{stock.name}</li>
-        </div>
-      )
-    })
+    // const stock = stocks.map( stock => {
+    //   return (
+    //     <div className="stocks-owned">
+    //       <li>{stock.name}</li>
+    //     </div>
+    //   )
+    // })
 
     // const singleNews = news.map( oneNews => {
     //   return (
@@ -45,6 +48,7 @@ class Home extends React.Component {
               return (
                 <div className="news-index-item">
                   <NewsIndexItem
+                    key={singleNews.id}
                     url={singleNews.url}
                     source={singleNews.source.name}
                     title={singleNews.title}
@@ -59,8 +63,20 @@ class Home extends React.Component {
         <div className="home-container-2">
             <div className="stocks-dashboard-container">
               <div className="stock-dashboard">
-                Stocks
-                {stock}
+                <div className="stocks-owned-title">
+                  Stocks
+                </div>
+                {stocks.map( stock => {
+                  return (
+                    <div className="stocks-index-item-container">
+                      <StockIndexItem
+                        key={stock.id}
+                        symbol={stock.symbol}
+                        orders
+                      />
+                    </div>
+                  )
+                })}
               </div> 
             </div>
         </div>

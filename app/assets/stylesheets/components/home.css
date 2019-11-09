@@ -9,7 +9,7 @@
 
 .home-container-1 {
   height: 100%;
-  width: 80%;
+  width: 60%;
   background-color: lightblue;
   display: flex;
   flex-direction: column;
@@ -19,7 +19,7 @@
 
 .home-container-2 {
   height: 100%;
-  width: 35%;
+  width: 40%;
   background-color: skyblue;
   display: flex;
   /* flex-direction: column; */

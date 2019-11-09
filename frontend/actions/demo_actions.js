@@ -1,20 +1,20 @@
-export const RECEIVE_DEMO = 'RECEIVE_DEMO';
-export const REMOVE_DEMO = 'REMOVE_DEMO';
+export const RECEIVE_DEMO_STATE = 'RECEIVE_DEMO';
+export const REMOVE_DEMO_STATE = 'REMOVE_DEMO';
 
 const receiveDemo = (demoUser) => ({
-  type: RECEIVE_DEMO,
+  type: RECEIVE_DEMO_STATE,
   demoUser
 });
 
 const removeDemo = (demoUser) => ({
-  type: REMOVE_DEMO,
+  type: REMOVE_DEMO_STATE,
   demoUser
 })
 
-export const onDemo = (demoUser) => (
+export const addDemoState = (demoUser) => (
   dispatch(receiveDemo(demoUser))
 );
 
-export const offDemo = (demoUser) => (
+export const removeDemoState = (demoUser) => (
   dispatch(removeDemo(demoUser))
 );

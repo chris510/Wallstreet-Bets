@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom'
 // import SessionForm from './signup_form';
 import LoginForm from "./login_form";
 import { login, clearErrors } from '../../actions/session_actions';
-import { offDemo } from "../../actions/demo_actions";
+import { removeDemoState } from "../../actions/demo_actions";
 
 const mapStateToProps = (state, ownProps) => ({
   errors: state.errors.session,
@@ -12,9 +12,9 @@ const mapStateToProps = (state, ownProps) => ({
   formType: 'Sign In'
 })
 
-const mapDispatchToProps = (dispatch,) => ({
+const mapDispatchToProps = (dispatch) => ({
   processForm: (user) => dispatch(login(user)),
-  offDemo: (boolean) => offDemo(boolean),
+  removeDemoState: (boolean) => removeDemoState(boolean),
   clearErrors: () => clearErrors()
 })
 

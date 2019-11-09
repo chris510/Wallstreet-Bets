@@ -7,9 +7,8 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
-  has_many :orders,
-    foreign_key: :user_id,
-    class_name: :Order
+  has_many :orders
+  has_one :portfolio
 
   has_many :stocks,
     through: :orders,

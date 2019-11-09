@@ -6,17 +6,15 @@ import { AuthRoute } from '../util/route_util';
 
 import NavSplashContainer from './nav/nav_splash_container';
 import SplashContainer from './splash/splash_container'
-import HomeContainer  from "./home/home-container";
+import HomeContainer  from "./home/home_container";
 import LoginFormContainer from './session_form/login_form_container';
 import SignUpFormContainer from './session_form/signup_form_container';
 
 import { fetchStocks } from '../actions/stock_actions';
 import { fetchNews } from '../actions/news_actions';
-import { doAjax } from '../util/stock_api_util';
 
 window.fetchStocks = fetchStocks;
 window.fetchNews = fetchNews;
-window.doAjax = doAjax;
 
 
 // console.log(process.env.REACT_APP_AV_API_KEY);
