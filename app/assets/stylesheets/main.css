@@ -62,3 +62,7 @@ html.transition *:after {
 .password-container [type=password] {
   color: black;
 }
+
+a, a:active, a:focus {
+  outline: none;
+}

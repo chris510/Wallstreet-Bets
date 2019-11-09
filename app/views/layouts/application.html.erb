@@ -14,6 +14,15 @@
     
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Abel|Dosis|Raleway&display=swap" rel="stylesheet">
+    <script type="text/javascript">
+      window.newsAPIKey = "<%= Rails.application.credentials.news[:api_key] %>"
+    </script>
+    <script type="text/javascript">
+      window.iexAPIKey = "<%= Rails.application.credentials.iex[:api_key] %>"
+    </script>
+    <script type="text/javascript">
+      window.avAPIKey = "<%= Rails.application.credentials.alpha_vantage[:api_key] %>"
+    </script>
   </head>
   <body>
     <%= yield %>

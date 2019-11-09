@@ -11,30 +11,13 @@ class Home extends React.Component {
   componentDidMount() {
     this.props.fetchStocks();
     this.props.fetchNews();
-    // debugger
   }
 
   
 
   render() {
     const { stocks, news, orders } = this.props 
-    // debugger
-    // const stock = stocks.map( stock => {
-    //   return (
-    //     <div className="stocks-owned">
-    //       <li>{stock.name}</li>
-    //     </div>
-    //   )
-    // })
-
-    // const singleNews = news.map( oneNews => {
-    //   return (
-    //     <div>
-    //       {oneNews}
-    //     </div>
-    //   )
-    // })
-
+    
     return (
       <div className="home">
         <div className="home-container-1">

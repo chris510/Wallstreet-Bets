@@ -1,4 +1,4 @@
-import { AV_API_KEY } from 'react-native-dotenv';
+
 
 import React from 'react';
 import { Route } from 'react-router-dom';
@@ -17,10 +17,9 @@ window.fetchStocks = fetchStocks;
 window.fetchNews = fetchNews;
 
 
-// console.log(process.env.REACT_APP_AV_API_KEY);
+// console.log(process.env.REACT_APP_NEWS_API_KEY_REACT_APP_NEWS_API_KEY_AV_API_KEY);
 // console.log(process.env);
 // console.log(SOME_KEY);
-console.log(AV_API_KEY);
 
 const App = () => (
   <div className="main-div">

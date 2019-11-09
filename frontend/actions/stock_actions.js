@@ -1,11 +1,8 @@
 import * as StockAPIUtil from '../util/stock_api_util';
 
-// import { SOME_KEY, AV_API_KEY } from 'react-native-dotenv';
-
 export const RECEIVE_STOCK = 'RECEIVE_STOCK';
 export const RECEIVE_STOCKS = 'RECEIVE_STOCKS'
 
-// const alpha = require('alphavantage')({ key: `${AV_API_KEY}` });
 
 const receiveStock = stock => ({
   type: RECEIVE_STOCK,

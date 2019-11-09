@@ -50,7 +50,6 @@
     "dotenv": "^8.2.0",
     "file-loader": "^4.2.0",
     "html-loader": "^0.5.5",
-    "react-native-dotenv": "^0.2.0",
     "url-loader": "^2.2.0"
   }
 }
