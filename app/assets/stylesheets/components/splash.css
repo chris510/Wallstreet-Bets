@@ -44,6 +44,7 @@
 }
 
 .splash-part-3 {
+  background-color: var(--splash-bg);
   display: flex;
   flex-direction: column;
   align-items: center;

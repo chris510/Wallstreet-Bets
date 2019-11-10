@@ -12,6 +12,13 @@ export const fetchStock = symbol => (
   })
 );
 
+export const fetchStockIntradayData = symbol => (
+  $.ajax({
+    method: 'GET',
+    url: `https://cloud.iexapis.com/stable/stock/${symbol}/batch?&types=quote,chart&range=1D&chartInterval=5&token=${window.iexAPIKey}`
+  })
+)
+
 export const fetchStockInfo = symbol => (
   $.ajax({
     method: 'GET',

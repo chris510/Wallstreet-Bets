@@ -3,6 +3,7 @@ import * as StockAPIUtil from '../util/stock_api_util';
 export const RECEIVE_STOCK = 'RECEIVE_STOCK';
 export const RECEIVE_STOCKS = 'RECEIVE_STOCKS';
 
+export const RECEIVE_STOCK_INTRADAY_DATA = 'RECEIVE_STOCK_INTRADAY_DATA'
 export const RECEIVE_STOCK_INFO = 'RECEIVE_STOCK_INFO';
 export const RECEIVE_STOCK_NEWS = 'RECEIVE_STOCK_NEWS';
 
@@ -17,6 +18,12 @@ const receiveStocks = payload => ({
   payload
 });
 
+const receive_stockIntradayData = (symbol, intradayData) => ({
+  type: RECEIVE_STOCK_INTRADAY_DATA,
+  intradayData,
+  symbol
+})
+
 const receiveStockInfo = (symbol, info) => ({
   type: RECEIVE_STOCK_INFO,
   info,
@@ -25,8 +32,8 @@ const receiveStockInfo = (symbol, info) => ({
 
 const receiveStockNews = (symbol, news) => ({
   type: RECEIVE_STOCK_NEWS,
-  symbol,
-  news
+  news,
+  symbol
 })
 
 export const fetchStocks = () => dispatch => (
@@ -44,14 +51,11 @@ export const fetchStock = symbol => dispatch => {
     .then(stock => dispatch(receiveStock(stock)))
     .then(doFetches)
 };
-  // const performFetches = () => Promise.all([
-  //   dispatch(fetchStockInfo(symbol)),
-  //   dispatch(fetchStockNews(symbol))
-  // ]);
 
-  // StockAPIUtil.fetchStock(symbol)
-  //   .then(stock => dispatch(receiveStock(stock)))
-  //   .then(performFetches());
+export const fetchStockIntradayData = symbol => dispatch => (
+  StockAPIUtil.fetchStockIntradayData(symbol)
+    .then( intradayData => dispatch(receive_stockIntradayData(symbol, intradayData)))
+);
 
 export const fetchStockInfo = symbol => dispatch => (
   StockAPIUtil.fetchStockInfo(symbol)

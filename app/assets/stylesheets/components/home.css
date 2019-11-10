@@ -10,7 +10,7 @@
 .home-container-1 {
   height: 100%;
   width: 60%;
-  background-color: lightblue;
+  background-color: var(--bg);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,7 +20,7 @@
 .home-container-2 {
   height: 100%;
   width: 40%;
-  background-color: skyblue;
+  background-color: var(--bg);
   display: flex;
   /* flex-direction: column; */
   justify-content: space-around;
@@ -43,8 +43,8 @@
   /* padding-top: 20px; */
 }
 
-/* .stocks-dashboard-container {
-
+.stocks-dashboard-container {
+/* 
   height: 30%;
   width: 100%;
   background-color: yellow;
@@ -52,11 +52,20 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-} */
+  align-items: center; */
+  background-color: var(--bg);
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center;
+  align-items: center; */
+  box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.01),
+              0 3px 24px rgba(0, 0, 0, 0.6);
+  border-radius: 4px;
+
+}
 
 .stocks-dashboard {
-  padding: 2px;
+  background-color: var(--bg);
 }
 
 .watchlist {
@@ -66,9 +75,82 @@
 }
 
 .portfolio-chart {
-  height: 400px;
-  width: 70%;
+  min-height: 500px;
+  width: 90%;
   display: flex;
   background-color: lightgreen;
+}
+
+.stocks-index-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.stocks-owned-title, .stocks-watched-title {
+  width: 100%;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: var(--font-family);
+  color: var(--color-text);
+  padding: 20px 0px 20px 0px;
+  padding-bottom: 20px;
+  margin-bottom: 10px;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: center;
+}
+
+.stock-index {
+  display: flex;
+}
+
+.stock-index > div {
+  padding: 20px;
+}
+
+.stock-index-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.stock-index-left > div {
+  padding: 5px;
+}
+
+.stock-index {
+  display: flex;
+  justify-content: space-around;
+}
+
+.stock-index-symbol {
+  color: var(--color-text);
+  font-weight: bold;
+}
+
+.stock-index-shares {
+  color: var(--color-text);
+  display: flex;
+  text-align: center;
+  /* font-weight: bold; */
+}
+
+.stock-index-chart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stock-index-current-price {
+  font-size: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-text);
+  font-weight: bold;
 }
 

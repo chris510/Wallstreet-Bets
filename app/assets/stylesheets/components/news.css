@@ -6,14 +6,16 @@
 }
 
 .news-container {
-  width: 70%;
+  width: 90%;
   /* padding-top: 45px; */
   background-color: var(--bg);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-shadow: 2px 2px 6px 2px var(--color);
+  /* box-shadow: 2px 2px 6px 2px var(--color); */
+  box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.01),
+              0 3px 24px rgba(0, 0, 0, 0.6);
   border-radius: 4px;
 }
 

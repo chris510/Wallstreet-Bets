@@ -28,15 +28,20 @@ class Home extends React.Component {
       <div className="stock-index-container">
         {symbols.map( (symbol, i) => {
           return (
-            <div className="stock-index" key={i}>
-              <div className="stock-index-symbol" key={i}>
-                {symbol}
+            <div className="stock-index">
+              <div className="stock-index-left">
+                <div className="stock-index-symbol" key={i}>
+                  {symbol}
+                </div>
+                <div className="stock-index-shares">
+                  {this.props.orders[symbol].shares} shares
+                </div>
               </div>
-              <div className="stock-index-shares">
-                {this.props.orders[symbol].shares}
+              <div className="stock-index-chart">
+                CHART HERE
               </div>
               <div className="stock-index-current-price">
-                62
+                $162.43
               </div>
             </div>
           )
@@ -80,6 +85,9 @@ class Home extends React.Component {
                   Stocks
                 </div>
                   {this.renderStocks()}
+                <div className="stocks-watched-title">
+                  Watched Stocks
+                </div>
               </div> 
             </div>
         </div>
