@@ -8,7 +8,7 @@
   
   json.order do   
     stock.orders.each do |order|
-      json.set! order.id do 
+      json.set! order.stock.symbol do 
         json.partial! 'api/orders/order', order: order
       end
     end

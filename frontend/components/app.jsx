@@ -14,8 +14,9 @@ import StockShowContainer from './stocks/stock_show_container';
 import { fetchStocks } from '../actions/stock_actions';
 import { fetchNews } from '../actions/news_actions';
 
-import { fetchStockNews, fetchStockInfo } from '../actions/stock_actions';
+import { fetchStockNews, fetchStockInfo, fetchStock } from '../actions/stock_actions';
 
+window.fetchStock = fetchStock;
 window.fetchStocks = fetchStocks;
 window.fetchNews = fetchNews;
 window.fetchStockNews = fetchStockNews;
@@ -34,8 +35,8 @@ const App = () => (
     </header>
     <Route exact path="/" component={SplashContainer} />
     <Route exact path="/home" component={HomeContainer} />
-    <Route path="/login" component={LoginFormContainer} />
-    <Route path="/signup" component={SignUpFormContainer} />
+    <AuthRoute path="/login" component={LoginFormContainer} />
+    <AuthRoute path="/signup" component={SignUpFormContainer} />
     <Route path="/stocks/:symbol" component={StockShowContainer} />
   </div>
 );

@@ -6,10 +6,9 @@ export const fetchPayload = () => (
   })
 );
 
-export const fetchStock = (symbol) => (
+export const fetchStock = symbol => (
   $.ajax({
-    method: 'GET',
-    url: `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${symbol}&interval=5min&apikey=${AV_API_KEY}`
+    url: `https://cloud.iexapis.com/stable/stock/${symbol}/company/?token=${window.iexAPIKey}`
   })
 );
 

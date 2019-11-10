@@ -11,3 +11,11 @@ export const fetchNews = () => dispatch => (
   NewsAPIUtil.fetchNews()
     .then(news => dispatch(receiveNews(news)))
 );
+
+export const fetchStockNews = (symbol) => dispatch => (
+  NewsAPIUtil.fetchStockNews(symbol)
+    .then(news => dispatch(receiveNews(news)))
+);
+
+
+

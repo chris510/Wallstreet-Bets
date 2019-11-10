@@ -6,16 +6,11 @@ import { fetchNews } from '../../actions/news_actions';
 import Home from './home'
 
 const mapStateToProps = state => ({
-  currentUser: state.entities.users[state.session.id],
-  // stocks: Object.values(state.entities.stocks),
-  stocks: state.entities.stocks,
-  orders: state.entities.orders,
-  news: state.entities.news
+  orders: state.entities.orders
 })
 
 const mapDispatchToProps = dispatch => ({
-  fetchStocks: () => dispatch(fetchStocks()),
-  fetchNews: () => dispatch(fetchNews())
+
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

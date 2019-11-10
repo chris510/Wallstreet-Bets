@@ -34,6 +34,25 @@ export const fetchStocks = () => dispatch => (
     .then( payload => dispatch(receiveStocks(payload)))
 );
 
+export const fetchStock = symbol => dispatch => {
+  const doFetches = () => Promise.all([
+    dispatch(fetchStockInfo(symbol)),
+    dispatch(fetchStockNews(symbol))
+  ]);
+
+  StockAPIUtil.fetchStock(symbol)
+    .then(stock => dispatch(receiveStock(stock)))
+    .then(doFetches)
+};
+  // const performFetches = () => Promise.all([
+  //   dispatch(fetchStockInfo(symbol)),
+  //   dispatch(fetchStockNews(symbol))
+  // ]);
+
+  // StockAPIUtil.fetchStock(symbol)
+  //   .then(stock => dispatch(receiveStock(stock)))
+  //   .then(performFetches());
+
 export const fetchStockInfo = symbol => dispatch => (
   StockAPIUtil.fetchStockInfo(symbol)
     .then( info => dispatch(receiveStockInfo(symbol, info)))
