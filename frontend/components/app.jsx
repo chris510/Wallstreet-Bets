@@ -14,10 +14,12 @@ import StockShowContainer from './stocks/stock_show_container';
 import { fetchStocks } from '../actions/stock_actions';
 import { fetchNews } from '../actions/news_actions';
 
-import { fetchStockNews } from '../actions/stock_actions';
+import { fetchStockNews, fetchStockInfo } from '../actions/stock_actions';
+
 window.fetchStocks = fetchStocks;
 window.fetchNews = fetchNews;
 window.fetchStockNews = fetchStockNews;
+window.fetchStockInfo = fetchStockInfo;
 
 
 // console.log(process.env.REACT_APP_NEWS_API_KEY_REACT_APP_NEWS_API_KEY_AV_API_KEY);

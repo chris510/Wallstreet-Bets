@@ -13,6 +13,13 @@ export const fetchStock = (symbol) => (
   })
 );
 
+export const fetchStockInfo = symbol => (
+  $.ajax({
+    method: 'GET',
+    url: `https://cloud.iexapis.com/stable/stock/${symbol}/company?token=${window.iexAPIKey}`
+  })
+);
+
 export const fetchStockNews = symbol => (
   $.ajax({
     method: 'GET',

@@ -1,7 +1,8 @@
 import { 
   RECEIVE_STOCK, 
   RECEIVE_STOCKS, 
-  RECEIVE_STOCK_NEWS 
+  RECEIVE_STOCK_INFO,
+  RECEIVE_STOCK_NEWS
 } from '../actions/stock_actions';
 
 const stocksReducer = (oldState = {}, action) => {
@@ -15,10 +16,14 @@ const stocksReducer = (oldState = {}, action) => {
       return action.payload.stock;
       // nextState.payload.stocks = action.payload.stocks
       // return nextState;
+    case RECEIVE_STOCK_INFO:
+      debugger
+      nextState[action.symbol].info = action.info;
+      return nextState;
     case RECEIVE_STOCK_NEWS:
       // debugger
       // return Object.assign({}, oldState, { [action.symbol]: action.news});
-      nextState[action.symbol].news = action.news;
+      nextState[action.symbol].news = action.news.articles;
       return nextState;
     default: 
       return oldState;

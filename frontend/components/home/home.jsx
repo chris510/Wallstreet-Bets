@@ -15,7 +15,7 @@ class Home extends React.Component {
   }
 
   render() {
-    const { stocks, news, orders } = this.props 
+    const { stocks, news } = this.props 
 
     return (
       <div className="home">

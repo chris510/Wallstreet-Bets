@@ -1,9 +1,10 @@
 import * as StockAPIUtil from '../util/stock_api_util';
 
 export const RECEIVE_STOCK = 'RECEIVE_STOCK';
-export const RECEIVE_STOCKS = 'RECEIVE_STOCKS'
+export const RECEIVE_STOCKS = 'RECEIVE_STOCKS';
 
-export const RECEIVE_STOCK_NEWS = 'RECEIVE_STOCK_NEWS'
+export const RECEIVE_STOCK_INFO = 'RECEIVE_STOCK_INFO';
+export const RECEIVE_STOCK_NEWS = 'RECEIVE_STOCK_NEWS';
 
 
 const receiveStock = stock => ({
@@ -16,6 +17,12 @@ const receiveStocks = payload => ({
   payload
 });
 
+const receiveStockInfo = (symbol, info) => ({
+  type: RECEIVE_STOCK_INFO,
+  info,
+  symbol
+})
+
 const receiveStockNews = (symbol, news) => ({
   type: RECEIVE_STOCK_NEWS,
   symbol,
@@ -25,6 +32,11 @@ const receiveStockNews = (symbol, news) => ({
 export const fetchStocks = () => dispatch => (
   StockAPIUtil.fetchPayload()
     .then( payload => dispatch(receiveStocks(payload)))
+);
+
+export const fetchStockInfo = symbol => dispatch => (
+  StockAPIUtil.fetchStockInfo(symbol)
+    .then( info => dispatch(receiveStockInfo(symbol, info)))
 );
 
 export const fetchStockNews = (symbol) => dispatch => (
