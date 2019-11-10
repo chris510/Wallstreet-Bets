@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import NewsIndexItem from './news_index_item';
+import NewsIndex from './news/news_index_container';
+import NewsIndexItem from './news/news_index_item';
 import StockIndexItem from './stock_index_item';
 
 class Home extends React.Component {
@@ -9,15 +10,13 @@ class Home extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchStocks();
     this.props.fetchNews();
+    this.props.fetchStocks();
   }
-
-  
 
   render() {
     const { stocks, news, orders } = this.props 
-    
+
     return (
       <div className="home">
         <div className="home-container-1">

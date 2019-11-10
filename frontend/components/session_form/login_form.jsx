@@ -60,6 +60,9 @@ class LoginForm extends React.Component {
         )
       } else {
         const demoUser = this.state
+        // if (this.props.processForm(demoUser)) {
+        //   window.location.hash = "/home";
+        // };
         this.props.processForm(demoUser);
         window.location.hash = "/home";
       }
@@ -94,57 +97,55 @@ class LoginForm extends React.Component {
   render() {
     return (
       <div className="login-form">
-        {/* <div className="login-form-pic">
-        </div> */}
-        <div className="login-form-container">
-          <div className="login-section-1">
-            <div className="login-text-1">
-              <h1>Welcome to Robinhood</h1>
+        <div className="login-main-1">
+        </div>
+        <div className="login-main-2">
+          <div className="login-form-container">
+            <div className="login-section-1">
+              <div className="login-text-1">
+                <h1>Welcome to Robinhood</h1>
+              </div>
             </div>
-            {/* <div className="login-text-2">
-              <h1>Make Your Money Move</h1>
-              <h2>Robinhood lets you invest in companies you love commission-free.</h2>
-            </div> */}
-          </div>
-          <div className="login-section-2">
-            <form onSubmit={this.handleSubmit} className="login-form-box">
-              <div className="login-username-container">
-                <label className="login-text-3"> <span>Username</span>
-                  <input
-                    className="login-username"
-                    type="text"
-                    value={this.state.username}
-                    onChange={this.update('username')}
+            <div className="login-section-2">
+              <form onSubmit={this.handleSubmit} className="login-form-box">
+                <div className="login-username-container">
+                  <label className="login-text-3"> <span>Username</span>
+                    <input
+                      className="login-username"
+                      type="text"
+                      value={this.state.username}
+                      onChange={this.update('username')}
+                      required
+                    />
+                  </label>
+                </div>
+                <div className="login-password-container">
+                  <label className="login-text-4"> <span>Password</span>
+                    <input 
+                    className="login-password"
+                    type="password"
+                    value={this.state.password}
+                    onChange={this.update('password')}
                     required
-                  />
-                </label>
-              </div>
-              <div className="login-password-container">
-                <label className="login-text-4"> <span>Password</span>
-                  <input 
-                  className="login-password"
-                  type="password"
-                  value={this.state.password}
-                  onChange={this.update('password')}
-                  required
-                  />
-                </label>
-              </div>
-              <ul className="sessionform-errors">
-                {this.renderErrors()}
-              </ul>
-              <div className="submit-container">
-                <input className="login-submit" type="submit" value={this.props.formType} />
-              </div>
-              <div className="login-form-link-container">
-                <div className="login-text-5">
-                Don't have an account?  
+                    />
+                  </label>
                 </div>
-                <div className="login-text-6">
-                  <Link to="/signup" className="signup-form-link-1">Sign Up Here</Link>
+                <ul className="sessionform-errors">
+                  {this.renderErrors()}
+                </ul>
+                <div className="submit-container">
+                  <input className="login-submit" type="submit" value={this.props.formType} />
                 </div>
-              </div>
-            </form>
+                <div className="login-form-link-container">
+                  <div className="login-text-5">
+                  Don't have an account?  
+                  </div>
+                  <div className="login-text-6">
+                    <Link to="/signup" className="signup-form-link-1">Sign Up Here</Link>
+                  </div>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>

@@ -57,7 +57,6 @@
 
 .stocks-dashboard {
   padding: 2px;
-
 }
 
 .watchlist {
@@ -68,7 +67,7 @@
 
 .portfolio-chart {
   height: 400px;
-  width: 85%;
+  width: 70%;
   display: flex;
   background-color: lightgreen;
 }
