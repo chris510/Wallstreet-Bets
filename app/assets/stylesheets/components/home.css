@@ -86,7 +86,17 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  /* text-decoration: none; */
 }
+
+.stock-show-link {
+  text-decoration: none;
+  /* padding: 5px; */
+}
+
+/* .stock-show-link:hover {
+  background-color: var(--news-box-hover);
+} */
 
 .stocks-owned-title, .stocks-watched-title {
   width: 100%;
@@ -105,10 +115,15 @@
 
 .stock-index {
   display: flex;
+  border-radius: 8px;
 }
 
 .stock-index > div {
   padding: 20px;
+}
+
+.stock-index:hover {
+  background-color: var(--news-box-hover);
 }
 
 .stock-index-left {
