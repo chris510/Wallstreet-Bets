@@ -64,17 +64,17 @@ ActiveRecord::Base.transaction do
 
   watch_zm = Watch.create({
     user_id: demo_user.id,
-    stock_id: zoom.id
+    symbol: zoom.symbol
   })
 
   watch_sbux = Watch.create({
     user_id: demo_user.id,
-    stock_id: starbucks.id
+    symbol: starbucks.symbol
   })
 
   watch_msft = Watch.create({
     user_id: demo_user.id,
-    stock_id: microsoft.id
+    symbol: msft.symbol
   })
 
 
