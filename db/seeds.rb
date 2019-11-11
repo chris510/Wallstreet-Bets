@@ -74,7 +74,7 @@ ActiveRecord::Base.transaction do
 
   watch_msft = Watch.create({
     user_id: demo_user.id,
-    symbol: msft.symbol
+    symbol: microsoft.symbol
   })
 
 
