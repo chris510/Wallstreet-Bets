@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SVGIcon from '../svg_icons/svg.icons';
-import { withRouter } from 'react-router-dom'
+import { withRouter, Redirect } from 'react-router-dom'
 
 class NavSplash extends React.Component {
   constructor(props) {
@@ -35,6 +35,7 @@ class NavSplash extends React.Component {
   redirectDemo() {
     this.props.addDemoState({ demoUser: true });
     window.location.hash = "/login";
+    // return <Redirect to='/login' />
   }
 
   // handleLogout() {
