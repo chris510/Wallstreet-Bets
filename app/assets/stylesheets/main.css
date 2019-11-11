@@ -70,3 +70,7 @@ html.transition *:after {
 a, a:active, a:focus {
   outline: none;
 }
+
+::placeholder {
+  padding-left: 10px;
+}

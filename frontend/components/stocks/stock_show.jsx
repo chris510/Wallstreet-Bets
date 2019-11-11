@@ -9,21 +9,14 @@ class StockShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchStockNews(this.props.match.params.symbol);
     this.props.fetchStockInfo(this.props.match.params.symbol);
+    this.props.fetchStockNews(this.props.match.params.symbol);
     // debugger
     // const symbol = this.props.match.params.symbol;
     // if (!this.props.stock) {
       // this.props.fetchStock(symbol);
     // }
     }
-
-  componentDidUpdate(prevProps) {
-    // if (this.props.match.params.symbol !== prevProps.match.params.symbol) {
-    //   const symbol = this.props.match.params.symbol;
-    //   this.props.fetchStock(symbol);
-    // }
-  }
 
   // renderNews() {
   //   debugger

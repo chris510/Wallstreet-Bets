@@ -22,7 +22,9 @@ ActiveRecord::Base.transaction do
   # amazon = Stock.create({name: "Amazon", symbol: "AMZN"})
   # shopify = Stock.cretate({name: "Shopify", symbol: "SHOP"})
   # google = Stock.create({name: "Google", symbol: "GOOG"})
-  # microsoft = Stock.create({name: "Microsoft", symbol:"MSFT"})
+  zoom = Stock.create({name: "Zoom", symbol: "ZM"})
+  starbucks = Stock.create({name: "Starbucks", symbol: "SBUX"})
+  microsoft = Stock.create({name: "Microsoft", symbol: "MSFT"})
 
   buy_fb = Order.create({
     user_id: demo_user.id, 
@@ -60,14 +62,19 @@ ActiveRecord::Base.transaction do
     order_type: "buy"
   })
 
-  watch_tsla = Watch.create({
+  watch_zm = Watch.create({
     user_id: demo_user.id,
-    symbol: 'TSLA'
+    stock_id: zoom.id
+  })
+
+  watch_sbux = Watch.create({
+    user_id: demo_user.id,
+    stock_id: starbucks.id
   })
 
   watch_msft = Watch.create({
     user_id: demo_user.id,
-    symbol: 'MSFT'
+    stock_id: microsoft.id
   })
 
 

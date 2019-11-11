@@ -116,7 +116,7 @@
   left: 2.5rem;
   top: 5rem;
   opacity: 0;
-  animation-name: fadeInDown;
+  animation-name: fadeIn;
   animation-delay: 2.0s;
   animation-duration: 1.5s;
   animation-fill-mode: forwards;
@@ -131,7 +131,7 @@
   left: 2.5rem;
   top: 5rem;
   opacity: 0;
-  animation-name: fadeInDown;
+  animation-name: fadeIn;
   animation-delay: 2.5s;
   animation-duration: 1.5s;
   animation-fill-mode: forwards;
@@ -165,7 +165,7 @@
 .splash-vid-1 {
   padding-top: 20px;
   opacity: 0;
-  animation: fadein 1s 1;
+  animation: fadeIn 1s 1;
   animation-delay: 1.5s;
   animation-duration: 1.5s;
   animation-fill-mode: forwards;

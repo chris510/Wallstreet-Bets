@@ -10,10 +10,12 @@ class StocksIndex extends React.Component {
       
     // }
     this.renderStocks = this.renderStocks.bind(this);
+    // this.renderWatches = this.renderWatches.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchStocks();
+    // this.props.fetchWatchedStocks();
   }
 
   renderStocks() {
@@ -32,6 +34,22 @@ class StocksIndex extends React.Component {
     )
   }
 
+  // renderWatches() {
+  //   let symbols = Object.keys(this.props.watches);
+  //   return (
+  //     <div className="stock-watch-container">
+  //       {symbols.map((symbol) => {
+  //         return (
+  //           <StockIndexItemContainer 
+  //             key={symbol}
+  //             symbol={symbol}
+  //           />
+  //         )
+  //       })}
+  //     </div>
+  //   )
+  // }
+
   render() {
     return (
       <div className="stock-dashboard">
@@ -42,6 +60,7 @@ class StocksIndex extends React.Component {
         <div className="stocks-watched-title">
           Watched Stocks
         </div>
+          {/* {this.renderWatches()} */}
       </div >
     )
   }

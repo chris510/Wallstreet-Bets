@@ -1,6 +1,7 @@
 class Api::StocksController < ApplicationController
   def index
     @stocks = current_user.stocks.includes(:orders)
+    # debugger
   end
 
   def show

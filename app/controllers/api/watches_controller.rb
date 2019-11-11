@@ -3,13 +3,14 @@ class Api::WatchesController < ApplicationController
   def index 
     @watches = current_user.watches
   end
+
   def create
     @watch = Watch.new(watch_params)
     @watch.user_id = current_user.id
     if @watch.save 
-        render :show
+      render :show
     else
-        render json: @watch.errors.full_messages, status: 422
+      render json: @watch.errors.full_messages, status: 422
     end
   end
 

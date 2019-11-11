@@ -15,7 +15,7 @@ class Home extends React.Component {
   }
 
   componentDidMount() {
-    // this.props.fetchStocks();
+    this.props.fetchStocks();
     this.props.fetchNews();
   }
 
@@ -72,7 +72,7 @@ class Home extends React.Component {
               </div>
             {news.map( singleNews => {
               return (
-                <div className="news-index-item">
+                <div className="news-index-item" >
                   <NewsIndexItem
                     key={singleNews.id}
                     url={singleNews.url}

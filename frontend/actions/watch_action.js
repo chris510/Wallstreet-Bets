@@ -5,7 +5,7 @@ export const RECEIVE_WATCHED_STOCK = 'RECEIVE_WATCHED_STOCK';
 export const CREATE_WATCHED_STOCK = 'CREATE_WATCHED_STOCK';
 export const REMOVE_WATCHED_STOCK = 'REMOVE_WATCHED_STOCK';
 
-const receiveWatchedStocks = watchedStocks => ({
+const receiveWatches = watchedStocks => ({
   type: RECEIVE_WATCHED_STOCKS,
   watchedStocks
 });
@@ -15,25 +15,26 @@ const receiveWatchedStock = watchedStock => ({
   watchedStock
 });
 
-const createWatchedStock = watchedStock => ({
+const postWatchedStock = watchedStock => ({
   type: CREATE_WATCHED_STOCK,
   watchedStock
 });
 
 export const fetchWatchedStocks = () => dispatch (
   WatchAPIUtil.fetchWatchedStocks()
-    .then( watchedStocks => dispatch(receiveWatchedStocks(watchedStocks)))
+    .then( watchedStocks => dispatch(receiveWatches(watchedStocks)))
+    // .then( res => console.log(res))
 );
 
-export const fetchWatchedStock = () => dispatch (
-  WatchAPIUtil.fetchWatchedStock()
-    .then( watchedStock => dispatch(receiveWatchedStock(watchedStock)))
-);
+// export const fetchWatchedStock = watchId => dispatch (
+//   WatchAPIUtil.fetchWatchedStock()
+//     .then( watchedStock => dispatch(receiveWatchedStock(watchedStock)))
+// );
 
-export const createWatchedStock = watch => dispatch (
-  WatchAPIUtil.createWatchedStock(watch)
-    .then( watchedStock => dispatch(createWatchedStock(watchedStock)) )
-);
+// export const createWatchedStock = watch => dispatch (
+//   WatchAPIUtil.createWatchedStock(watch)
+//     .then( watchedStock => dispatch(postWatchedStock(watchedStock)) )
+// );
 
 
 // const removeWatchedStock = watchId => ({

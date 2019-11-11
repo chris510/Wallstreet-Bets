@@ -6,6 +6,5 @@ class CreateWatches < ActiveRecord::Migration[5.2]
       t.timestamps
     end
     add_index :watches, :user_id
-    add_index :watches, :symbol
   end
 end

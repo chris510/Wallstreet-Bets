@@ -1,5 +1,3 @@
-
-
 import React from 'react';
 import { Route } from 'react-router-dom';
 import { AuthRoute } from '../util/route_util';
@@ -13,6 +11,8 @@ import StockShowContainer from './stocks/stock_show_container';
 
 import { fetchStocks } from '../actions/stock_actions';
 import { fetchNews } from '../actions/news_actions';
+import { fetchWatchedStocks } from '../actions/watch_action';
+// import {fetchWatchedStocks} from '../util/watches_api_util';
 
 import { fetchStockNews, fetchStockInfo, fetchStock, fetchStockIntradayData } from '../actions/stock_actions';
 
@@ -22,11 +22,7 @@ window.fetchNews = fetchNews;
 window.fetchStockNews = fetchStockNews;
 window.fetchStockInfo = fetchStockInfo;
 window.fetchStockIntradayData = fetchStockIntradayData;
-
-
-// console.log(process.env.REACT_APP_NEWS_API_KEY_REACT_APP_NEWS_API_KEY_AV_API_KEY);
-// console.log(process.env);
-// console.log(SOME_KEY);
+window.fetchWatchedStocks = fetchWatchedStocks;
 
 const App = () => (
   <div className="main-div">

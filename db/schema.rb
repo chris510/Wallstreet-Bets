@@ -59,7 +59,6 @@ ActiveRecord::Schema.define(version: 2019_11_11_013106) do
     t.string "symbol", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["symbol"], name: "index_watches_on_symbol"
     t.index ["user_id"], name: "index_watches_on_user_id"
   end
 

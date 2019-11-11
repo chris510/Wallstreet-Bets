@@ -98,6 +98,7 @@
   font-weight: 400;
   height: 46px;
   border-radius: 10px;
+  margin-right: 20px;
   /* padding-left: 10px; */
 }
 
@@ -196,3 +197,7 @@
   color: rgb(24,86,62);
   filter: brightness(150%);
 }
+
+/* ::placeholder {
+  padding-left: 15px;
+} */
