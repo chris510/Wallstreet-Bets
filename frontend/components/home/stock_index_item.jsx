@@ -1,13 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import StockIndexItemChart from './stock_index_item_chart';
 
 class StockIndexItem extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      intradayData: []
+    };
+  }
+
+  componentDidMount() {
+    // debugger
+    this.props.fetchStockIntradayData(this.props.stock.symbol);
   }
 
   render() {
-    const { orders, stock } = this.props;
+    const { orders, stock, intradayData } = this.props;
     return (
       <Link to={`/stocks/${stock.symbol}`} className="stock-show-link" >
         <div className="stock-index">
@@ -20,21 +29,15 @@ class StockIndexItem extends React.Component {
                 </div>
           </div>
           <div className="stock-index-chart">
-            {/* <StockIndexItemChart
-                    intradayData={intradayData}
-                  /> */}
+            <StockIndexItemChart
+              intradayData={intradayData}
+            />
           </div>
           <div className="stock-index-current-price">
             $162.43
-              </div>
+          </div>
         </div>
       </Link>
-      // <Link to={`/stocks/${this.props.symbol}`}>
-      //   <div className="stock-index-item">
-      //     <h2>{symbol}</h2>
-      //     {/* <h2>{shares}</h2> */}
-      //   </div>
-      // </Link>
     )
   }
 }

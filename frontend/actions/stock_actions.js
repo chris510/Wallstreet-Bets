@@ -18,7 +18,7 @@ const receiveStocks = payload => ({
   payload
 });
 
-const receive_stockIntradayData = (symbol, intradayData) => ({
+const receiveStockIntradayData = (symbol, intradayData) => ({
   type: RECEIVE_STOCK_INTRADAY_DATA,
   intradayData,
   symbol
@@ -54,7 +54,7 @@ export const fetchStock = symbol => dispatch => {
 
 export const fetchStockIntradayData = symbol => dispatch => (
   StockAPIUtil.fetchStockIntradayData(symbol)
-    .then( intradayData => dispatch(receive_stockIntradayData(symbol, intradayData)))
+    .then( intradayData => dispatch(receiveStockIntradayData(symbol, intradayData)))
 );
 
 export const fetchStockInfo = symbol => dispatch => (

@@ -54,6 +54,7 @@
   justify-content: center;
   align-items: center; */
   background-color: var(--bg);
+  width: 80%;
   display: flex;
   flex-direction: column;
   /* justify-content: center;
@@ -89,9 +90,18 @@
   /* text-decoration: none; */
 }
 
+/* .stock-idnex-container > div {
+  padding: 10px;
+} */
+
 .stock-show-link {
   text-decoration: none;
   /* padding: 5px; */
+}
+
+.stock-show-link > div {
+  padding: 10px;
+  margin: 10px;
 }
 
 /* .stock-show-link:hover {
@@ -119,7 +129,6 @@
 }
 
 .stock-index > div {
-  padding: 20px;
 }
 
 .stock-index:hover {
@@ -138,6 +147,8 @@
 }
 
 .stock-index {
+  min-height: 80%;
+  min-width: 80%;
   display: flex;
   justify-content: space-around;
 }
@@ -155,9 +166,16 @@
 }
 
 .stock-index-chart {
+  height: 100%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.stock-mini-chart {
+  width: 100px;
+  height: 100px;
 }
 
 .stock-index-current-price {
