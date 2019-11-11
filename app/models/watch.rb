@@ -1,5 +1,5 @@
 class Watch < ApplicationRecord
-  validates :user_id, :stock_id, presence: true
+  validates :user_id, :symbol, presence: true
 
   belongs_to :user
 end
