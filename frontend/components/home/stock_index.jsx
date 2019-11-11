@@ -1,10 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import StockIndexItem from './stock_index_item';
+import StockIndexItemContainer from './stock_index_item_container';
 
 class StocksIndex extends React.Component {
   constructor(props) {
     super(props);
+    // this.state = {
+    //   intradayData = []
+      
+    // }
     this.renderStocks = this.renderStocks.bind(this);
   }
 
@@ -16,29 +20,12 @@ class StocksIndex extends React.Component {
     let symbols = Object.keys(this.props.stocks);
     return (
       <div className="stock-index-container">
-        {symbols.map((symbol, i) => {
-          // const intradaydata = this.props.fetchIntradayData(symbol);
+        {symbols.map((symbol) => {
           return (
-            <Link to={`/stocks/${symbol}`} className="stock-show-link" >
-              <div className="stock-index">
-                <div className="stock-index-left">
-                  <div className="stock-index-symbol" key={i}>
-                    {symbol}
-                  </div>
-                  <div className="stock-index-shares">
-                    {this.props.orders[symbol].shares} shares
-                </div>
-                </div>
-                <div className="stock-index-chart">
-                  {/* <StockIndexItemChart
-                    intradayData={intradayData}
-                  /> */}
-                </div>
-                <div className="stock-index-current-price">
-                  $162.43
-              </div>
-              </div>
-            </Link>
+            <StockIndexItemContainer
+              key={symbol}
+              symbol={symbol}
+            />
           )
         })}
       </div>

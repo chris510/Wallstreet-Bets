@@ -6,7 +6,6 @@ const GREEN = "#67CF9A"
 
 const StockIndexItemChart = (props) => {
   const lineColor = () => {
-
     if (props.intradayData.length !== 0 && props.intradayData[0].close > props.intradayData[props.intradayData.length - 1].close) {
       return RED;
     } else {
