@@ -3,5 +3,7 @@ class Stock < ApplicationRecord
   validates :symbol, presence: true, uniqueness: true
 
   has_many :orders
-  has_many :users
+  has_many :users,
+    through: :orders,
+    source: :user
 end

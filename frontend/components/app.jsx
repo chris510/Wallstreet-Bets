@@ -7,12 +7,13 @@ import SplashContainer from './splash/splash_container'
 import HomeContainer  from "./home/home_container";
 import LoginFormContainer from './session_form/login_form_container';
 import SignUpFormContainer from './session_form/signup_form_container';
-import StockShowContainer from './stocks/stock_show_container';
+import StockShowContainer from './stock_show/stock_show_container';
 
 import { fetchStocks } from '../actions/stock_actions';
 import { fetchNews } from '../actions/news_actions';
 import { fetchWatchedStocks } from '../actions/watch_action';
 // import {fetchWatchedStocks} from '../util/watches_api_util';
+import { fetchWatchIntradayData } from '../actions/watch_action';
 
 import { fetchStockNews, fetchStockInfo, fetchStock, fetchStockIntradayData } from '../actions/stock_actions';
 
@@ -23,6 +24,7 @@ window.fetchStockNews = fetchStockNews;
 window.fetchStockInfo = fetchStockInfo;
 window.fetchStockIntradayData = fetchStockIntradayData;
 window.fetchWatchedStocks = fetchWatchedStocks;
+window.fetchWatchIntradayData = fetchWatchIntradayData;
 
 const App = () => (
   <div className="main-div">

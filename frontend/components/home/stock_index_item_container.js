@@ -9,7 +9,7 @@ import StockIndexItem from './stock_index_item';
 const mapStateToProps = (state, ownProps) => ({
   orders: state.entities.orders,
   stock: state.entities.stocks[ownProps.symbol],
-  intradayData: state.entities.stocks[ownProps.symbol].intradayData
+  intradayData: state.entities.stocks[ownProps.symbol].intradayData,
   // latestPrice: state.entities.stocks[ownProps.symbol].intradayData.quote.latestPrice
 });
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import StockIndexItemChart from './stock_index_item_chart';
 
-class StockIndexItem extends React.Component {
+class WatchStockItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -12,21 +12,11 @@ class StockIndexItem extends React.Component {
 
   componentDidMount() {
     // debugger
-    this.props.fetchStockIntradayData(this.props.stock.symbol)
-  }
-
-  renderShares() {
-    if (this.props.orders[this.props.stock.symbol].shares) {
-      return (
-        <div className="stock-index-shares">
-          {this.props.orders[this.props.stock.symbol].shares} shares
-        </div>
-      )
-    }
+    this.props.fetchWatchIntradayData(this.props.stock.symbol)
   }
 
   render() {
-    const { orders, stock, intradayData } = this.props;
+    const { stock, intradayData } = this.props;
     return (
       <Link to={`/stocks/${stock.symbol}`} className="stock-show-link" >
         <div className="stock-index">
@@ -34,7 +24,6 @@ class StockIndexItem extends React.Component {
             <div className="stock-index-symbol">
               {stock.symbol}
             </div>
-            {this.renderShares()}
           </div>
           <div className="stock-index-chart">
             <StockIndexItemChart
@@ -50,4 +39,4 @@ class StockIndexItem extends React.Component {
   }
 }
 
-export default StockIndexItem;
+export default WatchStockItem;

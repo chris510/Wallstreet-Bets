@@ -20,16 +20,17 @@ const stocksReducer = (oldState = {}, action) => {
       nextState[action.symbol].intradayData = action.intradayData.chart;
       return nextState
     case RECEIVE_STOCK_INFO:
-      // return Object.assign({}, oldState, { [action.symbol]: action.info})
-      nextState[action.symbol].info = action.info;
-      return nextState;
+      return Object.assign({}, oldState, { [action.symbol]: action.info})
+      // nextState[action.symbol] = action.info
+      // return nextState;
+      // return action.info;
     case RECEIVE_STOCK_NEWS:
       nextState[action.symbol].news = action.news.articles;
       return nextState;
     default: 
       return oldState;
   }
-}
+};
 
 export default stocksReducer;
 

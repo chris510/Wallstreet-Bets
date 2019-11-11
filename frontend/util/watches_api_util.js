@@ -5,6 +5,13 @@ export const fetchWatchedStocks = () => (
   })
 );
 
+export const fetchWatchIntradayData = symbol => (
+  $.ajax({
+    method: 'GET',
+    url: `https://cloud.iexapis.com/stable/stock/${symbol}/batch?&types=quote,chart&range=1D&chartInterval=5&token=${window.iexAPIKey}`
+  })
+)
+
 // export const fetchWatchedStock = watchId => (
 //   $.ajax({
 //     method: 'GET',

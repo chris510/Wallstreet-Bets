@@ -51,12 +51,12 @@ class NavSplash extends React.Component {
         <div className='nav'>
               <div className="nav-left">
                 <div className="logo">
-                  <a target="_blank" href="https://roho.herokuapp.com/" className="nav-title">
+                  <Link to='/' className="nav-title">
                     <h1 className="nav-title">WallStreetBets</h1>
-                  </a>
-                  <a target="_blank" href ="https://roho.herokuapp.com/">
+                  </Link>
+                  <Link to='/'>
                     <SVGIcon name="robinhood_logo" width={45} />
-                  </a>
+                  </Link>
                 </div>
                 <div className='contact'>
                   <a href="mailto:christrinh5@gmail.com">
@@ -94,12 +94,12 @@ class NavSplash extends React.Component {
         <div className="nav">
           <div className="nav-left">
             <div className="logo">
-              <a href="https://robinhood.com/" className="nav-title">
+              <Link to='/home' className="nav-title">
                 <h1 className="nav-title">WallStreetBets</h1>
-              </a>
-              <a href="https://robinhood.com/">
+              </Link>
+              <Link to='/home'>
                 <SVGIcon name="robinhood_logo" width={45} />
-              </a>
+              </Link>
             </div>
             <div className='contact'>
               <a href="mailto:christrinh5@gmail.com">

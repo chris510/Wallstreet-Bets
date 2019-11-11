@@ -1,5 +1,5 @@
 import React from 'react';
-import { LineChart, Line, YAxis, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, YAxis, ResponsiveContainer, Tooltip } from 'recharts';
 
 const RED = "#EB5333";
 const GREEN = "#67CF9A";
@@ -17,15 +17,15 @@ const StockIndexItemChart = ( { intradayData }) => {
 
   return (
     <div className="stock-mini-chart">
-      <ResponsiveContainer width='100%' height="100%">
+      <ResponsiveContainer width='125%' height="100%">
         <LineChart data={intradayData} cursor="pointer">
           <Line 
             type="linear" 
             dataKey="close" 
             stroke={chartLineColor()}
-            // stroke={RED}
             strokeWidth={2}
             dot={false} 
+            connectNulls={true}
           />
           <YAxis domain={['dataMin', 'dataMax']} hide={true} />
         </LineChart>
