@@ -76,13 +76,15 @@
 }
 
 .article-info :nth-child(2) {
-  color: teal;
+  color: var(--color-text);
+  filter: brightness(80%);
   font-size: 18px;
   font-weight: bold;
 }
 
 .article-info :last-child {
-  color: lightsalmon;
+  color: var(--color-text);
+  filter: brightness(50%);
   font-size: 16px;
 }
 

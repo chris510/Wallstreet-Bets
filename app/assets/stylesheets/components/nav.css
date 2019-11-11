@@ -192,6 +192,36 @@
 
 } */
 
+
+.home-button-container {
+  font-style: normal;
+  font-weight: bold;
+  line-height: 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  background-image: linear-gradient(to left, transparent, transparent 50%,  rgb(24,86,62) 50%, rgb(24,86,62));
+  background-position: 100% 0;
+  background-size: 200% 100%;
+  transition: all .25s ease-in;
+}
+
+.home-button {
+  color: var(--color-text);
+  font-family: var(--font-family);
+  text-decoration: none;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 18px;
+  padding: 30px;
+  padding-left: 20px; 
+}
+
+.home-button :hover {
+  color: rgb(35,205,153);
+  filter: brightness(75%);
+}
+
 .log-out-container {
   font-style: normal;
   font-weight: bold;
@@ -213,7 +243,7 @@
   font-weight: bold;
   line-height: 18px;
   
-  padding: 30px;
+  /* padding: 30px; */
   padding-right: 20px; 
 }
 

@@ -119,15 +119,18 @@ class NavSplash extends React.Component {
             </div>
               <SVGIcon name="search" width={20} />
           </div>
-          <div className='nav-right-2'>
+          <div className="nav-right-2">
             <div className="theme-switch-wrapper">
               <label className="theme-switch" htmlFor="checkbox">
                 <input type="checkbox" id="checkbox" name="theme" onChange={this.changeTheme} />
                 <div className="slider round"></div>
               </label>
             </div>
+            <div className="home-button-container">
+              <Link to ="/home" className="home-button"><span>Home</span></Link>
+            </div>
             <div className="log-out-container">
-              <Link to='/' className="log-out" onClick={logout}><span>Log Out</span></Link>
+              <Link to="/" className="log-out" onClick={logout}><span>Log Out</span></Link>
             </div>
           </div>
         </div>

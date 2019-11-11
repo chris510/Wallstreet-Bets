@@ -8,6 +8,7 @@ class User < ApplicationRecord
   after_initialize :ensure_session_token
 
   has_many :orders
+  has_many :watches
   has_one :portfolio
 
   has_many :stocks,

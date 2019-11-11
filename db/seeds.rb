@@ -10,6 +10,7 @@ ActiveRecord::Base.transaction do
 
   User.destroy_all
   Stock.destroy_all
+  Watch.destroy_all
 
   demo_user = User.create({ username: 'Demo_User', password: 'password123'})
 
@@ -59,9 +60,15 @@ ActiveRecord::Base.transaction do
     order_type: "buy"
   })
 
+  watch_tsla = Watch.create({
+    user_id: demo_user.id,
+    symbol: 'TSLA'
+  })
 
+  watch_msft = Watch.create({
+    user_id: demo_user.id,
+    symbol: 'MSFT'
+  })
 
-
-  
 
 end
