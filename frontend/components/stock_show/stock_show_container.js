@@ -6,7 +6,7 @@ import { fetchStockNews } from '../../actions/news_actions';
 import StockShow from './stock_show';
 
 const mapStateToProps = (state, ownProps) => ({
-  currentUser: state.entities.users[state.session.id],
+  // currentUser: state.entities.users[state.session.id],
   stock: state.entities.stocks[ownProps.match.params.symbol],
   news: state.entities.news
   // news: Object.keys(state.entities.stocks[ownProps.match.params.symbol])

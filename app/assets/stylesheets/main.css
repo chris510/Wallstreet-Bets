@@ -17,6 +17,7 @@ html {
     --shadow: rgb(255,255,255);
     --news-box-hover: rgb(240,240,240);
     --border-color: #EEEEEE;
+    --chart-color: #67CF9A;
 }
 
 html[data-theme='dark'] {

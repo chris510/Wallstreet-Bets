@@ -1,5 +1,5 @@
 import React from 'react';
-import { LineChart, Line, YAxis, ResponsiveContainer, Tooltip } from 'recharts';
+import { LineChart, Line, YAxis, ResponsiveContainer } from 'recharts';
 
 const RED = "#EB5333";
 const GREEN = "#67CF9A";
@@ -10,6 +10,7 @@ const StockIndexItemChart = ( { intradayData }) => {
     if (intradayData) {
       let startingPrice = intradayData[0].close;
       let endingPrice = intradayData[intradayData.length - 1].close;
+
       if (startingPrice > endingPrice) return RED
         return GREEN;
     }
@@ -20,7 +21,7 @@ const StockIndexItemChart = ( { intradayData }) => {
       <ResponsiveContainer width='125%' height="100%">
         <LineChart data={intradayData} cursor="pointer">
           <Line 
-            type="linear" 
+            type="linear" z
             dataKey="close" 
             stroke={chartLineColor()}
             strokeWidth={2}

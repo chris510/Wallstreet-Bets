@@ -22,7 +22,10 @@ class Api::UsersController < ApplicationController
   end
   
   def show
-    @user = selected_user
+    # @user = selected_user
+    @stocks = current_user.stocks
+    @orders = current_user.orders
+    @watches = current_user.watches
   end
   
   def index

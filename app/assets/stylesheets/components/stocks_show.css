@@ -18,7 +18,7 @@
   justify-content: space-between; */
   height: 100%;
   width: 70%;
-  background-color: lightblue;
+  background: var(--bg);
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -40,7 +40,7 @@
   height: 100%;
   width: 30%;
   /* margin-top: 20px; */
-  background-color: skyblue;
+  background: var(--bg);
   display: flex;
   flex-direction: column;
   /* justify-content: space-around; */
@@ -48,17 +48,91 @@
   /* padding: 20px; */
 }
 
+.stock-show-chart-container {
+  font-family: var(--font-family);
+  width: 90%;
+  height: 400px;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  /* box-shadow: 2px 2px 6px 2px var(--color); */
+  box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.01),
+              0 3px 24px rgba(0, 0, 0, 0.6);
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.stock-show-chart-header > div {
+  padding: 2px
+}
+
+.stock-show-chart
+
+.stock-show-name {
+  font-size: 18px;
+  font-family: var(--font-family);
+  /* color: var(--color-text); */
+  display: flex;
+  justify-content: flex-start;
+  color: var(--color-text);
+  font-weight: bold;
+  background-color: blue;
+}
+
+.stock-show-price {
+  font-family: var(--font-family);
+  color: var(--color-text);
+  font-size: 36px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.stock-show-change {
+  font-family: var(--font-family);
+  color: var(--color-text);
+  font-size: 13px;
+}
+
+.stock-show-chart-ranges {
+  font-family: var(--font-family);
+  color: var(--color-text);
+  display: flex;
+  list-style-type: none;
+  border-top: 1px solid #eee;
+  /* border-bottom: 1px solid #eee; */
+  width: 90%;
+  font-size: 16px;
+  padding: 20px;
+  margin-left: 15px;
+}
+
+.stock-show-chart-ranges > li {
+  padding: 2px;
+}
+
+.stock-show-chart-ranges > li:hover {
+  background-color: red;
+  cursor: pointer;
+}
+
 .stock-show-chart {
   height: 400px;
-  width: 85%;
+  width: 90%;
   display: flex;
-  background-color: lightgreen;
+  margin: 30px;
+  /* background-color: lightgreen; */
 }
 
 .stock-info-container {
   height: 400px;
-  width: 85%;
-  background-color: yellow
+  width: 90%;
+  background-color: var(--bg);
+  font-family: var(--font-family);
+  color: var(--color-text);
+  box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.01),
+              0 3px 24px rgba(0, 0, 0, 0.6);
 }
 
 .stock-info-header {
@@ -126,11 +200,15 @@
 }
 
 .stock-order-container {
-  background-color: black;
+  background-color: var(--bg);
   padding-top: 40px;
   width: 90%;
   height: 10%;
   margin: 20px;
+  /* box-shadow: 2px 2px 6px 2px var(--color); */
+  box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.01),
+              0 3px 24px rgba(0, 0, 0, 0.6);
+  border-radius: 4px;
 }
 
 .stock-order-form {
