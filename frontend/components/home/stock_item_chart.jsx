@@ -7,9 +7,15 @@ const GREEN = "#67CF9A";
 class StockItemChart extends React.Component {
   constructor(props) {
     super(props);
-
+    this.state = {
+      intradayData: [],
+      historicalData: [],
+      price: 0
+    }
     this.chartLineColor = this.chartLineColor.bind(this);
   }
+
+  
 
   chartLineColor() {
     if (this.props.intradayData) {

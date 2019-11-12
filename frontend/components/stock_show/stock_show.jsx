@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import NewsIndexItem from '../home/news/news_index_item';
-import StockItemChartContainer from '../home/stock_item_chart';
+import StockItemChartContainer from '../home/stock_item_chart_container';
 import OrderFormContainer from '../../components/stock_show/order_form_container';
 import Odometer from 'react-odometerjs'
 
@@ -59,6 +59,7 @@ class StockShow extends React.Component {
                   </div>
                   <StockItemChartContainer
                     intradayData={stock.intradayData}
+                    stock={stock}
                     name='stock-show-chart'
                   />
                   <div className="stock-show-chart-ranges">
