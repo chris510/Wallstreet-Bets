@@ -3,7 +3,8 @@ import {
   RECEIVE_STOCKS, 
   RECEIVE_STOCK_INTRADAY_DATA,
   RECEIVE_STOCK_INFO,
-  RECEIVE_STOCK_NEWS
+  RECEIVE_STOCK_NEWS,
+  RECEIVE_HISTORICAL_DATA
 } from '../actions/stock_actions';
 
 const stocksReducer = (oldState = {}, action) => {
@@ -16,9 +17,11 @@ const stocksReducer = (oldState = {}, action) => {
     case RECEIVE_STOCKS:
       return action.payload.stock;
     case RECEIVE_STOCK_INTRADAY_DATA:
-      // return Object.assign({}, oldState, { [action.symbol]: action.intradayData.chart });
       nextState[action.symbol].intradayData = action.intradayData.chart;
       return nextState
+    case RECEIVE_HISTORICAL_DATA:
+      nextState[action.symbol].historicalData = action.historicalData.chart
+      return nextState;
     case RECEIVE_STOCK_INFO:
       // return Object.assign({}, oldState, { [action.symbol].info : action.info})
       nextState[action.symbol].info = action.info
