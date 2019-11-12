@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import StockIndexItemChart from './stock_index_item_chart';
+import StockItemChart from './stock_item_chart';
 
 class StockIndexItem extends React.Component {
   constructor(props) {
@@ -50,7 +50,7 @@ class StockIndexItem extends React.Component {
             {this.renderShares()}
           </div>
           <div className="stock-index-chart">
-            <StockIndexItemChart
+            <StockItemChart
               intradayData={intradayData}
               name="stock-mini-chart"
             />

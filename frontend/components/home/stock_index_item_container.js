@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { fetchStocks, fetchStockIntradayData } from '../../actions/stock_actions';
 import { fetchNews } from '../../actions/news_actions';
 import Home from './home'
-import StockIndexItem from './stock_index_item';
+import StockIndexItem from "./stock_index_item";
 
 const mapStateToProps = (state, ownProps) => ({
   orders: state.entities.orders,

@@ -1,17 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import NewsIndexItem from '../home/news/news_index_item';
-import { fetchStockInfo } from '../../util/stock_api_util';
-import StockShowChartContainer from '../stock_show/stock_show_chart_container';
-import StockIndexItemChart from '../../components/home/stock_index_item_chart';
-import Odometer from 'react-odometerjs'
+import StockItemChartContainer from '../home/stock_item_chart';
+import OrderFormContainer from '../../components/stock_show/order_form_container';
 
 class StockShow extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      odometerValue: 0
-    };
+    // this.state = {
+    //   odometerValue: 0
+    // };
     this.renderLatestPrice = this.renderLatestPrice.bind(this)
   }
 
@@ -36,7 +34,7 @@ class StockShow extends React.Component {
   render() {
 
     const { stock, news } = this.props
-    const { odometerValue } = this.state;
+    // const { odometerValue } = this.state;
     // if (stock.hasOwnProperty('news') && stock.hasOwnProperty('info')) {
       if (!stock || !stock.info) {
         return null;
@@ -56,7 +54,7 @@ class StockShow extends React.Component {
                       +$3.49 (+1.01%)
                     </div>
                   </div>
-                  <StockIndexItemChart
+                  <StockItemChartContainer
                     intradayData={stock.intradayData}
                     name='stock-show-chart'
                   />
@@ -121,7 +119,10 @@ class StockShow extends React.Component {
                 </div>
               </div>
             <div className="stock-show-container-2">
-              <div className="stock-order-container">
+              <OrderFormContainer
+                stock={stock}
+              />
+              {/* <div className="stock-order-container">
                 <div className="stock-order-form-container">
                   <div className="stock-order-type"></div>
                   <div className="stock-order-stats">
@@ -158,7 +159,7 @@ class StockShow extends React.Component {
                   <div className="buying-power"></div>
                 </div>
                 <div className="watch-submit-option"></div>
-              </div>
+              </div> */}
             </div>
           </div>
         )

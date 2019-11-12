@@ -1,11 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import NewsIndex from './news/news_index_container';
 import NewsIndexItem from './news/news_index_item';
-import StockIndex from './stock_index';
-import StockIndexItem from './stock_index_item';
-
-import StockIndexItemChart from './stock_index_item_chart';
 import StockIndexContainer from "./stock_index_container";
 
 class Home extends React.Component {
