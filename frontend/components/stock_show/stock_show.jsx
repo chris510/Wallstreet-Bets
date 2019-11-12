@@ -3,16 +3,22 @@ import { Link } from 'react-router-dom';
 import NewsIndexItem from '../home/news/news_index_item';
 import { fetchStockInfo } from '../../util/stock_api_util';
 import StockShowChartContainer from '../stock_show/stock_show_chart_container';
+import StockIndexItemChart from '../../components/home/stock_index_item_chart';
+import Odometer from 'react-odometerjs'
 
 class StockShow extends React.Component {
   constructor(props) {
-    super(props);;
+    super(props);
+    this.state = {
+      odometerValue: 0
+    };
     this.renderLatestPrice = this.renderLatestPrice.bind(this)
   }
 
   componentDidMount() {
     this.props.fetchStockInfo(this.props.match.params.symbol);
     this.props.fetchStockNews(this.props.match.params.symbol);
+    // this.setState({ odometerValue: 600 }); 
   }
 
   renderLatestPrice() {
@@ -30,6 +36,7 @@ class StockShow extends React.Component {
   render() {
 
     const { stock, news } = this.props
+    const { odometerValue } = this.state;
     // if (stock.hasOwnProperty('news') && stock.hasOwnProperty('info')) {
       if (!stock || !stock.info) {
         return null;
@@ -49,8 +56,9 @@ class StockShow extends React.Component {
                       +$3.49 (+1.01%)
                     </div>
                   </div>
-                  <StockShowChartContainer
-                    intradaydata={stock.intradayData}
+                  <StockIndexItemChart
+                    intradayData={stock.intradayData}
+                    name='stock-show-chart'
                   />
                   <div className="stock-show-chart-ranges">
                     <li>1D</li>

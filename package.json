@@ -10,6 +10,7 @@
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-gif-player": "^0.4.2",
+    "react-odometerjs": "^2.1.1",
     "react-redux": "^7.1.1",
     "react-router-dom": "^5.1.2",
     "recharts": "^1.8.5",

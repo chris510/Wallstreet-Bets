@@ -52,6 +52,7 @@ class StockIndexItem extends React.Component {
           <div className="stock-index-chart">
             <StockIndexItemChart
               intradayData={intradayData}
+              name="stock-mini-chart"
             />
           </div>
             {this.renderLatestPrice()}

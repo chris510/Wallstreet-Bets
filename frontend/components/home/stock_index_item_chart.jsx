@@ -4,7 +4,7 @@ import { LineChart, Line, YAxis, ResponsiveContainer } from 'recharts';
 const RED = "#EB5333";
 const GREEN = "#67CF9A";
 
-const StockIndexItemChart = ( { intradayData }) => {
+const StockIndexItemChart = ( { intradayData, name }) => {
 
   const chartLineColor = () => {
     if (intradayData) {
@@ -17,7 +17,7 @@ const StockIndexItemChart = ( { intradayData }) => {
   }
 
   return (
-    <div className="stock-mini-chart">
+    <div className={name}>
       <ResponsiveContainer width='125%' height="100%">
         <LineChart data={intradayData} cursor="pointer">
           <Line 
