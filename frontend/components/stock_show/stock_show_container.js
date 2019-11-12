@@ -15,7 +15,8 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = dispatch => ({
   fetchStock: (symbol) => dispatch(fetchStock(symbol)),
   fetchStockInfo: (symbol) => dispatch(fetchStockInfo(symbol)),
-  fetchStockNews: (symbol) => dispatch(fetchStockNews(symbol))
+  fetchStockNews: (symbol) => dispatch(fetchStockNews(symbol)),
+  fetch1YrHistoricalData: symbol => dispatch(fetch1YrHistoricalData(symbol))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(StockShow));

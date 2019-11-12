@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import NewsIndexItem from '../home/news/news_index_item';
 import StockItemChartContainer from '../home/stock_item_chart_container';
 import OrderFormContainer from '../../components/stock_show/order_form_container';
-import Odometer from 'react-odometerjs'
+// import Odometer from 'react-odometerjs';
 
 class StockShow extends React.Component {
   constructor(props) {
@@ -17,7 +17,7 @@ class StockShow extends React.Component {
   componentDidMount() {
     this.props.fetchStockInfo(this.props.match.params.symbol);
     this.props.fetchStockNews(this.props.match.params.symbol);
-    // this.setState({ odometerValue: 600 }); 
+    this.props.fetch1YrHistoricalData(this.props.match.params.symbol);
   }
 
   renderLatestPrice() {
@@ -26,9 +26,10 @@ class StockShow extends React.Component {
       let price = this.props.stock.intradayData[lastItem].close;
       return (
         <div className="stock-index-current-price odometer">
-          $<Odometer 
-            value={price}
-          />
+          {/* <Odometer  */}
+            {/* value= */}
+            ${price}
+          {/* /> */}
         </div>
       )
     }
@@ -59,17 +60,18 @@ class StockShow extends React.Component {
                   </div>
                   <StockItemChartContainer
                     intradayData={stock.intradayData}
+                    historicalData={stock.historicalData}
                     stock={stock}
                     name='stock-show-chart'
                   />
-                  <div className="stock-show-chart-ranges">
+                  {/* <div className="stock-show-chart-ranges">
                     <li>1D</li>
                     <li>1W</li>
                     <li>1M</li>
                     <li>3M</li>
                     <li>1Y</li>
                     <li>5Y</li>
-                  </div>
+                  </div> */}
                 </div>
                 <div className="stock-info-container">
                   <div className="stock-info-header">About</div>

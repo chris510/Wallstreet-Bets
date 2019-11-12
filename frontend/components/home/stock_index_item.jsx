@@ -1,13 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import StockItemChart from './stock_item_chart';
+// import StockItemChart from './stock_item_chart';
+import StockMiniChart from './stock_mini_chart';
 
 class StockIndexItem extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      intradayData: []
-    };
     this.renderLatestPrice = this.renderLatestPrice.bind(this);
   }
 
@@ -50,9 +48,9 @@ class StockIndexItem extends React.Component {
             {this.renderShares()}
           </div>
           <div className="stock-index-chart">
-            <StockItemChart
+            <StockMiniChart
               intradayData={intradayData}
-              name="stock-mini-chart"
+              // name="stock-mini-chart"
             />
           </div>
             {this.renderLatestPrice()}
