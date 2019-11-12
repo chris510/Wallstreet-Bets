@@ -75,3 +75,8 @@ a, a:active, a:focus {
 ::placeholder {
   padding-left: 10px;
 }
+
+h3 {
+  font-family: var(--font-family);
+  color: var(--color-text);
+}

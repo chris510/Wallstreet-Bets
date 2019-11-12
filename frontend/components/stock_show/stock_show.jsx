@@ -39,7 +39,7 @@ class StockShow extends React.Component {
 
     const { stock, news } = this.props
     // if (stock.hasOwnProperty('news') && stock.hasOwnProperty('info')) {
-      if (!stock) {
+      if (!stock || !stock.info) {
         return null;
       } else {
         return ( 
@@ -72,25 +72,25 @@ class StockShow extends React.Component {
                 <div className="stock-info-container">
                   <div className="stock-info-header">About</div>
                   <div className="stock-info-description">
-                    {/* {stock.info.description} */}
+                    {stock.info.description}
                   </div>
                   <div className="stock-stats-container">
                     <div className="stock-stats-1">
                       <div>
                         <div>CEO</div>
-                        {/* <div>{stock.info.CEO}</div> */}
+                        <div>{stock.info.CEO}</div>
                       </div>
                       <div>
                         <div>Sector</div>  
-                        {/* <div>{stock.info.sector}</div> */}
+                        <div>{stock.info.sector}</div>
                       </div>
                       <div>
                         <div>Industry</div>
-                        {/* <div>{stock.info.industry}</div> */}
+                        <div>{stock.info.industry}</div>
                       </div>
                       <div>
                       <div>Exchange</div>
-                      {/* <div>{stock.info.exchange}</div> */}
+                      <div>{stock.info.exchange}</div>
                       </div>
                     </div> 
                     <div className="stock-stats-2">
@@ -123,8 +123,37 @@ class StockShow extends React.Component {
             <div className="stock-show-container-2">
               <div className="stock-order-container">
                 <div className="stock-order-form-container">
-                  <div className="stock-title-order"></div>
-                  <div className="stock-order-stats"></div>
+                  <div className="stock-order-type"></div>
+                  <div className="stock-order-stats">
+                    <form>
+                      <div className="order-form-header">
+                        <div>ORDER BUY</div>
+                        <div>ORDER SELL</div>
+                      </div>
+                      <div className="order-form-row-1">
+                        <h3>Shares</h3>
+                        <input type="text" className="input-shares" placeholder="0" />
+                      </div>
+                      <div className="order-form-row-2">
+                        <div className="order-form-market">
+                          <h3>Market Price</h3>
+                        </div>
+                        <div className="order-form-price">
+                          <h3>$62.43</h3>
+                        </div>
+                      </div>
+                      <div className="order-form-row-3">
+                        <h3>Estimated Cost</h3>
+                        <div className="order-form-cost-4">
+                        </div>
+                      </div>
+                      <div className="order-form-row-5">
+                      </div>
+                      <div className="order-form-row-6">
+                        <input type="submit" className="order-form-submit" />
+                      </div>
+                    </form>
+                  </div>
                   <div className="stock-submit-button-container"></div>
                   <div className="buying-power"></div>
                 </div>

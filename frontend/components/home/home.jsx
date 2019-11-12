@@ -19,45 +19,6 @@ class Home extends React.Component {
     this.props.fetchNews();
   }
 
-  // componentDidUpdate() {
-  //   if (!this.props.currentUser.stocks) {
-  //     this.props.fetchStocks();
-  //   }
-  // }
-
-  // renderStocks() {
-  //   let symbols = Object.keys(this.props.stocks);
-  //   return (
-  //     <div className="stock-index-container">
-  //       {symbols.map( (symbol, i) => {
-  //         const intradaydata = this.props.fetchIntradayData(symbol);
-  //         return (
-  //           <Link to={`/stocks/${symbol}`} className="stock-show-link" >
-  //           <div className="stock-index">
-  //             <div className="stock-index-left">
-  //               <div className="stock-index-symbol" key={i}>
-  //                 {symbol}
-  //               </div>
-  //               <div className="stock-index-shares">
-  //                 {this.props.orders[symbol].shares} shares
-  //               </div>
-  //             </div>
-  //             <div className="stock-index-chart">
-  //               <StockIndexItemChart
-  //                 intradayData={intradayData}
-  //               />
-  //             </div>
-  //             <div className="stock-index-current-price">
-  //               $162.43
-  //             </div>
-  //           </div>
-  //           </Link>
-  //         )
-  //       })}
-  //     </div>
-  //   )
-  // }
-
   render() {
     const { stocks, news, orders } = this.props 
 

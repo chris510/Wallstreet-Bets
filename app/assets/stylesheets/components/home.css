@@ -4,12 +4,12 @@
   margin-top: 85px;
   background-color: var(--bg);
   display: flex;
-  margin-top: 78px;
+  /* margin-top: 78px; */
 }
 
 .home-container-1 {
   height: 100%;
-  width: 60%;
+  width: 65%;
   background-color: var(--bg);
   display: flex;
   flex-direction: column;
@@ -19,11 +19,11 @@
 
 .home-container-2 {
   height: 100%;
-  width: 40%;
+  width: 35%;
   background-color: var(--bg);
   display: flex;
   /* flex-direction: column; */
-  justify-content: space-around;
+  /* justify-content: space-around; */
   /* align-items: flex-end; */
   /* padding: 20px; */
 }
@@ -80,7 +80,7 @@
 
 .portfolio-chart {
   min-height: 500px;
-  width: 90%;
+  width: 70%;
   display: flex;
   background-color: var(--bg);
   box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.01),
@@ -162,6 +162,7 @@
 
 .stock-index-symbol {
   color: var(--color-text);
+  font-size: 18px;
   font-weight: bold;
 }
 

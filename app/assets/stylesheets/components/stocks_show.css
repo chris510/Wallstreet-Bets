@@ -17,14 +17,19 @@
   align-items: center;
   justify-content: space-between; */
   height: 100%;
-  width: 70%;
+  width: 65%;
   background: var(--bg);
   display: flex;
+  /* justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-end; */
+  /* margin-top: 20px; */
+  /* border-radius: 10px; */
   justify-content: space-between;
   flex-direction: column;
   align-items: center;
-  /* margin-top: 20px; */
-  /* border-radius: 10px; */
+  margin-top: 20px;
+  border-radius: 10px;
 }
 
 .stock-show-container-1 > div {
@@ -38,7 +43,7 @@
   display: flex;
   justify-content: space-around; */
   height: 100%;
-  width: 30%;
+  width: 35%;
   /* margin-top: 20px; */
   background: var(--bg);
   display: flex;
@@ -50,17 +55,18 @@
 
 .stock-show-chart-container {
   font-family: var(--font-family);
-  width: 90%;
+  width: 70%;
   height: 400px;
   background: var(--bg);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: start;
   /* box-shadow: 2px 2px 6px 2px var(--color); */
   box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.01),
               0 3px 24px rgba(0, 0, 0, 0.6);
   border-radius: 8px;
+  /* padding-top: 12px; */
   padding: 8px;
 }
 
@@ -68,17 +74,18 @@
   padding: 2px
 }
 
-.stock-show-chart
+/* .stock-show-chart {
+
+} */
 
 .stock-show-name {
   font-size: 18px;
   font-family: var(--font-family);
-  /* color: var(--color-text); */
+  color: var(--color-text);
   display: flex;
   justify-content: flex-start;
   color: var(--color-text);
   font-weight: bold;
-  background-color: blue;
 }
 
 .stock-show-price {
@@ -127,12 +134,13 @@
 
 .stock-info-container {
   height: 400px;
-  width: 90%;
+  width: 70%;
   background-color: var(--bg);
   font-family: var(--font-family);
   color: var(--color-text);
   box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.01),
               0 3px 24px rgba(0, 0, 0, 0.6);
+  border-radius: 8px;
 }
 
 .stock-info-header {
@@ -201,20 +209,109 @@
 
 .stock-order-container {
   background-color: var(--bg);
-  padding-top: 40px;
-  width: 90%;
-  height: 10%;
+  /* padding-top: 40px; */
+  position: fixed;
+  width: 300px;
+  height: 300px;
   margin: 20px;
   /* box-shadow: 2px 2px 6px 2px var(--color); */
   box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.01),
               0 3px 24px rgba(0, 0, 0, 0.6);
-  border-radius: 4px;
+  border-radius: 8px;
 }
 
 .stock-order-form {
   /* background-color: grey; */
 }
 
+.stock-order-stats {
+
+}
+
+.stock-order-stats > div {
+  padding: 10px;
+}
+
 .buying-power {
   /* background-color: darkgrey */
+}
+
+.order-form-header {
+  font-family: var(--font-family);
+  color: var(--color-text);
+  display: flex;
+  /* flex-direction: column; */
+  border-bottom: 1px solid var(--color-text);
+}
+
+.order-form-row-1 {
+  font-family: var(--font-family);
+  color: var(--color-text);
+  /* border-bottom: 1px solid var(--color-text); */
+  display: flex;
+  justify-content: space-between;
+}
+
+.order-form-row-2 {
+  font-family: var(--font-family);
+  color: var(--color-text);
+  border-bottom: 1px solid var(--color-text);
+  display: flex;
+  justify-content: space-between;
+}
+
+.order-form-row-3 {
+  font-family: var(--font-family);
+  color: var(--color-text);
+  display: flex;
+  justify-content: space-between;
+}
+
+.order-form-row-5 {
+
+}
+
+.order-form-row-6 {
+  display: flex;
+  justify-content: center;
+}
+
+.order-form-submit {
+  width: 50%;
+  height: 40px;
+  color: var(--color-text);
+  background-color: rgb(35,205,153);
+  border-color: rgb(35,205,153);
+  border-radius: 8px;
+  font-family: var(--font-family);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: bold;
+  /* background-image: linear-gradient(to left, transparent, transparent 50%,  rgb(24,86,62) 50%, rgb(24,86,62)); */
+  background-position: 100% 0;
+  background-size: 200% 100%;
+  transition: all .25s ease-in;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.order-form-submit:hover {
+  background-position: 0 0;
+  color: #FCFCFC;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgb(24,86,62);
+  filter: brightness(125%);
+  overflow: hidden;
+  transition: .5s ease;
+}
+.input-shares {
+  border: 1px solid transparent;
+  background: #FAFAFA;
+  width: 80px;
+  padding: 10px;
+  text-align: right;
 }
