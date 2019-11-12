@@ -7,6 +7,7 @@ import StockShowChartContainer from '../stock_show/stock_show_chart_container';
 class StockShow extends React.Component {
   constructor(props) {
     super(props);;
+    this.renderLatestPrice = this.renderLatestPrice.bind(this)
   }
 
   componentDidMount() {
@@ -14,26 +15,17 @@ class StockShow extends React.Component {
     this.props.fetchStockNews(this.props.match.params.symbol);
   }
 
-  // renderNews() {
-  //   debugger
-  //   if (this.props.stock.hasOwnProperty('articles')) {
-  //     const stockNews = this.props.stock.news.articles;
-  //     stockNews.map(singleNews => {
-  //       return (
-  //         <div className="news-index-item">
-  //           <NewsIndexItem
-  //             key={singleNews.id}
-  //             url={singleNews.url}
-  //             source={singleNews.source.name}
-  //             title={singleNews.title}
-  //             description={singleNews.description}
-  //             image={singleNews.urlToImage}
-  //           />
-  //         </div>
-  //       )
-  //     })
-  //   }
-  // }
+  renderLatestPrice() {
+    if (this.props.stock.intradayData) {
+      let lastItem = (this.props.stock.intradayData.length - 1);
+      let price = this.props.stock.intradayData[lastItem].close;
+      return (
+        <div className="stock-index-current-price">
+          ${price}
+        </div>
+      )
+    }
+  }
 
   render() {
 
@@ -51,7 +43,7 @@ class StockShow extends React.Component {
                       {stock.name}
                     </div>
                     <div className="stock-show-price">
-                      $265.32
+                    {this.renderLatestPrice()}
                     </div>
                     <div className="stock-show-change">
                       +$3.49 (+1.01%)

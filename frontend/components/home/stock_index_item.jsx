@@ -8,10 +8,10 @@ class StockIndexItem extends React.Component {
     this.state = {
       intradayData: []
     };
+    this.renderLatestPrice = this.renderLatestPrice.bind(this);
   }
 
   componentDidMount() {
-    // debugger
     this.props.fetchStockIntradayData(this.props.stock.symbol)
   }
 
@@ -25,8 +25,21 @@ class StockIndexItem extends React.Component {
     }
   }
 
+  renderLatestPrice() {
+    if (this.props.intradayData) {
+      let lastItem = (this.props.intradayData.length - 1);
+      let price = this.props.intradayData[lastItem].close;
+      return (
+        <div className="stock-index-current-price">
+          ${price}
+        </div>
+      )
+    }
+  }
+
   render() {
-    const { orders, stock, intradayData } = this.props;
+    const { stock, intradayData } = this.props;
+
     return (
       <Link to={`/stocks/${stock.symbol}`} className="stock-show-link" >
         <div className="stock-index">
@@ -41,9 +54,7 @@ class StockIndexItem extends React.Component {
               intradayData={intradayData}
             />
           </div>
-          <div className="stock-index-current-price">
-            $162.43
-          </div>
+            {this.renderLatestPrice()}
         </div>
       </Link>
     )
