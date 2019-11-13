@@ -1,5 +1,5 @@
 import React from 'react';
-import { LineChart, Line, YAxis, ResponsiveContainer, Tooltip } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, ResponsiveContainer, Tooltip } from 'recharts';
 
 const RED = "#EB5333";
 const GREEN = "#67CF9A";
@@ -32,7 +32,7 @@ class StockItemChart extends React.Component {
         intradayData: this.props.intradayData
       });
     };
-    debugger
+    // debugger
     // this.props.fetch1YrHistoricalData(this.props.stock.symbol);
 
     // this.setState({
@@ -40,21 +40,21 @@ class StockItemChart extends React.Component {
     //   intradayData: this.props.intradayData,
     //   historicalData: this.props.stock.historicalData
     // });
-    debugger
+    // debugger
 
-    if (this.state.historicalData.length === 0) {
-      debugger
-      this.props.fetch1YrHistoricalData(this.props.stock.symbol)
-        .then(result => this.setState({
-          // chartData: result.historicalData.chart,
-          historicalData: result.historicalData.chart
-        }))
-    } else {
-      this.setState({
-        historicalData: this.props.historicalData
-      });
-    };
-    debugger
+    // if (this.state.historicalData.length === 0) {
+    //   debugger
+    //   this.props.fetch1YrHistoricalData(this.props.stock.symbol)
+    //     .then(result => this.setState({
+    //       // chartData: result.historicalData.chart,
+    //       historicalData: result.historicalData.chart
+    //     }))
+    // } else {
+    //   this.setState({
+    //     historicalData: this.props.historicalData
+    //   });
+    // };
+    // debugger
   };
 
   // componentDidUpdate() {
@@ -74,9 +74,6 @@ class StockItemChart extends React.Component {
     let newChartData;
     let historicalDataLength = this.state.historicalData.length;
     if (range === "1D") {
-      // this.setState({
-      //   chartData: this.state.intradayData
-      // })
       newChartData = this.state.intradayData;
     } else if (range === "1W") {  
       newChartData = this.state.historicalData.slice(historicalDataLength - 5, historicalDataLength);
@@ -123,7 +120,7 @@ class StockItemChart extends React.Component {
 
     return (
       <div className={name}>
-        <ResponsiveContainer width='100%' height="100%">
+        <ResponsiveContainer width='100%' height="100%" className="show-graph-chart-container">
           <LineChart data={this.state.chartData} cursor="pointer">
             <Line
               type="linear"
@@ -135,6 +132,7 @@ class StockItemChart extends React.Component {
               connectNulls={true}
             />
             <Tooltip cursor={{ stroke: "lightgrey", strokeWidth: 2 }} />
+            <XAxis hide={true} dataKey='label' />
             <YAxis domain={['dataMin', 'dataMax']} hide={true} />
           </LineChart>
         </ResponsiveContainer>

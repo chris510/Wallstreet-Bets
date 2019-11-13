@@ -6,7 +6,7 @@
 }
 
 .news-container {
-  width: 70%;
+  width: 80%;
   /* padding-top: 45px; */
   background-color: var(--bg);
   display: flex;

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 // import StockItemChart from './stock_item_chart';
 import StockMiniChart from './stock_mini_chart';
+import { parseFloatToDollars } from '../../util/numbers.util';
 
 class StockIndexItem extends React.Component {
   constructor(props) {
@@ -29,7 +30,7 @@ class StockIndexItem extends React.Component {
       let price = this.props.intradayData[lastItem].close;
       return (
         <div className="stock-index-current-price">
-          ${price}
+          {parseFloatToDollars(price)}
         </div>
       )
     }

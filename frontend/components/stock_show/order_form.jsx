@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { parseFloatToDollars } from '../../util/numbers.util';
 
 
 class OrderForm extends React.Component {
@@ -8,10 +9,15 @@ class OrderForm extends React.Component {
     this.state = {
       type: 'BUY',
       shares: '',
-      price: 62.43
+      price: 0
     }
     this.setOrderType = this.setOrderType.bind(this);
     this.updateShares = this.updateShares.bind(this);
+    this.setLatestPrice = this.setLatestPrice.bind(this);
+  }
+
+  componentDidMount(){
+    this.setLatestPrice();
   }
 
   setOrderType() {
@@ -28,11 +34,15 @@ class OrderForm extends React.Component {
     });
   };
 
-  // calculateEstimatedCost() {
-  //   return (
-  //     {this.state.shares * this.state.}
-  //   )
-  // }
+  setLatestPrice() {
+    if (this.props.stock.intradayData) {
+      let lastItem = (this.props.stock.intradayData.length - 1);
+      let price = this.props.stock.intradayData[lastItem].close;
+      this.setState({
+        price: price
+      });
+    }
+  }
 
   render() {
     return (
@@ -54,13 +64,15 @@ class OrderForm extends React.Component {
                   <h3>Market Price</h3>
                 </div>
                 <div className="order-form-price">
-                  <h3>$62.43</h3>
+                  <div className="order-form-current-price">
+                    {parseFloatToDollars(this.state.price)}
+                  </div>
                 </div>
               </div>
               <div className="order-form-row-3">
                 <h3>Estimated Cost</h3>
                 <div className="order-form-cost-4">
-                  ${this.state.shares * this.state.price}
+                  {parseFloatToDollars(this.state.shares * this.state.price)}
                 </div>
               </div>
               <div className="order-form-row-5">

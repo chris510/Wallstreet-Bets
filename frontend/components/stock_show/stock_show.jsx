@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import NewsIndexItem from '../home/news/news_index_item';
 import StockItemChartContainer from '../home/stock_item_chart_container';
 import OrderFormContainer from '../../components/stock_show/order_form_container';
+import { parseFloatToDollars } from '../../util/numbers.util';
 // import Odometer from 'react-odometerjs';
 
 class StockShow extends React.Component {
@@ -25,10 +26,10 @@ class StockShow extends React.Component {
       let lastItem = (this.props.stock.intradayData.length - 1);
       let price = this.props.stock.intradayData[lastItem].close;
       return (
-        <div className="stock-index-current-price odometer">
+        <div className="stock-show-price">
           {/* <Odometer  */}
             {/* value= */}
-            ${price}
+            {parseFloatToDollars(price)}
           {/* /> */}
         </div>
       )
@@ -37,7 +38,7 @@ class StockShow extends React.Component {
 
   render() {
 
-    const { stock, news } = this.props
+    const { stock, news, info } = this.props
     // const { odometerValue } = this.state;
     // if (stock.hasOwnProperty('news') && stock.hasOwnProperty('info')) {
       if (!stock || !stock.info) {
@@ -49,11 +50,9 @@ class StockShow extends React.Component {
                 <div className="stock-show-chart-container">
                   <div className="stock-show-chart-header">
                     <div className="stock-show-name">
-                      {stock.name}
+                      {info.companyName}
                     </div>
-                    <div className="stock-show-price">
                     {this.renderLatestPrice()}
-                    </div>
                     <div className="stock-show-change">
                       +$3.49 (+1.01%)
                     </div>
@@ -64,14 +63,6 @@ class StockShow extends React.Component {
                     stock={stock}
                     name='stock-show-chart'
                   />
-                  {/* <div className="stock-show-chart-ranges">
-                    <li>1D</li>
-                    <li>1W</li>
-                    <li>1M</li>
-                    <li>3M</li>
-                    <li>1Y</li>
-                    <li>5Y</li>
-                  </div> */}
                 </div>
                 <div className="stock-info-container">
                   <div className="stock-info-header">About</div>
