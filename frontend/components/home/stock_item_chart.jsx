@@ -32,29 +32,25 @@ class StockItemChart extends React.Component {
         intradayData: this.props.intradayData
       });
     };
-    // debugger
-    // this.props.fetch1YrHistoricalData(this.props.stock.symbol);
+    this.props.fetch1YrHistoricalData(this.props.stock.symbol);
 
-    // this.setState({
-    //   chartData: this.props.intradayData,
-    //   intradayData: this.props.intradayData,
-    //   historicalData: this.props.stock.historicalData
-    // });
-    // debugger
+    this.setState({
+      chartData: this.props.intradayData,
+      intradayData: this.props.intradayData,
+      historicalData: this.props.stock.historicalData
+    });
 
-    // if (this.state.historicalData.length === 0) {
-    //   debugger
-    //   this.props.fetch1YrHistoricalData(this.props.stock.symbol)
-    //     .then(result => this.setState({
-    //       // chartData: result.historicalData.chart,
-    //       historicalData: result.historicalData.chart
-    //     }))
-    // } else {
-    //   this.setState({
-    //     historicalData: this.props.historicalData
-    //   });
-    // };
-    // debugger
+    if (this.state.historicalData.length === 0) {
+      this.props.fetch1YrHistoricalData(this.props.stock.symbol)
+        .then(result => this.setState({
+          // chartData: result.historicalData.chart,
+          historicalData: result.historicalData.chart
+        }))
+    } else {
+      this.setState({
+        historicalData: this.props.historicalData
+      });
+    };
   };
 
   // componentDidUpdate() {
@@ -92,7 +88,6 @@ class StockItemChart extends React.Component {
     this.setState({
       chartData: newChartData
     });
-    debugger
   }
 
   handleChangeRange(e) {
@@ -101,12 +96,10 @@ class StockItemChart extends React.Component {
       activeRange: range
     });
     this.changeDate(range);
-    debugger
   }
 
 
   // chartLineColor() {
-  //   // debugger
   //   if (this.props.intradayData) {
   //     let startingPrice = this.props.intradayData[0].close;
   //     let endingPrice = this.props.intradayData[this.props.intradayData.length - 1].close;

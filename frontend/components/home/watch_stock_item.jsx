@@ -13,7 +13,6 @@ class WatchStockItem extends React.Component {
   }
 
   componentDidMount() {
-    // debugger
     this.props.fetchWatchIntradayData(this.props.stock.symbol)
   }
 
