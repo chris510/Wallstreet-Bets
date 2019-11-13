@@ -89,6 +89,7 @@ class OrderForm extends React.Component {
           <div className="stock-submit-button-container"></div>
         </div>
         <div className="watch-submit-option"></div>
+        <div className="add-watchlist-button">Add To Watchlist</div>
       </div>
     )
   }

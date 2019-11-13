@@ -12,11 +12,13 @@ class StockItemChart extends React.Component {
       intradayData: [],
       historicalData: [],
       activeRange: '1D',
+      lineColor: GREEN,
       price: 0
     }
     // this.chartLineColor = this.chartLineColor.bind(this);
     this.changeDate = this.changeDate.bind(this);
     this.handleChangeRange = this.handleChangeRange.bind(this);
+    this.setRangeButtonStatus = this.setRangeButtonStatus.bind(this);
   }
 
   componentDidMount() {
@@ -32,25 +34,24 @@ class StockItemChart extends React.Component {
         intradayData: this.props.intradayData
       });
     };
-    this.props.fetch1YrHistoricalData(this.props.stock.symbol);
 
-    this.setState({
-      chartData: this.props.intradayData,
-      intradayData: this.props.intradayData,
-      historicalData: this.props.stock.historicalData
-    });
+    // this.setState({
+    //   chartData: this.props.intradayData,
+    //   intradayData: this.props.intradayData,
+    //   historicalData: this.props.stock.historicalData
+    // });
 
-    if (this.state.historicalData.length === 0) {
-      this.props.fetch1YrHistoricalData(this.props.stock.symbol)
-        .then(result => this.setState({
-          // chartData: result.historicalData.chart,
-          historicalData: result.historicalData.chart
-        }))
-    } else {
-      this.setState({
-        historicalData: this.props.historicalData
-      });
-    };
+    // if (this.state.historicalData.length === 0) {
+    //   this.props.fetch1YrHistoricalData(this.props.stock.symbol)
+    //     .then(result => this.setState({
+    //       // chartData: result.historicalData.chart,
+    //       historicalData: result.historicalData.chart
+    //     }))
+    // } else {
+    //   this.setState({
+    //     historicalData: this.props.historicalData
+    //   });
+    // };
   };
 
   // componentDidUpdate() {
@@ -85,8 +86,20 @@ class StockItemChart extends React.Component {
       }
     };
 
+    // this.setState({
+    //   chartData: newChartData
+    // });
+
+    let newLineColor;
+    if (newChartData.length !== 0 && newChartData[0].close > newChartData[newChartData.length - 1].close) {
+      newLineColor = RED;
+    } else {
+      newLineColor = GREEN;
+    }
+
     this.setState({
-      chartData: newChartData
+      chartData: newChartData,
+      LineColor: newLineColor
     });
   }
 
@@ -98,44 +111,55 @@ class StockItemChart extends React.Component {
     this.changeDate(range);
   }
 
-
-  // chartLineColor() {
-  //   if (this.props.intradayData) {
-  //     let startingPrice = this.props.intradayData[0].close;
-  //     let endingPrice = this.props.intradayData[this.props.intradayData.length - 1].close;
-  //     if (startingPrice > endingPrice) return RED
-  //     return GREEN;
-  //   }
-  // };
+  setRangeButtonStatus(range) {
+    let res = "chart-range-btn";
+    if (this.state.activeRange === range) {
+      res = `chart-range-btn-active`;
+    }
+    return res;
+  }
 
   render() {
-    const { name } = this.props
+    const { name, info } = this.props
 
     return (
-      <div className={name}>
-        <ResponsiveContainer width='100%' height="100%" className="show-graph-chart-container">
-          <LineChart data={this.state.chartData} cursor="pointer">
-            <Line
-              type="linear"
-              dataKey="close"
-              // stroke={this.chartLineColor()}
-              stroke={GREEN}
-              strokeWidth={2}
-              dot={false}
-              connectNulls={true}
-            />
-            <Tooltip cursor={{ stroke: "lightgrey", strokeWidth: 2 }} />
-            <XAxis hide={true} dataKey='label' />
-            <YAxis domain={['dataMin', 'dataMax']} hide={true} />
-          </LineChart>
-        </ResponsiveContainer>
-        <div className="stock-show-chart-ranges">
-          <li onClick={this.handleChangeRange}>1D</li>
-          <li onClick={this.handleChangeRange}>1W</li>
-          <li onClick={this.handleChangeRange}>1M</li>
-          <li onClick={this.handleChangeRange}>3M</li>
-          <li onClick={this.handleChangeRange}>1Y</li>
-          <li onClick={this.handleChangeRange}>5Y</li>
+      <div className="stock-show-chart-container">
+        <div className="stock-show-chart-header">
+          <div className="stock-show-name">
+            {info.companyName}
+          </div>
+          <div className="stock-show-price">
+            $274.42
+                    </div>
+          <div className="stock-show-change">
+            +$3.49 (+1.01%)
+                    </div>
+        </div>
+        <div className={name}>
+          <ResponsiveContainer width='100%' height="100%" className="show-graph-chart-container">
+            <LineChart data={this.state.chartData} cursor="pointer">
+              <Line
+                type="linear"
+                dataKey="close"
+                stroke={this.state.lineColor}
+                // stroke={}
+                strokeWidth={2}
+                dot={false}
+                connectNulls={true}
+              />
+              <Tooltip cursor={{ stroke: "lightgrey", strokeWidth: 2 }} />
+              <XAxis hide={true} dataKey='label' />
+              <YAxis domain={['dataMin', 'dataMax']} hide={true} />
+            </LineChart>
+          </ResponsiveContainer>
+          <div className="stock-show-chart-ranges">
+            <li className={this.setRangeButtonStatus("1D")} onClick={this.handleChangeRange}>1D</li>
+            <li className={this.setRangeButtonStatus("1W")} onClick={this.handleChangeRange}>1W</li>
+            <li className={this.setRangeButtonStatus("1M")} onClick={this.handleChangeRange}>1M</li>
+            <li className={this.setRangeButtonStatus("3M")} onClick={this.handleChangeRange}>3M</li>
+            <li className={this.setRangeButtonStatus("1Y")} onClick={this.handleChangeRange}>1Y</li>
+            <li className={this.setRangeButtonStatus("5Y")} onClick={this.handleChangeRange}>5Y</li>
+          </div>
         </div>
       </div>
     )

@@ -114,11 +114,11 @@ class NavSplash extends React.Component {
             </div>
             <div className="search-bar-container">
               <input 
-                type="search" 
                 aria-labelledby="search-button" />
-              <button id="search-button" type="submit">Search</button>
+              <button id="search-button" type="submit">
+                <SVGIcon name="search" width={25} />
+              </button>
             </div>
-              <SVGIcon name="search" width={20} />
           </div>
           <div className="nav-right-2">
             <div className="theme-switch-wrapper">

@@ -47,23 +47,26 @@ class StockShow extends React.Component {
         return ( 
           <div className="stock-show-main">
             <div className="stock-show-container-1">
-                <div className="stock-show-chart-container">
-                  <div className="stock-show-chart-header">
+                {/* <div className="stock-show-chart-container"> */}
+                  {/* <div className="stock-show-chart-header">
                     <div className="stock-show-name">
                       {info.companyName}
                     </div>
-                    {this.renderLatestPrice()}
+                    <div className="stock-show-price">
+                    $274.42
+                    </div>
                     <div className="stock-show-change">
                       +$3.49 (+1.01%)
                     </div>
-                  </div>
+                  </div> */}
                   <StockItemChartContainer
                     intradayData={stock.intradayData}
+                    info={info}
                     // historicalData={stock.historicalData}
                     stock={stock}
                     name='stock-show-chart'
                   />
-                </div>
+                {/* </div> */}
                 <div className="stock-info-container">
                   <div className="stock-info-header">About</div>
                   <div className="stock-info-description">
