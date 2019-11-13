@@ -17,7 +17,7 @@ class StockShow extends React.Component {
   componentDidMount() {
     this.props.fetchStockInfo(this.props.match.params.symbol);
     this.props.fetchStockNews(this.props.match.params.symbol);
-    this.props.fetch1YrHistoricalData(this.props.match.params.symbol);
+    // this.props.fetch1YrHistoricalData(this.props.match.params.symbol);
   }
 
   renderLatestPrice() {
@@ -60,7 +60,7 @@ class StockShow extends React.Component {
                   </div>
                   <StockItemChartContainer
                     intradayData={stock.intradayData}
-                    historicalData={stock.historicalData}
+                    // historicalData={stock.historicalData}
                     stock={stock}
                     name='stock-show-chart'
                   />

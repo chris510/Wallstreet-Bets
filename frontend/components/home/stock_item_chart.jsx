@@ -20,9 +20,10 @@ class StockItemChart extends React.Component {
   }
 
   componentDidMount() {
-    if (!this.props.intradayData) {
+    if (this.state.intradayData.length === 0) {
       this.props.fetchStockIntradayData(this.props.stock.symbol)
         .then( result => this.setState({
+          chartData: result.intradayData.chart,
           intradayData: result.intradayData.chart
         }));
     } else {
@@ -31,10 +32,21 @@ class StockItemChart extends React.Component {
         intradayData: this.props.intradayData
       });
     };
+    debugger
+    // this.props.fetch1YrHistoricalData(this.props.stock.symbol);
 
-    if (!this.props.historicalData) {
+    // this.setState({
+    //   chartData: this.props.intradayData,
+    //   intradayData: this.props.intradayData,
+    //   historicalData: this.props.stock.historicalData
+    // });
+    debugger
+
+    if (this.state.historicalData.length === 0) {
+      debugger
       this.props.fetch1YrHistoricalData(this.props.stock.symbol)
         .then(result => this.setState({
+          // chartData: result.historicalData.chart,
           historicalData: result.historicalData.chart
         }))
     } else {
@@ -45,22 +57,36 @@ class StockItemChart extends React.Component {
     debugger
   };
 
+  // componentDidUpdate() {
+  //   if (!this.props.historicalData) {
+  //     this.props.fetch1YrHistoricalData(this.props.stock.symbol)
+  //       .then(result => this.setState({
+  //         historicalData: result.historicalData.chart
+  //       }))
+  //   } else {
+  //     this.setState({
+  //       historicalData: this.props.historicalData
+  //     });
+  //   };
+  // }
+
   changeDate(range) {
     let newChartData;
     let historicalDataLength = this.state.historicalData.length;
-    if (range === '1D') {
-      this.setState({
-        chartData: this.state.intradayData
-      })
-    } else if (range === '1W') {  
-      newChartData = this.state.historicalData.slice(historicalDataLength - 5, historicalData.length);
-    } else if (range === '1M') {
-      newChartData = this.state.historicalData.slice(historicalDataLength - 21, historicalData.length);
-    } else if (range === '3M') {
-      newChartData = this.state.historicalData.slice(historicalDataLength - 62, historicalData.length);
-    } else if (range === '1Y') {
+    if (range === "1D") {
+      // this.setState({
+      //   chartData: this.state.intradayData
+      // })
+      newChartData = this.state.intradayData;
+    } else if (range === "1W") {  
+      newChartData = this.state.historicalData.slice(historicalDataLength - 5, historicalDataLength);
+    } else if (range === "1M") {
+      newChartData = this.state.historicalData.slice(historicalDataLength - 21, historicalDataLength);
+    } else if (range === "3M") {
+      newChartData = this.state.historicalData.slice(historicalDataLength - 62, historicalDataLength);
+    } else if (range === "1Y") {
       if (this.state.historicalData.length > 300) {
-        newChartData = this.state.historicalData.slice(historicalDataLength - 251, historicalDataLength);
+        newChartData = this.state.historicalData.slice(historicalDataLength - 251, historicalDatLength);
       } else {
         newChartData = this.state.historicalData;
       }
@@ -73,12 +99,12 @@ class StockItemChart extends React.Component {
   }
 
   handleChangeRange(e) {
-    debugger
     let range = e.currentTarget.textContent;
     this.setState({
       activeRange: range
     });
     this.changeDate(range);
+    debugger
   }
 
 
@@ -123,39 +149,6 @@ class StockItemChart extends React.Component {
       </div>
     )
   }
-
-}
-
-// const StockItemChart = ( { intradayData, name }) => {
-
-//   const chartLineColor = () => {
-//     if (intradayData) {
-//       let startingPrice = intradayData[0].close;
-//       let endingPrice = intradayData[intradayData.length - 1].close;
-
-//       if (startingPrice > endingPrice) return RED
-//         return GREEN;
-//     }
-//   }
-
-//   return (
-//     <div className={name}>
-//       <ResponsiveContainer width='100%' height="100%">
-//         <LineChart data={intradayData} cursor="pointer">
-//           <Line 
-//             type="linear" z
-//             dataKey="close" 
-//             stroke={chartLineColor()}
-//             strokeWidth={2}
-//             dot={false} 
-//             connectNulls={true}
-//           />
-//           <Tooltip cursor={{ stroke: "lightgrey", strokeWidth: 2 }} />
-//           <YAxis domain={['dataMin', 'dataMax']} hide={true} />
-//         </LineChart>
-//       </ResponsiveContainer>
-//     </div>
-//   )
-// }
+};
 
 export default StockItemChart;
