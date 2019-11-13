@@ -8,8 +8,8 @@ import StockShow from './stock_show';
 const mapStateToProps = (state, ownProps) => ({
   // currentUser: state.entities.users[state.session.id],
   stock: state.entities.stocks[ownProps.match.params.symbol],
-  news: state.entities.news,
-  info: state.entities.stocks[ownProps.match.params.symbol].info
+  news: state.entities.news
+  // info: state.entities.stocks[ownProps.match.params.symbol].info
 });
 
 const mapDispatchToProps = dispatch => ({

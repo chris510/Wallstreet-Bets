@@ -24,7 +24,7 @@ const stocksReducer = (oldState = {}, action) => {
       return nextState;
     case RECEIVE_STOCK_INFO:
       // return Object.assign({}, oldState, { [action.symbol].info : action.info})
-      nextState[action.symbol].info = action.info
+      nextState[action.symbol] = action.info
       return nextState;
     case RECEIVE_STOCK_NEWS:
       nextState[action.symbol].news = action.news.articles;

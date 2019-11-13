@@ -31,28 +31,28 @@ ActiveRecord::Base.transaction do
     stock_id: facebook.id,
     price: 190.42,
     shares: 82,
-    order_type: "buy"
+    order_type: "BUY"
   })
   buy_nflx = Order.create({
     user_id: demo_user.id, 
     stock_id: netflix.id,
     price: 289.57,
     shares: 17,
-    order_type: "buy"
+    order_type: "BUY"
   })
   buy_sq = Order.create({
     user_id: demo_user.id, 
     stock_id: square.id,
     price: 64.41,
     shares: 22,
-    order_type: "buy"
+    order_type: "BUY"
   })
   buy_guardant_health = Order.create({
     user_id: demo_user.id, 
     stock_id: guardant_health.id,
     price: 64.20,
     shares: 41,
-    order_type: "buy"
+    order_type: "BUY"
   })
   # buy_tsla = Order.create({
   #   user_id: demo_user.id, 
@@ -77,5 +77,6 @@ ActiveRecord::Base.transaction do
     symbol: microsoft.symbol
   })
 
+  demo_user.create_initial_portfolio
 
 end

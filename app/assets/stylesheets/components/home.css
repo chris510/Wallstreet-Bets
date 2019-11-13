@@ -162,12 +162,14 @@
 }
 
 .stock-index-symbol {
+  font-family: var(--font-family);
   color: var(--color-text);
-  font-size: 18px;
+  font-size: 24px;
   font-weight: bold;
 }
 
 .stock-index-shares {
+  font-family: var(--font-family);
   color: var(--color-text);
   display: flex;
   text-align: center;
@@ -187,11 +189,18 @@
   height: 100px;
 }
 
+.mini-chart-loader {
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+}
+
 .stock-index-current-price {
   font-size: 22px;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: var(--font-family);
   color: var(--color-text);
   font-weight: bold;
 }

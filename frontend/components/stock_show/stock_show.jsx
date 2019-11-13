@@ -12,83 +12,70 @@ class StockShow extends React.Component {
     this.state = {
       price: 0
     };
-    this.renderLatestPrice = this.renderLatestPrice.bind(this)
+    // this.renderLatestPrice = this.renderLatestPrice.bind(this)
   }
 
   componentDidMount() {
+    this.props.fetchStock(this.props.match.params.symbol);
     this.props.fetchStockInfo(this.props.match.params.symbol);
     this.props.fetchStockNews(this.props.match.params.symbol);
     // this.props.fetch1YrHistoricalData(this.props.match.params.symbol);
   }
 
-  renderLatestPrice() {
-    if (this.props.stock.intradayData) {
-      let lastItem = (this.props.stock.intradayData.length - 1);
-      let price = this.props.stock.intradayData[lastItem].close;
-      return (
-        <div className="stock-show-price">
-          {/* <Odometer  */}
-            {/* value= */}
-            {parseFloatToDollars(price)}
-          {/* /> */}
-        </div>
-      )
-    }
-  }
+  // renderLatestPrice() {
+  //   if (this.props.stock.intradayData) {
+  //     let lastItem = (this.props.stock.intradayData.length - 1);
+  //     let price = this.props.stock.intradayData[lastItem].close;
+  //     return (
+  //       <div className="stock-show-price">
+  //         {/* <Odometer  */}
+  //           {/* value= */}
+  //           {parseFloatToDollars(price)}
+  //         {/* /> */}
+  //       </div>
+  //     )
+  //   }
+  // }
 
   render() {
-
-    const { stock, news, info } = this.props
+    const { stock, news } = this.props
     // const { odometerValue } = this.state;
     // if (stock.hasOwnProperty('news') && stock.hasOwnProperty('info')) {
-      if (!stock || !stock.info) {
+      if (!stock) {
         return null;
       } else {
         return ( 
           <div className="stock-show-main">
             <div className="stock-show-container-1">
-                {/* <div className="stock-show-chart-container"> */}
-                  {/* <div className="stock-show-chart-header">
-                    <div className="stock-show-name">
-                      {info.companyName}
-                    </div>
-                    <div className="stock-show-price">
-                    $274.42
-                    </div>
-                    <div className="stock-show-change">
-                      +$3.49 (+1.01%)
-                    </div>
-                  </div> */}
                   <StockItemChartContainer
                     intradayData={stock.intradayData}
-                    info={info}
+                    // info={info}
                     // historicalData={stock.historicalData}
                     stock={stock}
                     name='stock-show-chart'
                   />
-                {/* </div> */}
                 <div className="stock-info-container">
                   <div className="stock-info-header">About</div>
                   <div className="stock-info-description">
-                    {stock.info.description}
+                    {stock.description}
                   </div>
                   <div className="stock-stats-container">
                     <div className="stock-stats-1">
                       <div>
                         <div className="about-headers">CEO</div>
-                        <div>{stock.info.CEO}</div>
+                        <div>{stock.CEO}</div>
                       </div>
                       <div>
                         <div className="about-headers">Employees</div>  
-                        <div>{stock.info.employees}</div>
+                        <div>{stock.employees}</div>
                       </div>
                       <div>
                         <div className="about-headers">Headquarters</div>
-                        <div>{stock.info.city} {stock.info.state}</div>
+                        <div>{stock.city} {stock.state}</div>
                       </div>
                       <div>
                         <div className="about-headers">Exchange</div>
-                        <div>{stock.info.exchange}</div>
+                        <div>{stock.exchange}</div>
                       </div>
                     </div> 
                     <div className="stock-stats-2">

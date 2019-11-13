@@ -3,7 +3,7 @@ class Order < ApplicationRecord
   validates :stock_id, presence: true
   validates :price, presence: true
   validates :shares, presence: true
-  validates :order_type, presence: true, inclusion: { in: ['buy', 'sell'] }
+  validates :order_type, presence: true, inclusion: { in: ['BUY', 'SELL'] }
 
   belongs_to :user
   belongs_to :stock

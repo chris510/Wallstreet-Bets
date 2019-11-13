@@ -7,35 +7,54 @@ import { parseFloatToDollars } from '../../util/numbers.util';
 class StockIndexItem extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      intradayData: [],
+      price: 0,
+      loadingState: true
+    };
     this.renderLatestPrice = this.renderLatestPrice.bind(this);
+    this.setData = this.setData.bind(this);
   }
 
   componentDidMount() {
-    this.props.fetchStockIntradayData(this.props.stock.symbol)
+    if (this.props.intradayData && this.props.intradayData.length > 0) {
+      this.setData();
+    } else {
+      this.props.fetchStockIntradayData(this.props.stock.symbol)
+        .then(data => this.setState({
+          intradayData: data.intradayData,
+          loadingState: false
+        }));
+    };
+  }
+
+  setData() {
+    this.setState({
+      intradayData: this.props.intradayData,
+      loadingState: false
+    });
   }
 
   renderShares() {
-    if (this.props.orders[this.props.stock.symbol].shares) {
-      // let shares;
-      // let orders = this.props.orders[this.props.stock.symbol];
-      // orders.forEach( order => {
-      //   shares += order.share;
-      // })
+    if (this.props.orders[this.props.stock.symbol].shares > 0) {
       return (
         <div className="stock-index-shares">
           {this.props.orders[this.props.stock.symbol].shares} shares
         </div>
       )
-    }
+    };
   }
 
   renderLatestPrice() {
     if (this.props.intradayData) {
       let lastItem = (this.props.intradayData.length - 1);
-      let price = this.props.intradayData[lastItem].close;
+      let newPrice = this.props.intradayData[lastItem].close;
+      // this.setState({
+      //   price: newPrice
+      // })
       return (
         <div className="stock-index-current-price">
-          {parseFloatToDollars(price)}
+          {parseFloatToDollars(newPrice)}
         </div>
       )
     }
@@ -51,12 +70,15 @@ class StockIndexItem extends React.Component {
             <div className="stock-index-symbol">
               {stock.symbol}
             </div>
+            {/* <div className="stock-index-current-price">
+              {price}
+            </div> */}
             {this.renderShares()}
           </div>
           <div className="stock-index-chart">
             <StockMiniChart
               intradayData={intradayData}
-              // name="stock-mini-chart"
+              loadingState = {this.state.loadingState}
             />
           </div>
             {this.renderLatestPrice()}

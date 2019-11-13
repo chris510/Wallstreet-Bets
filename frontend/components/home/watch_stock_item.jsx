@@ -7,13 +7,30 @@ class WatchStockItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      intradayData: []
+      intradayData: [],
+      loadingState: true
     };
     this.renderLatestPrice = this.renderLatestPrice.bind(this);
+    this.setData = this.setData.bind(this);
   }
 
   componentDidMount() {
-    this.props.fetchWatchIntradayData(this.props.stock.symbol)
+    if (this.props.intradayData && this.props.intradayData.length > 0) {
+      this.setData();
+    } else {
+      this.props.fetchWatchIntradayData(this.props.stock.symbol)
+        .then(data => this.setState({
+          intradayData: data.intradayData,
+          loadingState: false
+        }));
+    };
+  }
+
+  setData() {
+    this.setState({
+      intradayData: this.props.intradayData,
+      loadingState: false
+    });
   }
 
   renderLatestPrice() {
@@ -41,7 +58,7 @@ class WatchStockItem extends React.Component {
           <div className="stock-index-chart">
             <StockMiniChart
               intradayData={intradayData}
-              // name="stock-mini-chart"
+              loadingState={this.state.loadingState}
             />
           </div>
           {this.renderLatestPrice()}

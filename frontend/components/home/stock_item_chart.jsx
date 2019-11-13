@@ -1,5 +1,6 @@
 import React from 'react';
 import { LineChart, Line, XAxis, YAxis, ResponsiveContainer, Tooltip } from 'recharts';
+import { parseFloatToDollars } from '../../util/numbers.util';
 
 const RED = "#EB5333";
 const GREEN = "#67CF9A";
@@ -19,21 +20,30 @@ class StockItemChart extends React.Component {
     this.changeDate = this.changeDate.bind(this);
     this.handleChangeRange = this.handleChangeRange.bind(this);
     this.setRangeButtonStatus = this.setRangeButtonStatus.bind(this);
+    this.chartLineColor = this.chartLineColor.bind(this);
+    // this.renderLatestPrice = this.renderLatestPrice.bind(this);
   }
 
   componentDidMount() {
+
     if (this.state.intradayData.length === 0) {
       this.props.fetchStockIntradayData(this.props.stock.symbol)
         .then( result => this.setState({
           chartData: result.intradayData.chart,
           intradayData: result.intradayData.chart
         }));
+      this.chartLineColor();
     } else {
       this.setState({
         chartData: this.props.intradayData,
         intradayData: this.props.intradayData
       });
+      this.chartLineColor();
+      debugger
     };
+
+
+    // this.renderLatestPrice();
 
     // this.setState({
     //   chartData: this.props.intradayData,
@@ -55,16 +65,7 @@ class StockItemChart extends React.Component {
   };
 
   // componentDidUpdate() {
-  //   if (!this.props.historicalData) {
-  //     this.props.fetch1YrHistoricalData(this.props.stock.symbol)
-  //       .then(result => this.setState({
-  //         historicalData: result.historicalData.chart
-  //       }))
-  //   } else {
-  //     this.setState({
-  //       historicalData: this.props.historicalData
-  //     });
-  //   };
+  //   this.chartLineColor();
   // }
 
   changeDate(range) {
@@ -90,17 +91,19 @@ class StockItemChart extends React.Component {
     //   chartData: newChartData
     // });
 
-    let newLineColor;
-    if (newChartData.length !== 0 && newChartData[0].close > newChartData[newChartData.length - 1].close) {
-      newLineColor = RED;
-    } else {
-      newLineColor = GREEN;
-    }
+    // let newLineColor;
+    // if (newChartData.length !== 0 && newChartData[0].close > newChartData[newChartData.length - 1].close) {
+    //   newLineColor = RED;
+    // } else {
+    //   newLineColor = GREEN;
+    // }
 
     this.setState({
-      chartData: newChartData,
-      LineColor: newLineColor
+      chartData: newChartData
     });
+
+    this.chartLineColor();
+    debugger
   }
 
   handleChangeRange(e) {
@@ -119,21 +122,48 @@ class StockItemChart extends React.Component {
     return res;
   }
 
+  chartLineColor() {
+    let newLineColor;
+
+    if (this.state.chartData.length !== 0 && this.state.chartData[0].close > this.state.chartData[this.state.chartData.length - 1].close) {
+      newLineColor = RED;
+    } else {
+      newLineColor = GREEN;
+    }
+
+    this.setState({
+      LineColor: newLineColor
+    })
+
+  }
+  
+  // renderLatestPrice() {
+  //   if (this.state.chartData) {
+  //     let lastItem = (this.state.chartData.length - 1);
+  //     let price = this.state.chartData[lastItem].close;
+  //     this.setState({
+  //       price: parseFloatToDollars(price)
+  //     });
+  //   }
+  // }
+
+  
+
   render() {
-    const { name, info } = this.props
+    const { stock, name } = this.props
 
     return (
       <div className="stock-show-chart-container">
         <div className="stock-show-chart-header">
           <div className="stock-show-name">
-            {info.companyName}
+            {stock.companyName}
           </div>
           <div className="stock-show-price">
-            $274.42
-                    </div>
+            {/* {this.state.price} */} $54.38
+          </div>
           <div className="stock-show-change">
             +$3.49 (+1.01%)
-                    </div>
+          </div>
         </div>
         <div className={name}>
           <ResponsiveContainer width='100%' height="100%" className="show-graph-chart-container">

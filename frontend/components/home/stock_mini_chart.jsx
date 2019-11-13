@@ -1,10 +1,11 @@
 import React from 'react';
 import { LineChart, Line, YAxis, ResponsiveContainer } from 'recharts';
+import { BeatLoader } from 'react-spinners';
 
 const RED = "#EB5333";
 const GREEN = "#67CF9A";
 
-const StockMiniChart = ({ intradayData }) => {
+const StockMiniChart = ({ intradayData, loadingState }) => {
 
   const chartLineColor = () => {
     if (intradayData) {
@@ -31,6 +32,13 @@ const StockMiniChart = ({ intradayData }) => {
           <YAxis domain={['dataMin', 'dataMax']} hide={true} />
         </LineChart>
       </ResponsiveContainer>
+      <BeatLoader
+        className="mini-chart-loader"
+        sizeUnit={"px"}
+        size={10}
+        color={GREEN}
+        loading={loadingState}
+      />
     </div>
   )
 }
