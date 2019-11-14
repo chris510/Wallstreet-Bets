@@ -8,7 +8,7 @@ import Home from './home'
 
 const mapStateToProps = state => ({
   currentUser: state.entities.users[state.session.id],
-  portfolios: Object.values(state.entities.portfolios),
+  portfolio: Object.values(state.entities.portfolios),
   // stocks: Object.values(state.entities.stocks),
   stocks: state.entities.stocks,
   orders: state.entities.orders,

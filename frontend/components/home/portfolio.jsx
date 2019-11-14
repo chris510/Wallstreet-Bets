@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { LineChart, Line, XAxis, YAxis, ResponsiveContainer, Tooltip } from 'recharts';
 import { parseFloatToDollars } from '../../util/numbers.util';
-// import { fetchPortfolios } from '../../util/portfolios_api_util';
+import { fetchUserPortfolios } from '../../util/portfolios_api_util';
 // import Odometer from 'react-odometerjs';
 
 
@@ -13,7 +13,7 @@ class Portfolio extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      chartData: [],
+      chartData: this.props.portfolio,
       intradayData: [],
       historicalData: [],
       fiveYearData: [],
@@ -28,70 +28,49 @@ class Portfolio extends React.Component {
   }
 
   componentDidMount() {
-    if (this.props.portfolios) {
+    if (!this.state.fiveYearData.length > 0) {
       this.props.fetchUserPortfolios()
-        .then( res => this.setState({
-          chartData: res.porfolio,
-          fiveYearData: res.portfolio
-        }))
+        .then( result => {debugger
+          this.setState({
+          chartData: Object.values(result.portfolio),
+          fiveYearData: Object.values(result.portfolio)
+        }
+        )});
     } else {
       this.setState({
         chartData: this.props.portfolio,
         fiveYearData: this.props.portfolio
-      })
-    }
-    // this.props.fetchUserPortfolios();
-    debugger
+      });
+    };
   }
-
 
   changeDate(range) {
     let newChartData;
     let fiveYearLength = this.state.fiveYearData.length;
+    // let portfolioLength = this.props.portfolio.length;
     if (range === "1D") {
       newChartData = this.state.intradayData
     } else if (range === "1W") {
       newChartData = this.state.fiveYearData.slice(fiveYearLength - 5, fiveYearLength)
+      // newChartData = this.props.portfolio.slice(portfolioLength - 5, portfolioLength);
     } else if (range === "1M") {
       newChartData = this.state.fiveYearData.slice(fiveYearLength - 21, fiveYearLength)
+      // newChartData = this.props.portfolio.slice(portfolioLength - 21, portfolioLength);
     } else if (range === "3M") {
       newChartData = this.state.fiveYearData.slice(fiveYearLength - 66, fiveYearLength)
+      // newChartData = this.props.portfolio.slice(portfolioLength - 66, portfolioLength);
     } else if (range === "1Y") {
       newChartData = this.state.fiveYearData.slice(fiveYearLength - 253, fiveYearLength)
+      // newChartData = this.props.portfolio.slice(portfolioLength - 253, portfolioLength);
     } else if (range === "5Y") {
       newChartData = this.state.fiveYearData
+      // newChartData = this.props.portfolio
     }
-    debugger
-    // let newColor;
-    // if (newChartData.length !== 0 && newChartData[0].balance > newChartData[newChartData.length - 1].balance) {
-    //   newColor = RED;
-    // } else {
-    //   newColor = GREEN;
-    // }
+    
     this.setState({
       chartData: newChartData,
-      // lineColor: newColor
-    },
-      // this.setColorStatus
-    )
-
-    // this.setState({
-    //   chartData: newChartData
-    // });
-
-    // let newLineColor;
-    // if (newChartData.length !== 0 && newChartData[0].close > newChartData[newChartData.length - 1].close) {
-    //   newLineColor = RED;
-    // } else {
-    //   newLineColor = GREEN;
-    // }
-
-    // this.setState({
-    //   chartData: newChartData
-    // });
-
-    // this.chartLineColor();
-    // debugger
+    })
+    debugger
   }
 
   handleChangeRange(e) {
@@ -103,9 +82,9 @@ class Portfolio extends React.Component {
   }
 
   setRangeButtonStatus(range) {
-    let res = "chart-range-btn";
+    let res = "portfolio-range-btn";
     if (this.state.activeRange === range) {
-      res = `chart-range-btn-active`;
+      res = `portfolio-range-btn-active`;
     }
     return res;
   }
@@ -126,23 +105,22 @@ class Portfolio extends React.Component {
   }
 
   render() {
-
     return (
-      <div className="stock-show-chart-container">
-        <div className="stock-show-chart-header">
-          <div className="stock-show-name">
-            {/* {stock.companyName} */}
+      <div className="portfolio-chart-container">
+        <div className="portfolio-chart-header">
+          <div className="portfolio-name">
+            Balance
           </div>
-          <div className="stock-show-price">
+          <div className="portfolio-price">
             {/* {this.state.price} */} $54.38
           </div>
-          <div className="stock-show-change">
+          <div className="portfolio-change">
             +$3.49 (+1.01%)
           </div>
         </div>
-        <div>
-          <ResponsiveContainer width={600} height={200} className="show-graph-chart-container">
-            <LineChart data={this.props.portfolio} cursor="pointer">
+        <div className="portfolio-chart">
+          <ResponsiveContainer width={600} height={200} className="portfolio-graph-chart-container">
+            <LineChart data={this.state.chartData} cursor="pointer">
               <Line
                 type="linear"
                 dataKey="balance"
@@ -156,7 +134,7 @@ class Portfolio extends React.Component {
               <YAxis domain={['30000', '120000']} hide={true} />
             </LineChart>
           </ResponsiveContainer>
-          <div className="stock-show-chart-ranges">
+          <div className="portfolio-chart-ranges">
             <li className={this.setRangeButtonStatus("1D")} onClick={this.handleChangeRange}>1D</li>
             <li className={this.setRangeButtonStatus("1W")} onClick={this.handleChangeRange}>1W</li>
             <li className={this.setRangeButtonStatus("1M")} onClick={this.handleChangeRange}>1M</li>

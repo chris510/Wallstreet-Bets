@@ -25,7 +25,6 @@ class StockItemChart extends React.Component {
   }
 
   componentDidMount() {
-
     if (this.state.intradayData.length === 0) {
       this.props.fetchStockIntradayData(this.props.stock.symbol)
         .then( result => this.setState({
@@ -136,18 +135,6 @@ class StockItemChart extends React.Component {
     })
 
   }
-  
-  // renderLatestPrice() {
-  //   if (this.state.chartData) {
-  //     let lastItem = (this.state.chartData.length - 1);
-  //     let price = this.state.chartData[lastItem].close;
-  //     this.setState({
-  //       price: parseFloatToDollars(price)
-  //     });
-  //   }
-  // }
-
-  
 
   render() {
     const { stock, name } = this.props

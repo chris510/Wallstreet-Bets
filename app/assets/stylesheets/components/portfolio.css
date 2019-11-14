@@ -1,0 +1,106 @@
+.portfolio-chart-container {
+  font-family: var(--font-family);
+  width: 80%;
+  height: 400px;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: start;
+  box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.01),
+              0 3px 24px rgba(0, 0, 0, 0.6);
+  border-radius: 8px;
+  /* padding: 20px;  */
+}
+
+.portfolio-chart-container > div {
+  padding: 20px;
+}
+
+.portfolio-chart-header {
+  padding-bottom: 5px;
+}
+
+.portfolio-chart-header > div {
+  padding: 2px
+}
+
+
+.portfolio-name {
+  font-size: 20px;
+  font-family: var(--font-family);
+  color: var(--color-text);
+  display: flex;
+  justify-content: flex-start;
+  color: var(--color-text);
+  font-weight: bold;
+}
+
+.portfolio-price {
+  font-family: var(--font-family);
+  color: var(--color-text);
+  font-size: 36px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.portfolio-change {
+  font-family: var(--font-family);
+  color: var(--color-text);
+  font-size: 13px;
+}
+
+/* .recharts-surface {
+  padding: 10px;
+} */
+
+.portfolio-chart-ranges {
+  font-family: var(--font-family);
+  color: var(--color-text);
+  display: flex;
+  list-style-type: none;
+  width: 90%;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 10px;
+}
+
+.portfolio-chart-range-btn {
+  font-family: var(--font-family);
+  color: var(--color-text);
+  width: 90%;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 10px
+}
+
+.chart-range-btn-active {
+  color:  rgb(35,205,153);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+
+.portfolio-chart-ranges > li {
+  padding: 10px;
+}
+
+.portfolio-chart-ranges > li:hover {
+  color:  rgb(35,205,153);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* .portfolio-chart-ranges > li:active {
+  color:  rgb(35,205,153);
+  text-decoration: underline;
+  cursor: pointer;
+} */
+
+.portfolio-chart {
+  height: 400px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

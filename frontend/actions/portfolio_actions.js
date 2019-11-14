@@ -8,6 +8,8 @@ const receiveUserPortfolio = portfolio => ({
 });
 
 export const fetchUserPortfolios = () => dispatch => {
-  PortfolioAPIUtil.fetchUserPortfolios()
+  return (
+    PortfolioAPIUtil.fetchUserPortfolios()
     .then(portfolio => dispatch(receiveUserPortfolio(portfolio)))
+  )
 };

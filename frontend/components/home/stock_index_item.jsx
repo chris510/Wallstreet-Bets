@@ -37,9 +37,11 @@ class StockIndexItem extends React.Component {
 
   renderShares() {
     if (this.props.orders[this.props.stock.symbol].shares > 0) {
+      let shares = 0;
+      shares += this.props.orders[this.props.stock.symbol].shares
       return (
         <div className="stock-index-shares">
-          {this.props.orders[this.props.stock.symbol].shares} shares
+          {shares} shares
         </div>
       )
     };
