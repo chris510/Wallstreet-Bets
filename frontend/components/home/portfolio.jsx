@@ -19,7 +19,7 @@ class Portfolio extends React.Component {
       fiveYearData: [],
       activeRange: '5Y',
       lineColor: GREEN,
-      currentBalance: 0,
+      currentBalance: 124001.40,
       flux: 0,
       fluxPrecent: 0
 
@@ -182,7 +182,7 @@ class Portfolio extends React.Component {
         </div>
         <div className="portfolio-chart">
           <ResponsiveContainer width="100%" height="100%" className="portfolio-graph-chart-container">
-            <LineChart data={this.state.chartData} onMouseMove={this.handleMouseHover} onTouchStart={this.handleMouseHover} onMouseLeave={this.resetHoverPrice} cursor="pointer">
+            <LineChart data={this.state.chartData} onMouseMove={this.handleMouseHover} onTouchStart={this.handleMouseHover} cursor="pointer">
               <Line
                 type="linear"
                 dataKey="balance"

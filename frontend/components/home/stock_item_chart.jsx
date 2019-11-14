@@ -47,7 +47,6 @@ class StockItemChart extends React.Component {
         intradayData: this.props.intradayData
       });
       this.chartLineColor();
-      debugger
     };
 
     this.setState({
@@ -123,7 +122,6 @@ class StockItemChart extends React.Component {
     });
 
     this.chartLineColor();
-    debugger
   }
 
   handleChangeRange(e) {
@@ -160,13 +158,11 @@ class StockItemChart extends React.Component {
     let newFlux = 0;
     let newFluxPercent = 0;
 
-    debugger
     if (dataPoint) {
       let firstData = this.state.chartData[0];
       newFlux = dataPoint.close - firstData.close
       newFluxPercent = (1 - firstData.close / dataPoint.close) * 100;
     }
-    debugger
     return this.setState({
       flux: newFlux,
       fluxPercent: newFluxPercent
@@ -217,7 +213,7 @@ class StockItemChart extends React.Component {
         </div>
         <div className={name}>
           <ResponsiveContainer width='100%' height="100%" className="show-graph-chart-container">
-            <LineChart data={this.state.chartData} onMouseMove={this.handleMouseHover} onTouchStart={this.handleMouseHover} onMouseLeave={this.resetHoverPrice} cursor="pointer">
+            <LineChart data={this.state.chartData} onMouseMove={this.handleMouseHover} onTouchStart={this.handleMouseHover} cursor="pointer">
               <Line
                 type="linear"
                 dataKey="close"
