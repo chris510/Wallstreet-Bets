@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { LineChart, Line, XAxis, YAxis, ResponsiveContainer, Tooltip } from 'recharts';
-import { parseFloatToDollars } from '../../util/numbers.util';
+import { parseFloatToDollars, parseFloatToPosNegDollars, parseFloatToPostNegPercent } from '../../util/numbers.util';
 import { fetchUserPortfolios } from '../../util/portfolios_api_util';
-// import Odometer from 'react-odometerjs';
+import Odometer from 'react-odometerjs';
 
 
 const RED = "#EB5333";
@@ -29,6 +29,9 @@ class Portfolio extends React.Component {
     this.setRangeButtonStatus = this.setRangeButtonStatus.bind(this);
     this.chartLineColor = this.chartLineColor.bind(this);
     this.calculateBalance = this.calculateBalance.bind(this);
+    this.calculateFlux = this.calculateFlux.bind(this);
+    this.handleMouseHover = this.handleMouseHover.bind(this);
+    this.resetHoverPrice = this.resetHoverPrice.bind(this);
   }
 
   componentDidMount() {
@@ -58,17 +61,47 @@ class Portfolio extends React.Component {
     } else {
       return parseFloatToDollars(balance);
     }
+  }
 
-    // if this.state.fiveYearData
-    //   if (this.props.orders[this.props.stock.symbol].shares > 0) {
-    //     let shares = 0;
-    //     shares += this.props.orders[this.props.stock.symbol].shares
-    //     return (
-    //       <div className="stock-index-shares">
-    //         {shares} shares
-    //     </div>
-    //     )
-    //   };
+  calculateFlux(dataPoint) {
+    let newFlux = 0;
+    let newFluxPercent = 0;
+
+    debugger
+    if (dataPoint) {
+      let firstData = this.state.chartData[0];
+      newFlux = dataPoint.balance - firstData.balance
+      newFluxPercent = (1 - firstData.balance / dataPoint.balance) * 100;
+    }
+    return this.setState({
+      flux: newFlux,
+      fluxPercent: newFluxPercent
+    });
+  }
+
+  handleMouseHover(e) {
+    if (e.activePayload) {
+      let price = e.activePayload[0].payload.balance;
+      this.calculateFlux(e.activePayload[0].payload);
+      debugger
+      if (price) {
+        let time;
+        if (this.state.active === "1D") {
+          time = e.activePayload[0].payload.label + " ET";
+        } else {
+          time = e.activePayload[0].payload.date;
+        }
+        this.setState({
+          hoverPrice: price,
+          time: time
+        });
+      }
+    }
+  }
+
+  resetHoverPrice() {
+    this.calculateFlux(this.state.chartData[this.state.chartData.length - 1]);
+    return this.setState({ hoverPrice: this.state.currentBalance })
   }
 
   changeDate(range) {
@@ -119,7 +152,7 @@ class Portfolio extends React.Component {
   chartLineColor() {
     let newLineColor;
 
-    if (this.state.chartData.length !== 0 && this.state.chartData[0].close > this.state.chartData[this.state.chartData.length - 1].close) {
+    if (this.state.chartData.length !== 0 && this.state.chartData[0].balance > this.state.chartData[this.state.chartData.length - 1].balance) {
       newLineColor = RED;
     } else {
       newLineColor = GREEN;
@@ -139,15 +172,17 @@ class Portfolio extends React.Component {
           Balance
           </div>
           <div className="portfolio-price">
-            {this.calculateBalance()}
+            $<Odometer
+              value={this.state.hoverPrice}
+            />
           </div>
           <div className="portfolio-change">
-            +$3.49 (+1.01%)
+            {parseFloatToPosNegDollars(this.state.flux)} ({this.state.fluxPrecent})
           </div>
         </div>
         <div className="portfolio-chart">
           <ResponsiveContainer width="100%" height="100%" className="portfolio-graph-chart-container">
-            <LineChart data={this.state.chartData} cursor="pointer">
+            <LineChart data={this.state.chartData} onMouseMove={this.handleMouseHover} onTouchStart={this.handleMouseHover} onMouseLeave={this.resetHoverPrice} cursor="pointer">
               <Line
                 type="linear"
                 dataKey="balance"
