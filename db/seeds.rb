@@ -54,13 +54,13 @@ ActiveRecord::Base.transaction do
     shares: 41,
     order_type: "BUY"
   })
-  # buy_tsla = Order.create({
-  #   user_id: demo_user.id, 
-  #   stock_id: tesla.id,
-  #   price: 335.54,
-  #   shares: 16,
-  #   order_type: "buy"
-  # })
+  buy_tsla = Order.create({
+    user_id: demo_user.id, 
+    stock_id: tesla.id,
+    price: 335.54,
+    shares: 16,
+    order_type: "buy"
+  })
 
   watch_zm = Watch.create({
     user_id: demo_user.id,
@@ -78,5 +78,4 @@ ActiveRecord::Base.transaction do
   })
 
   demo_user.create_initial_portfolio
-
 end

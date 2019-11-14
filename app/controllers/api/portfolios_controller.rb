@@ -10,8 +10,8 @@ class Api::PortfoliosController < ApplicationController
     end
 
     def index
-      @portfolio = current_user.portfolio
-      render json: @portfolio
+      @portfolios = current_user.portfolios
+      render json: @portfolios
     end
 
     private

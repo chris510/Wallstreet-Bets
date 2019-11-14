@@ -1,0 +1,1 @@
+json.extract! portfolio, :user_id, :date, :balance

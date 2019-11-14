@@ -9,14 +9,16 @@ class User < ApplicationRecord
 
   has_many :orders
   has_many :watches
-  has_one :portfolio
+  has_many :portfolios
 
   has_many :stocks,
     through: :orders,
     source: :stock
   # Calculate Initial Portfolio Data
 
-  API_KEY = "pk_6b6b3dd7b1c14762aa91fccb20c382aa"
+  # API_KEY = "pk_6b6b3dd7b1c14762aa91fccb20c382aa"
+  # API_KEY = "pk_38d5e78ff7ef49a9b0eda63eae7b7950"
+  API_KEY = "pk_72f3c67ee17b4f6b977894cc73819d0d"
 
   def shares_owned
     stocks = Hash.new(0)
@@ -35,7 +37,7 @@ class User < ApplicationRecord
   end
 
   def shares_owned_value
-    stocks = stocks_owned
+    stocks = shares_owned
     stocks.map { |stock| {symbol: stock[0], shares: stock[1] } }
           .sort_by { |stock| stock[:symbol]}
 
@@ -54,6 +56,7 @@ class User < ApplicationRecord
     end
     total_shares_value.round(2)
   end
+
 
   # def calculate_one_day_portfolio
   #   stocks = stocks_owned
@@ -103,88 +106,69 @@ class User < ApplicationRecord
     self.session_token
   end
 
+  def create_one_year_chart
+
+  end
+  
+
+  # def filter_one_year_data 
+
+  # end
+
+  # def initial_portfolio_one_year
+
+  # end
+
+  def create_five_year_charts
+    charts = []
+    stocks = shares_owned
+    stocks.map { |stock| {symbol: stock[0], shares: stock[1] } }
+          .sort_by { |stock| stock[:symbol]}
+    # url = "https://cloud.iexapis.com/stable/stock/fb/batch?types=chart&range=1W&last=10&token=#{API_KEY}"
+    url = "https://cloud.iexapis.com/stable/stock/market/batch?types=chart&range=5Y&token=#{API_KEY}&symbols="
+    request = url + stocks.keys.join(",")
+    data = JSON.parse(open(request).read)
+    # data = JSON.parse(open(url).read)
+
+    orders.each do |order|
+      charts.push(filter_five_year_stock_chart_data(data, order))
+    end
+    charts
+  end
+
+  def filter_five_year_stock_chart_data(data, order)
+    filter = data[order.stock.symbol]["chart"].map do |day_data|
+      order.shares * day_data["close"]
+    end
+    filter
+  end
 
   # Create initial 5 year portfolio
 
   def create_initial_portfolio
+    url = "https://cloud.iexapis.com/stable/stock/market/batch?types=chart&range=5Y&token=pk_72f3c67ee17b4f6b977894cc73819d0d&symbols=FB"
+    response = JSON.parse(open(url).read)
+    five_year_chart = response["FB"]["chart"]
+
     five_year_charts = create_five_year_charts
-    five_year_chart = five_year_chart.each_with_index.map do |day_data,idx| 
+    five_year_chart = five_year_chart.each_with_index.map do |day_data, idx| 
       total_balance = 0
       five_year_charts.each do |chart| 
-        total_balance += chart[idx]
+        chart.each do |price|
+          total_balance += price
+        end
+        Portfolio.create({
+          user_id: id, 
+          date: day_data["date"],
+          balance: total_balance
+          })
       end
-      Portfolio.create!( user_id: id, date: day_data["date"], balance: total_balance)
     end
-    return five_year_chart
+    five_year_chart
   end
 
-  def create_five_year_charts 
-    charts = []
-    stocks = stocks_owned
-    stocks.map { |stock| {symbol: stock[0], shares: stock[1] } }
-          .sort_by { |stock| stock[:symbol]}
-
-    url = "https://cloud.iexapis.com/stable/stock/market/batch?types=chart&range=5Y&token=#{API_KEY}&symbols="
-    request = url + stocks.keys.join(',')
-    response = JSON.parse(open(request).read)
-
-    orders.each do |order|
-      charts.push(filter_five_year_stock_chart_data(response, order))
-    end
-    return charts
-  end
-
-  #filter 5 year data to check current shares price
-  def filter_five_year_stock_chart_data
-  filter = response[order.stock.symbol]["chart"].map do |day_data|
-    if check_date(day_data["data"], order.create_at)
-      order.shares * day_data["close"]
-    else
-      0
-    end
-  end
-    filter
-  end
-  
   #convert date to miliseconds then compare
   def check_date(date1, date2)
     Date.parse(date1.to_s) >= Date.parse(date2.to_s)
   end
 end
-
-# def create_five_year_charts
-#     charts = []
-    
-#     url = "https://cloud.iexapis.com/stable/stock/market/batch?types=chart&range=5Y&token=#{API_TOKEN}&symbols="
-#     tickers = orders.map { |order| order.ticker }
-#     request = url + tickers.join(',')
-
-#     response = JSON.parse(open(request).read)
-#     orders.each do |order|
-#       charts.push(create_five_year_stock_chart(response,order))
-#     end
-#     return charts
-#   end
-
-#convert date to miliseconds then compare
-def check_date(date1, date2)
-  Date.parse(date1.to_s) >= Date.parse(date2.to_s)
-end
-
-#convert date to miliseconds then compare
-def date_greater_or_equal?(date1,date2) # takes in date objects,
-    Date.parse(date1.to_s) >= Date.parse(date2.to_s)
-    # Date.parse(demo_user.orders.first.created_at.to_s) == Date.parse("2014-09-19")
-end
-
-
-#   def create_five_year_stock_chart(five_year_response, order) 
-#     filtered = five_year_response[order.ticker]["chart"].map do |day_data|
-#       if date_greater_or_equal?(day_data["date"], order.created_at)
-#         order.shares * day_data["close"]
-#       else
-#         0
-#       end
-#     end
-#     return filtered
-#   end
