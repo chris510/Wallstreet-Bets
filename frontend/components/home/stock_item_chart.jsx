@@ -21,6 +21,7 @@ class StockItemChart extends React.Component {
     this.handleChangeRange = this.handleChangeRange.bind(this);
     this.setRangeButtonStatus = this.setRangeButtonStatus.bind(this);
     this.chartLineColor = this.chartLineColor.bind(this);
+    this.calculateBalance = this.calculateBalance.bind(this);
     // this.renderLatestPrice = this.renderLatestPrice.bind(this);
   }
 
@@ -66,6 +67,18 @@ class StockItemChart extends React.Component {
   // componentDidUpdate() {
   //   this.chartLineColor();
   // }
+
+  calculateBalance() {
+    debugger
+    let price = 0
+    if (this.state.intradayData.length > 0) {
+      price += this.state.intradayData[this.state.intradayData.length - 1].close
+      return parseFloatToDollars(price);
+    } else {
+      return parseFloatToDollars(price);
+    }
+  }
+
 
   changeDate(range) {
     let newChartData;
@@ -146,7 +159,7 @@ class StockItemChart extends React.Component {
             {stock.companyName}
           </div>
           <div className="stock-show-price">
-            {/* {this.state.price} */} $54.38
+            {this.calculateBalance()}
           </div>
           <div className="stock-show-change">
             +$3.49 (+1.01%)

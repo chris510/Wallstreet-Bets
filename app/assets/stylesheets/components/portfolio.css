@@ -65,7 +65,7 @@
   padding: 10px;
 }
 
-.portfolio-chart-range-btn {
+.portfolio-range-btn {
   font-family: var(--font-family);
   color: var(--color-text);
   width: 90%;
@@ -74,10 +74,14 @@
   padding: 10px
 }
 
-.chart-range-btn-active {
+.portfolio-range-btn-active {
   color:  rgb(35,205,153);
   text-decoration: underline;
+  width: 90%;
+  font-weight: bold;
+  font-size: 16px;
   cursor: pointer;
+  padding: 10px
 }
 
 

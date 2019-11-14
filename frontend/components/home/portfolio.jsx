@@ -19,29 +19,56 @@ class Portfolio extends React.Component {
       fiveYearData: [],
       activeRange: '5Y',
       lineColor: GREEN,
-      price: 0
+      currentBalance: 0,
+      flux: 0,
+      fluxPrecent: 0
+
     }
     this.changeDate = this.changeDate.bind(this);
     this.handleChangeRange = this.handleChangeRange.bind(this);
     this.setRangeButtonStatus = this.setRangeButtonStatus.bind(this);
     this.chartLineColor = this.chartLineColor.bind(this);
+    this.calculateBalance = this.calculateBalance.bind(this);
   }
 
   componentDidMount() {
     if (!this.state.fiveYearData.length > 0) {
       this.props.fetchUserPortfolios()
-        .then( result => {debugger
+        .then( result => 
           this.setState({
           chartData: Object.values(result.portfolio),
           fiveYearData: Object.values(result.portfolio)
-        }
-        )});
+         }
+        )
+        // .then(result => this.setintradayData(Object.values(result.portfolio)))
+      );
     } else {
       this.setState({
         chartData: this.props.portfolio,
         fiveYearData: this.props.portfolio
       });
     };
+  }
+
+  calculateBalance() {
+    let balance = 0
+    if (this.state.fiveYearData.length > 0) {
+      balance += this.state.fiveYearData[this.state.fiveYearData.length - 1].balance
+      return parseFloatToDollars(balance);
+    } else {
+      return parseFloatToDollars(balance);
+    }
+
+    // if this.state.fiveYearData
+    //   if (this.props.orders[this.props.stock.symbol].shares > 0) {
+    //     let shares = 0;
+    //     shares += this.props.orders[this.props.stock.symbol].shares
+    //     return (
+    //       <div className="stock-index-shares">
+    //         {shares} shares
+    //     </div>
+    //     )
+    //   };
   }
 
   changeDate(range) {
@@ -109,17 +136,17 @@ class Portfolio extends React.Component {
       <div className="portfolio-chart-container">
         <div className="portfolio-chart-header">
           <div className="portfolio-name">
-            Balance
+          Balance
           </div>
           <div className="portfolio-price">
-            {/* {this.state.price} */} $54.38
+            {this.calculateBalance()}
           </div>
           <div className="portfolio-change">
             +$3.49 (+1.01%)
           </div>
         </div>
         <div className="portfolio-chart">
-          <ResponsiveContainer width={600} height={200} className="portfolio-graph-chart-container">
+          <ResponsiveContainer width="100%" height="100%" className="portfolio-graph-chart-container">
             <LineChart data={this.state.chartData} cursor="pointer">
               <Line
                 type="linear"
@@ -130,8 +157,8 @@ class Portfolio extends React.Component {
                 connectNulls={true}
               />
               <Tooltip cursor={{ stroke: "lightgrey", strokeWidth: 2 }} />
-              <XAxis hide={true} dataKey='balance' />
-              <YAxis domain={['30000', '120000']} hide={true} />
+              <XAxis hide={true} dataKey='label' />
+              <YAxis domain={['30000', '200000']} hide={true} />
             </LineChart>
           </ResponsiveContainer>
           <div className="portfolio-chart-ranges">
