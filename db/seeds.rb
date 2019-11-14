@@ -6,11 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+require_relative 'portfolios'
+
 ActiveRecord::Base.transaction do 
 
   User.destroy_all
   Stock.destroy_all
   Watch.destroy_all
+  Portfolio.destroy_all
 
   demo_user = User.create({ username: 'Demo_User', password: 'password123'})
 
@@ -30,35 +33,35 @@ ActiveRecord::Base.transaction do
     user_id: demo_user.id, 
     stock_id: facebook.id,
     price: 190.42,
-    shares: 82,
+    shares: 63,
     order_type: "BUY"
   })
   buy_nflx = Order.create({
     user_id: demo_user.id, 
     stock_id: netflix.id,
     price: 289.57,
-    shares: 17,
+    shares: 48,
     order_type: "BUY"
   })
   buy_sq = Order.create({
     user_id: demo_user.id, 
     stock_id: square.id,
     price: 64.41,
-    shares: 22,
+    shares: 80,
     order_type: "BUY"
   })
-  buy_guardant_health = Order.create({
+  buy_gh = Order.create({
     user_id: demo_user.id, 
     stock_id: guardant_health.id,
     price: 64.20,
-    shares: 41,
+    shares: 82,
     order_type: "BUY"
   })
   buy_tsla = Order.create({
     user_id: demo_user.id, 
     stock_id: tesla.id,
     price: 335.54,
-    shares: 16,
+    shares: 39,
     order_type: "buy"
   })
 
@@ -77,5 +80,10 @@ ActiveRecord::Base.transaction do
     symbol: microsoft.symbol
   })
 
-  demo_user.create_initial_portfolio
+   PORTFOLIOS.each do |day|
+    date = Date.parse(day[:time])
+    balance = day[:balance]
+    Portfolio.create({ date: date, balance: balance, user_id: demo_user.id })
+  end
+
 end

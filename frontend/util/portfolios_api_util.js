@@ -1,4 +1,4 @@
-export const fetchPortfolios = () => (
+export const fetchUserPortfolios = () => (
   $.ajax({
     method: 'GET',
     url: `/api/portfolios`

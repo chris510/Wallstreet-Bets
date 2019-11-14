@@ -80,7 +80,7 @@
 }
 
 .portfolio-chart {
-  min-height: 500px;
+  height: 500px;
   width: 80%;
   display: flex;
   background-color: var(--bg);

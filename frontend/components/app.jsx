@@ -16,6 +16,7 @@ import { fetchWatchedStocks } from '../actions/watch_action';
 import { fetchWatchIntradayData } from '../actions/watch_action';
 
 import { fetchStockNews, fetchStockInfo, fetchStock, fetchStockIntradayData, fetch1YrHistoricalData } from '../actions/stock_actions';
+import { fetchUserPortfolios } from '../actions/portfolio_actions';
 
 window.fetchStock = fetchStock;
 window.fetchStocks = fetchStocks;
@@ -26,6 +27,7 @@ window.fetchStockIntradayData = fetchStockIntradayData;
 window.fetchWatchedStocks = fetchWatchedStocks;
 window.fetchWatchIntradayData = fetchWatchIntradayData;
 window.fetch1YrHistoricalData = fetch1YrHistoricalData;
+window.fetchUserPortfolios = fetchUserPortfolios;
 
 const App = () => (
   <div className="main-div">

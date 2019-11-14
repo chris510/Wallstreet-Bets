@@ -2,16 +2,17 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import NewsIndexItem from './news/news_index_item';
 import StockIndexContainer from "./stock_index_container";
+import PortfolioIndexContainer from './portfolio_container';
 
 class Home extends React.Component {
   constructor(props) {
     super(props);
-    // this.renderStocks = this.renderStocks.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchStocks();
     this.props.fetchNews();
+    this.props.fetchUserPortfolios();
   }
 
   render() {
@@ -21,6 +22,9 @@ class Home extends React.Component {
       <div className="home">
         <div className="home-container-1">
           <div className="portfolio-chart">
+            <PortfolioIndexContainer
+              portfolio={this.props.portfolios}
+            />
           </div>
           <div className="news-container">
               <div className="index-title">
