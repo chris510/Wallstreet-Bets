@@ -58,7 +58,7 @@ class StockItemChart extends React.Component {
     if (this.state.historicalData.length === 0) {
       this.props.fetch1YrHistoricalData(this.props.stock.symbol)
         .then(result => this.setState({
-          // chartData: result.historicalData.chart,
+          chartData: result.historicalData.chart,
           historicalData: result.historicalData.chart
         }))
     } else {

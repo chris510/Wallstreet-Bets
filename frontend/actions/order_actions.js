@@ -17,7 +17,7 @@ export const createOrder = order => dispatch (
     .then( order => dispatch(receiveOrder(order)))
 );
 
-export const removeOrder = () => dispatch => (
+export const deleteOrder = () => dispatch => (
   OrderAPIUtil.removeOrder()
     .then( () => dispatch(removeOrder()))
 );
