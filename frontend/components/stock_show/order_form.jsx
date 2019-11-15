@@ -14,6 +14,7 @@ class OrderForm extends React.Component {
     this.setOrderType = this.setOrderType.bind(this);
     this.updateShares = this.updateShares.bind(this);
     this.setLatestPrice = this.setLatestPrice.bind(this);
+    this.setOrderButtonStatus = this.setOrderButtonStatus.bind(this);
   }
 
   componentDidMount(){
@@ -27,6 +28,14 @@ class OrderForm extends React.Component {
       this.setState( {type: 'BUY'});
     };
   };
+
+  setOrderButtonStatus(type) {
+    let res = "order-button-type";
+    if (this.state.type === type ) {
+      res = `order-button-type-active`;
+    }
+    return res;
+  }
 
   updateShares(e) {
     this.setState({
@@ -52,8 +61,8 @@ class OrderForm extends React.Component {
           <div className="stock-order-stats">
             <form>
               <div className="order-form-header">
-                <div>ORDER BUY</div>
-                <div>ORDER SELL</div>
+                <div className={this.setOrderButtonStatus("BUY")} onClick={this.setOrderType}>ORDER BUY</div>
+                <div className={this.setOrderButtonStatus("SELL")} onClick={this.setOrderType}>ORDER SELL</div>
               </div>
               <div className="order-form-row-1">
                 <h3>Shares</h3>
@@ -78,7 +87,7 @@ class OrderForm extends React.Component {
               <div className="order-form-row-5">
               </div>
               <div className="order-form-row-6">
-                <input type="submit" className="order-form-submit" />
+                <input type="submit" className="order-form-submit"/> 
               </div>
             </form>
             <footer className="order-form-footer">

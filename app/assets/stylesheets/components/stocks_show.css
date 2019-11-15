@@ -127,21 +127,39 @@
   padding: 10px
 } */
 
+.chart-range-btn {
+  font-family: var(--font-family);
+  color: var(--color-text);
+  font-size: 16px;
+  padding: 5px;
+  font-weight: bold;
+}
+
 .chart-range-btn-active {
   color:  rgb(35,205,153);
-  text-decoration: underline;
+  font-size: 16px;
+  padding: 5px;
+  border-bottom: 2px solid rgb(35,205,153);
   cursor: pointer;
+  font-weight: bold;
 }
 
 
 .stock-show-chart-ranges > li {
-  padding: 10px;
+  padding: 10x;
+  font-size: 16px;
+  padding-bottom: 5px;
+  font-weight: bold;
+  /* border-bottom: 2px solid black; */
 }
 
 .stock-show-chart-ranges > li:hover {
   color:  rgb(35,205,153);
-  text-decoration: underline;
+  font-size: 16px;
+  /* border-bottom: 2px solid rgb(35,205,153); */
   cursor: pointer;
+  padding-bottom: 5px;
+  font-weight: bold;
 }
 
 /* .stock-show-chart-ranges > li:active {
@@ -286,6 +304,32 @@
   justify-content: space-between;
   align-items: center;
   position: relative;
+}
+
+.order-button-type {
+  font-family: var(--font-family);
+  color: var(--color-text);
+  font-size: 18px;
+  font-weight: bold;
+  padding-bottom: 5px;
+}
+
+.order-button-type:hover {
+  color: rgb(35,205,153);
+  font-family: var(--font-family);
+  font-size: 16px;
+  font-weight: bold;
+  padding-bottom: 5px;
+}
+
+.order-button-type-active {
+  font-family: var(--font-family);
+  color: rgb(35,205,153);
+  font-size: 18px;
+  font-weight: bold;
+  border-bottom: 2px solid rgb(35,205,153);
+  position: relative;
+  padding-bottom: 5px;
 }
 
 .order-form-row-1 {
