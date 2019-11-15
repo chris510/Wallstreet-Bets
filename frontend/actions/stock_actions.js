@@ -5,6 +5,7 @@ export const RECEIVE_STOCKS = 'RECEIVE_STOCKS';
 
 export const RECEIVE_STOCK_INTRADAY_DATA = 'RECEIVE_STOCK_INTRADAY_DATA';
 export const RECEIVE_HISTORICAL_DATA = 'RECEIVE_HISTORICAL_DATA';
+export const RECEIVE_5YR_DATA = 'RECEIVE_5YR_DATA'
 export const RECEIVE_STOCK_INFO = 'RECEIVE_STOCK_INFO';
 export const RECEIVE_STOCK_NEWS = 'RECEIVE_STOCK_NEWS';
 
@@ -29,6 +30,12 @@ const receiveHistoricalData = (symbol, historicalData) => ({
   type: RECEIVE_HISTORICAL_DATA,
   symbol,
   historicalData
+});
+
+const receive5YrData = (symbol, fiveYearData) => ({
+  type: RECEIVE_5YR_DATA,
+  symbol,
+  fiveYearData
 })
 
 const receiveStockInfo = (symbol, info) => ({
@@ -67,6 +74,11 @@ export const fetchStockIntradayData = symbol => dispatch => (
 export const fetch1YrHistoricalData = symbol => dispatch => (
   StockAPIUtil.fetch1YrHistoricalData(symbol)
     .then( historicalData => dispatch(receiveHistoricalData(symbol,historicalData)))
+);
+
+export const fetch5YrData = symbol => dispatch => (
+  StockAPIUtil.fetch5yrHistoricalData(symbol)
+    .then( (fiveYearData) => dispatch(receive5YrData(symbol, fiveYearData)))
 );
 
 export const fetchStockInfo = symbol => dispatch => (

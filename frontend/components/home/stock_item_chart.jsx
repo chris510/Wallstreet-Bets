@@ -13,6 +13,7 @@ class StockItemChart extends React.Component {
       chartData: [],
       intradayData: [],
       historicalData: [],
+      fiveYearData: [],
       activeRange: '1D',
       lineColor: GREEN,
       currentPrice: 0,
@@ -104,7 +105,16 @@ class StockItemChart extends React.Component {
       } else {
         newChartData = this.state.historicalData;
       }
-    };
+    } ;
+    // else if (range === "5Y") {
+    //   this.props.fetch5YrData(this.props.stock.symbol)
+    //     .then( result => (this.setState({
+    //       fiveYearData: result.fiveYearData.chart
+    //     })), 
+    //       newChartData = this.state.fiveYearData
+    //     )
+    //     debugger 
+    // }
 
     // this.setState({
     //   chartData: newChartData
@@ -116,7 +126,6 @@ class StockItemChart extends React.Component {
     // } else {
     //   newLineColor = GREEN;
     // }
-
     this.setState({
       chartData: newChartData
     });

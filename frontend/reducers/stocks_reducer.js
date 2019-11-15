@@ -4,7 +4,8 @@ import {
   RECEIVE_STOCK_INTRADAY_DATA,
   RECEIVE_STOCK_INFO,
   RECEIVE_STOCK_NEWS,
-  RECEIVE_HISTORICAL_DATA
+  RECEIVE_HISTORICAL_DATA,
+  RECEIVE_5YR_DATA
 } from '../actions/stock_actions';
 
 const stocksReducer = (oldState = {}, action) => {
@@ -21,6 +22,9 @@ const stocksReducer = (oldState = {}, action) => {
       return nextState
     case RECEIVE_HISTORICAL_DATA:
       nextState[action.symbol].historicalData = action.historicalData.chart
+      return nextState;
+    case RECEIVE_5YR_DATA:
+      nextState[action.symbol].fiveYearData = action.fiveYearData.chart;
       return nextState;
     case RECEIVE_STOCK_INFO:
       // return Object.assign({}, oldState, { [action.symbol].info : action.info})

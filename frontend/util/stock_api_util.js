@@ -26,6 +26,13 @@ export const fetch1YrHistoricalData = symbol => (
   })
 );
 
+export const fetch5yrHistoricalData = symbol => (
+  $.ajax({
+    method: 'GET',
+    url: `https://cloud.iexapis.com/stable/stock/${symbol}/batch?&types=chart&range=5Y&token=${window.iexAPIKey}`
+  })
+)
+
 export const fetchStockInfo = symbol => (
   $.ajax({
     method: 'GET',

@@ -67,7 +67,6 @@ class Portfolio extends React.Component {
     let newFlux = 0;
     let newFluxPercent = 0;
 
-    debugger
     if (dataPoint) {
       let firstData = this.state.chartData[0];
       newFlux = dataPoint.balance - firstData.balance
