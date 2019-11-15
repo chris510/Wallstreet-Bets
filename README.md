@@ -1,24 +1,14 @@
-# README
+# WallstreetBets
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+ An investment app with a simple interactive design that allows new users to invest and trade stocks with no commission fees.
 
-Things you may want to cover:
+![](splash.gif)
 
-* Ruby version
+##Technologies
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Frontend: React/Redux, HTML5, CSS
+- Backend: Ruby on Rails, PostgreSQL
+- [IEX Trading API](https://iexcloud.io/)
+- [News API](https://newsapi.org/)
+- [Recharts JS](http://recharts.org/en-US/)
+- [Odometer JS](https://github.hubspot.com/odometer/docs/welcome/)
