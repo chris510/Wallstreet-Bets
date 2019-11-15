@@ -179,6 +179,7 @@ class StockItemChart extends React.Component {
   }
 
   handleMouseHover(e) {
+    debugger
     if (e.activePayload) {
       let price = e.activePayload[0].payload.close;
       this.calculateFlux(e.activePayload[0].payload);
