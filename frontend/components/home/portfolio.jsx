@@ -83,7 +83,6 @@ class Portfolio extends React.Component {
     if (e.activePayload) {
       let price = e.activePayload[0].payload.balance;
       this.calculateFlux(e.activePayload[0].payload);
-      debugger
       if (price) {
         let time;
         if (this.state.active === "1D") {

@@ -170,7 +170,7 @@
 
 .stock-show-chart {
   height: 400px;
-  width: 90%;
+  width: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -354,6 +354,10 @@
   justify-content: space-between;
   align-items: center;
   position: relative;
+}
+
+.order-form-market > h3 {
+  color: rgb(35,205,153);
 }
 
 .order-form-current-price {

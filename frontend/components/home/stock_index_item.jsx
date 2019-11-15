@@ -13,12 +13,15 @@ class StockIndexItem extends React.Component {
       loadingState: true
     };
     this.renderLatestPrice = this.renderLatestPrice.bind(this);
-    this.setData = this.setData.bind(this);
+    // this.setData = this.setData.bind(this);
   }
 
   componentDidMount() {
     if (this.props.intradayData && this.props.intradayData.length > 0) {
-      this.setData();
+      this.setState({
+        intradayData: this.props.intradayData,
+        loadingState: false
+      });
     } else {
       this.props.fetchStockIntradayData(this.props.stock.symbol)
         .then(data => this.setState({
@@ -28,12 +31,21 @@ class StockIndexItem extends React.Component {
     };
   }
 
-  setData() {
-    this.setState({
-      intradayData: this.props.intradayData,
-      loadingState: false
-    });
-  }
+  // componentDidUpdate() {
+  //   if (this.props.intradayData && this.props.intradayData.length > 0) {
+  //     this.setState({
+  //       intradayData: this.props.intradayData,
+  //       loadingState: false
+  //     });
+  //   }
+  // }
+
+  // setData() {
+  //   this.setState({
+  //     intradayData: this.props.intradayData,
+  //     loadingState: false
+  //   });
+  // }
 
   renderShares() {
     if (this.props.orders[this.props.stock.symbol].shares > 0) {

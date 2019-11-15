@@ -19,7 +19,7 @@ const StockMiniChart = ({ intradayData, loadingState }) => {
 
   return (
     <div className="stock-mini-chart">
-      <ResponsiveContainer width='125%' height="100%">
+      <ResponsiveContainer width='100%' height="100%">
         <LineChart data={intradayData} cursor="pointer">
           <Line
             type="linear" z
