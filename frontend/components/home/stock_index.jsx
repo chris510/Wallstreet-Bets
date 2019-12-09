@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import StockIndexItemContainer from './stock_index_item_container';
+// import StockIndexItem from './stock_index_item';
 import WatchStockItemContainer from './watch_stock_item_container';
 
 class StocksIndex extends React.Component {
@@ -16,7 +17,18 @@ class StocksIndex extends React.Component {
 
   componentDidMount() {
     this.props.fetchStocks();
-    this.props.fetchWatchedStocks();
+    // this.props.fetchWatchedStocks();
+  }
+
+  calculateShares(symbol){
+    let orders = Object.keys(this.props.orders);
+    let shares = 0;
+    orders.forEach(orderSymbol => {
+      if (orderSymbol === symbol) {
+        shares = shares + this.props.orders[orderSymbol].shares;
+      } 
+    })
+    return shares;
   }
 
   renderStocks() {
@@ -24,15 +36,18 @@ class StocksIndex extends React.Component {
     return (
       <div className="stock-index-container">
         {symbols.map((symbol) => {
-          return (
-            // <div>
-            //   {symbol}
-            // </div>
-            <StockIndexItemContainer
-              key={symbol}
-              symbol={symbol}
-            />
-          )
+          let shares = this.calculateShares(symbol);
+          let type = "ownedStock";
+          if (shares > 0) {
+            return (
+              <StockIndexItemContainer
+                key={symbol}
+                symbol={symbol}
+                shares={shares}
+                type={type}
+              />
+            )
+          }
         })}
       </div>
     )
@@ -44,10 +59,7 @@ class StocksIndex extends React.Component {
       <div className="stock-watch-container">
         {symbols.map((symbol) => {
           return (
-            // <div>
-            //   {symbol}
-            // </div>
-            <WatchStockItemContainer
+            <StockIndexItemContainer
               key={symbol}
               symbol={symbol}
             />
@@ -67,7 +79,7 @@ class StocksIndex extends React.Component {
         <div className="stocks-watched-title">
           Watched Stocks
         </div>
-          {this.renderWatches()}
+          {/* {this.renderWatches()} */}
       </div >
     )
   }

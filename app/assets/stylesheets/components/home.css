@@ -166,6 +166,10 @@
   /* font-weight: bold; */
 }
 
+.stock-index-shares-hidden {
+  display: none;
+}
+
 .stock-index-chart {
   height: 100%;
   width: 45%;

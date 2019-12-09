@@ -89,7 +89,7 @@ class StockShow extends React.Component {
                   <div className="index-title">
                     Recent News
                     </div>
-                  {news.map(singleNews => {
+                  {news.slice(0,5).map(singleNews => {
                     return (
                       <div className="news-index-item">
                         <NewsIndexItem
