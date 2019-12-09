@@ -18,7 +18,12 @@ class StockIndexItem extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchStockIntradayData(this.props.symbol);
+    if (this.props.type === "ownedStock") {
+      this.props.fetchStockIntradayData(this.props.symbol);
+    } else if (this.props.type === "watchedStock") {
+      debugger
+      this.props.fetchWatchIntradayData(this.props.symbol);
+    }
     // if (this.props.intradayData && this.props.intradayData.length > 0) {
     //   this.setState({
     //     intradayData: this.props.intradayData,
@@ -39,37 +44,27 @@ class StockIndexItem extends React.Component {
     if (type === "ownedStock") {
       intradayData = this.props.stocks[symbol].intradayData;
     } else if (type === "watchedStock") {
-      intradayData = this.props.watch[symbol].intradayData
+      intradayData = this.props.watches[symbol].intradayData
     }
-    debugger
     return intradayData;
   }
 
-  // renderShares() {
-  //   if (this.props.orders[this.props.stock.symbol].shares > 0) {
-  //     let shares = 0;
-  //     shares = this.props.orders[this.props.stock.symbol].shares
-  //     return (
-  //       <div className="stock-index-shares">
-  //         {shares} shares
-  //       </div>
-  //     )
-  //   };
-  // }
-
   renderLatestPrice() {
-    if (this.props.intradayData) {
-      let lastItem = (this.props.intradayData.length - 1);
-      let newPrice = this.props.intradayData[lastItem].close;
-      // this.setState({
-      //   price: newPrice
-      // })
-      return (
-        <div className="stock-index-current-price">
-          {parseFloatToDollars(newPrice)}
-        </div>
-      )
+    const { symbol, type } = this.props;
+    
+    let price = 0;
+    let intradayData = [];
+    if (type === "ownedStock") {
+      intradayData = this.props.stocks[symbol].intradayData;
+    } else if (type === "watchedStock") {
+      intradayData = this.props.watches[symbol].intradayData;
     }
+
+    if (intradayData) {
+      price = intradayData[intradayData.length - 1].close;
+    }
+
+    return parseFloatToDollars(price);
   }
 
   render() {
@@ -78,6 +73,7 @@ class StockIndexItem extends React.Component {
     if (shares === 0) {
       name = "stock-index-shares-hidden"
     }
+
     return (
       <Link to={`/stocks/${symbol}`} className="stock-show-link" >
         <div className="stock-index">
@@ -88,10 +84,6 @@ class StockIndexItem extends React.Component {
             <div className={name}>
               {shares} shares
             </div>
-            {/* <div className="stock-index-current-price">
-              {price}
-            </div> */}
-            {/* {this.renderShares()} */}
           </div>
           <div className="stock-index-chart">
             <StockMiniChart
@@ -99,7 +91,9 @@ class StockIndexItem extends React.Component {
               // loadingState = {this.state.loadingState}
             />
           </div>
+          <div className="stock-index-current-price">
             {this.renderLatestPrice()}
+          </div>
         </div>
       </Link>
     )

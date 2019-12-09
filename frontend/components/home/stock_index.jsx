@@ -17,7 +17,7 @@ class StocksIndex extends React.Component {
 
   componentDidMount() {
     this.props.fetchStocks();
-    // this.props.fetchWatchedStocks();
+    this.props.fetchWatchedStocks();
   }
 
   calculateShares(symbol){
@@ -58,10 +58,14 @@ class StocksIndex extends React.Component {
     return (
       <div className="stock-watch-container">
         {symbols.map((symbol) => {
+          let shares = this.calculateShares(symbol);
+          let type = "watchedStock";
           return (
             <StockIndexItemContainer
               key={symbol}
               symbol={symbol}
+              shares={shares}
+              type={type}
             />
           )
         })}
@@ -79,7 +83,7 @@ class StocksIndex extends React.Component {
         <div className="stocks-watched-title">
           Watched Stocks
         </div>
-          {/* {this.renderWatches()} */}
+          {this.renderWatches()}
       </div >
     )
   }

@@ -1,3 +1,5 @@
+const IEX_API_KEY = "pk_6b6b3dd7b1c14762aa91fccb20c382aa"
+
 export const fetchWatchedStocks = () => (
   $.ajax({
     method: 'GET',
@@ -8,7 +10,7 @@ export const fetchWatchedStocks = () => (
 export const fetchWatchIntradayData = symbol => (
   $.ajax({
     method: 'GET',
-    url: `https://cloud.iexapis.com/stable/stock/${symbol}/batch?&types=quote,chart&range=1D&chartInterval=5&token=${window.iexAPIKey}`
+    url: `https://cloud.iexapis.com/stable/stock/${symbol}/batch?&types=quote,chart&range=1D&chartInterval=5&token=${IEX_API_KEY}`
   })
 )
 
