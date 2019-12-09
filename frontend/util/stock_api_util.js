@@ -1,4 +1,5 @@
 // const AV_API_KEY = M04MNL3GXYJUL5X8
+const IEX_API_KEY = "pk_6b6b3dd7b1c14762aa91fccb20c382aa"
 export const fetchPayload = () => (
   $.ajax({
     method: 'GET',
@@ -8,35 +9,35 @@ export const fetchPayload = () => (
 
 export const fetchStock = symbol => (
   $.ajax({
-    url: `https://cloud.iexapis.com/stable/stock/${symbol}/company/?token=${window.iexAPIKey}`
+    url: `https://cloud.iexapis.com/stable/stock/${symbol}/company/?token=${IEX_API_KEY}`
   })
 );
 
 export const fetchStockIntradayData = symbol => (
   $.ajax({
     method: 'GET',
-    url: `https://cloud.iexapis.com/stable/stock/${symbol}/batch?&types=quote,chart&range=1D&chartInterval=5&token=${window.iexAPIKey}`
+    url: `https://cloud.iexapis.com/stable/stock/${symbol}/batch?&types=quote,chart&range=1D&chartInterval=5&token=${IEX_API_KEY}`
   })
 );
 
 export const fetch1YrHistoricalData = symbol => (
   $.ajax({
     method: 'GET',
-    url: `https://cloud.iexapis.com/stable/stock/${symbol}/batch?&types=chart&range=1Y&token=${window.iexAPIKey}`
+    url: `https://cloud.iexapis.com/stable/stock/${symbol}/batch?&types=chart&range=1Y&token=${IEX_API_KEY}`
   })
 );
 
 export const fetch5yrHistoricalData = symbol => (
   $.ajax({
     method: 'GET',
-    url: `https://cloud.iexapis.com/stable/stock/${symbol}/batch?&types=chart&range=5Y&token=${window.iexAPIKey}`
+    url: `https://cloud.iexapis.com/stable/stock/${symbol}/batch?&types=chart&range=5Y&token=${IEX_API_KEY}`
   })
 )
 
 export const fetchStockInfo = symbol => (
   $.ajax({
     method: 'GET',
-    url: `https://cloud.iexapis.com/stable/stock/${symbol}/company?token=${window.iexAPIKey}`
+    url: `https://cloud.iexapis.com/stable/stock/${symbol}/company?token=${IEX_API_KEY}`
   })
 );
 
