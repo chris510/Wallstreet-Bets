@@ -11,6 +11,12 @@ export const RECEIVE_STOCK_NEWS = 'RECEIVE_STOCK_NEWS';
 export const RECEIVE_STOCK_PRICE = 'RECEIVE_STOCK_PRICE';
 
 
+const receiveStockPrice = (symbol, price) => ({
+  type: RECEIVE_STOCK_PRICE,
+  price,
+  symbol
+});
+
 const receiveStock = stock => ({
   type: RECEIVE_STOCK,
   stock
@@ -91,6 +97,11 @@ export const fetchStockNews = (symbol) => dispatch => (
   StockAPIUtil.fetchStockNews(symbol)
     .then( stockNews => dispatch(receiveStockNews(symbol, stockNews)))
 );
+
+export const fetchStockPrice = (symbol) => dispatch => (
+  StockAPIUtil.fetchStockPrice(symbol)
+    .then(price => dispatch(receiveStockPrice(symbol, price)))
+)
 
 // export const fetchStock = symbol => dispatch => (
 //   StockAPIUtil.fetchStock(symbol)

@@ -16,7 +16,7 @@ class StockShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchStock(this.props.match.params.symbol)
+    // this.props.fetchStock(this.props.match.params.symbol)
     this.props.fetchStockInfo(this.props.match.params.symbol);
     this.props.fetchStockNews(this.props.match.params.symbol);
     // this.props.fetchStockIntradayData(this.props.match.params.symbol);      
@@ -49,7 +49,7 @@ class StockShow extends React.Component {
           <div className="stock-show-main">
             <div className="stock-show-container-1">
                   <StockItemChartContainer
-                    intradayData={stock.intradayData}
+                    // intradayData={stock.intradayData}
                     // info={info}
                     // historicalData={stock.historicalData}
                     stock={stock}
@@ -109,7 +109,7 @@ class StockShow extends React.Component {
             <div className="stock-show-container-2">
               <OrderFormContainer
                 stock={stock}
-                intradayData={intradayData}
+                symbol={this.props.match.params.symbol}
               />
             </div>
           </div>

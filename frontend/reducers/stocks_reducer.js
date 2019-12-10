@@ -5,7 +5,8 @@ import {
   RECEIVE_STOCK_INFO,
   RECEIVE_STOCK_NEWS,
   RECEIVE_HISTORICAL_DATA,
-  RECEIVE_5YR_DATA
+  RECEIVE_5YR_DATA,
+  RECEIVE_STOCK_PRICE
 } from '../actions/stock_actions';
 
 const stocksReducer = (oldState = {}, action) => {
@@ -15,6 +16,9 @@ const stocksReducer = (oldState = {}, action) => {
     case RECEIVE_STOCK:
       nextState[action.stock.symbol] = action.stock;
       return nextState;
+    case RECEIVE_STOCK_PRICE:
+      nextState[action.symbol].price = action.price.symbol;
+      return nextState; 
     case RECEIVE_STOCKS:
       return action.payload.stock;
     case RECEIVE_STOCK_INTRADAY_DATA:

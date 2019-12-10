@@ -10,7 +10,7 @@ export const fetchPayload = () => (
 export const fetchStockPrice = (symbol) => (
   $.ajax({
     method: 'GET',
-    url: `https://sandbox.iexapis.com/stable/stock/${symbol}/price?token=${IEX_API_KEY}`
+    url: `https://cloud.iexapis.com/stable/stock/market/batch?types=quote&token=${IEX_API_KEY}&symbols=${symbol}`
   })
 )
 
