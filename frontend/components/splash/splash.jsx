@@ -37,7 +37,7 @@ class Splash extends React.Component {
             <div className="splash-text-4">
               Break Free from Commission Fees
             </div>
-            <div className="splash-text-5">Make unlimited commission-free trades in stocks, funds, and options with Robinhood Financial. The same goes for buying and selling cryptocurrencies with Robinhood Crypto. Zero commission fees.
+            <div className="splash-text-5">Make unlimited commission-free trades in stocks, funds, and options with WallstreetBets Financial. The same goes for buying and selling cryptocurrencies with WallstreetBets Crypto. Zero commission fees.
             </div>
           </div>
         </div>
