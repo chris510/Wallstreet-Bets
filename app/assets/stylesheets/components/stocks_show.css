@@ -58,7 +58,7 @@
 .stock-show-chart-container {
   font-family: var(--font-family);
   width: 750px;
-  height: 400px;
+  height: 420px;
   background: var(--bg);
   display: flex;
   flex-direction: column;
@@ -68,6 +68,10 @@
               0 3px 24px rgba(0, 0, 0, 0.6);
   border-radius: 8px;
   /* padding: 20px;  */
+}
+
+.stock-show-chart-container > div {
+  padding: 10px;
 }
 
 .stock-show-chart-header {

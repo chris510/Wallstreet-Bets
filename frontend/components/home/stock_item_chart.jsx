@@ -249,7 +249,7 @@ class StockItemChart extends React.Component {
           </div>
         </div>
         <div className={name}>
-          <ResponsiveContainer width='100%' height="100%" className="show-graph-chart-container">
+          <ResponsiveContainer width='90%' height="100%" className="show-graph-chart-container">
             <LineChart data={this.state.chartData} cursor="pointer" onMouseMove={this.handleMouseHover} onTouchStart={this.handleMouseHover} cursor="pointer">
               <Line
                 type="linear"
