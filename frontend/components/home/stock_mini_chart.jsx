@@ -1,5 +1,5 @@
 import React from 'react';
-import { LineChart, Line, YAxis, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, YAxis, XAxis, ResponsiveContainer, Tooltip } from 'recharts';
 import { BeatLoader } from 'react-spinners';
 
 const RED = "#EB5333";
@@ -20,16 +20,19 @@ const StockMiniChart = ({ intradayData, loadingState }) => {
   return (
     <div className="stock-mini-chart">
       <ResponsiveContainer width='100%' height="100%">
-        <LineChart data={intradayData} cursor="pointer">
+        <LineChart data={intradayData} cursor="pointer" margin={{ top: 5, right: 20, left: 10, bottom: 5 }}>
           <Line
-            type="linear" z
+            type="linear"
             dataKey="close"
             stroke={chartLineColor()}
             strokeWidth={2}
             dot={false}
             connectNulls={true}
+            isAnimationActive={true} 
           />
-          <YAxis domain={['dataMin', 'dataMax']} hide={true} />
+          <Tooltip cursor={{ stroke: 'lightgrey', strokeWidth: 1 }} />
+          <XAxis hide={true} dataKey='label' />
+          <YAxis domain={['dataMin', 'dataMax']} hide={true} tickLine={false} type='number'/>
         </LineChart>
       </ResponsiveContainer>
       <BeatLoader

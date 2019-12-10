@@ -21,8 +21,8 @@ class Portfolio extends React.Component {
       lineColor: GREEN,
       currentBalance: 124001.40,
       flux: 0,
-      fluxPrecent: 0
-
+      fluxPrecent: 0,
+      hoverPrice: 0
     }
     this.changeDate = this.changeDate.bind(this);
     this.handleChangeRange = this.handleChangeRange.bind(this);
@@ -32,6 +32,7 @@ class Portfolio extends React.Component {
     this.calculateFlux = this.calculateFlux.bind(this);
     this.handleMouseHover = this.handleMouseHover.bind(this);
     this.resetHoverPrice = this.resetHoverPrice.bind(this);
+    this.calculateInitialFlux = this.calculateInitialFlux.bind(this);
   }
 
   componentDidMount() {
@@ -40,17 +41,37 @@ class Portfolio extends React.Component {
         .then( result => 
           this.setState({
           chartData: Object.values(result.portfolio),
-          fiveYearData: Object.values(result.portfolio)
-         }
-        )
-        // .then(result => this.setintradayData(Object.values(result.portfolio)))
-      );
+          fiveYearData: Object.values(result.portfolio),
+          hoverPrice: this.props.portfolio[this.props.portfolio.length - 1].balance
+         })
+      )
+      .then(() => this.calculateInitialFlux(this.props.portfolio));
     } else {
       this.setState({
         chartData: this.props.portfolio,
-        fiveYearData: this.props.portfolio
-      });
+        fiveYearData: this.props.portfolio,
+        hoverPrice: this.props.portfolio[this.props.portfolio.length - 1].balance
+      })
+      .then(() => this.calculateInitialFlux(this.props.portfolio));
     };
+  }
+
+  calculateInitialFlux(data) {
+    let newFlux = 0;
+    let newFluxPercent = 0;
+    if (data) {
+      let firstData = data[0];
+      let lastData = data[data.length - 1];
+
+      let dolDiff = lastData.balance - firstData.balance;
+      newFlux = parseFloat(Math.round(dolDiff * 100) / 100).toFixed(2);
+      let percentDiff = dolDiff / firstData.balance;
+      newFluxPercent = parseFloat(Math.round(percentDiff * 100) / 100).toFixed(2);
+    }
+    return this.setState({
+      flux: newFlux,
+      fluxPercent: newFluxPercent
+    });
   }
 
   calculateBalance() {
@@ -68,9 +89,14 @@ class Portfolio extends React.Component {
     let newFluxPercent = 0;
 
     if (dataPoint) {
+      debugger
       let firstData = this.state.chartData[0];
-      newFlux = dataPoint.balance - firstData.balance
-      newFluxPercent = (1 - firstData.balance / dataPoint.balance) * 100;
+      let lastData = dataPoint;
+
+      let dolDiff = lastData.balance - firstData.balance;
+      newFlux = parseFloat(Math.round(dolDiff * 100) / 100).toFixed(2);
+      let percentDiff = dolDiff / firstData.balance;
+      newFluxPercent = parseFloat(Math.round(percentDiff * 100) / 100).toFixed(2);
     }
     return this.setState({
       flux: newFlux,
@@ -128,7 +154,6 @@ class Portfolio extends React.Component {
     this.setState({
       chartData: newChartData,
     })
-    debugger
   }
 
   handleChangeRange(e) {
@@ -175,7 +200,7 @@ class Portfolio extends React.Component {
             />
           </div>
           <div className="portfolio-change">
-            {parseFloatToPosNegDollars(this.state.flux)} ({this.state.fluxPrecent})
+            {parseFloatToPosNegDollars(this.state.flux)} ({this.state.fluxPercent})
           </div>
         </div>
         <div className="portfolio-chart">

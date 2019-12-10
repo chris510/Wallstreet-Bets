@@ -480,6 +480,7 @@
 
 .add-watchlist-button:hover {
   background-position: 0 0;
+  cursor: pointer;
   color: #FCFCFC;
   bottom: 0;
   left: 0;

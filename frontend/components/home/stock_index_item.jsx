@@ -14,28 +14,25 @@ class StockIndexItem extends React.Component {
     };
     this.renderLatestPrice = this.renderLatestPrice.bind(this);
     this.selectIntradayData = this.selectIntradayData.bind(this);
-    // this.setData = this.setData.bind(this);
   }
 
   componentDidMount() {
-    if (this.props.type === "ownedStock") {
-      this.props.fetchStockIntradayData(this.props.symbol);
-    } else if (this.props.type === "watchedStock") {
-      debugger
-      this.props.fetchWatchIntradayData(this.props.symbol);
+    const { symbol, type, stocks, watches } = this.props  
+    if (type === "ownedStock") {
+      this.props.fetchStockIntradayData(symbol).then(() => {
+        this.removeLoading();
+      });
+    } else if (type === "watchedStock") {
+      this.props.fetchWatchIntradayData(symbol).then(() => {
+        this.removeLoading();
+      });
     }
-    // if (this.props.intradayData && this.props.intradayData.length > 0) {
-    //   this.setState({
-    //     intradayData: this.props.intradayData,
-    //     loadingState: false
-    //   });
-    // } else {
-    //   this.props.fetchStockIntradayData(this.props.stock.symbol)
-    //     .then(data => this.setState({
-    //       intradayData: data.intradayData,
-    //       loadingState: false
-    //     }));
-    // };
+  }
+
+  removeLoading() {
+    this.setState({
+      loadingState: false
+    })
   }
 
   selectIntradayData() {
@@ -88,7 +85,7 @@ class StockIndexItem extends React.Component {
           <div className="stock-index-chart">
             <StockMiniChart
               intradayData={this.selectIntradayData()}
-              // loadingState = {this.state.loadingState}
+              loadingState = {this.state.loadingState}
             />
           </div>
           <div className="stock-index-current-price">

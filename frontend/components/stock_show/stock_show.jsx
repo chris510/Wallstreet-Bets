@@ -16,9 +16,10 @@ class StockShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchStock(this.props.match.params.symbol);
+    this.props.fetchStock(this.props.match.params.symbol)
     this.props.fetchStockInfo(this.props.match.params.symbol);
     this.props.fetchStockNews(this.props.match.params.symbol);
+    // this.props.fetchStockIntradayData(this.props.match.params.symbol);      
     // this.props.fetch1YrHistoricalData(this.props.match.params.symbol);
   }
 

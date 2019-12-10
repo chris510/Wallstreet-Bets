@@ -2,8 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import StockIndexItemContainer from './stock_index_item_container';
 // import StockIndexItem from './stock_index_item';
-import WatchStockItemContainer from './watch_stock_item_container';
-
 class StocksIndex extends React.Component {
   constructor(props) {
     super(props);

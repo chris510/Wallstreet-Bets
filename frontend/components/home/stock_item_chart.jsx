@@ -11,7 +11,7 @@ class StockItemChart extends React.Component {
     super(props);
     this.state = {
       chartData: [],
-      intradayData: [],
+      intradayData: this.props.intradayData,
       historicalData: [],
       fiveYearData: [],
       activeRange: '1D',
@@ -31,22 +31,29 @@ class StockItemChart extends React.Component {
     this.calculateFlux = this.calculateFlux.bind(this);
     this.handleMouseHover = this.handleMouseHover.bind(this);
     this.resetHoverPrice = this.resetHoverPrice.bind(this);
+    this.calculateInitialFlux = this.calculateInitialFlux.bind(this);
+    // this.renderTimeStamp = this.renderTimeStamp.bind(this);
     // this.renderLatestPrice = this.renderLatestPrice.bind(this);
   }
 
   componentDidMount() {
-    if (this.state.intradayData.length === 0) {
+    if (!this.state.intradayData) {
       this.props.fetchStockIntradayData(this.props.stock.symbol)
         .then( result => this.setState({
           chartData: result.intradayData.chart,
-          intradayData: result.intradayData.chart
-        }));
+          intradayData: result.intradayData.chart,
+          hoverPrice: result.intradayData.chart[result.intradayData.chart.length - 1].close
+        }))
+        .then(() => this.calculateInitialFlux(this.state.intradayData));
       this.chartLineColor();
+      // this.calculateFlux(this.state.intradayData[0]);
     } else {
       this.setState({
         chartData: this.props.intradayData,
-        intradayData: this.props.intradayData
-      });
+        intradayData: this.props.intradayData,
+        hoverPrice: this.props.intradayData[this.props.intradayData.length - 1].close
+      })
+      .then(() => this.calculateInitialFlux(this.state.intradayData));
       this.chartLineColor();
     };
 
@@ -69,14 +76,28 @@ class StockItemChart extends React.Component {
     };
   };
 
-  // componentDidUpdate() {
-  //   this.chartLineColor();
-  // }
+  calculateInitialFlux(data) {
+    let newFlux = 0;
+    let newFluxPercent = 0;
+    debugger
+    if (data) {
+      let firstData = data[0];
+      let lastData = data[data.length - 1];
+      
+      newFlux = lastData.close - firstData.close
+      newFluxPercent = (1 - firstData.close / lastData.close) * 100;
+    }
+    return this.setState({
+      flux: newFlux,
+      fluxPercent: newFluxPercent
+    });
+  }
 
   calculateBalance() {
     let price = 0
-    if (this.state.intradayData.length > 0) {
-      price += this.state.intradayData[this.state.intradayData.length - 1].close
+    debugger
+    if (this.props.intradayData) {
+      price = this.props.intradayData[this.props.intradayData.length - 1].close
       return this.setState({
         currentPrice: parseFloatToDollars(price)
       })
@@ -168,7 +189,9 @@ class StockItemChart extends React.Component {
     let newFluxPercent = 0;
 
     if (dataPoint) {
-      let firstData = this.state.chartData[0];
+      firstData = this.state.chartData[0];
+      firstData = dataPoint[dataPoint.length - 1];
+      
       newFlux = dataPoint.close - firstData.close
       newFluxPercent = (1 - firstData.close / dataPoint.close) * 100;
     }
@@ -181,6 +204,7 @@ class StockItemChart extends React.Component {
   handleMouseHover(e) {
     if (e.activePayload) {
       let price = e.activePayload[0].payload.close;
+      debugger
       this.calculateFlux(e.activePayload[0].payload);
       if (price) {
         let time;
@@ -202,7 +226,14 @@ class StockItemChart extends React.Component {
     return this.setState({ hoverPrice: this.state.currentPrice })
   }
 
+  // renderTimeStamp() {
+  //   return (
+  //     <div className="timestamp">{this.state.time}</div>
+  //   )
+  // }
+
   render() {
+    const renderTimeStamp = () => (<div className="timestamp">{this.state.time}</div>)
     const { stock, name } = this.props
 
     return (
@@ -222,19 +253,18 @@ class StockItemChart extends React.Component {
         </div>
         <div className={name}>
           <ResponsiveContainer width='100%' height="100%" className="show-graph-chart-container">
-            <LineChart data={this.state.chartData} onMouseMove={this.handleMouseHover} onTouchStart={this.handleMouseHover} cursor="pointer">
+            <LineChart data={this.state.chartData} cursor="pointer" onMouseMove={this.handleMouseHover} onTouchStart={this.handleMouseHover} cursor="pointer">
               <Line
                 type="linear"
                 dataKey="close"
                 stroke={this.state.lineColor}
-                // stroke={}
                 strokeWidth={2}
                 dot={false}
                 connectNulls={true}
               />
-              <Tooltip cursor={{ stroke: "lightgrey", strokeWidth: 2 }} />
+              <Tooltip cursor={{ stroke: "lightgrey", strokeWidth: 2 }} content={renderTimeStamp} />
               <XAxis hide={true} dataKey='label' />
-              <YAxis domain={['dataMin', 'dataMax']} hide={true} />
+              <YAxis domain={['dataMin', 'dataMax']} hide={true} tickLine={false} type='number' />
             </LineChart>
           </ResponsiveContainer>
           <div className="stock-show-chart-ranges">
@@ -243,7 +273,7 @@ class StockItemChart extends React.Component {
             <li className={this.setRangeButtonStatus("1M")} onClick={this.handleChangeRange}>1M</li>
             <li className={this.setRangeButtonStatus("3M")} onClick={this.handleChangeRange}>3M</li>
             <li className={this.setRangeButtonStatus("1Y")} onClick={this.handleChangeRange}>1Y</li>
-            <li className={this.setRangeButtonStatus("5Y")} onClick={this.handleChangeRange}>5Y</li>
+            {/* <li className={this.setRangeButtonStatus("5Y")} onClick={this.handleChangeRange}>5Y</li> */}
           </div>
         </div>
       </div>
