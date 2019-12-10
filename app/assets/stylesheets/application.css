@@ -22,7 +22,6 @@
 @import './slider.css';
 @import './components/signup_form.css';
 @import './components/login_form.css';
-
-
 @import './components/news.css';
-@import './components//stocks_show.css';
+@import './components/stocks_show.css';
+@import './components/modal.css';

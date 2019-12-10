@@ -15,11 +15,17 @@ class OrderForm extends React.Component {
     this.updateShares = this.updateShares.bind(this);
     this.setLatestPrice = this.setLatestPrice.bind(this);
     this.setOrderButtonStatus = this.setOrderButtonStatus.bind(this);
+    this.handleResultModal = this.handleResultModal.bind(this);
   }
 
   componentDidMount(){
     // this.props.fetchStockPrice(this.props.symbol);
     this.setLatestPrice();
+  }
+
+  handleResultModal(e) {
+    e.preventDefault();
+    this.props.openModal('order');
   }
 
   setOrderType() {
@@ -88,7 +94,7 @@ class OrderForm extends React.Component {
               <div className="order-form-row-5">
               </div>
               <div className="order-form-row-6">
-                <input type="submit" className="order-form-submit"/> 
+                <input type="submit" className="order-form-submit" onClick={this.handleResultModal}/> 
               </div>
             </form>
             <footer className="order-form-footer">
