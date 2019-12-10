@@ -130,6 +130,7 @@
   font-size: 1.2rem;
   left: 2.5rem;
   top: 5rem;
+  width: 85%;
   opacity: 0;
   animation-name: fadeIn;
   animation-delay: 2.5s;

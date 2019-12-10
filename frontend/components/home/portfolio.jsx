@@ -207,7 +207,7 @@ class Portfolio extends React.Component {
             />
           </div>
           <div className="portfolio-change">
-            {parseFloatToPosNegDollars(this.state.flux)} ({this.state.fluxPercent})
+            {parseFloatToPosNegDollars(this.state.flux)} ({this.state.fluxPercent}%)
           </div>
         </div>
         <div className="portfolio-chart">
