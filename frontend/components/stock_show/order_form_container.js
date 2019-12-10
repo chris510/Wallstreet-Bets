@@ -11,8 +11,8 @@ const mapStateToProps = (state, ownProps )=> ({
 
 const mapDispatchToProps = dispatch => ({
   fetchStockPrice: (symbol) => dispatch(fetchStockPrice(symbol)),
-  openModal: () => dispatch(openModal('order')),
-  closeModal: () => dispatch(closeModal())
+  openModal: (modal) => dispatch(openModal(modal)),
+  closeModal: (modal) => dispatch(closeModal(modal))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(OrderForm); 

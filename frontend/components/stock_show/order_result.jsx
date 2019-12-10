@@ -1,3 +1,5 @@
+import React from 'react';
+
 const OrderResult = () => {
   return (
     <div className="order-result-wrapper">

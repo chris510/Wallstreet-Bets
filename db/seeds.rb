@@ -62,7 +62,7 @@ ActiveRecord::Base.transaction do
     stock_id: tesla.id,
     price: 335.54,
     shares: 39,
-    order_type: "buy"
+    order_type: "BUY"
   })
 
   watch_zm = Watch.create({

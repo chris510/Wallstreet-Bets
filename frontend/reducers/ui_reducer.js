@@ -4,6 +4,7 @@ import { OPEN_MODAL, CLOSE_MODAL } from '../actions/modal_actions';
 
 const _nullUi = {
   demoUser: false,
+  modal: null
 }
 
 const uiReducer = ( oldState = _nullUi, action) => {
@@ -15,10 +16,11 @@ const uiReducer = ( oldState = _nullUi, action) => {
     case REMOVE_DEMO_STATE:
       return action.demoUser;
     case OPEN_MODAL:
-      nextState[action.modal] = action.modal
-      return nextState;
+      nextState.modal = action.modal
+      return nextState
     case CLOSE_MODAL:
-      return null;
+      nextState.modal = null
+      return nextState
     default:
       return oldState;
   }

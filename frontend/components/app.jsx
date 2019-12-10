@@ -2,6 +2,7 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import { AuthRoute } from '../util/route_util';
 
+import ModalContainer from './modal/modal_container';
 import NavSplashContainer from './nav/nav_splash_container';
 import SplashContainer from './splash/splash_container'
 import HomeContainer  from "./home/home_container";
@@ -14,6 +15,7 @@ const App = () => (
     <header>
       <NavSplashContainer />
     </header>
+    <ModalContainer />
     <Route exact path="/" component={SplashContainer} />
     <Route exact path="/home" component={HomeContainer} />
     <AuthRoute path="/login" component={LoginFormContainer} />

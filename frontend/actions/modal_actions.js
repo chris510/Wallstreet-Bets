@@ -8,8 +8,9 @@ export const openModal = modal => {
   };
 };
 
-export const closeModal = () => {
+export const closeModal = (modal) => {
   return {
-    type: CLOSE_MODAL
+    type: CLOSE_MODAL,
+    modal
   };
 };
