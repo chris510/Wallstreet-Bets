@@ -5,6 +5,7 @@
     "@babel/core": "^7.6.4",
     "@babel/preset-env": "^7.6.3",
     "@babel/preset-react": "^7.6.3",
+    "@emotion/core": "^10.0.22",
     "alphavantage": "^2.0.0",
     "babel-loader": "^8.0.6",
     "react": "^16.11.0",

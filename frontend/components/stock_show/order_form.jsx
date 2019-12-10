@@ -18,7 +18,11 @@ class OrderForm extends React.Component {
   }
 
   componentDidMount(){
-    this.setLatestPrice();
+    if (this.props.intradayData) {
+      this.setState({
+        price: this.props.intradayData[this.props.intradayData.length - 1].close
+      })
+    }
   }
 
   setOrderType() {
@@ -44,13 +48,16 @@ class OrderForm extends React.Component {
   };
 
   setLatestPrice() {
+    let price = 0
     if (this.props.stock.intradayData) {
+      debugger
       let lastItem = (this.props.stock.intradayData.length - 1);
-      let price = this.props.stock.intradayData[lastItem].close;
-      this.setState({
-        price: price
-      });
+      price = this.props.stock.intradayData[lastItem].close;
+      // this.setState({
+      //   price: price
+      // });
     }
+    return parseFloatToDollars(price);
   }
 
   render() {
@@ -74,7 +81,7 @@ class OrderForm extends React.Component {
                 </div>
                 <div className="order-form-price">
                   <div className="order-form-current-price">
-                    {parseFloatToDollars(this.state.price)}
+                    {this.setLatestPrice()}
                   </div>
                 </div>
               </div>

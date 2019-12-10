@@ -109,6 +109,7 @@ class StockShow extends React.Component {
             <div className="stock-show-container-2">
               <OrderFormContainer
                 stock={stock}
+                intradayData={intradayData}
               />
             </div>
           </div>

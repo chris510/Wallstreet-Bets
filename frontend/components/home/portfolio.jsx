@@ -2,10 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { LineChart, Line, XAxis, YAxis, ResponsiveContainer, Tooltip } from 'recharts';
 import { parseFloatToDollars, parseFloatToPosNegDollars, parseFloatToPostNegPercent } from '../../util/numbers.util';
-import { fetchUserPortfolios } from '../../util/portfolios_api_util';
 import Odometer from 'react-odometerjs';
+import { BeatLoader } from 'react-spinners';
+import { css } from '@emotion/core';
 
-
+const loading = css`
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+`;
 const RED = "#EB5333";
 const GREEN = "#67CF9A";
 
@@ -18,6 +23,7 @@ class Portfolio extends React.Component {
       historicalData: [],
       fiveYearData: [],
       activeRange: '5Y',
+      loadingState: true,
       lineColor: GREEN,
       currentBalance: 124001.40,
       flux: 0,
@@ -42,7 +48,8 @@ class Portfolio extends React.Component {
           this.setState({
           chartData: Object.values(result.portfolio),
           fiveYearData: Object.values(result.portfolio),
-          hoverPrice: this.props.portfolio[this.props.portfolio.length - 1].balance
+          hoverPrice: this.props.portfolio[this.props.portfolio.length - 1].balance,
+          loadingState: false
          })
       )
       .then(() => this.calculateInitialFlux(this.props.portfolio));
@@ -50,7 +57,8 @@ class Portfolio extends React.Component {
       this.setState({
         chartData: this.props.portfolio,
         fiveYearData: this.props.portfolio,
-        hoverPrice: this.props.portfolio[this.props.portfolio.length - 1].balance
+        hoverPrice: this.props.portfolio[this.props.portfolio.length - 1].balance,
+        loadingState: false
       })
       .then(() => this.calculateInitialFlux(this.props.portfolio));
     };
@@ -89,7 +97,6 @@ class Portfolio extends React.Component {
     let newFluxPercent = 0;
 
     if (dataPoint) {
-      debugger
       let firstData = this.state.chartData[0];
       let lastData = dataPoint;
 
@@ -219,6 +226,13 @@ class Portfolio extends React.Component {
               <YAxis domain={['30000', '200000']} hide={true} />
             </LineChart>
           </ResponsiveContainer>
+          <BeatLoader
+           className={loading}
+           sizeUnit={"px"}
+           size={10}
+           color={GREEN}
+           loading={this.state.loadingState}
+           />
           <div className="portfolio-chart-ranges">
             <li className={this.setRangeButtonStatus("1D")} onClick={this.handleChangeRange}>1D</li>
             <li className={this.setRangeButtonStatus("1W")} onClick={this.handleChangeRange}>1W</li>

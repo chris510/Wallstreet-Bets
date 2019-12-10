@@ -12,4 +12,5 @@ export const fetchStockNews = symbol => (
     method: 'GET',
     url: `https://newsapi.org/v2/everything?q=${symbol}&apiKey=${NEWS_API_KEY}`
   })
+  
 );

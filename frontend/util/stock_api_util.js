@@ -7,6 +7,13 @@ export const fetchPayload = () => (
   })
 );
 
+export const fetchStockPrice = (symbol) => (
+  $.ajax({
+    method: 'GET',
+    url: `https://sandbox.iexapis.com/stable/stock/${symbol}/price?token=${IEX_API_KEY}`
+  })
+)
+
 export const fetchStock = symbol => (
   $.ajax({
     url: `https://cloud.iexapis.com/stable/stock/${symbol}/company/?token=${IEX_API_KEY}`

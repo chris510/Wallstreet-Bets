@@ -53,7 +53,7 @@ class StockItemChart extends React.Component {
         intradayData: this.props.intradayData,
         hoverPrice: this.props.intradayData[this.props.intradayData.length - 1].close
       })
-      .then(() => this.calculateInitialFlux(this.state.intradayData));
+      this.calculateInitialFlux(this.state.intradayData);
       this.chartLineColor();
     };
 
@@ -79,7 +79,6 @@ class StockItemChart extends React.Component {
   calculateInitialFlux(data) {
     let newFlux = 0;
     let newFluxPercent = 0;
-    debugger
     if (data) {
       let firstData = data[0];
       let lastData = data[data.length - 1];
@@ -95,7 +94,6 @@ class StockItemChart extends React.Component {
 
   calculateBalance() {
     let price = 0
-    debugger
     if (this.props.intradayData) {
       price = this.props.intradayData[this.props.intradayData.length - 1].close
       return this.setState({
@@ -189,11 +187,11 @@ class StockItemChart extends React.Component {
     let newFluxPercent = 0;
 
     if (dataPoint) {
-      firstData = this.state.chartData[0];
-      firstData = dataPoint[dataPoint.length - 1];
+      let firstData = this.state.chartData[0];
+      let lastData = dataPoint;
       
-      newFlux = dataPoint.close - firstData.close
-      newFluxPercent = (1 - firstData.close / dataPoint.close) * 100;
+      newFlux = lastData.close - firstData.close
+      newFluxPercent = (1 - firstData.close / lastData.close) * 100;
     }
     return this.setState({
       flux: newFlux,
@@ -204,7 +202,6 @@ class StockItemChart extends React.Component {
   handleMouseHover(e) {
     if (e.activePayload) {
       let price = e.activePayload[0].payload.close;
-      debugger
       this.calculateFlux(e.activePayload[0].payload);
       if (price) {
         let time;

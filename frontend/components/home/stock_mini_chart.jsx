@@ -1,7 +1,13 @@
 import React from 'react';
 import { LineChart, Line, YAxis, XAxis, ResponsiveContainer, Tooltip } from 'recharts';
+import { css } from '@emotion/core';
 import { BeatLoader } from 'react-spinners';
 
+const loading = css`
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+`;
 const RED = "#EB5333";
 const GREEN = "#67CF9A";
 
@@ -36,7 +42,7 @@ const StockMiniChart = ({ intradayData, loadingState }) => {
         </LineChart>
       </ResponsiveContainer>
       <BeatLoader
-        className="mini-chart-loader"
+        className={loading}
         sizeUnit={"px"}
         size={10}
         color={GREEN}
