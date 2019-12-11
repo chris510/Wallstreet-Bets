@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SVGIcon from '../svg_icons/svg.icons';
-import { withRouter, Redirect } from 'react-router-dom'
+import { withRouter, Redirect } from 'react-router-dom';
+import SearchBarContainer from '../search/search_bar_container';
 
 class NavSplash extends React.Component {
   constructor(props) {
@@ -112,13 +113,14 @@ class NavSplash extends React.Component {
                 <SVGIcon name="linkedin_1" width={35} />
               </a>
             </div>
-            <div className="search-bar-container">
+            <SearchBarContainer />
+            {/* <div className="search-bar-container">
               <input 
                 aria-labelledby="search-button" />
               <button id="search-button" type="submit">
                 <SVGIcon name="search" width={25} />
               </button>
-            </div>
+            </div> */}
           </div>
           <div className="nav-right-2">
             <div className="theme-switch-wrapper">

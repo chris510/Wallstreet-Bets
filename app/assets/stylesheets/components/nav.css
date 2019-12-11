@@ -293,22 +293,3 @@
   overflow: hidden;
   transition: .5s ease;
 }
-
-.search-bar-container {
-  width: 100%;
-  font-size: 14px;
-  padding: 12px 0px;
-  padding-left: 48px;
-  background: transparent;
-  /* border: 1px solid var(--color);width: 100%; */
-  font-size: 14px;
-  padding: 12px 0px;
-  padding-left: 48px;
-  /* border: 1px solid var(--color); */
-  display: none;
-}
-
-.search-bar-container:hover {
-  cursor: pointer;
-  background: grey;
-}

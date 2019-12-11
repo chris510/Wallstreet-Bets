@@ -16,7 +16,7 @@ const stocksReducer = (oldState = {}, action) => {
   let nextState = Object.assign({}, oldState);
   switch (action.type) {
     case RECEIVE_ALL_STOCKS:
-      nextState.allStocks = action.stocks
+      nextState.allStocks = action.stocks.allStocks
       return nextState;
     case RECEIVE_STOCK:
       nextState[action.stock.symbol] = action.stock;
@@ -33,7 +33,7 @@ const stocksReducer = (oldState = {}, action) => {
       nextState[action.symbol].historicalData = action.historicalData.chart
       return nextState;
     case RECEIVE_5YR_DATA:
-      nextState[action.symbol].fiveYearData = action.fiveYearData.chart;
+      nextState[action.symbol].fiveYearData = action.fiveYearData.chartt;
       return nextState;
     case RECEIVE_STOCK_INFO:
       // return Object.assign({}, oldState, { [action.symbol].info : action.info})

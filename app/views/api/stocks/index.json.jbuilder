@@ -6,7 +6,7 @@
 #   end
 # end
 
-json.allstocks do 
+json.allStocks do 
   @all_stocks.each do |stock|
     json.set! stock.symbol do 
       json.partial! 'api/stocks/stock', stock: stock

@@ -14,7 +14,7 @@ class StocksIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchStocks();
+    // this.props.fetchStocks();
     // this.props.fetchWatchedStocks();
   }
 
