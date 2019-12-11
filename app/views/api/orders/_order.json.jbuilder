@@ -1,1 +1,1 @@
-json.extract! order, :id, :user_id, :stock_id, :price, :shares, :order_type
+json.extract! order, :id, :user_id, :symbol, :price, :shares, :order_type

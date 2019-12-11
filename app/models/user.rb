@@ -14,6 +14,7 @@ class User < ApplicationRecord
   has_many :stocks,
     through: :orders,
     source: :stock
+  
   # Calculate Initial Portfolio Data
 
   # API_KEY = "pk_6b6b3dd7b1c14762aa91fccb20c382aa"

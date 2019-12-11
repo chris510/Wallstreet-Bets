@@ -1,1 +1,1 @@
-json.extract! stock, :id, :name, :symbol, :order_ids
+json.extract! stock, :id, :symbol

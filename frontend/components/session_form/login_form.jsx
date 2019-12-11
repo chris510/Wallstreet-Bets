@@ -99,7 +99,7 @@ class LoginForm extends React.Component {
           <div className="login-form-container">
             <div className="login-section-1">
               <div className="login-text-1">
-                <h1>Welcome to Robinhood</h1>
+                <h1>Welcome to WallstreetBets</h1>
               </div>
             </div>
             <div className="login-section-2">

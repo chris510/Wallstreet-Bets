@@ -31,35 +31,35 @@ ActiveRecord::Base.transaction do
 
   buy_fb = Order.create({
     user_id: demo_user.id, 
-    stock_id: facebook.id,
+    symbol: 'FB',
     price: 190.42,
     shares: 63,
     order_type: "BUY"
   })
   buy_nflx = Order.create({
     user_id: demo_user.id, 
-    stock_id: netflix.id,
+    symbol: 'NFLX',
     price: 289.57,
     shares: 48,
     order_type: "BUY"
   })
   buy_sq = Order.create({
     user_id: demo_user.id, 
-    stock_id: square.id,
+    symbol: 'SQ',
     price: 64.41,
     shares: 80,
     order_type: "BUY"
   })
   buy_gh = Order.create({
     user_id: demo_user.id, 
-    stock_id: guardant_health.id,
+    symbol: 'GH',
     price: 64.20,
     shares: 82,
     order_type: "BUY"
   })
   buy_tsla = Order.create({
     user_id: demo_user.id, 
-    stock_id: tesla.id,
+    symbol: 'TSLA',
     price: 335.54,
     shares: 39,
     order_type: "BUY"
@@ -67,17 +67,17 @@ ActiveRecord::Base.transaction do
 
   watch_zm = Watch.create({
     user_id: demo_user.id,
-    symbol: zoom.symbol
+    symbol: 'ZM'
   })
 
   watch_sbux = Watch.create({
     user_id: demo_user.id,
-    symbol: starbucks.symbol
+    symbol: 'SBUX'
   })
 
   watch_msft = Watch.create({
     user_id: demo_user.id,
-    symbol: microsoft.symbol
+    symbol: 'MSFT'
   })
 
    PORTFOLIOS.each do |day|

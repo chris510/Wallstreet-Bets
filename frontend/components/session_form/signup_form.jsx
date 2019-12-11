@@ -30,11 +30,11 @@ class SignUpForm extends React.Component {
         <div className="signup-form-container">
           <div className="signup-section-1">
             <div className="signup-text-1">
-              <h1>Welcome to Robinhood</h1>
+              <h1>Welcome to WallstreetBets</h1>
             </div>
             <div className="signup-text-2">
               <h1>Make Your Money Move</h1>
-              <h2>Robinhood lets you invest in companies you love commission-free.</h2>
+              <h2>WallstreetBets lets you invest in companies you love commission-free.</h2>
             </div>
           </div>
           <div className="signup-section-2">
