@@ -9,11 +9,12 @@ class Api::OrdersController < ApplicationController
   end
 
   def create
+    debugger
     @order = Order.new(order_params)
     @order.user_id = current_user.id
 
-    @stock = Stock.find_by(symbol: params[:order][:symbol])
-    @order.stock_id = @stock.id 
+    # @stock = Stock.find_by(symbol: params[:order][:symbol])
+    # @order.stock_id = @stock.id 
 
     if @order.save
       render json: ['Success'], status: 200
@@ -25,7 +26,7 @@ class Api::OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:price, :shares, :order_type)
+    params.require(:order).permit(:user_id, :symbol, :price, :shares, :order_type)
   end
 
 end

@@ -2,7 +2,7 @@ export const createOrder = order => (
   $.ajax({
     method: 'POST',
     url: '/api/orders',
-    order
+    data: { order } 
   })
 );
 

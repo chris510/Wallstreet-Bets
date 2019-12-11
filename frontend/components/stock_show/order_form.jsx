@@ -16,11 +16,30 @@ class OrderForm extends React.Component {
     this.setLatestPrice = this.setLatestPrice.bind(this);
     this.setOrderButtonStatus = this.setOrderButtonStatus.bind(this);
     this.handleResultModal = this.handleResultModal.bind(this);
+    this.handleOrderTransaction = this.handleOrderTransaction.bind(this);
   }
 
   componentDidMount(){
     // this.props.fetchStockPrice(this.props.symbol);
     this.setLatestPrice();
+  }
+
+  handleOrderTransaction(e) {
+    e.preventDefault();
+    const {stock, currentUser } = this.props;
+
+    let order = {
+      user_id: currentUser.id,
+      symbol: stock.symbol,
+      price: this.state.price,
+      shares: this.state.shares,
+      order_type: this.state.type
+    }
+    this.props.createOrder(order);
+    this.setState({
+      shares: 0,
+      price: 0
+    })
   }
 
   handleResultModal(e) {
@@ -66,7 +85,7 @@ class OrderForm extends React.Component {
         <div className="stock-order-form-container">
           <div className="stock-order-type"></div>
           <div className="stock-order-stats">
-            <form>
+            <form onSubmit={this.handleOrderTransaction}>
               <div className="order-form-header">
                 <div className={this.setOrderButtonStatus("BUY")} onClick={this.setOrderType}>ORDER BUY</div>
                 <div className={this.setOrderButtonStatus("SELL")} onClick={this.setOrderType}>ORDER SELL</div>
@@ -94,7 +113,7 @@ class OrderForm extends React.Component {
               <div className="order-form-row-5">
               </div>
               <div className="order-form-row-6">
-                <input type="submit" className="order-form-submit" onClick={this.handleResultModal}/> 
+                <input type="submit" className="order-form-submit"/> 
               </div>
             </form>
             <footer className="order-form-footer">
