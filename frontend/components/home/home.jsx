@@ -12,6 +12,7 @@ class Home extends React.Component {
   componentDidMount() {
     // this.props.fetchUserPortfolios();
     this.props.fetchStocks();
+    this.props.fetchUserStocks();
     this.props.fetchNews();
   }
 

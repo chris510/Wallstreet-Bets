@@ -1,4 +1,5 @@
 import * as StockAPIUtil from '../util/stock_api_util';
+import { getUserStocks } from '../util/orders_api_util';
 
 export const RECEIVE_STOCK = 'RECEIVE_STOCK';
 export const RECEIVE_STOCKS = 'RECEIVE_STOCKS';
@@ -9,6 +10,7 @@ export const RECEIVE_5YR_DATA = 'RECEIVE_5YR_DATA'
 export const RECEIVE_STOCK_INFO = 'RECEIVE_STOCK_INFO';
 export const RECEIVE_STOCK_NEWS = 'RECEIVE_STOCK_NEWS';
 export const RECEIVE_STOCK_PRICE = 'RECEIVE_STOCK_PRICE';
+export const RECEIVE_ALL_STOCKS = 'RECEIVE_ALL_STOCKS';
 
 
 const receiveStockPrice = (symbol, price) => ({
@@ -57,10 +59,20 @@ const receiveStockNews = (symbol, news) => ({
   symbol
 });
 
+const receiveAllStocks = (stocks) => ({
+  type: RECEIVE_ALL_STOCKS,
+  stocks
+})
+
 export const fetchStocks = () => dispatch => (
   StockAPIUtil.fetchPayload()
-    .then( payload => dispatch(receiveStocks(payload)))
+    .then(stocks => dispatch(receiveAllStocks(stocks)))
+  // getUserStocks().then(payload =>dispatch(receiveStocks(payload)))
 );
+
+export const fetchUserStocks = () => dispatch => (
+  getUserStocks().then(payload =>dispatch(receiveStocks(payload)))
+)
 
 export const fetchStock = symbol => dispatch => {
   const doFetches = () => Promise.all([

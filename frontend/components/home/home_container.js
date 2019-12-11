@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { fetchStocks } from '../../actions/stock_actions';
+import { fetchStocks, fetchUserStocks } from '../../actions/stock_actions';
 import { fetchNews } from '../../actions/news_actions';
 import { fetchUserPortfolios } from '../../actions/portfolio_actions';
 import Home from './home'
@@ -17,6 +17,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchStocks: () => dispatch(fetchStocks()),
+  fetchUserStocks: () => dispatch(fetchUserStocks()),
   fetchNews: () => dispatch(fetchNews()),
   fetchUserPortfolios: () => dispatch(fetchUserPortfolios())
 })

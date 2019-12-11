@@ -12,3 +12,10 @@ export const deleteOrder = order => (
     url: `/api/orders/${order.id}`
   })
 );
+
+export const getUserStocks = () => (
+  $.ajax({
+    method: 'GET',
+    url: '/api/orders',
+  })
+)

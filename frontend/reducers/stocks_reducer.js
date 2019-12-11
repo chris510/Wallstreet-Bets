@@ -6,13 +6,18 @@ import {
   RECEIVE_STOCK_NEWS,
   RECEIVE_HISTORICAL_DATA,
   RECEIVE_5YR_DATA,
-  RECEIVE_STOCK_PRICE
+  RECEIVE_STOCK_PRICE,
+  RECEIVE,
+  RECEIVE_ALL_STOCKS
 } from '../actions/stock_actions';
 
 const stocksReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
   let nextState = Object.assign({}, oldState);
   switch (action.type) {
+    case RECEIVE_ALL_STOCKS:
+      nextState.allStocks = action.stocks
+      return nextState;
     case RECEIVE_STOCK:
       nextState[action.stock.symbol] = action.stock;
       return nextState;
