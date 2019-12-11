@@ -3,15 +3,13 @@ import { RECEIVE_ORDER } from '../actions/order_actions';
 
 const ordersReducer = ( oldState = {}, action ) => {
   Object.freeze(oldState);
+  let newState = Object.assign({}, oldState);
   switch (action.type) {
     case RECEIVE_STOCKS:
-      // return Object.assign({}, oldState, { [action.stocks.order.user_id]: action.stocks.orders })
-      // return { [action.payload.order.user_id]: action.payload.order};
-      return action.payload.order
-    // case RECEIVE_ORDER:
-
-    // case REMOVE_ORDER:
-
+      return action.payload.order;
+    case RECEIVE_ORDER:
+      newState[action.order.id] = action.order;
+      return newState;
     default:
       return oldState
   }

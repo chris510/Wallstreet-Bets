@@ -120,7 +120,7 @@ class StockItemChart extends React.Component {
       newChartData = this.state.historicalData.slice(historicalDataLength - 62, historicalDataLength);
     } else if (range === "1Y") {
       if (this.state.historicalData.length > 300) {
-        newChartData = this.state.historicalData.slice(historicalDataLength - 251, historicalDatLength);
+        newChartData = this.state.historicalData.slice(historicalDataLength - 100, historicalDatLength);
       } else {
         newChartData = this.state.historicalData;
       }

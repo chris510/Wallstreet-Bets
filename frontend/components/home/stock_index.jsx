@@ -15,22 +15,29 @@ class StocksIndex extends React.Component {
 
   componentDidMount() {
     this.props.fetchStocks();
-    this.props.fetchWatchedStocks();
+    // this.props.fetchWatchedStocks();
   }
 
   calculateShares(symbol){
-    let orders = Object.keys(this.props.orders);
+    let orders = Object.values(this.props.orders);
     let shares = 0;
-    orders.forEach(orderSymbol => {
-      if (orderSymbol === symbol) {
-        shares = shares + this.props.orders[orderSymbol].shares;
+    orders.forEach(order => {
+      if (order.symbol === symbol) {
+        if (order.order_type === "BUY") {
+          shares += order.shares;
+        } else {
+          shares -= order.shares;
+        }
       } 
     })
     return shares;
   }
 
   renderStocks() {
-    let symbols = Object.keys(this.props.stocks);
+    let symbols = Object.values(this.props.orders);
+    symbols = symbols.map(order => order.symbol);
+    let uniqueSymbols = new Set(symbols);
+    symbols = [...uniqueSymbols];
     return (
       <div className="stock-index-container">
         {symbols.map((symbol) => {

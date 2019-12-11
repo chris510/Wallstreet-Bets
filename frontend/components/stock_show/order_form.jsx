@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { parseFloatToDollars } from '../../util/numbers.util';
+import { fetchStockPrice } from '../../util/stock_api_util';
 
 
 class OrderForm extends React.Component {
@@ -20,8 +21,13 @@ class OrderForm extends React.Component {
   }
 
   componentDidMount(){
-    // this.props.fetchStockPrice(this.props.symbol);
     this.setLatestPrice();
+    if (this.state.price === 0) {
+      fetchStockPrice(this.props.stock.symbol).then(result => this.setState({
+        price: result[this.props.stock.symbol].quote.close
+      }))
+    }
+
   }
 
   handleOrderTransaction(e) {
@@ -36,14 +42,10 @@ class OrderForm extends React.Component {
       order_type: this.state.type
     }
     this.props.createOrder(order);
-    this.setState({
-      shares: 0,
-      price: 0
-    })
+    this.props.openModal('order');
   }
 
-  handleResultModal(e) {
-    e.preventDefault();
+  handleResultModal() {
     this.props.openModal('order');
   }
 
@@ -70,13 +72,14 @@ class OrderForm extends React.Component {
   };
 
   setLatestPrice() {
+    debugger
     let newPrice = 0
     if (this.props.stock.intradayData) {
       newPrice = this.props.stock.intradayData[0].open;
-      this.setState({
-        price: newPrice
-      });
     }
+    this.setState({
+      price: newPrice
+    });
   }
 
   render() {

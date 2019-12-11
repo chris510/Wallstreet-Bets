@@ -10,7 +10,8 @@ class StockShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      price: 0
+      price: 0,
+      intradayData: []
     };
     // this.renderLatestPrice = this.renderLatestPrice.bind(this)
   }
@@ -19,29 +20,17 @@ class StockShow extends React.Component {
     // this.props.fetchStock(this.props.match.params.symbol)
     this.props.fetchStockInfo(this.props.match.params.symbol);
     this.props.fetchStockNews(this.props.match.params.symbol);
-    // this.props.fetchStockIntradayData(this.props.match.params.symbol);      
+    // this.props.fetchStockIntradayData(this.props.match.params.symbol)
+    //   .then(result => this.setState({
+    //     price: result.intradayData.chart[result.intradayData.chart.length - 1].close,
+    //     intradayData: result.intradayData.chart
+    //   }));      
     // this.props.fetch1YrHistoricalData(this.props.match.params.symbol);
   }
 
-  // renderLatestPrice() {
-  //   if (this.props.stock.intradayData) {
-  //     let lastItem = (this.props.stock.intradayData.length - 1);
-  //     let price = this.props.stock.intradayData[lastItem].close;
-  //     return (
-  //       <div className="stock-show-price">
-  //         {/* <Odometer  */}
-  //           {/* value= */}
-  //           {parseFloatToDollars(price)}
-  //         {/* /> */}
-  //       </div>
-  //     )
-  //   }
-  // }
 
   render() {
     const { stock, news } = this.props
-    // const { odometerValue } = this.state;
-    // if (stock.hasOwnProperty('news') && stock.hasOwnProperty('info')) {
       if (!stock) {
         return null;
       } else {
@@ -49,7 +38,7 @@ class StockShow extends React.Component {
           <div className="stock-show-main">
             <div className="stock-show-container-1">
                   <StockItemChartContainer
-                    // intradayData={stock.intradayData}
+                    // intradayData={this.state.intradayData}
                     // info={info}
                     // historicalData={stock.historicalData}
                     stock={stock}
@@ -109,17 +98,14 @@ class StockShow extends React.Component {
             <div className="stock-show-container-2">
               <OrderFormContainer
                 stock={stock}
+                // intradayData={stock.intradayData}
+                // price={this.state.price}
                 symbol={this.props.match.params.symbol}
               />
             </div>
           </div>
         )
       }
-  //   } else {
-  //     return (
-  //       <div>USER DOESN'T HAVE THE STOCKS AND NEWS IN THE STATE</div>
-  //     )
-  //   }  
   }
 };
 
