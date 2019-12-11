@@ -18,7 +18,7 @@ class SearchBar extends React.Component {
       foundStock = foundStock.toLowerCase();
       return input.length <= foundStock.length && foundStock.slice(0, input.length) === (input);
     } 
-    if (stock.name && (_checkMatch(stock.name) || _checkMatch(stock.symbol))) match = true;
+    if (stock && (_checkMatch(stock.name) || _checkMatch(stock.symbol))) match = true;
     return match;
   }
 
@@ -31,9 +31,9 @@ class SearchBar extends React.Component {
       let i = 0;
       while (results.length < maxResults && i < allStocksSize) {
         if (this.checkMatch(stocks[i])) {
-          results.push(stocks[i])
-          i++
+          results.push(stocks[i]);
         }
+        i++;
       }
     }
     return results;
