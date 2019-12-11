@@ -1,18 +1,108 @@
 .search-bar-container {
-  width: 100%;
+  /* width: 100%;
   font-size: 14px;
   padding: 12px 0px;
   padding-left: 48px;
-  background: transparent;
+  background: transparent; */
   /* border: 1px solid var(--color);width: 100%; */
-  font-size: 14px;
+  /* font-size: 14px;
   padding: 12px 0px;
-  padding-left: 48px;
+  padding-left: 48px; */
   /* border: 1px solid var(--color); */
-  /* display: none; */
+  margin-left: 40px;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  /* left: 2%;
+  top: 50%; */
+  /* transform: translate(-50%, -50%); */
+  z-index: 999;
+  left: 22.5%;
+  top: 2%;
+  /* border: 1px solid black; */
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.01),
+              0 1px 10px rgba(0, 0, 0, 0.6);
+  border-radius: 4px;
+  color: var(--color-text);
+  background-color: var(--bg);
+  opacity: 0.5;
+  opacity: 1.0;
 }
 
 .search-bar-container:hover {
   cursor: pointer;
-  background: grey;
 }
+
+.search-bar-container > div {
+}
+
+.search-bar-input {
+  font-family: var(--font-family);
+  width: 100%;
+  font-size: 14px;
+  height: 32px;
+  border: 0;
+  /* padding: 12px 0px; */
+  /* padding-left: 48px; */
+  background: transparent;
+  color: var(--color-text);
+  /* border: 1px solid var(--search-bar-color); */
+}
+.search-results-container {
+  /* background-color: var(--bg); */
+  z-index: 20;
+  height: 100%;
+  width: 100%;
+}
+
+.search-results-container:hover {
+  cursor: pointer;
+
+}
+
+.search-results-header {
+  padding: 10px;
+  font-size: 14px;
+  color: var(--color-text);
+  font-family: var(--font-family);
+}
+
+.search-results-item-container {
+  width: 100%;
+}
+
+.search-results-item-container > div {
+  /* padding-top: 10px;
+  padding-bottom: 10px; */
+}
+
+.search-results-item {
+  display: flex;
+  width: 100%;
+  z-index: 20;
+}
+
+.search-results-item:hover {
+  background-color: var(--news-box-hover);
+  cursor: pointer;
+}
+
+.search-results-symbol {
+  font-weight: bold;
+  width: 100px;
+  color: var(--color-text);
+  font-family: var(--font-family);
+  word-wrap: none;
+  padding: 10px;
+}
+
+.search-results-name {
+  font-weight: bold;
+  color: var(--color-text);
+  font-family: var(--font-family);
+  width: 100%;
+  padding: 10px;
+}
+
+

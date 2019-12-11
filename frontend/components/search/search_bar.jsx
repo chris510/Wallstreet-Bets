@@ -56,14 +56,16 @@ class SearchBar extends React.Component {
           <div className="search-results-header">
             Stocks
           </div>
+          <div className="search-results-item-container">
           {this.searchStocks().map((stock, i) => {
             return (
-              <div key={i} className="search-result-item">
-                <div className="search-result-symbol">{stock.symbol}</div>
-                <div className="search-result-name">{stock.name}</div>
-              </div>
+                <div key={i} className="search-results-item">
+                  <div className="search-results-symbol">{stock.symbol}</div>
+                  <div className="search-results-name">{stock.name}</div>
+                </div>
             )
           })}
+          </div>
         </div>
       )
     }
@@ -71,17 +73,16 @@ class SearchBar extends React.Component {
 
   render(){
     return (
-      <div className="search-bar-wrapper">
-        <div className="search-bar-container">
-          <input 
-            type="text"
-            placeholder="Search"
-            onChange={this.handleInput} />
-          <button id="search-button" type="submit">
-            {/* <SVGIcon name="search" width={25} /> */}
-          </button>
-          {this.renderSearchResults()}
-        </div>
+      <div className="search-bar-container">
+        <input 
+          className="search-bar-input"
+          type="text"
+          placeholder="Search"
+          onChange={this.handleInput} />
+        {/* <button id="search-button" type="submit">
+          <SVGIcon name="search" width={25} />
+        </button> */}
+        {this.renderSearchResults()}
       </div>
     )
   }
