@@ -27,8 +27,16 @@ class OrderForm extends React.Component {
         price: result[this.props.stock.symbol].quote.close
       }))
     }
-
   }
+
+  // componentDidUpdate(prevProps) {
+  //   debugger
+  //   if (this.state.price === 0) {
+  //     fetchStockPrice(this.props.stock.symbol).then(result => this.setState({
+  //       price: result[this.props.stock.symbol].intradayData.quote.close
+  //     }))
+  //   }
+  // }
 
   handleOrderTransaction(e) {
     e.preventDefault();
@@ -72,7 +80,6 @@ class OrderForm extends React.Component {
   };
 
   setLatestPrice() {
-    debugger
     let newPrice = 0
     if (this.props.stock.intradayData) {
       newPrice = this.props.stock.intradayData[0].open;

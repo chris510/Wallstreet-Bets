@@ -19,4 +19,4 @@ const mapDispatchToProps = dispatch => ({
   deleteOrder: (orderId) => dispatch(deleteOrder(orderId))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(OrderForm); 
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(OrderForm)); 

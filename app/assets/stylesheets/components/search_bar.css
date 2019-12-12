@@ -1,18 +1,8 @@
 .search-bar-container {
-  /* width: 100%;
-  font-size: 14px;
-  padding: 12px 0px;
-  padding-left: 48px;
-  background: transparent; */
-  /* border: 1px solid var(--color);width: 100%; */
-  /* font-size: 14px;
-  padding: 12px 0px;
-  padding-left: 48px; */
-  /* border: 1px solid var(--color); */
   margin-left: 40px;
   width: 500px;
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   position: fixed;
   /* left: 2%;
   top: 50%; */

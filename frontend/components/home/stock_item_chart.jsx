@@ -76,6 +76,22 @@ class StockItemChart extends React.Component {
     };
   };
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.match.params.symbol !== this.props.match.params.symbol) {
+      this.props.fetchStockIntradayData(this.props.match.params.symbol).then(result => this.setState({
+        chartData: result.intradayData.chart,
+        intradayData: result.intradayData.chart,
+        hoverPrice: result.intradayData.chart[result.intradayData.chart.length - 1].close
+      }))
+      .then(() => this.calculateInitialFlux(this.state.intradayData));
+      this.props.fetch1YrHistoricalData(this.props.stock.symbol)
+        .then(result => this.setState({
+          chartData: result.historicalData.chart,
+          historicalData: result.historicalData.chart
+        }));
+    }
+  }
+
   calculateInitialFlux(data) {
     let newFlux = 0;
     let newFluxPercent = 0;

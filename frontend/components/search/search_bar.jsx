@@ -1,4 +1,6 @@
 import React from 'react';
+import SVGIcon from '../svg_icons/svg.icons';
+import { NavLink, Link } from 'react-router-dom';
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -9,6 +11,7 @@ class SearchBar extends React.Component {
     this.handleInput = this.handleInput.bind(this);
     this.renderSearchResults = this.renderSearchResults.bind(this);
     this.checkMatch = this.checkMatch.bind(this);
+
   }
 
   checkMatch(stock) {
@@ -38,10 +41,6 @@ class SearchBar extends React.Component {
     }
     return results;
   }
-  
-  redirectToStockShow(symbol) {
-    this.props.history.push(`/stocks/${ticker}`);
-  }
 
   handleInput(e) {
     this.setState({ 
@@ -59,10 +58,12 @@ class SearchBar extends React.Component {
           <div className="search-results-item-container">
           {this.searchStocks().map((stock, i) => {
             return (
+              <Link to={`/stocks/${stock.symbol}`}>
                 <div key={i} className="search-results-item">
                   <div className="search-results-symbol">{stock.symbol}</div>
                   <div className="search-results-name">{stock.name}</div>
                 </div>
+              </Link>
             )
           })}
           </div>
@@ -74,14 +75,14 @@ class SearchBar extends React.Component {
   render(){
     return (
       <div className="search-bar-container">
+        <div className="search-icon">
+          <SVGIcon name="search" width={20} />
+        </div>
         <input 
           className="search-bar-input"
           type="text"
           placeholder="Search"
           onChange={this.handleInput} />
-        {/* <button id="search-button" type="submit">
-          <SVGIcon name="search" width={25} />
-        </button> */}
         {this.renderSearchResults()}
       </div>
     )

@@ -13,4 +13,4 @@ const mapDispatchToProps = dispatch => ({
   fetch5YrData: symbol => dispatch(fetch5YrData(symbol))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(StockItemChart);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(StockItemChart));
