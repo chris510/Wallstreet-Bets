@@ -11,6 +11,7 @@ const loading = css`
   margin: 0 auto;
   border-color: red;
 `;
+
 const RED = "#EB5333";
 const GREEN = "#67CF9A";
 
@@ -18,7 +19,7 @@ class Portfolio extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      chartData: this.props.portfolio,
+      chartData: [],
       intradayData: [],
       historicalData: [],
       fiveYearData: [],
@@ -218,11 +219,12 @@ class Portfolio extends React.Component {
                 type="linear"
                 dataKey="balance"
                 stroke={this.state.lineColor}
-                strokeWidth={2}
+                strokeWidth={3}
                 dot={false}
                 connectNulls={true}
+                isAnimationActive={true}
               />
-              <Tooltip cursor={{ stroke: "lightgrey", strokeWidth: 2 }} isAnimationActive={false} />
+              <Tooltip cursor={{ stroke: "lightgrey", strokeWidth: 2 }} />
               <XAxis hide={true} dataKey='label' />
               <YAxis domain={['30000', '200000']} hide={true} />
             </LineChart>

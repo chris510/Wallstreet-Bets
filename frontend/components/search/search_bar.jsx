@@ -12,6 +12,7 @@ class SearchBar extends React.Component {
     this.renderSearchResults = this.renderSearchResults.bind(this);
     this.checkMatch = this.checkMatch.bind(this);
     this.redirectToStockShow = this.redirectToStockShow.bind(this);
+    this.resetSearch = this.resetSearch.bind(this);
   }
 
   checkMatch(stock) {
@@ -55,6 +56,12 @@ class SearchBar extends React.Component {
     })
   }
 
+  resetSearch() {
+    this.setState({
+      input: ""
+    })
+  }
+
   renderSearchResults() {
     if (this.state.input.length > 0) {
       return (
@@ -81,7 +88,7 @@ class SearchBar extends React.Component {
 
   render(){
     return (
-      <div className="search-bar-container">
+      <div className="search-bar-container" onMouseLeave={this.resetSearch}>
         <div className="search-icon">
           <SVGIcon name="search" width={25} />
         </div>
@@ -89,6 +96,7 @@ class SearchBar extends React.Component {
           type="text"
           className="search-bar-input"
           placeholder="Search"
+          value={this.state.input}
           onChange={this.handleInput}/>
         {this.renderSearchResults()}
       </div>

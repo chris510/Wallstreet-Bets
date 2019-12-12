@@ -21,9 +21,9 @@ class Home extends React.Component {
     return (
       <div className="home">
         <div className="home-container-1">
-            {/* <PortfolioContainer
+            <PortfolioContainer
               // portfolio={this.props.portfolio}
-            /> */}
+            />
           <div className="news-container">
               <div className="index-title">
                 Recent News
