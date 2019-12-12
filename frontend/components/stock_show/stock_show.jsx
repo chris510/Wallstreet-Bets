@@ -17,24 +17,26 @@ class StockShow extends React.Component {
   }
 
   componentDidMount() {
-    // this.props.fetchStock(this.props.match.params.symbol)
     if (!this.props.allStocks) {
       this.props.fetchStocks();
     }
     this.props.fetchStockInfo(this.props.match.params.symbol);
     this.props.fetchStockNews(this.props.match.params.symbol);
-    // this.props.fetchStockIntradayData(this.props.match.params.symbol)
-    //   .then(result => this.setState({
-    //     price: result.intradayData.chart[result.intradayData.chart.length - 1].close,
-    //     intradayData: result.intradayData.chart
-    //   }));      
+    // this.props.fetchStockIntradayData(this.props.match.params.symbol).then(result => this.setState({
+    //   intradayData: result.intradayData.chart,
+    //   price: result.intradayData.chart[result.intradayData.chart.length - 1].close
+    // }));
+    this.props.fetchStockPrice(this.props.match.params.symbol).then(result => 
+      this.setState({
+        price: result[this.props.stock.symbol].quote.latestPrice
+    })
+    )
     // this.props.fetch1YrHistoricalData(this.props.match.params.symbol);
   }
 
-  componentDidUpdate(prevProps) {
+  componentWillReceiveProps(prevProps) {
     if (prevProps.match.params.symbol !== this.props.match.params.symbol) {
-      this.props.fetchStockInfo(this.props.match.params.symbol);
-      this.props.fetchStockNews(this.props.match.params.symbol)
+      window.location.reload(false);
     }
   }
 
@@ -109,7 +111,7 @@ class StockShow extends React.Component {
               <OrderFormContainer
                 stock={stock}
                 // intradayData={stock.intradayData}
-                // price={this.state.price}
+                price={this.state.price}
                 symbol={this.props.match.params.symbol}
               />
             </div>

@@ -140,9 +140,10 @@ class Portfolio extends React.Component {
     let fiveYearLength = this.state.fiveYearData.length;
     // let portfolioLength = this.props.portfolio.length;
     if (range === "1D") {
-      newChartData = this.state.intradayData
-    } else if (range === "1W") {
+      // newChartData = this.state.intradayData
       newChartData = this.state.fiveYearData.slice(fiveYearLength - 5, fiveYearLength)
+    } else if (range === "1W") {
+      newChartData = this.state.fiveYearData.slice(fiveYearLength - 11, fiveYearLength)
       // newChartData = this.props.portfolio.slice(portfolioLength - 5, portfolioLength);
     } else if (range === "1M") {
       newChartData = this.state.fiveYearData.slice(fiveYearLength - 21, fiveYearLength)
@@ -221,7 +222,7 @@ class Portfolio extends React.Component {
                 dot={false}
                 connectNulls={true}
               />
-              <Tooltip cursor={{ stroke: "lightgrey", strokeWidth: 2 }} />
+              <Tooltip cursor={{ stroke: "lightgrey", strokeWidth: 2 }} isAnimationActive={false} />
               <XAxis hide={true} dataKey='label' />
               <YAxis domain={['30000', '200000']} hide={true} />
             </LineChart>

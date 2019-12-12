@@ -58,7 +58,7 @@ class SearchBar extends React.Component {
           <div className="search-results-item-container">
           {this.searchStocks().map((stock, i) => {
             return (
-              <Link to={`/stocks/${stock.symbol}`}>
+              <Link to={`/stocks/${stock.symbol}`} className="search-link">
                 <div key={i} className="search-results-item">
                   <div className="search-results-symbol">{stock.symbol}</div>
                   <div className="search-results-name">{stock.name}</div>
@@ -75,15 +75,17 @@ class SearchBar extends React.Component {
   render(){
     return (
       <div className="search-bar-container">
-        <div className="search-icon">
-          <SVGIcon name="search" width={20} />
+        {/* <div className="search-icon"> */}
+          <SVGIcon name="search" width={25} />
+        {/* </div> */}
+        <div className="search-bar-contents-container">
+          <input 
+            className="search-bar-input"
+            type="text"
+            placeholder="Search"
+            onChange={this.handleInput} />
+          {this.renderSearchResults()}
         </div>
-        <input 
-          className="search-bar-input"
-          type="text"
-          placeholder="Search"
-          onChange={this.handleInput} />
-        {this.renderSearchResults()}
       </div>
     )
   }

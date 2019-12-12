@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { fetchStocks, fetchStock, fetchStockInfo, fetchStockIntradayData } from '../../actions/stock_actions';
+import { fetchStocks, fetchStock, fetchStockInfo, fetchStockIntradayData, fetchStockPrice } from '../../actions/stock_actions';
 import { fetchStockNews } from '../../actions/news_actions';
 import StockShow from './stock_show';
 
@@ -19,7 +19,8 @@ const mapDispatchToProps = dispatch => ({
   fetchStockNews: (symbol) => dispatch(fetchStockNews(symbol)),
   fetch1YrHistoricalData: (symbol) => dispatch(fetch1YrHistoricalData(symbol)),
   fetchStockIntradayData: (symbol) => dispatch(fetchStockIntradayData(symbol)),
-  fetchStocks: () =>dispatch(fetchStocks())
+  fetchStocks: () => dispatch(fetchStocks()),
+  fetchStockPrice: (symbol) => dispatch(fetchStockPrice(symbol))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(StockShow));

@@ -12,8 +12,8 @@ class Home extends React.Component {
   componentDidMount() {
     // this.props.fetchUserPortfolios();
     this.props.fetchStocks();
-    // this.props.fetchUserStocks(); 
-    // this.props.fetchNews();
+    this.props.fetchUserStocks(); 
+    this.props.fetchNews();
   }
 
   render() {
@@ -21,9 +21,9 @@ class Home extends React.Component {
     return (
       <div className="home">
         <div className="home-container-1">
-            {/* <PortfolioContainer
+            <PortfolioContainer
               // portfolio={this.props.portfolio}
-            /> */}
+            />
           <div className="news-container">
               <div className="index-title">
                 Recent News
@@ -46,7 +46,7 @@ class Home extends React.Component {
         </div>
         <div className="home-container-2">
             <div className="stocks-dashboard-container">
-              <StockIndexContainer />
+              {/* <StockIndexContainer /> */}
             </div>
         </div>
       </div>

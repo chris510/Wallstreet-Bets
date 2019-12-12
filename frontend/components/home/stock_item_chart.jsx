@@ -37,7 +37,7 @@ class StockItemChart extends React.Component {
   }
 
   componentDidMount() {
-    if (!this.state.intradayData) {
+    if (!this.props.stock.intradayData) {
       this.props.fetchStockIntradayData(this.props.stock.symbol)
         .then( result => this.setState({
           chartData: result.intradayData.chart,
@@ -275,7 +275,7 @@ class StockItemChart extends React.Component {
                 dot={false}
                 connectNulls={true}
               />
-              <Tooltip cursor={{ stroke: "lightgrey", strokeWidth: 2 }} content={renderTimeStamp} />
+              <Tooltip cursor={{ stroke: "lightgrey", strokeWidth: 2 }} content={renderTimeStamp} isAnimationActive={false} />
               <XAxis hide={true} dataKey='label' />
               <YAxis domain={['dataMin', 'dataMax']} hide={true} tickLine={false} type='number' />
             </LineChart>

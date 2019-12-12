@@ -36,7 +36,7 @@ const StockMiniChart = ({ intradayData, loadingState }) => {
             connectNulls={true}
             isAnimationActive={true} 
           />
-          <Tooltip cursor={{ stroke: 'lightgrey', strokeWidth: 1 }} />
+          <Tooltip cursor={{ stroke: 'lightgrey', strokeWidth: 1 }} isAnimationActive={false} />
           <XAxis hide={true} dataKey='label' />
           <YAxis domain={['dataMin', 'dataMax']} hide={true} tickLine={false} type='number'/>
         </LineChart>

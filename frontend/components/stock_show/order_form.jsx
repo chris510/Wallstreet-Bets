@@ -10,7 +10,7 @@ class OrderForm extends React.Component {
     this.state = {
       type: 'BUY',
       shares: '',
-      price: 0
+      price: this.props.price
     }
     this.setOrderType = this.setOrderType.bind(this);
     this.updateShares = this.updateShares.bind(this);
@@ -24,10 +24,16 @@ class OrderForm extends React.Component {
     this.setLatestPrice();
     if (this.state.price === 0) {
       fetchStockPrice(this.props.stock.symbol).then(result => this.setState({
-        price: result[this.props.stock.symbol].quote.close
+        price: result[this.props.stock.symbol].quote.latestPrice
       }))
     }
   }
+
+  // componentWillReceiveProps(prevProps) {
+  //   if (prevProps.match.params.symbol !== this.props.match.params.symbol) {
+  //     window.location.reload(false);
+  //   }
+  // }
 
   // componentDidUpdate(prevProps) {
   //   debugger
