@@ -184,7 +184,7 @@
 }
 
 .stock-info-container {
-  height: 270px;
+  height: 18%;
   width: 750px;
   background-color: var(--bg);
   font-family: var(--font-family);
@@ -192,6 +192,10 @@
   box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.01),
               0 3px 24px rgba(0, 0, 0, 0.6);
   border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .stock-info-header {
@@ -200,9 +204,9 @@
   font-weight: bold;
   font-family: var(--font-family);
   color: var(--color-text);
-  padding: 5px 0px 20px 0px;
+  padding: 0px 0px 10px 0px;
   /* padding-bottom: 20px; */
-  margin-top: 20px;
+  /* margin-top: 20px; */
   border-bottom: 1px solid #eee;
   display: flex;
   justify-content: center;
@@ -219,6 +223,7 @@
 }
 
 .stock-stats-container {
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

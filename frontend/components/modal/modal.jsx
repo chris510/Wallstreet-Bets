@@ -10,7 +10,7 @@ const Modal = ({modal, closeModal}) => {
 
   switch (modal) {
     case 'order':
-      component = <OrderResult />;
+      component = <OrderResult closeModal={closeModal} />;
     break
     default:
       return null;

@@ -1,10 +1,12 @@
 import { RECEIVE_DEMO_STATE, REMOVE_DEMO_STATE } from "../actions/demo_actions";
+import { RECEIVE_THEME } from '../actions/theme_actions';
 import { OPEN_MODAL, CLOSE_MODAL } from '../actions/modal_actions';
 
 
 const _nullUi = {
   demoUser: false,
-  modal: null
+  modal: null,
+  theme: 'light'
 }
 
 const uiReducer = ( oldState = _nullUi, action) => {
@@ -20,6 +22,9 @@ const uiReducer = ( oldState = _nullUi, action) => {
       return nextState
     case CLOSE_MODAL:
       nextState.modal = null
+      return nextState
+    case RECEIVE_THEME:
+      nextState.theme = action.theme
       return nextState
     default:
       return oldState;

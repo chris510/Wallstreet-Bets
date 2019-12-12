@@ -53,7 +53,7 @@ class NavSplash extends React.Component {
               <div className="nav-left">
                 <div className="logo">
                   <Link to='/' className="nav-title">
-                    <h1 className="nav-title">WallStreetBets</h1>
+                    <h1 className="nav-title">WallstreetBets</h1>
                   </Link>
                   <Link to='/'>
                     <SVGIcon name="robinhood_logo" width={45} />
