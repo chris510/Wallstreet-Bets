@@ -11,7 +11,7 @@ class SearchBar extends React.Component {
     this.handleInput = this.handleInput.bind(this);
     this.renderSearchResults = this.renderSearchResults.bind(this);
     this.checkMatch = this.checkMatch.bind(this);
-
+    this.redirectToStockShow = this.redirectToStockShow.bind(this);
   }
 
   checkMatch(stock) {
@@ -48,6 +48,13 @@ class SearchBar extends React.Component {
     });
   }
 
+  redirectToStockShow(symbol) {
+    this.props.history.push(`/stocks/${symbol}`);
+    this.setState({
+      input: ""
+    })
+  }
+
   renderSearchResults() {
     if (this.state.input.length > 0) {
       return (
@@ -58,12 +65,12 @@ class SearchBar extends React.Component {
           <div className="search-results-item-container">
           {this.searchStocks().map((stock, i) => {
             return (
-              <Link to={`/stocks/${stock.symbol}`} className="search-link">
-                <div key={i} className="search-results-item">
+              // <Link to={`/stocks/${stock.symbol}`} className="search-link">
+                <div key={i} className="search-results-item" onClick={() => this.redirectToStockShow(stock.symbol)}>
                   <div className="search-results-symbol">{stock.symbol}</div>
                   <div className="search-results-name">{stock.name}</div>
                 </div>
-              </Link>
+              // </Link>
             )
           })}
           </div>
@@ -75,17 +82,15 @@ class SearchBar extends React.Component {
   render(){
     return (
       <div className="search-bar-container">
-        {/* <div className="search-icon"> */}
+        <div className="search-icon">
           <SVGIcon name="search" width={25} />
-        {/* </div> */}
-        <div className="search-bar-contents-container">
-          <input 
-            className="search-bar-input"
-            type="text"
-            placeholder="Search"
-            onChange={this.handleInput} />
-          {this.renderSearchResults()}
         </div>
+        <input 
+          type="text"
+          className="search-bar-input"
+          placeholder="Search"
+          onChange={this.handleInput}/>
+        {this.renderSearchResults()}
       </div>
     )
   }

@@ -55,7 +55,7 @@ class OrderForm extends React.Component {
       shares: this.state.shares,
       order_type: this.state.type
     }
-    this.props.createOrder(order);
+    // this.props.createOrder(order);
     this.props.openModal('order');
   }
 
