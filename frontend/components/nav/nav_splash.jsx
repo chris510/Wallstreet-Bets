@@ -4,6 +4,8 @@ import SVGIcon from '../svg_icons/svg.icons';
 import { withRouter, Redirect } from 'react-router-dom';
 import SearchBarContainer from '../search/search_bar_container';
 
+import { useTheme } from '../change_theme/theme_context';
+
 class NavSplash extends React.Component {
   constructor(props) {
     super(props); 
@@ -46,7 +48,6 @@ class NavSplash extends React.Component {
 
   render() {
     const { logout } = this.props;
-
     if (!this.props.currentUser) {
       return (
         <div className='nav'>

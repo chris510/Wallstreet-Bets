@@ -10,18 +10,36 @@ import LoginFormContainer from './session_form/login_form_container';
 import SignUpFormContainer from './session_form/signup_form_container';
 import StockShowContainer from './stock_show/stock_show_container';
 
-const App = () => (
-  <div className="main-div">
-    <header>
-      <NavSplashContainer />
-    </header>
-    <ModalContainer />
-    <Route exact path="/" component={SplashContainer} />
-    <Route exact path="/home" component={HomeContainer} />
-    <AuthRoute path="/login" component={LoginFormContainer} />
-    <AuthRoute path="/signup" component={SignUpFormContainer} />
-    <Route path="/stocks/:symbol" component={StockShowContainer} />
-  </div>
-);
+import styled from "@emotion/styled";
+import { useTheme } from "./change_theme/theme_context";
+
+const Wrapper = styled("div")`
+  background: ${props => props.theme.background};
+  width: 100vw;
+  height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen";
+  color: ${props => props.theme.body};
+`;
+
+const App = () => {
+  const themeState = useTheme();
+
+  return (
+    <Wrapper>
+      <div className="main-div">
+        <header>
+          <NavSplashContainer />
+        </header>
+        <ModalContainer />
+        <Route exact path="/" component={SplashContainer} />
+        <Route exact path="/home" component={HomeContainer} />
+        <AuthRoute path="/login" component={LoginFormContainer} />
+        <AuthRoute path="/signup" component={SignUpFormContainer} />
+        <Route path="/stocks/:symbol" component={StockShowContainer} />
+      </div>
+    </Wrapper>
+  )
+}
+;
 
 export default App;
