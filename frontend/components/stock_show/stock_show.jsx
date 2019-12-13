@@ -26,11 +26,10 @@ class StockShow extends React.Component {
     //   intradayData: result.intradayData.chart,
     //   price: result.intradayData.chart[result.intradayData.chart.length - 1].close
     // }));
-    this.props.fetchStockPrice(this.props.match.params.symbol).then(result => 
-      this.setState({
-        price: result[this.props.stock.symbol].quote.latestPrice
-    })
-    )
+    // this.props.fetchStockPrice(this.props.match.params.symbol).then(result => 
+    //   this.setState({
+    //     price: result[this.props.stock.symbol].quote.latestPrice
+    // }))
     // this.props.fetch1YrHistoricalData(this.props.match.params.symbol);
   }
 

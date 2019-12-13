@@ -112,7 +112,7 @@ export const fetchStockNews = (symbol) => dispatch => (
 
 export const fetchStockPrice = (symbol) => dispatch => (
   StockAPIUtil.fetchStockPrice(symbol)
-    .then(price => dispatch(receiveStockPrice(symbol, price)))
+    .then(price => dispatch(receiveStockPrice(symbol, price.symbol.quote)))
 )
 
 // export const fetchStock = symbol => dispatch => (

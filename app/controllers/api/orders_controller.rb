@@ -16,7 +16,7 @@ class Api::OrdersController < ApplicationController
     # @order.stock_id = @stock.id 
 
     if @order.save
-      render json: ['Success'], status: 200
+      render json: @order, status: 200
     else 
       render json: @order.errors.full_messages, status: 422
     end

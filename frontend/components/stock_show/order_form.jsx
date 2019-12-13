@@ -48,15 +48,17 @@ class OrderForm extends React.Component {
     e.preventDefault();
     const {stock, currentUser } = this.props;
 
-    let order = {
-      user_id: currentUser.id,
-      symbol: stock.symbol,
-      price: this.state.price,
-      shares: this.state.shares,
-      order_type: this.state.type
+    if (this.state.type === "BUY") {
+      let order = {
+        user_id: currentUser.id,
+        symbol: stock.symbol,
+        price: this.state.price,
+        shares: this.state.shares,
+        order_type: this.state.type
+      }
+      this.props.openModal('order');
+      this.props.createOrder(order);
     }
-    // this.props.createOrder(order);
-    this.props.openModal('order');
   }
 
   handleResultModal() {

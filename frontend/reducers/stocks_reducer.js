@@ -22,7 +22,8 @@ const stocksReducer = (oldState = {}, action) => {
       nextState[action.stock.symbol] = action.stock;
       return nextState;
     case RECEIVE_STOCK_PRICE:
-      nextState[action.symbol.price] = action.price.symbol.quote.latestPrice;
+      debugger
+      nextState[action.symbol.price] = action.latestPrice
       return nextState; 
     case RECEIVE_STOCKS:
       return action.payload.stock;
