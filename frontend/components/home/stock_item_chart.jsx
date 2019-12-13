@@ -11,7 +11,7 @@ class StockItemChart extends React.Component {
     super(props);
     this.state = {
       chartData: [],
-      intradayData: this.props.intradayData,
+      intradayData: [],
       historicalData: [],
       fiveYearData: [],
       activeRange: '1D',
@@ -37,6 +37,7 @@ class StockItemChart extends React.Component {
   }
 
   componentDidMount() {
+    debugger
     if (!this.props.stock.intradayData) {
       this.props.fetchStockIntradayData(this.props.stock.symbol)
         .then( result => this.setState({
@@ -48,15 +49,15 @@ class StockItemChart extends React.Component {
       this.chartLineColor();
       // this.calculateFlux(this.state.intradayData[0]);
     } else {
+      debugger
       this.setState({
-        chartData: this.props.intradayData,
-        intradayData: this.props.intradayData,
-        hoverPrice: this.props.intradayData[this.props.intradayData.length - 1].close
+        chartData: this.props.stock.intradayData,
+        intradayData: this.props.stock.intradayData,
+        hoverPrice: this.props.stock.intradayData[this.props.stock.intradayData.length - 1].close
       })
-      this.calculateInitialFlux(this.state.intradayData);
+      this.calculateInitialFlux(this.props.stock.intradayData);
       this.chartLineColor();
     };
-
     this.setState({
       chartData: this.props.intradayData,
       intradayData: this.props.intradayData,
