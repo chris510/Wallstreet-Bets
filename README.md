@@ -1,5 +1,5 @@
 # WallstreetBets
-[Live Demo](http://wallstreet-bets.herokuapp.com/#/)!
+[Live Demo](http://wallstreet-bets.herokuapp.com/#/)
 
  An investment app with a simple interactive design that allows new users to invest and trade stocks with no commission fees.
 
@@ -23,15 +23,71 @@
  
  ### Dashboard and Portfolio
  
- ### Dynamic Chart Rendering
+ Once a user logs in, they are able to view a visualization of their chart balance. They are also able to see general news, as well as stock/comapnies that they follow or own.
+ 
+ 
+ ## Dynamic Chart Rendering
+ 
+Using IEX Cloud to pull stock historical information in conjunction with Recharts to visualize the data, the data is parsed for each of the following dates; 1D, 1W, 3M, 1Y, 5Y each triggered by its own eventhandler. The data is stored in the redux state and each component modifies its original local state's data to fit the range that is indicated.
+ 
+ ```
+ changeDate(range) {
+    let newChartData;
+    let fiveYearLength = this.state.fiveYearData.length;
+    if (range === "1D") {
+      newChartData = this.state.fiveYearData.slice(fiveYearLength - 5, fiveYearLength)
+    } else if (range === "1W") {
+      newChartData = this.state.fiveYearData.slice(fiveYearLength - 11, fiveYearLength)
+    } else if (range === "1M") {
+      newChartData = this.state.fiveYearData.slice(fiveYearLength - 21, fiveYearLength)
+    } else if (range === "3M") {
+      newChartData = this.state.fiveYearData.slice(fiveYearLength - 66, fiveYearLength)
+    } else if (range === "1Y") {
+      newChartData = this.state.fiveYearData.slice(fiveYearLength - 253, fiveYearLength)
+    } else if (range === "5Y") {
+      newChartData = this.state.fiveYearData
+    }
+ }
+ ```
+ 
+ ### UI Night Mode
+ 
+Eventhandler listeners used for a toggle switch to change the UI theme from dark to light or vice versa based on its option 'theme'. Global variables were created for each theme and shown depending on the selected option.
+ 
+ ```
+ changeTheme() {
+    const checkbox = document.querySelector('input[name=theme]');
+
+    checkbox.addEventListener('change', function () {
+      if (this.checked) {
+        trans()
+        document.documentElement.setAttribute('data-theme', 'dark')
+      } else {
+        trans()
+        document.documentElement.setAttribute('data-theme', 'light')
+      }
+    })
+
+    let trans = () => {
+      document.documentElement.classList.add('transition');
+      window.setTimeout(() => {
+        document.documentElement.classList.remove('transition')
+      }, 1000)
+    }
+  }
+```
  
  ### Stock Show Page
  
  The stock show page contains current and historical price information about the specific stock as well as general company information and relevant news. The order form allows the user to purchase and sell the stock at the most recent market price indicated. The chart is dynamically displayed by parsing historical information and colored elements; red and green are used to show a positive or negative price fluctuation over the given period.
  
-## Bonus Features to be made
+ ### Restful APIs
+ 
+ 
+ 
+## Bonus Features Coming
 
-**Order/Transaction**
-Users are able to purchase/sell stocks given their buying power and stocks owned respectively.
-**Search**
-User is able to use a search bar to search up a stock by their company name or symbol and redirects to the stock show page.
+**Orders**
+Users are able to sell their own stocks.
+
+**Dark Mode UI into Redux State using React Hooks**
