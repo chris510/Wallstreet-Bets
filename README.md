@@ -3,6 +3,9 @@
 
  An investment app with a simple interactive design that allows new users to invest and trade stocks with no commission fees.
 
+![Alt Text](splash.gif)
+
+
 ## Technologies
 
 - Frontend: React/Redux, HTML5, CSS
