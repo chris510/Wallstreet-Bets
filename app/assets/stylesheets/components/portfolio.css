@@ -1,7 +1,7 @@
 .portfolio-chart-container {
   font-family: var(--font-family);
   width: 80%;
-  height: 400px;
+  height: 530px;
   background: var(--bg);
   display: flex;
   flex-direction: column;
@@ -14,7 +14,7 @@
 }
 
 .portfolio-chart-container > div {
-  padding: 20px;
+  padding: 10px;
 }
 
 .portfolio-chart-header {
@@ -59,7 +59,7 @@
   color: var(--color-text);
   display: flex;
   list-style-type: none;
-  width: 90%;
+  /* width: 90%; */
   font-weight: bold;
   font-size: 16px;
   padding: 10px;
@@ -106,5 +106,5 @@
   width: 90%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 }

@@ -213,7 +213,7 @@ class Portfolio extends React.Component {
           </div>
         </div>
         <div className="portfolio-chart">
-          <ResponsiveContainer width="100%" height="100%" className="portfolio-graph-chart-container">
+          <ResponsiveContainer width="105%" height="100%" className="portfolio-graph-chart-container">
             <LineChart data={this.state.chartData} onMouseMove={this.handleMouseHover} onTouchStart={this.handleMouseHover} cursor="pointer">
               <Line
                 type="linear"
