@@ -58,7 +58,7 @@
 .stock-show-chart-container {
   font-family: var(--font-family);
   width: 750px;
-  height: 420px;
+  height: 530px;
   background: var(--bg);
   display: flex;
   flex-direction: column;
