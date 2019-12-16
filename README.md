@@ -3,7 +3,7 @@
 
  An investment app with a simple interactive design that allows new users to invest and trade stocks with no commission fees.
 
-![Alt Text](splash.gif)
+![](splash1.gif)
 
 
 ## Technologies
@@ -27,6 +27,8 @@
  ### Dashboard and Portfolio
  
  Once a user logs in, they are able to view a visualization of their chart balance. They are also able to see general news, as well as stock/comapnies that they follow or own.
+ 
+ ![](stockhome.gif)
  
  
  ## Dynamic Chart Rendering
@@ -81,6 +83,8 @@ Eventhandler listeners used for a toggle switch to change the UI theme from dark
 ```
  
  ### Stock Show Page
+ 
+ ![](stockshow.gif)
  
  The stock show page contains current and historical price information about the specific stock as well as general company information and relevant news. The order form allows the user to purchase and sell the stock at the most recent market price indicated. The chart is dynamically displayed by parsing historical information and colored elements; red and green are used to show a positive or negative price fluctuation over the given period.
  
