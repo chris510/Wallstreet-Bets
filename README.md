@@ -35,7 +35,7 @@
  
 Using IEX Cloud to pull stock historical information in conjunction with Recharts to visualize the data, the data is parsed for each of the following dates; 1D, 1W, 3M, 1Y, 5Y each triggered by its own eventhandler. The data is stored in the redux state and each component modifies its original local state's data to fit the range that is indicated.
  
- ```
+ ```javascript
  changeDate(range) {
     let newChartData;
     let fiveYearLength = this.state.fiveYearData.length;
@@ -59,7 +59,7 @@ Using IEX Cloud to pull stock historical information in conjunction with Rechart
  
 Eventhandler listeners used for a toggle switch to change the UI theme from dark to light or vice versa based on its option 'theme'. Global variables were created for each theme and shown depending on the selected option.
  
- ```
+ ```javascript
  changeTheme() {
     const checkbox = document.querySelector('input[name=theme]');
 
@@ -92,7 +92,7 @@ Eventhandler listeners used for a toggle switch to change the UI theme from dark
  
  When a page on the application is visited (Stock show, portfolio page), a variety of API calls are made from different endpoints; IEX Cloud and News API to fetch necessary information to the front end in order to be rendered by the user.
 
- ```
+ ```javascript
 fetchStockIntradayData = symbol => dispatch => (
   StockAPIUtil.fetchStockIntradayData(symbol)
     .then( intradayData => dispatch(receiveStockIntradayData(symbol, intradayData)))
