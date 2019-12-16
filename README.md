@@ -90,11 +90,18 @@ Eventhandler listeners used for a toggle switch to change the UI theme from dark
  
  ### Restful APIs
  
- 
+ When a page on the application is visited (Stock show, portfolio page), a variety of API calls are made from different endpoints; IEX Cloud and News API to fetch necessary information to the front end in order to be rendered by the user.
+
+ ```
+fetchStockIntradayData = symbol => dispatch => (
+  StockAPIUtil.fetchStockIntradayData(symbol)
+    .then( intradayData => dispatch(receiveStockIntradayData(symbol, intradayData)))
+);
+ ```
  
 ## Bonus Features Coming
 
 **Orders**
 Users are able to sell their own stocks.
 
-**Dark Mode UI into Redux State using React Hooks**
+
