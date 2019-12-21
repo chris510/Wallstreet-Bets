@@ -8,6 +8,7 @@ import { createOrder, deleteOrder } from '../../actions/order_actions';
 
 const mapStateToProps = (state, ownProps )=> ({
   stock: state.entities.stocks[ownProps.stock.symbol],
+  watches: Object.keys(state.entities.watches),
   currentUser: state.session
 });
 

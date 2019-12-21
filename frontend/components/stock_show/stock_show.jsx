@@ -18,7 +18,7 @@ class StockShow extends React.Component {
 
   componentDidMount() {
     if (!this.props.allStocks) {
-      this.props.fetchStocks();
+      this.props.fetchUserStocks().then(() => this.props.fetchStocks()); 
     }
     this.props.fetchStockInfo(this.props.match.params.symbol);
     this.props.fetchStockNews(this.props.match.params.symbol);
@@ -26,11 +26,7 @@ class StockShow extends React.Component {
       intradayData: result.intradayData.chart,
       price: result.intradayData.chart[result.intradayData.chart.length - 1].close
     }));
-    // this.props.fetchStockPrice(this.props.match.params.symbol).then(result => 
-    //   this.setState({
-    //     price: result[this.props.stock.symbol].quote.latestPrice
-    // }))
-    // this.props.fetch1YrHistoricalData(this.props.match.params.symbol);
+
   }
 
   componentWillReceiveProps(prevProps) {
@@ -48,13 +44,13 @@ class StockShow extends React.Component {
         return ( 
           <div className="stock-show-main">
             <div className="stock-show-container-1">
-                  <StockItemChartContainer
+                  {/* <StockItemChartContainer
                     // intradayData={this.state.intradayData}
                     // info={info}
                     // historicalData={stock.historicalData}
                     stock={stock}
                     name='stock-show-chart'
-                  />
+                  /> */}
                 <div className="stock-info-container">
                   <div className="stock-info-header">About</div>
                   <div className="stock-info-description">

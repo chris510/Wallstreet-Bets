@@ -18,6 +18,7 @@ class OrderForm extends React.Component {
     this.setOrderButtonStatus = this.setOrderButtonStatus.bind(this);
     this.handleResultModal = this.handleResultModal.bind(this);
     this.handleOrderTransaction = this.handleOrderTransaction.bind(this);
+    this.setWatchStatus = this.setWatchStatus.bind(this);
   }
 
   componentDidMount(){
@@ -28,21 +29,6 @@ class OrderForm extends React.Component {
       }))
     }
   }
-
-  // componentWillReceiveProps(prevProps) {
-  //   if (prevProps.match.params.symbol !== this.props.match.params.symbol) {
-  //     window.location.reload(false);
-  //   }
-  // }
-
-  // componentDidUpdate(prevProps) {
-  //   debugger
-  //   if (this.state.price === 0) {
-  //     fetchStockPrice(this.props.stock.symbol).then(result => this.setState({
-  //       price: result[this.props.stock.symbol].intradayData.quote.close
-  //     }))
-  //   }
-  // }
 
   handleOrderTransaction(e) {
     e.preventDefault();
@@ -97,6 +83,20 @@ class OrderForm extends React.Component {
     });
   }
 
+  setWatchStatus() {
+    debugger
+    if (this.props.watches.includes(this.props.stock.symbol)) {
+      return (
+        <div className="add-watchlist-button">Remove From Watchlist</div>
+      )
+    } else {
+      return (
+        <div className="add-watchlist-button">Add To Watchlist</div>
+
+      )
+    }
+  }
+
   render() {
     return (
       <div className="stock-order-container">
@@ -142,7 +142,8 @@ class OrderForm extends React.Component {
           <div className="stock-submit-button-container"></div>
         </div>
         <div className="watch-submit-option"></div>
-        <div className="add-watchlist-button">Add To Watchlist</div>
+        {/* <div className="add-watchlist-button">Add To Watchlist</div> */}
+        {this.setWatchStatus()}
       </div>
     )
   }
