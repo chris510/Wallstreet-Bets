@@ -3,6 +3,11 @@ import ReactDom from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
 
+import {addToWatches, removeFromWatches} from './actions/watch_actions';
+
+window.addToWatches = addToWatches;
+window.removeFromWatches = removeFromWatches;
+
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
   // const store = configureStore();

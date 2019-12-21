@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { fetchStocks, fetchStockIntradayData } from '../../actions/stock_actions';
-import { fetchWatchIntradayData }  from '../../actions/watch_action';
+import { fetchWatchIntradayData }  from '../../actions/watch_actions';
 import StockIndexItem from "./stock_index_item";
 
 const mapStateToProps = (state, ownProps) => ({

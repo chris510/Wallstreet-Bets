@@ -14,6 +14,21 @@ export const fetchWatchIntradayData = symbol => (
   })
 )
 
+export const addToWatches = watch => (
+  $.ajax({
+    method: 'POST',
+    url: '/api/watches',
+    data: { watch }
+  })
+)
+
+export const removeFromWatches = stock=> (
+  $.ajax({
+    method: 'DELETE',
+    url: `/api/watches/${stock.symbol}`
+  })
+)
+
 // export const fetchWatchedStock = watchId => (
 //   $.ajax({
 //     method: 'GET',

@@ -12,8 +12,6 @@ class Api::OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.user_id = current_user.id
 
-    # @stock = Stock.find_by(symbol: params[:order][:symbol])
-    # @order.stock_id = @stock.id 
 
     if @order.save
       render json: @order, status: 200

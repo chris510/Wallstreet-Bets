@@ -6,12 +6,12 @@ export const createOrder = order => (
   })
 );
 
-export const deleteOrder = order => (
-  $.ajax({
-    method: 'DELETE',
-    url: `/api/orders/${order.id}`
-  })
-);
+// export const deleteOrder = order => (
+//   $.ajax({
+//     method: 'DELETE',
+//     url: `/api/orders/${order.id}`
+//   })
+// );
 
 export const getUserStocks = () => (
   $.ajax({

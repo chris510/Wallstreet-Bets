@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import StockIndex from './stock_index';
 import { fetchStocks, fetchStockIntradayData } from '../../actions/stock_actions'
-import { fetchWatchedStocks } from '../../actions/watch_action';
+import { fetchWatchedStocks } from '../../actions/watch_actions';
 
 
 const mapStateToProps = state => ({

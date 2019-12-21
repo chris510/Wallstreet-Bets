@@ -27,6 +27,6 @@ class Api::WatchesController < ApplicationController
   private
 
   def watch_params
-    params.require(:watch).permit(:user_id, :symbol)
+    params.require(:watch).permit(:symbol)
   end
 end

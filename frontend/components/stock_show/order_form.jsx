@@ -84,7 +84,6 @@ class OrderForm extends React.Component {
   }
 
   setWatchStatus() {
-    debugger
     if (this.props.watches.includes(this.props.stock.symbol)) {
       return (
         <div className="add-watchlist-button">Remove From Watchlist</div>
@@ -92,7 +91,6 @@ class OrderForm extends React.Component {
     } else {
       return (
         <div className="add-watchlist-button">Add To Watchlist</div>
-
       )
     }
   }

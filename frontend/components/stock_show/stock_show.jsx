@@ -13,7 +13,6 @@ class StockShow extends React.Component {
       price: 0,
       intradayData: []
     };
-    // this.renderLatestPrice = this.renderLatestPrice.bind(this)
   }
 
   componentDidMount() {
