@@ -5,6 +5,7 @@ import OrderForm from './order_form';
 import { fetchStockPrice } from '../../actions/stock_actions';
 import { openModal, closeModal } from '../../actions/modal_actions'; 
 import { createOrder } from '../../actions/order_actions';
+import { addToWatches, removeFromWatches } from '../../actions/watch_actions';
 
 const mapStateToProps = (state, ownProps )=> ({
   stock: state.entities.stocks[ownProps.stock.symbol],
@@ -17,6 +18,7 @@ const mapDispatchToProps = dispatch => ({
   openModal: (modal) => dispatch(openModal(modal)),
   closeModal: (modal) => dispatch(closeModal(modal)),
   createOrder: (order) => dispatch(createOrder(order)),
+  addToWatches: (stock) => dispatch(addToWatches(stock))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(OrderForm)); 

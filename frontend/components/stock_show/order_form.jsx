@@ -19,6 +19,7 @@ class OrderForm extends React.Component {
     this.handleResultModal = this.handleResultModal.bind(this);
     this.handleOrderTransaction = this.handleOrderTransaction.bind(this);
     this.setWatchStatus = this.setWatchStatus.bind(this);
+    this.handleWatchClick = this.handleWatchClick.bind(this);
   }
 
   componentDidMount(){
@@ -83,14 +84,21 @@ class OrderForm extends React.Component {
     });
   }
 
+  handleWatchClick(e) {
+    debugger
+    if (e.target.innerText === "Add To Watchlist") {
+      this.props.addToWatches({symbol:this.props.stock.symbol});
+    }
+  }
+
   setWatchStatus() {
     if (this.props.watches.includes(this.props.stock.symbol)) {
       return (
-        <div className="add-watchlist-button">Remove From Watchlist</div>
+        <div className="add-watchlist-button" onClick={this.handleWatchClick}>Remove From Watchlist</div>
       )
     } else {
       return (
-        <div className="add-watchlist-button">Add To Watchlist</div>
+        <div className="add-watchlist-button" onClick={this.handleWatchClick}>Add To Watchlist</div>
       )
     }
   }
@@ -140,7 +148,6 @@ class OrderForm extends React.Component {
           <div className="stock-submit-button-container"></div>
         </div>
         <div className="watch-submit-option"></div>
-        {/* <div className="add-watchlist-button">Add To Watchlist</div> */}
         {this.setWatchStatus()}
       </div>
     )
