@@ -37,7 +37,6 @@ class StockItemChart extends React.Component {
   }
 
   componentDidMount() {
-    debugger
     if (!this.props.stock.intradayData) {
       this.props.fetchStockIntradayData(this.props.stock.symbol)
         .then( result => this.setState({

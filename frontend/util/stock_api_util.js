@@ -1,8 +1,8 @@
 // const AV_API_KEY = M04MNL3GXYJUL5X8
 // const IEX_API_KEY = "pk_6b6b3dd7b1c14762aa91fccb20c382aa" /5
 // const IEX_API_KEY = "pk_38d5e78ff7ef49a9b0eda63eae7b7950" //94
-// const IEX_API_KEY = "pk_202a25ee3ee84910871649baf7cc452e" //wall.roho
-const IEX_API_KEY = "pk_2617a09a99db4a2cac7552e4ab343637" //fullname 5
+const IEX_API_KEY = "pk_202a25ee3ee84910871649baf7cc452e" //wall.roho
+// const IEX_API_KEY = "pk_2617a09a99db4a2cac7552e4ab343637" //fullname 5
 
 export const fetchPayload = () => (
   $.ajax({
