@@ -21,6 +21,7 @@
 - Real-time and historical price data of all stocks traded on the NASDAQ
 - Interactive dashboard showing a user's relavant owned as well as watched stocks
 - Interactive charts displaying stock price and portfolio price fluctuation over time
+- Users are able to purchase and sell their own stocks, as well as add/remove stocks from their watchlist
 - Allow search for a specific stock by ticker symbol or company name
 - Relevant news displayed for the general market on home page, and for specific stock on the stock's show page
  
@@ -29,7 +30,6 @@
  Once a user logs in, they are able to view a visualization of their chart balance. They are also able to see general news, as well as stock/comapnies that they follow or own.
  
  ![](stockhome.gif)
- 
  
  ## Dynamic Chart Rendering
  
@@ -81,7 +81,43 @@ Eventhandler listeners used for a toggle switch to change the UI theme from dark
     }
   }
 ```
+### Stock Orders & Watchlists
+
+Once an order is placed, the order will be sent via an actions to the backend and frontend to update the user's stocks accordingly. User's are also able to add/remove stocks from their watchlist via the show page.
+``` javascript
+handleOrderTransaction(e) {
+    e.preventDefault();
+    const {stock, currentUser } = this.props;
+
+    if (this.state.type === "BUY") {
+      let order = {
+        user_id: currentUser.id,
+        symbol: stock.symbol,
+        price: this.state.price,
+        shares: this.state.shares,
+        order_type: this.state.type
+      }
+      this.props.openModal('order');
+      this.props.createOrder(order);
+    }
+  }
+```
  
+``` javascript
+handleWatchClick(e) {
+    if (e.target.innerText === "Add To Watchlist") {
+      this.props.addToWatches({
+        symbol: this.props.stock.symbol
+      });
+    } else if (e.target.innerText === "Remove From Watchlist") {
+      debugger
+      this.props.removeFromWatches(
+        this.props.watches[this.props.stock.symbol].id,
+        this.props.stock.symbol
+      );
+    }
+  }
+ ```
  ### Stock Show Page
  
  ![](stockshow.gif)
@@ -98,10 +134,3 @@ fetchStockIntradayData = symbol => dispatch => (
     .then( intradayData => dispatch(receiveStockIntradayData(symbol, intradayData)))
 );
  ```
- 
-## Bonus Features Coming
-
-**Orders**
-Users are able to sell their own stocks.
-
-
