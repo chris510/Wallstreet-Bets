@@ -85,14 +85,21 @@ class OrderForm extends React.Component {
   }
 
   handleWatchClick(e) {
-    debugger
     if (e.target.innerText === "Add To Watchlist") {
-      this.props.addToWatches({symbol:this.props.stock.symbol});
+      this.props.addToWatches({
+        symbol: this.props.stock.symbol
+      });
+    } else if (e.target.innerText === "Remove From Watchlist") {
+      debugger
+      this.props.removeFromWatches(
+        this.props.watches[this.props.stock.symbol].id,
+        this.props.stock.symbol
+      );
     }
   }
 
   setWatchStatus() {
-    if (this.props.watches.includes(this.props.stock.symbol)) {
+    if (this.props.watchSymbols.includes(this.props.stock.symbol)) {
       return (
         <div className="add-watchlist-button" onClick={this.handleWatchClick}>Remove From Watchlist</div>
       )

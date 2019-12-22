@@ -9,7 +9,8 @@ import { addToWatches, removeFromWatches } from '../../actions/watch_actions';
 
 const mapStateToProps = (state, ownProps )=> ({
   stock: state.entities.stocks[ownProps.stock.symbol],
-  watches: Object.keys(state.entities.watches),
+  watches: state.entities.watches,
+  watchSymbols: Object.keys(state.entities.watches),
   currentUser: state.session
 });
 
@@ -18,7 +19,8 @@ const mapDispatchToProps = dispatch => ({
   openModal: (modal) => dispatch(openModal(modal)),
   closeModal: (modal) => dispatch(closeModal(modal)),
   createOrder: (order) => dispatch(createOrder(order)),
-  addToWatches: (stock) => dispatch(addToWatches(stock))
+  addToWatches: (stock) => dispatch(addToWatches(stock)),
+  removeFromWatches: (watchId, symbol) => dispatch(removeFromWatches(watchId, symbol))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(OrderForm)); 

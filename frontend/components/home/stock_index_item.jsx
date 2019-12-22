@@ -67,9 +67,9 @@ class StockIndexItem extends React.Component {
   }
 
   render() {
-    const { symbol, shares} = this.props;
+    const { symbol, shares, type} = this.props;
     let name = "stock-index-shares";
-    if (shares === 0) {
+    if (type === 'watchedStock') {
       name = "stock-index-shares-hidden"
     }
 

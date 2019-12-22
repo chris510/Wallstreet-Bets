@@ -22,10 +22,10 @@ export const addToWatches = watch => (
   })
 )
 
-export const removeFromWatches = stock=> (
+export const removeFromWatches = watchId => (
   $.ajax({
     method: 'DELETE',
-    url: `/api/watches/${stock.symbol}`
+    url: `/api/watches/${watchId}`
   })
 )
 

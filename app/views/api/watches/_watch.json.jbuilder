@@ -1,1 +1,1 @@
-json.extract! watch, :user_id, :symbol
+json.extract! watch, :id, :user_id, :symbol

@@ -43,7 +43,7 @@ export const addToWatches = watch => dispatch => (
     then(watch => dispatch(receiveWatchedStock(watch)))
 )
 
-export const removeFromWatches = (stock, symbol) => dispatch => (
-  WatchAPIUtil.removeFromWatches(stock)
+export const removeFromWatches = (watchId, symbol) => dispatch => (
+  WatchAPIUtil.removeFromWatches(watchId)
     .then(stock => dispatch(removeWatchedStock(stock, symbol)))
 )

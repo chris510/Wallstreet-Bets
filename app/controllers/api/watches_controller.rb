@@ -15,7 +15,7 @@ class Api::WatchesController < ApplicationController
   end
 
   def destroy
-    @watch = Watch.find( params[:id])
+    @watch = Watch.find(params[:id])
     if @watch
       @watch.destroy
       render json: ['Removed from your watchlist!']

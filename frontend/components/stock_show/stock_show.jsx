@@ -43,13 +43,13 @@ class StockShow extends React.Component {
         return ( 
           <div className="stock-show-main">
             <div className="stock-show-container-1">
-                  {/* <StockItemChartContainer
+                  <StockItemChartContainer
                     // intradayData={this.state.intradayData}
                     // info={info}
                     // historicalData={stock.historicalData}
                     stock={stock}
                     name='stock-show-chart'
-                  /> */}
+                  />
                 <div className="stock-info-container">
                   <div className="stock-info-header">About</div>
                   <div className="stock-info-description">

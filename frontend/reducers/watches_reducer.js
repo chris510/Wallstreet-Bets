@@ -22,7 +22,7 @@ const watchReducer = (oldState= {}, action) => {
       nextState[action.stock.symbol] = action.stock
       return nextState;
     case REMOVE_WATCHED_STOCK:
-      delete newState[action.symbol];
+      delete nextState[action.symbol];
       return nextState;
     default:
       return oldState;
