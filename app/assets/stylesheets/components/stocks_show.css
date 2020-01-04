@@ -278,6 +278,7 @@
   width: 300px;
   height: 400px;
   margin: 20px;
+  margin-top: 25px;
   /* box-shadow: 2px 2px 6px 2px var(--color); */
   box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.01),
               0 3px 24px rgba(0, 0, 0, 0.6);

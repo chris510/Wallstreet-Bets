@@ -26,9 +26,9 @@ class Home extends React.Component {
               <div className="index-title">
                 Recent News
               </div>
-            {news.map( singleNews => {
+            {news.map( (singleNews, idx) => {
               return (
-                <div className="news-index-item" >
+                <div className="news-index-item" key={idx}  >
                   <NewsIndexItem
                     key={singleNews.id}
                     url={singleNews.url}
