@@ -14,7 +14,7 @@ const GREEN = "#67CF9A";
 const StockMiniChart = ({ intradayData, loadingState }) => {
 
   const chartLineColor = () => {
-    if (intradayData) {
+    if (intradayData !== undefined) {
       let startingPrice = intradayData[0].close;
       let endingPrice = intradayData[intradayData.length - 1].close;
 

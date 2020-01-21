@@ -48,7 +48,6 @@ class StockItemChart extends React.Component {
       this.chartLineColor();
       // this.calculateFlux(this.state.intradayData[0]);
     } else {
-      debugger
       this.setState({
         chartData: this.props.stock.intradayData,
         intradayData: this.props.stock.intradayData,
