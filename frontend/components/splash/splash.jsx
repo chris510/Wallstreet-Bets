@@ -23,7 +23,7 @@ class Splash extends React.Component {
               <h1>Money</h1>
             </div>
             <div className="splash-text-3">
-              <h2>WallstreetBets, a pioneer of commission-free investing,</h2>
+              <h2>Wallstreet Bets, a pioneer of commission-free investing,</h2>
               <h2>gives you access to investing and more</h2>
               <h2>ways to make your money work harder.</h2>
             </div>
@@ -37,7 +37,7 @@ class Splash extends React.Component {
             <div className="splash-text-4">
               Break Free from Commission Fees
             </div>
-            <div className="splash-text-5">Make unlimited commission-free trades in stocks, funds, and options with WallstreetBets Financial. The same goes for buying and selling cryptocurrencies with WallstreetBets Crypto. Zero commission fees.
+            <div className="splash-text-5">Make unlimited commission-free trades in stocks, funds, and options with Wallstreet Bets Financial. The same goes for buying and selling cryptocurrencies with Wallstreet Bets Crypto. Zero commission fees.
             </div>
           </div>
         </div>

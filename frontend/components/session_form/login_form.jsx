@@ -1,75 +1,57 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
 
-class LoginForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      username: "",
-      password: ""
-    };
+const LoginForm = (props) => {
+  let usernameCounter = 0;
+  let passwordCounter = 0;
+  let usernameField = '';
+  let passwordField = '';
+  let [username, setUsername] = useState('');
+  let [password, setPassword] = useState('');
 
-    this.update = this.update.bind(this);
-    this.handleDemo = this.handleDemo.bind(this);
-    this.loginDemo = this.loginDemo.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  componentDidMount() {
-    if (this.props.ui) {
-      this.handleDemo();
-    }
-  }
+  useEffect(() => {
+    if (props.ui) handleDemo();
+  })
   
-  componentDidUpdate() {
-    if (this.props.ui) {
-      this.handleDemo();
-    }
-  }
-
-  handleDemo() {
-    this.props.removeDemoState({ demoUser: false });
+  const handleDemo = () => {
+    props.removeDemoState({ demoUser: false });
     const demo = { username: 'Demo_User', password: 'password123' };
     const username = demo.username;
     const password = demo.password;
-    this.loginDemo(username, password);
+    loginDemo(username, password);
   }
 
-  loginDemo(username, password) {
-    const user = username.split("");
-    const pass = password.split("");
+  const loginDemo = () => {
+    const user = 'Demo_User';
+    const pass = 'password123';
+    let typeSpeed = 90;
 
-    const inputDemo = (user) => {
-      if (user.length > 0) {
-        this.setState({
-          username: this.state.username + user.shift()
-        },
-          () => setTimeout(() => { inputDemo(user) }, 100)
-        )
-      } else {
-        inputDemoPass(pass);
-      }
+    if (usernameCounter < user.length) {
+      usernameField = usernameField + user.charAt(usernameCounter);
+      setUsername(usernameField);
+      usernameCounter++;
+      setTimeout(loginDemo, typeSpeed);
+    } else if (passwordCounter < pass.length) {
+      passwordField = passwordField + pass.charAt(passwordCounter);
+      setPassword(passwordField);
+      passwordCounter++;
+      setTimeout(loginDemo, typeSpeed);
+    } else {
+      const demoUser = {username: user, password: pass}
+      props.processForm(demoUser);
+      setUsername("");
+      setPassword("");
+      usernameField = "";
+      passwordField = "";
+      usernameCounter = 0;;
+      passwordCounter = 0;;
     }
-
-    const inputDemoPass = (pass) => {
-      if (pass.length > 0) {
-        this.setState({
-          password: this.state.password + pass.shift()
-        },
-          () => setTimeout(() => { inputDemoPass(pass) }, 100)
-        )
-      } else {
-        const demoUser = this.state
-        this.props.processForm(demoUser);
-      }
-    }
-    inputDemo(user);
   }
 
-  renderErrors() {
+  const renderErrors = () => {
     return (
       <ul>
-        {this.props.errors.map((error, i) => (
+        {props.errors.map((error, i) => (
           <li key={`error-${i}`}>
             {error}
           </li>
@@ -78,75 +60,77 @@ class LoginForm extends React.Component {
     );
   }
 
-  update(field) {
-    return e => this.setState({
-      [field]: e.currentTarget.value
-    });
+  const update = (field) => {
+    return e => {
+      if (field === 'username') {
+        setUsername(e.currentTarget.value);
+      } else {
+        setPassword(e.currentTarget.value);
+      }
+    }
   }
 
-  handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const user = Object.assign({}, this.state);
-    this.props.processForm(user);
+    const user = Object.assign({}, {username: username, password: password});
+    props.processForm(user);
   }
 
-  render() {
-    return (
-      <div className="login-form">
-        <div className="login-main-1">
-        </div>
-        <div className="login-main-2">
-          <div className="login-form-container">
-            <div className="login-section-1">
-              <div className="login-text-1">
-                <h1>Welcome to WallstreetBets</h1>
-              </div>
+  return (
+    <div className="login-form">
+      <div className="login-main-1">
+      </div>
+      <div className="login-main-2">
+        <div className="login-form-container">
+          <div className="login-section-1">
+            <div className="login-text-1">
+              <h1>Welcome to Wallstreet Bets</h1>
             </div>
-            <div className="login-section-2">
-              <form onSubmit={this.handleSubmit} className="login-form-box">
-                <div className="login-username-container">
-                  <label className="login-text-3"> <span>Username</span>
-                    <input
-                      className="login-username"
-                      type="text"
-                      value={this.state.username}
-                      onChange={this.update('username')}
-                      required
-                    />
-                  </label>
-                </div>
-                <div className="login-password-container">
-                  <label className="login-text-4"> <span>Password</span>
-                    <input 
-                    className="login-password"
-                    type="password"
-                    value={this.state.password}
-                    onChange={this.update('password')}
+          </div>
+          <div className="login-section-2">
+            <form onSubmit={handleSubmit} className="login-form-box">
+              <div className="login-username-container">
+                <label className="login-text-3"> <span>Username</span>
+                  <input
+                    className="login-username"
+                    type="text"
+                    value={username}
+                    onChange={update('username')}
                     required
-                    />
-                  </label>
+                  />
+                </label>
+              </div>
+              <div className="login-password-container">
+                <label className="login-text-4"> <span>Password</span>
+                  <input 
+                  className="login-password"
+                  type="password"
+                  value={password}
+                  onChange={update('password')}
+                  required
+                  />
+                </label>
+              </div>
+              <ul className="sessionform-errors">
+                {renderErrors()}
+              </ul>
+              <div className="submit-container">
+                <input className="login-submit" type="submit" value={props.formType} />
+              </div>
+              <div className="login-form-link-container">
+                <div className="login-text-5">
+                Don't have an account?  
                 </div>
-                <ul className="sessionform-errors">
-                  {this.renderErrors()}
-                </ul>
-                <div className="submit-container">
-                  <input className="login-submit" type="submit" value={this.props.formType} />
+                <div className="login-text-6">
+                  <Link to="/signup" className="signup-form-link-1">Sign Up Here</Link>
                 </div>
-                <div className="login-form-link-container">
-                  <div className="login-text-5">
-                  Don't have an account?  
-                  </div>
-                  <div className="login-text-6">
-                    <Link to="/signup" className="signup-form-link-1">Sign Up Here</Link>
-                  </div>
-                </div>
-              </form>
-            </div>
+              </div>
+            </form>
           </div>
         </div>
       </div>
-    )
-  }
+    </div>
+  )
 }
 
 export default LoginForm;

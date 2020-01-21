@@ -170,3 +170,11 @@
   overflow: hidden;
   transition: .5s ease;
 }
+
+.sessionform-errors {
+  font-family: var(--font-family);
+  color: var(--color-text);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

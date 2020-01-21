@@ -36,15 +36,12 @@ class NavSplash extends React.Component {
   }
 
   redirectDemo() {
-    this.props.addDemoState({ demoUser: true });
+    this.props.addDemoState({ demoUser: true })
     window.location.hash = "/login";
     // return <Redirect to='/login' />
   }
 
-  // handleLogout() {
-  //   this.props.logout();
-  //   window.location.hash = "/";
-  // }
+
 
   render() {
     const { logout } = this.props;
