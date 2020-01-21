@@ -15,6 +15,8 @@
 - [Recharts JS](http://recharts.org/en-US/)
 - [Odometer JS](https://github.hubspot.com/odometer/docs/welcome/)
 
+Wallstreet Bets was built with a Ruby on Rails framework, utilizing PostgresSQL for organized data storage, and the React Redux libraries for dynamic frontend, single-page app navigation and interactivity. It uses the Recharts data visualization library with the IEX Trading API to dynamically display real-time data.
+
 ## Features
 
 - Secure frontend to backend user authentication using BCrypt
