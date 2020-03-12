@@ -184,7 +184,7 @@
 }
 
 .stock-info-container {
-  min-height: 13%;
+  min-height: 15%;
   width: 750px;
   background-color: var(--bg);
   font-family: var(--font-family);
