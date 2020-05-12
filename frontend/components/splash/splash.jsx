@@ -29,7 +29,7 @@ class Splash extends React.Component {
             </div>
           </div>
             <div className="splash-vid-1">
-              <img src={this.state.video1} height="560px"/>
+              <img className="splash-vid-1-1" src={this.state.video1} height="560px"/>
             </div>
         </div>
         <div className="splash-container-2">

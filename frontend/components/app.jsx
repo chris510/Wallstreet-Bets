@@ -22,17 +22,17 @@ import { useTheme } from "./change_theme/theme_context";
 // `;
 
 const App = () => (
-    <div className="main-div">
-      <header>
-        <NavSplashContainer />
-      </header>
-      <ModalContainer />
-      <Route exact path="/" component={SplashContainer} />
-      <Route exact path="/home" component={HomeContainer} />
-      <AuthRoute path="/login" component={LoginFormContainer} />
-      <AuthRoute path="/signup" component={SignUpFormContainer} />
-      <Route path="/stocks/:symbol" component={StockShowContainer} />
-    </div>
+  <div className="app">
+    <NavSplashContainer />
+  <div className="main-div">
+    <ModalContainer />
+    <Route exact path="/" component={SplashContainer} />
+    <Route exact path="/home" component={HomeContainer} />
+    <AuthRoute path="/login" component={LoginFormContainer} />
+    <AuthRoute path="/signup" component={SignUpFormContainer} />
+    <Route path="/stocks/:symbol" component={StockShowContainer} />
+  </div>
+  </div>
 )
 ;
 

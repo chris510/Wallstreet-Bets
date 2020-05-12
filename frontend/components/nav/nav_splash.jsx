@@ -42,8 +42,6 @@ class NavSplash extends React.Component {
     window.location.hash = "/login";
   }
 
-
-
   render() {
     const { logout } = this.props;
     if (!this.props.currentUser) {
@@ -70,7 +68,49 @@ class NavSplash extends React.Component {
               </a> 
             </div> */}
           </div>  
-          <Hamburger handleHamburgerClick={this.handleHamburgerClick} />  
+          <Hamburger handleHamburgerClick={this.handleHamburgerClick} />
+          <div className="menu">
+            <ul className="menu-nav">
+                <li className="menu-header">
+                  Menu
+                </li>
+                <li className="menu-items" onClick={this.toggleDarkModeMobile}>
+                  <i className="menu-item-symbol fas fa-moon"></i>
+                  Dark Mode
+                </li>
+                <li className="menu-items" onClick={this.handleRedirectToDemo} >
+                  <i className="menu-item-symbol far fa-id-card"></i>
+                  Demo
+                </li>     
+                { 
+                  (this.props.match.path !== "/") && 
+                  (
+                    <li className="menu-items" onClick={this.refreshPageOrRedirect}>
+                      <i className="menu-item-symbol fas fa-home"></i>
+                      Home
+                    </li>
+                  ) 
+                }
+                {
+                  (this.props.match.path !== "/login") && 
+                (
+                  <li className="menu-items" onClick={() => this.props.history.push("/login")} >
+                    <i className="menu-item-symbol fas fa-sign-in-alt"></i>
+                    Log In
+                  </li>
+                  ) 
+                }
+                {
+                  (this.props.match.path !== "/signup") && 
+                  (
+                    <li className="menu-items" onClick={() => this.props.history.push("/signup")} >
+                      <i className="menu-item-symbol fas fa-user-plus"></i>
+                      Sign Up
+                    </li>
+                  ) 
+                }
+            </ul>
+          </div>
           <div className='nav-right'>
             <div className="demo-container">
               <Link to='/login' className="demo" onClick={this.redirectDemo} ><span>Demo</span></Link>
