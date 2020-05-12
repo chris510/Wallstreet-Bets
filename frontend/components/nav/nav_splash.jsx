@@ -10,10 +10,35 @@ class NavSplash extends React.Component {
     this.changeTheme = this.changeTheme.bind(this);
     this.redirectDemo = this.redirectDemo.bind(this);
     this.handleHamburgerClick = this.handleHamburgerClick.bind(this);
+    this.toggleDarkMode = this.toggleDarkMode.bind(this);
   }
 
   handleHamburgerClick() {
-    console.log('hamburger woo')
+    const hamburgerBtn = document.querySelector('.hamburger-btn');
+    const menu = document.querySelector('.menu');
+    const menuNav = document.querySelector('.menu-nav');
+    const menuItems = document.querySelector('.menu-items');
+    if (hamburgerBtn.classList.contains("close")) {
+        hamburgerBtn.classList.remove("close");
+        menu.classList.remove("open");
+        menuNav.classList.remove("open");
+        menuItems.classList.remove("open");
+    } else {
+        hamburgerBtn.classList.add("close");
+        menu.classList.add("open");
+        menuNav.classList.add("open");
+        menuItems.classList.add("open");
+    }
+  }
+  
+  toggleDarkMode() {
+    const body = document.querySelector("html");
+    if (body.getAttribute("data-theme") === "light") {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light')
+    }
+    
   }
 
   changeTheme() {
@@ -21,11 +46,11 @@ class NavSplash extends React.Component {
 
     checkbox.addEventListener('change', function () {
       if (this.checked) {
-        trans()
+        trans();
         document.documentElement.setAttribute('data-theme', 'dark')
       } else {
-        trans()
-        document.documentElement.setAttribute('data-theme', 'light')
+        trans();
+        document.documentElement.setAttribute('data-theme', 'light');
       }
     })
 
@@ -74,7 +99,7 @@ class NavSplash extends React.Component {
                 <li className="menu-header">
                   Menu
                 </li>
-                <li className="menu-items" onClick={this.toggleDarkModeMobile}>
+                <li className="menu-items" onClick={this.toggleDarkMode}>
                   <i className="menu-item-symbol fas fa-moon"></i>
                   Dark Mode
                 </li>
