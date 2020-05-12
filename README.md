@@ -26,14 +26,103 @@ Wallstreet Bets was built with a Ruby on Rails framework, utilizing PostgresSQL 
 - Users are able to purchase and sell their own stocks, as well as add/remove stocks from their watchlist
 - Allow search for a specific stock by ticker symbol or company name
 - Relevant news displayed for the general market on home page, and for specific stock on the stock's show page
- 
- ### Dashboard and Portfolio
+
+### React Hooks
+
+Code was originally written using React Class. Components were then refactored with the use of hooks and functional components. Includes the use of useState and useEffect.
+
+```javascript
+
+ const StockIndexItem = props => {
+  let [currentIntradayData, setCurrentIntradayData] = useState([]);
+  let [price, setPrice] = useState(0);
+  let [loadingState, setLoadingState] = useState(true);
+
+  const { symbol, type, shares } = props;
+  let name = "stock-index-shares";
+      if (type === 'watchedStock') {
+        name = "stock-index-shares-hidden"
+      }
+
+  useEffect(() => {
+    if (type === "ownedStock") {
+      props.fetchStockIntradayData(symbol).then(() => {
+        removeLoading();
+      });
+    } else if (type === "watchedStock") {
+      props.fetchWatchIntradayData(symbol).then(() => {
+        removeLoading();
+      });
+    }
+  }, [])
+
+  useEffect(() => {
+    if (price === 0) renderLatestPrice();
+  })
+
+  const removeLoading = () => {
+    setLoadingState(false)
+  }
+
+  const selectIntradayData = () => {
+    let intradayData = [];
+    if (type === "ownedStock") {
+      intradayData = props.stocks[symbol].intradayData;
+    } else if (type === "watchedStock") {
+      intradayData = props.watches[symbol].intradayData
+    }
+    return intradayData;
+  }
+
+  const renderLatestPrice = () => {
+    let latestPrice = 0;
+    let intradayData = [];
+    if (type === "ownedStock") {
+      intradayData = props.stocks[symbol].intradayData;
+    } else if (type === "watchedStock") {
+      intradayData = props.watches[symbol].intradayData;
+    }
+
+    if (intradayData) {
+      latestPrice = intradayData[intradayData.length - 1].close;
+    }
+    return parseFloatToDollars(latestPrice)
+  }
+
+  return (
+    <Link to={`/stocks/${symbol}`} className="stock-show-link" >
+      <div className="stock-index">
+        <div className="stock-index-left">
+          <div className="stock-index-symbol">
+            {symbol}
+          </div>
+          <div className={name}>
+            {shares} shares
+          </div>
+        </div>
+        <div className="stock-index-chart">
+          <StockMiniChart
+            intradayData = {selectIntradayData()}
+            loadingState = {loadingState}
+          />
+        </div>
+        <div className="stock-index-current-price">
+          {renderLatestPrice()}
+        </div>
+      </div>
+    </Link>
+  )
+
+}
+```
+
+### Dashboard and Portfolio
  
  Once a user logs in, they are able to view a visualization of their chart balance. They are also able to see general news, as well as stock/comapnies that they follow or own.
  
  ![](stockhome.gif)
  
- ## Dynamic Chart Rendering
+### Dynamic Chart Rendering
  
 Using IEX Cloud to pull stock historical information in conjunction with Recharts to visualize the data, the data is parsed for each of the following dates; 1D, 1W, 3M, 1Y, 5Y each triggered by its own eventhandler. The data is stored in the redux state and each component modifies its original local state's data to fit the range that is indicated.
  
@@ -57,7 +146,7 @@ Using IEX Cloud to pull stock historical information in conjunction with Rechart
  }
  ```
  
- ### UI Night Mode
+### UI Night Mode
  
 Eventhandler listeners used for a toggle switch to change the UI theme from dark to light or vice versa based on its option 'theme'. Global variables were created for each theme and shown depending on the selected option.
  
