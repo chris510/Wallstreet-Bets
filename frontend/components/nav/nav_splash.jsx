@@ -1,17 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SVGIcon from '../svg_icons/svg.icons';
-import { withRouter, Redirect } from 'react-router-dom';
 import SearchBarContainer from '../search/search_bar_container';
-
-import { useTheme } from '../change_theme/theme_context';
+import Hamburger from '../hamburger/hamburger';
 
 class NavSplash extends React.Component {
   constructor(props) {
     super(props); 
     this.changeTheme = this.changeTheme.bind(this);
     this.redirectDemo = this.redirectDemo.bind(this);
-    // this.handleLogout = this.handleLogout.bind(this);
+    this.handleHamburgerClick = this.handleHamburgerClick.bind(this);
+  }
+
+  handleHamburgerClick() {
+    console.log('hamburger woo')
   }
 
   changeTheme() {
@@ -38,7 +40,6 @@ class NavSplash extends React.Component {
   redirectDemo() {
     this.props.addDemoState({ demoUser: true })
     window.location.hash = "/login";
-    // return <Redirect to='/login' />
   }
 
 
@@ -48,43 +49,44 @@ class NavSplash extends React.Component {
     if (!this.props.currentUser) {
       return (
         <div className='nav'>
-              <div className="nav-left">
-                <div className="logo">
-                  <Link to='/' className="nav-title">
-                    <h1 className="nav-title">WallstreetBets</h1>
-                  </Link>
-                  <Link to='/'>
-                    <SVGIcon name="robinhood_logo" width={45} />
-                  </Link>
-                </div>
-                <div className='contact'>
-                  <a href="mailto:christrinh5@gmail.com">
-                    <SVGIcon name="envelope" width={35} />
-                  </a>
-                  <a target="_blank" href="https://github.com/chris510">
-                    <SVGIcon name="github_1" width={30} />
-                  </a>
-                  <a target="_blank" href="https://www.linkedin.com/in/christopher-trinh-504407104/">
-                    <SVGIcon name="linkedin_1" width={30} />
-                  </a> 
-                </div>
-              </div>
-            <div className='nav-right'>
-              <div className="demo-container">
-                <Link to='/login' className="demo" onClick={this.redirectDemo} ><span>Demo</span></Link>
-              </div>
-              <div className="theme-switch-wrapper">
-                <label className="theme-switch" htmlFor="checkbox">
-                  <input type="checkbox" id="checkbox" name="theme" onChange={this.changeTheme} />
-                  <div className="slider round"></div>
-                </label>
-              </div>
-              <div className="sign-in-container">
-                <Link to='/login' className="sign-in"><span>Sign In</span></Link>
-              </div>
-              <div className= "sign-up-container">
-                <Link to='/signup' className="sign-up"><span>Sign Up</span></Link>
-              </div>
+          <div className="nav-left">
+            <div className="logo">
+              <Link to='/' className="nav-title">
+                <h1 className="nav-title">WallstreetBets</h1>
+              </Link>
+              <Link to='/'>
+                <SVGIcon name="robinhood_logo" width={45} />
+              </Link>
+            </div>
+            {/* <div className='contact'>
+              <a href="mailto:christrinh5@gmail.com">
+                <SVGIcon name="envelope" width={35} />
+              </a>
+              <a target="_blank" href="https://github.com/chris510">
+                <SVGIcon name="github_1" width={30} />
+              </a>
+              <a target="_blank" href="https://www.linkedin.com/in/christopher-trinh-504407104/">
+                <SVGIcon name="linkedin_1" width={30} />
+              </a> 
+            </div> */}
+          </div>  
+          <Hamburger handleHamburgerClick={this.handleHamburgerClick} />  
+          <div className='nav-right'>
+            <div className="demo-container">
+              <Link to='/login' className="demo" onClick={this.redirectDemo} ><span>Demo</span></Link>
+            </div>
+            <div className="theme-switch-wrapper">
+              <label className="theme-switch" htmlFor="checkbox">
+                <input type="checkbox" id="checkbox" name="theme" onChange={this.changeTheme} />
+                <div className="slider round"></div>
+              </label>
+            </div>
+            <div className="sign-in-container">
+              <Link to='/login' className="sign-in"><span>Sign In</span></Link>
+            </div>
+            <div className= "sign-up-container">
+              <Link to='/signup' className="sign-up"><span>Sign Up</span></Link>
+            </div>
           </div>
        </div>
       )

@@ -1,6 +1,5 @@
 import React from 'react';
 import SVGIcon from '../svg_icons/svg.icons';
-import { NavLink, Link } from 'react-router-dom';
 
 class SearchBar extends React.Component {
   constructor(props) {
