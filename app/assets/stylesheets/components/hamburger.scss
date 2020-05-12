@@ -1,0 +1,96 @@
+@mixin easeOut {
+  transition: all 0.3s ease-out;
+}
+@mixin easeIn {
+  transition: all 0.3s ease-in;
+}
+
+.hamburger-btn {
+  display: none;
+  position: absolute;
+  z-index: 100;
+  right: 20px;
+  top: 25px;
+  // background-color: blue;
+  cursor: pointer;
+  @include easeOut; 
+
+  .btn-line{
+    width: 28px;
+    height: 3px;
+    margin: 0 0 5px 0;
+    background: var(--text-color);
+    @include easeOut;
+  }
+  &.close {
+    transform: rotate(180deg);
+    .btn-line {
+      &:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+        background: #EB5333;
+      }
+      &:nth-child(2) {
+        opacity: 0;
+      }
+      &:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+        background: #EB5333;
+      }
+    }
+  }
+}
+
+.menu {
+  color: var(--text-color);
+  position: fixed;
+  top: 0vh;
+  right: -100vw;
+  width: 100%;
+  height: 100vh;
+  opacity: 1;
+  background: var(--bg);
+  visibility: hidden;
+  @include easeOut;
+  &.open {
+      @include easeOut;
+      right: 0vw;
+      visibility: visible;
+  }
+  &-nav {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      font-family: var(--font-family);
+      font-weight: bold;
+      li {
+        padding: 40px 44px;
+        font-size: 20px;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-start;
+        // transition: font-size 0.5s ease-out;
+        border-bottom: 1px solid var(--border-color);
+        &.menu-header {
+            font-weight: bold;
+            font-size: 2.5em;
+            padding: 20px 40px;
+          //   padding-top: 40px;
+            border-bottom: 3px solid var(--border-color);
+        }
+        .menu-item-symbol {
+          margin-right: 26px;
+        }
+      }
+      .menu-items:hover {
+        background: var(--border-color);
+        cursor: pointer;
+      //     @include easeOut();
+      //     color: white;
+      //     font-weight: bold;
+      //     font-size: 30px;
+      //     opacity: 1;
+      }
+  }
+}
+

@@ -6,17 +6,18 @@
     <link rel="icon" type="image/png" href="/rh_favicon.png"/>
 
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans|Nunito|Oxygen|PT+Sans|Poppins&display=swap" rel="stylesheet">
-    
-
+  
     <%# <script src="odometer.min.js"></script>
     <link rel="stylesheet" href="odometer-theme-default.css" /> %>
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" data-auto-replace-svg="nest"></script>
+
   </head>
   <body>
     <%= yield %>

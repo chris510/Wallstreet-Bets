@@ -19,6 +19,14 @@
   background-size: 100% 100%;
   width: 50%;
   height: 100%;
+
+  @media screen and (max-width: 800px) {
+    display: none;
+    background-image: none;
+    background-repeat: none;
+    background-position: none;
+    background-size: none;
+  }
 }
 
 .login-main-2 {
@@ -28,6 +36,12 @@
   width: 50%; 
   height: 100%;
   margin-left: 50px;
+
+  @media screen and (max-width: 800px) {
+    width: 100%;
+    margin-left: 0;
+    justify-content: center;
+  }
 }
 
 .login-form-container {
@@ -38,6 +52,12 @@
   height: 50%;
   width: 60%;
   /* margin: 95px; */
+
+  @media screen and (max-width: 800px) {
+    height: 100%;
+    width: 75%;
+    padding-bottom: 100px;
+  }
 }
 
 .login-text-1 {
@@ -46,6 +66,10 @@
   font-size: 36px;
   font-weight: bold;
   margin: 10px;
+
+  @media screen and (max-width: 800px) {
+    font-size: 24px;
+  }
 }
 
 .login-text-2 {

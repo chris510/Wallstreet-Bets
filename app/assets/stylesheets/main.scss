@@ -9,6 +9,7 @@ html {
     --bg: #FCFCFC;
     --bg-panel: #EBEBEB;
     --color-headings: #0077FF;
+    --text-color: black;
     /* --font-family: "DIN Pro", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; */
     --font-family: 'Oxygen';
     --color-text: #333333;
@@ -32,6 +33,7 @@ html[data-theme='dark'] {
     --color-text: #FCFCFC;
     --color: #FCFCFC;
     --fill: #FCFCFC;
+    --text-color: #fff;
     --opacity: 0;
     --splash-bg: #1B1B1D;
     --news-box-hover: #434343;
@@ -55,7 +57,12 @@ html.transition *:after {
 
 #root {
   width: 100%;
-  height: 100%;
+  height: 100vh;
+}
+
+.app {
+  width: 100vw;
+  height: 100vh;
 }
 
 .main-div {
@@ -82,3 +89,10 @@ h3 {
   font-family: var(--font-family);
   color: var(--color-text);
 }
+
+// @mixin easeOut {
+//   transition: all 0.3s ease-out;
+// }
+// @mixin easeIn {
+//   transition: all 0.3s ease-in;
+// }
