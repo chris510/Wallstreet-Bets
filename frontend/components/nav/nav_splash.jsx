@@ -14,6 +14,21 @@ class NavSplash extends React.Component {
     this.redirectDemo = this.redirectDemo.bind(this);
     this.handleHamburgerClick = this.handleHamburgerClick.bind(this);
     this.toggleDarkMode = this.toggleDarkMode.bind(this);
+    this.refreshPageOrRedirect = this.refreshPageOrRedirect.bind(this);
+    this.closeHamburger = this.closeHamburger.bind(this);
+  }
+
+  closeHamburger() {
+    const hamburgerBtn = document.querySelector('.hamburger-btn');
+    const menu = document.querySelector('.menu');
+    const menuNav = document.querySelector('.menu-nav');
+    const menuItems = document.querySelector('.menu-items');
+    if (hamburgerBtn.classList.contains("close")) {
+      hamburgerBtn.classList.remove("close");
+      menu.classList.remove("open");
+      menuNav.classList.remove("open");
+      menuItems.classList.remove("open");
+    }
   }
 
   handleHamburgerClick() {
@@ -22,16 +37,25 @@ class NavSplash extends React.Component {
     const menuNav = document.querySelector('.menu-nav');
     const menuItems = document.querySelector('.menu-items');
     if (hamburgerBtn.classList.contains("close")) {
-        hamburgerBtn.classList.remove("close");
-        menu.classList.remove("open");
-        menuNav.classList.remove("open");
-        menuItems.classList.remove("open");
+      hamburgerBtn.classList.remove("close");
+      menu.classList.remove("open");
+      menuNav.classList.remove("open");
+      menuItems.classList.remove("open");
     } else {
-        hamburgerBtn.classList.add("close");
-        menu.classList.add("open");
-        menuNav.classList.add("open");
-        menuItems.classList.add("open");
+      hamburgerBtn.classList.add("close");
+      menu.classList.add("open");
+      menuNav.classList.add("open");
+      menuItems.classList.add("open");
     }
+  }
+
+  refreshPageOrRedirect() {
+    if (this.props.match.path === "/#") {
+      window.location.reload();
+    } else {
+      this.props.history.push("/#");
+    }
+    
   }
   
   toggleDarkMode(e) {
@@ -43,7 +67,6 @@ class NavSplash extends React.Component {
       document.documentElement.setAttribute('data-theme', 'light')
       e.target.innerHTML = `<i class="menu-item-symbol fas fa-moon"></i>Dark Mode`;
     }
-    
   }
 
   changeTheme() {
@@ -68,6 +91,7 @@ class NavSplash extends React.Component {
   }
 
   redirectDemo() {
+    this.closeHamburger();
     this.props.addDemoState({ demoUser: true })
     window.location.hash = "/login";
   }
@@ -104,26 +128,25 @@ class NavSplash extends React.Component {
                 <li className="menu-header">
                   Menu
                 </li>
-                <li className="menu-items" onClick={this.toggleDarkMode}>
-                  {/* <i className="menu-item-symbol fas fa-moon"></i> */}
-                  <FontAwesomeIcon className="menu-item-symbol" icon={faMoon} />
-                  Dark Mode
-                </li>
-                <li className="menu-items" onClick={this.handleRedirectToDemo} >
-                  {/* <i className="menu-item-symbol far fa-id-card"></i> */}
-                  <FontAwesomeIcon className="menu-item-symbol" icon={faIdCard} />
-                  Demo
-                </li>     
                 { 
-                  (this.props.match.path !== "/") && 
+                  (this.props.match.path !== "/#") && 
                   (
                     <li className="menu-items" onClick={this.refreshPageOrRedirect}>
-                      <i className="menu-item-symbol fas fa-home"></i>
                       <FontAwesomeIcon className="menu-item-symbol" icon={faHome} />
                       Home
                     </li>
                   ) 
                 }
+                <li className="menu-items" onClick={this.toggleDarkMode}>
+                  {/* <i className="menu-item-symbol fas fa-moon"></i> */}
+                  <FontAwesomeIcon className="menu-item-symbol" icon={faMoon} />
+                  Dark Mode
+                </li>
+                <li className="menu-items" onClick={this.redirectDemo} >
+                  {/* <i className="menu-item-symbol far fa-id-card"></i> */}
+                  <FontAwesomeIcon className="menu-item-symbol" icon={faIdCard} />
+                  Demo
+                </li>     
                 {
                   (this.props.match.path !== "/login") && 
                 (
