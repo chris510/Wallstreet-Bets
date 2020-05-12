@@ -3,10 +3,13 @@ import { Link } from 'react-router-dom';
 import SVGIcon from '../svg_icons/svg.icons';
 import SearchBarContainer from '../search/search_bar_container';
 import Hamburger from '../hamburger/hamburger';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMoon, faSun, faHome, faSignInAlt, faUserPlus, faIdCard } from '@fortawesome/free-solid-svg-icons'
+
 
 class NavSplash extends React.Component {
   constructor(props) {
-    super(props); 
+    super(props);
     this.changeTheme = this.changeTheme.bind(this);
     this.redirectDemo = this.redirectDemo.bind(this);
     this.handleHamburgerClick = this.handleHamburgerClick.bind(this);
@@ -31,12 +34,14 @@ class NavSplash extends React.Component {
     }
   }
   
-  toggleDarkMode() {
+  toggleDarkMode(e) {
     const body = document.querySelector("html");
     if (body.getAttribute("data-theme") === "light") {
       document.documentElement.setAttribute('data-theme', 'dark');
+      e.target.innerHTML = `<i class="menu-item-symbol fas fa-sun"></i>Light Mode`;
     } else {
       document.documentElement.setAttribute('data-theme', 'light')
+      e.target.innerHTML = `<i class="menu-item-symbol fas fa-moon"></i>Dark Mode`;
     }
     
   }
@@ -100,11 +105,13 @@ class NavSplash extends React.Component {
                   Menu
                 </li>
                 <li className="menu-items" onClick={this.toggleDarkMode}>
-                  <i className="menu-item-symbol fas fa-moon"></i>
+                  {/* <i className="menu-item-symbol fas fa-moon"></i> */}
+                  <FontAwesomeIcon className="menu-item-symbol" icon={faMoon} />
                   Dark Mode
                 </li>
                 <li className="menu-items" onClick={this.handleRedirectToDemo} >
-                  <i className="menu-item-symbol far fa-id-card"></i>
+                  {/* <i className="menu-item-symbol far fa-id-card"></i> */}
+                  <FontAwesomeIcon className="menu-item-symbol" icon={faIdCard} />
                   Demo
                 </li>     
                 { 
@@ -112,6 +119,7 @@ class NavSplash extends React.Component {
                   (
                     <li className="menu-items" onClick={this.refreshPageOrRedirect}>
                       <i className="menu-item-symbol fas fa-home"></i>
+                      <FontAwesomeIcon className="menu-item-symbol" icon={faHome} />
                       Home
                     </li>
                   ) 
@@ -120,7 +128,8 @@ class NavSplash extends React.Component {
                   (this.props.match.path !== "/login") && 
                 (
                   <li className="menu-items" onClick={() => this.props.history.push("/login")} >
-                    <i className="menu-item-symbol fas fa-sign-in-alt"></i>
+                    {/* <i className="menu-item-symbol fas fa-sign-in-alt"></i> */}
+                    <FontAwesomeIcon className="menu-item-symbol" icon={faSignInAlt} />
                     Log In
                   </li>
                   ) 
@@ -129,7 +138,8 @@ class NavSplash extends React.Component {
                   (this.props.match.path !== "/signup") && 
                   (
                     <li className="menu-items" onClick={() => this.props.history.push("/signup")} >
-                      <i className="menu-item-symbol fas fa-user-plus"></i>
+                      {/* <i className="menu-item-symbol fas fa-user-plus"></i> */}
+                      <FontAwesomeIcon className="menu-item-symbol" icon={faUserPlus} />
                       Sign Up
                     </li>
                   ) 
