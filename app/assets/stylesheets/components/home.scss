@@ -1,3 +1,10 @@
+@mixin easeOut {
+  transition: all 0.3s ease-out;
+}
+@mixin easeIn {
+  transition: all 0.3s ease-in;
+}
+
 .home {
   /* height: 100%; */
   width: 100%;
@@ -33,20 +40,17 @@
   padding-top: 20px;
 
   @media screen and (max-width: 800px) {
-    display: none;
+    // display: none;
   }
+
+  // .show {
+  //   @media screen and (max-width: 800px) {
+  //     display: show;
+  //   }
+  // }
 }
 
 .stocks-dashboard-container {
-/* 
-  height: 30%;
-  width: 100%;
-  background-color: yellow;
-  border-radius: inherit;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; */
   background-color: var(--bg);
   position: fixed;
   overflow-y: scroll;
@@ -54,12 +58,29 @@
   max-height: 85%;
   display: flex;
   flex-direction: column;
-  /* justify-content: center;
-  align-items: center; */
-  // box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.01),
-  //             0 3px 24px rgba(0, 0, 0, 0.6);
-  // border-radius: 4px;
-
+  box-shadow: 0 0 4px 1px rgba(0,0,0,0.01), 0 3px 24px rgba(0,0,0,0.6);
+  border-radius: 4px;
+  @media screen and (max-width: 800px) {
+    padding-top: 10px;
+    z-index: 902;
+    width: 100vw;
+    height: 100vh;
+    left: 100vw;
+    top: 0px;
+    padding-bottom: 100px;
+    background-color: var(--bg);
+    transition: all 0.3s ease-out;
+    @include easeOut;
+    &.open {
+      @include easeOut;
+      left: 0vw;
+      visibility: visible;
+    }
+    .stock-index-left .stock-index-chart {
+      width: 200px;
+      height: 100px;
+    }
+  }
 }
 
 .stocks-dashboard {
@@ -111,6 +132,12 @@
   border-bottom: 1px solid var(--border-color);
   display: flex;
   justify-content: center;
+}
+
+@media screen and (max-width: 800px) {
+  .stocks-owned-title {
+    border-top: 0px solid var(--border-color);
+  }
 }
 
 .stock-index {

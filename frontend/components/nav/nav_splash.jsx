@@ -17,6 +17,7 @@ class NavSplash extends React.Component {
     this.refreshPageOrRedirect = this.refreshPageOrRedirect.bind(this);
     this.closeHamburger = this.closeHamburger.bind(this);
     this.onLogout = this.onLogout.bind(this);
+    this.showStocks = this.showStocks.bind(this);
   }
 
   closeHamburger() {
@@ -101,6 +102,16 @@ class NavSplash extends React.Component {
     this.props.logout();
     this.closeHamburger();
     this.props.history.push("/#");
+  }
+
+  showStocks() {
+    const stockDashboard = document.querySelector('.stocks-dashboard-container');
+    if (stockDashboard.classList.contains("open")) {
+      stockDashboard.classList.remove("open");
+    } else {
+      stockDashboard.classList.add("open");
+      this.handleHamburgerClick();
+    }
   }
 
   render() {
@@ -236,22 +247,16 @@ class NavSplash extends React.Component {
                 { 
                   (this.props.match.path !== "/#") && 
                   (
-                    <li className="menu-items" onClick={this.refreshPageOrRedirect}>
+                    <li className="menu-items" onClick={() => this.props.history.push("/home")}>
                       <FontAwesomeIcon className="menu-item-symbol" icon={faHome} />
                       Home
                     </li>
                   ) 
                 }
-                <li className="menu-items" onClick={this.toggleDarkMode}>
-                  {/* <i className="menu-item-symbol fas fa-moon"></i> */}
-                  <FontAwesomeIcon className="menu-item-symbol" icon={faMoon} />
-                  Dark Mode
-                </li>
-                <li className="menu-items" onClick={this.redirectDemo} >
-                  {/* <i className="menu-item-symbol far fa-id-card"></i> */}
-                  <FontAwesomeIcon className="menu-item-symbol" icon={faIdCard} />
-                  Demo
-                </li>     
+                <li className="menu-items" onClick={this.showStocks}>
+                  <i className="menu-item-symbol fas fa-chart-line"></i>
+                  Stocks
+                </li> 
                 <li className="menu-items" onClick={this.onLogout} >
                   <i className="menu-item-symbol fas fa-sign-out-alt"></i>
                   Log Out

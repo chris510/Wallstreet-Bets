@@ -9,7 +9,7 @@
   left: 0;
   width: 100%;
   height: 75px;
-  z-index: 1;
+  z-index: 900;
   box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1), 
               0 0  0 2px var(--bg),
               0.3em 0.3em 1em rgba(0,0,0,0.3);

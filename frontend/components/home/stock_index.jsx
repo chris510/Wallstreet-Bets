@@ -11,6 +11,7 @@ class StocksIndex extends React.Component {
     // }
     this.renderStocks = this.renderStocks.bind(this);
     this.renderWatches = this.renderWatches.bind(this);
+    this.hideStocks = this.hideStocks.bind(this);
   }
 
   componentDidMount() {
@@ -78,11 +79,23 @@ class StocksIndex extends React.Component {
     )
   }
 
+  hideStocks() {
+    const stockDashboard = document.querySelector('.stocks-dashboard-container');
+    if (stockDashboard.classList.contains("open")) {
+      stockDashboard.classList.remove("open");
+    }
+  }
+
   render() {
     return (
       <div className="stock-dashboard">
         <div className="stocks-owned-title">
           Stocks
+        </div>
+        <div className="hamburger-btn close" onClick={this.hideStocks}>
+          <div className="btn-line"></div>
+          <div className="btn-line"></div>
+          <div className="btn-line"></div>
         </div>
           {this.renderStocks()}
         <div className="stocks-watched-title">

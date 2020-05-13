@@ -53,9 +53,9 @@
   visibility: hidden;
   @include easeOut;
   &.open {
-      @include easeOut;
-      right: 0vw;
-      visibility: visible;
+    @include easeOut;
+    right: 0vw;
+    visibility: visible;
   }
   &-nav {
       display: flex;
