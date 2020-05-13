@@ -81,8 +81,10 @@ class StocksIndex extends React.Component {
 
   hideStocks() {
     const stockDashboard = document.querySelector('.stocks-dashboard-container');
+    const homeContainer = document.querySelector('.home-container-2');
     if (stockDashboard.classList.contains("open")) {
       stockDashboard.classList.remove("open");
+      // homeContainer.classList.remove("show");
     }
   }
 

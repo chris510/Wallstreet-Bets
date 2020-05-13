@@ -106,10 +106,12 @@ class NavSplash extends React.Component {
 
   showStocks() {
     const stockDashboard = document.querySelector('.stocks-dashboard-container');
+    const homeContainer = document.querySelector('.home-container-2');
     if (stockDashboard.classList.contains("open")) {
       stockDashboard.classList.remove("open");
     } else {
       stockDashboard.classList.add("open");
+      // homeContainer.classList.add("show");
       this.handleHamburgerClick();
     }
   }
@@ -253,6 +255,11 @@ class NavSplash extends React.Component {
                     </li>
                   ) 
                 }
+                <li className="menu-items" onClick={this.toggleDarkMode}>
+                  {/* <i className="menu-item-symbol fas fa-moon"></i> */}
+                  <FontAwesomeIcon className="menu-item-symbol" icon={faMoon} />
+                  Dark Mode
+                </li>
                 <li className="menu-items" onClick={this.showStocks}>
                   <i className="menu-item-symbol fas fa-chart-line"></i>
                   Stocks

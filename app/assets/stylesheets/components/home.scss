@@ -24,7 +24,7 @@
   justify-content: space-around;
 
   @media screen and (max-width: 800px) {
-    width: 100%;
+    width: 1000%;
   }
 }
 
@@ -38,16 +38,6 @@
   /* justify-content: space-around; */
   /* align-items: flex-end; */
   padding-top: 20px;
-
-  @media screen and (max-width: 800px) {
-    // display: none;
-  }
-
-  // .show {
-  //   @media screen and (max-width: 800px) {
-  //     display: show;
-  //   }
-  // }
 }
 
 .stocks-dashboard-container {
