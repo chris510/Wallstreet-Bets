@@ -5,19 +5,25 @@
   background-color: var(--bg);
 }
 .search-bar-container {
-  width: 450px;
+  width: 50%;
   display: flex;
   flex-direction: column;
   position: fixed;
-  z-index: 999;
-  left: 450px;
-  top: 1.75%;
+  z-index: 500;
+  left: 170px;
+  top: 16px;
   box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.01),
               0 1px 10px rgba(0, 0, 0, 0.6);
   border-radius: 4px;
   color: var(--color-text);
   background-color: var(--bg);
-  opacity: 0.55
+  opacity: 0.55;
+
+  @media screen and (max-width: 800px) {
+    width: 65%;
+    top: 18px;
+    left: 100px;
+  }
 }
 
 

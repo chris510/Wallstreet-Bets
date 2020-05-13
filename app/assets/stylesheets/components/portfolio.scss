@@ -7,10 +7,14 @@
   flex-direction: column;
   justify-content: flex-end;
   align-items: start;
-  box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.01),
+  /* box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.01),
               0 3px 24px rgba(0, 0, 0, 0.6);
-  border-radius: 8px;
+  border-radius: 8px; */
   /* padding: 20px;  */
+
+  @media screen and (max-width: 800px) {
+    width: 100%;
+  }
 }
 
 .portfolio-chart-container > div {

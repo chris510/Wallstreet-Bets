@@ -39,7 +39,7 @@ const Home = (props) => {
       </div>
       <div className="home-container-2">
           <div className="stocks-dashboard-container">
-            <StockIndexContainer />
+            {/* <StockIndexContainer /> */}
           </div>
       </div>
     </div>

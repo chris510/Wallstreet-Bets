@@ -1,6 +1,6 @@
 .nav {
   display: flex;
-  position: absolute;
+  position: fixed;
   justify-content: space-between;
   background-color: var(--bg);
   align-content: center;

@@ -16,6 +16,7 @@ class NavSplash extends React.Component {
     this.toggleDarkMode = this.toggleDarkMode.bind(this);
     this.refreshPageOrRedirect = this.refreshPageOrRedirect.bind(this);
     this.closeHamburger = this.closeHamburger.bind(this);
+    this.onLogout = this.onLogout.bind(this);
   }
 
   closeHamburger() {
@@ -94,6 +95,12 @@ class NavSplash extends React.Component {
     this.closeHamburger();
     this.props.addDemoState({ demoUser: true })
     window.location.hash = "/login";
+  }
+
+  onLogout() {
+    this.props.logout();
+    this.closeHamburger();
+    this.props.history.push("/#");
   }
 
   render() {
@@ -193,14 +200,14 @@ class NavSplash extends React.Component {
         <div className="nav">
           <div className="nav-left">
             <div className="logo">
-              <Link to='/home' className="nav-title">
+              {/* <Link to='/home' className="nav-title">
                 <h1 className="nav-title">WallStreetBets</h1>
-              </Link>
+              </Link> */}
               <Link to='/home'>
                 <SVGIcon name="robinhood_logo" width={45} />
               </Link>
             </div>
-            <div className='contact'>
+            {/* <div className='contact'>
               <a href="mailto:christrinh5@gmail.com">
                 <SVGIcon name="envelope" width={40} />
               </a>
@@ -210,7 +217,7 @@ class NavSplash extends React.Component {
               <a href="https://www.linkedin.com/in/christopher-trinh-504407104/">
                 <SVGIcon name="linkedin_1" width={35} />
               </a>
-            </div>
+            </div> */}
             <SearchBarContainer />
             {/* <div className="search-bar-container">
               <input 
@@ -219,6 +226,37 @@ class NavSplash extends React.Component {
                 <SVGIcon name="search" width={25} />
               </button>
             </div> */}
+          </div>
+          <Hamburger handleHamburgerClick={this.handleHamburgerClick} />
+          <div className="menu">
+            <ul className="menu-nav">
+                <li className="menu-header">
+                  Menu
+                </li>
+                { 
+                  (this.props.match.path !== "/#") && 
+                  (
+                    <li className="menu-items" onClick={this.refreshPageOrRedirect}>
+                      <FontAwesomeIcon className="menu-item-symbol" icon={faHome} />
+                      Home
+                    </li>
+                  ) 
+                }
+                <li className="menu-items" onClick={this.toggleDarkMode}>
+                  {/* <i className="menu-item-symbol fas fa-moon"></i> */}
+                  <FontAwesomeIcon className="menu-item-symbol" icon={faMoon} />
+                  Dark Mode
+                </li>
+                <li className="menu-items" onClick={this.redirectDemo} >
+                  {/* <i className="menu-item-symbol far fa-id-card"></i> */}
+                  <FontAwesomeIcon className="menu-item-symbol" icon={faIdCard} />
+                  Demo
+                </li>     
+                <li className="menu-items" onClick={this.onLogout} >
+                  <i className="menu-item-symbol fas fa-sign-out-alt"></i>
+                  Log Out
+                </li>
+            </ul>
           </div>
           <div className="nav-right-2">
             <div className="theme-switch-wrapper">
