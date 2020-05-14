@@ -20,6 +20,7 @@ class OrderForm extends React.Component {
     this.handleOrderTransaction = this.handleOrderTransaction.bind(this);
     this.setWatchStatus = this.setWatchStatus.bind(this);
     this.handleWatchClick = this.handleWatchClick.bind(this);
+    this.hideOrderForm = this.hideOrderForm.bind(this);
   }
 
   componentDidMount(){
@@ -90,7 +91,6 @@ class OrderForm extends React.Component {
         symbol: this.props.stock.symbol
       });
     } else if (e.target.innerText === "Remove From Watchlist") {
-      debugger
       this.props.removeFromWatches(
         this.props.watches[this.props.stock.symbol].id,
         this.props.stock.symbol
@@ -110,6 +110,13 @@ class OrderForm extends React.Component {
     }
   }
 
+  hideOrderForm() {
+    const stockOrderForm = document.querySelector('.stock-order-container');
+    if (stockOrderForm.classList.contains("open")) {
+      stockOrderForm.classList.remove("open");
+    }
+  }
+
   render() {
     return (
       <div className="stock-order-container">
@@ -117,6 +124,11 @@ class OrderForm extends React.Component {
           <div className="stock-order-type"></div>
           <div className="stock-order-stats">
             <form onSubmit={this.handleOrderTransaction}>
+              <div className="hamburger-btn close" onClick={this.hideOrderForm}>
+                <div className="btn-line"></div>
+                <div className="btn-line"></div>
+                <div className="btn-line"></div>
+              </div>
               <div className="order-form-header">
                 <div className={this.setOrderButtonStatus("BUY")} onClick={this.setOrderType}>ORDER BUY</div>
                 <div className={this.setOrderButtonStatus("SELL")} onClick={this.setOrderType}>ORDER SELL</div>

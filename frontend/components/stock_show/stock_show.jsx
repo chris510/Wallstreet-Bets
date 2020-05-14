@@ -1,10 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import NewsIndexItem from '../home/news/news_index_item';
 import StockItemChartContainer from '../home/stock_item_chart_container';
 import OrderFormContainer from '../../components/stock_show/order_form_container';
-import { parseFloatToDollars } from '../../util/numbers.util';
-// import Odometer from 'react-odometerjs';
 
 class StockShow extends React.Component {
   constructor(props) {
@@ -13,6 +10,9 @@ class StockShow extends React.Component {
       price: 0,
       intradayData: []
     };
+    this.setWatchStatus = this.setWatchStatus.bind(this);
+    this.handleWatchClick = this.handleWatchClick.bind(this);
+    this.showOrderForm = this.showOrderForm.bind(this);
   }
 
   componentDidMount() {
@@ -34,6 +34,39 @@ class StockShow extends React.Component {
     }
   }
 
+  showOrderForm(){
+    const orderForm = document.querySelector('.stock-order-container');
+    if (orderForm.classList.contains("open")) {
+        orderForm.classList.remove("open");
+    } else {
+        orderForm.classList.add("open");
+    }
+}
+
+  setWatchStatus() {
+    if (this.props.watchSymbols.includes(this.props.stock.symbol)) {
+      return (
+        <div className="watch-btn" onClick={this.handleWatchClick}>Remove From Watchlist</div>
+      )
+    } else {
+      return (
+        <div className="watch-btn" onClick={this.handleWatchClick}>Add To Watchlist</div>
+      )
+    }
+  }
+
+  handleWatchClick(e) {
+    if (e.target.innerText === "Add To Watchlist") {
+      this.props.addToWatches({
+        symbol: this.props.stock.symbol
+      });
+    } else if (e.target.innerText === "Remove From Watchlist") {
+      this.props.removeFromWatches(
+        this.props.watches[this.props.stock.symbol].id,
+        this.props.stock.symbol
+      );
+    }
+  }
 
   render() {
     const { stock, news } = this.props
@@ -50,6 +83,14 @@ class StockShow extends React.Component {
                     stock={stock}
                     name='stock-show-chart'
                   />
+                <div className="mobile-stock-show-wrapper">
+                  <div className="mobile-stock-show">
+                    <div className="show-order-form" onClick={this.showOrderForm}>
+                      Buy/Sell Stock
+                    </div>
+                    {this.setWatchStatus()}
+                  </div>
+                </div>
                 <div className="stock-info-container">
                   <div className="stock-info-header">About</div>
                   <div className="stock-info-description">

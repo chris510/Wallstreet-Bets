@@ -13,4 +13,55 @@
   .nav-right, .nav-right-2 {
     display: none;
   }
+
+  .mobile-stock-show-wrapper {
+    width: 100%;
+  }
+
+  .mobile-stock-show {
+    display: flex;
+  }
+
+  .stock-show-container-2 {
+  }
+
+  .stock-order-container {
+    margin: 0px;
+    margin-top: 0px;
+    z-index: 902;
+    border-radius: 0px; 
+    height: 100%;
+    width: 100%;
+    left: 0px;
+    top: 0px;
+    opacity: 0;
+    padding-bottom: 0;
+    background-color: var(--bg);
+    visibility: hidden;
+    @include easeOut;
+    &.open {
+      @include easeOut;
+      left: 0vw;
+      opacity: 1;
+      visibility: visible;
+    }
+    .stock-order-form-container {
+      margin-bottom: 0px; 
+      width: 100%; 
+      height: 100%;
+    }
+    .order-form-footer {
+      text-align: left;
+    }
+    .add-watchlist-button {
+      display: none;
+    }
+  }
+
+  .order-form-header {
+    justify-content: flex-start;
+    & > div {
+      padding: 10px;
+    }
+  }
 }
