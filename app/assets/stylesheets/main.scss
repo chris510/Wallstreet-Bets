@@ -11,7 +11,7 @@ html {
     --color-headings: #0077FF;
     --text-color: black;
     /* --font-family: "DIN Pro", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; */
-    --font-family: 'Oxygen';
+    --font-family: 'Montserrat', sans-serif;
     --color-text: #333333;
     --color:#333333;
     --fill: black;
@@ -28,7 +28,7 @@ html[data-theme='dark'] {
     --bg-panel1: #434343;
     --bg-panel: #333333;
     --color-headings: #3694FF;
-    --font-family: 'Oxygen';
+    --font-family: 'Montserrat', sans-serif;
     /* --font-family: "DIN Pro", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; */
     --color-text: #FCFCFC;
     --color: #FCFCFC;
@@ -56,18 +56,11 @@ html.transition *:after {
 }
 
 #root {
-  width: 100%;
-  height: 100vh;
 }
 
 .app {
-  width: 100vw;
-  height: 100vh;
-}
-
-.main-div {
-  width: 100%;
-  height: 100%;
+  // width: 100vw;
+  // height: 100vh;
 }
 
 .username-container [type=text] {

@@ -39,7 +39,7 @@
   justify-content: center;
 
   @media screen and (max-width: 800px) {
-    font-size: 24px;
+    font-size: 22px;
     padding: 10px 0px 10px 0px;
   }
 }
@@ -109,16 +109,17 @@
   filter: brightness(50%);
   font-size: 15px;
   @media screen and (max-width: 800px) {
-    display: 14px;
+    font-size: 12px;
     line-height: 1.2;
   }
 }
 
 .article-img {
   max-width: 35%;
-  max-height: 35%;
+  max-height: 100%;
 
   @media screen and (max-width: 800px) {
-    max-width: 175px;
+    max-width: 150px;
+    max-height: 150px;
   }
 }

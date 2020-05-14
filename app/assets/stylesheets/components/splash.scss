@@ -7,10 +7,10 @@
   justify-content: space-evenly;
   margin-top: 75px;
   height: 620px;
-  min-height: 600px;
   width: 100%;
   @media screen and (max-width: 800px) {
     flex-direction: column;
+    height: 650px;
   }
 }
 
