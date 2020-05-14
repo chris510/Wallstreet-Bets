@@ -93,7 +93,7 @@
 
   @media screen and (max-width: 800px) {
     font-weight: bold;
-    font-size: 44px;
+    font-size: 38px;
   }
 }
 
@@ -114,7 +114,7 @@
   animation-fill-mode: forwards;
   color: var(--color-text);
   @media screen and (max-width: 800px) {
-    font-size: 44px;
+    font-size: 38px;
   }
 }
 
@@ -131,7 +131,7 @@
   padding-top: 30px;
   color: var(--color-text);
   @media screen and (max-width: 800px) {
-    font-size: 20px;
+    font-size: 18px;
   }
 }
 
@@ -158,7 +158,7 @@
 
   @media screen and (max-width: 800px) {
     padding-top: 20px;
-    font-size: 32px;
+    font-size: 28px;
   }
 }
 
@@ -200,7 +200,7 @@
   color: var(--color-text);
 
   @media screen and (max-width: 800px) {
-    font-size: 36px;
+    font-size: 32px;
   }
 }
 
@@ -212,7 +212,7 @@
 
 
   @media screen and (max-width: 800px) {
-    font-size: 26px;
+    font-size: 22px;
   }
 }
 
@@ -227,14 +227,16 @@
 
   @media screen and (max-width: 800px) {
     width: 100%;
+    display: flex;
+    justify-content: center;
   }
 }
 
 
 @media screen and (max-width: 800px) {
   .splash-vid-1-1 {
-    width: 100%;
-    height: 400px;
+    width: 70%;
+    height: 300px;
   }
 }
 
@@ -250,6 +252,6 @@
     // display: none;
     padding-top: 50px;
     width: 100%;
-    height: 325px;
+    height: 250px;
   }
 }

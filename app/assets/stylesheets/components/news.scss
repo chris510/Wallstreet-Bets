@@ -116,10 +116,9 @@
 
 .article-img {
   max-width: 35%;
-  min-width: 35%;
-  /* min-width: 200px;
-  min-height: 130px; */
-  border-radius: 7px;
-  /* max-height: 140px; */
-  /* padding-right: 10px; */
+  max-height: 35%;
+
+  @media screen and (max-width: 800px) {
+    max-width: 175px;
+  }
 }
